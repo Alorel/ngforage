@@ -1,0 +1,13 @@
+/.idea/
+/node_modules/
+/.tmp/
+/.demo/
+/*.tgz
+/build/
+/src/
+/gulpfile.js
+/.awcache
+/*.tmp.js
+/*.tmp.json
+/coverage/
+/.yo-rc.json

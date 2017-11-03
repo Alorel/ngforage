@@ -1,0 +1,10 @@
+/.idea/
+/node_modules/
+/.tmp/
+/.demo/
+/*.tgz
+/dist/
+/.awcache
+/*.tmp.js
+/*.tmp.json
+/coverage/
