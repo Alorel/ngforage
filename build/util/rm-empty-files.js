@@ -10,14 +10,10 @@ module.exports = class RmEmptyFiles extends Writable {
   _write(file, encoding, cb) {
     let contents = file.contents;
 
-    if (contents) {
-      contents = contents.toString().trim();
-
-      if (!contents) {
-        return fs.unlink(file.path, cb);
-      }
+    if (contents && contents.toString().trim()) {
+      return cb();
     }
 
-    cb();
+    fs.unlink(file.path, cb);
   }
 };

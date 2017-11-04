@@ -1,7 +1,11 @@
 import {Injectable} from "@angular/core";
 import {BaseConfigurableImpl} from "../config/BaseConfigurableImpl.service";
 import {BaseConfigurable} from "../config/BaseConfigurable";
+import {addToStringTag} from "../util/addToStringTag";
 
+/**
+ * x
+ */
 @Injectable()
 export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
@@ -49,3 +53,5 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
     return this.store.ready();
   }
 }
+
+addToStringTag(NgForage, 'NgForage');

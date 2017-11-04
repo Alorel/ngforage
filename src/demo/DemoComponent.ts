@@ -9,6 +9,6 @@ import {NgForage} from "../NgForage/main/NgForage.service";
 export class DemoComponent {
 
   constructor(ngf: NgForage) {
-    console.dir(ngf);
+    console.dir(`${ngf}`);
   }
 }

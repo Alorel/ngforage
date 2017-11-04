@@ -1,9 +1,7 @@
-import {BaseConfigurable} from "./BaseConfigurable";
-
 /**
  * A cacheable configurable object
  */
-export declare interface FullyConfigurable extends BaseConfigurable {
+export interface CacheConfigurable {
 
   /**
    * Cache time in milliseconds

@@ -26,7 +26,7 @@ _.forEach(rimrafJobs, (dir, job) => {
 });
 
 gulp.task('clean:empty-declarations', () => {
-  return gulp.src('./dist/esm2015/*.d.ts')
+  return gulp.src('./dist/**/*.d.ts')
     .pipe(new RmEmptyFiles());
 });
 
