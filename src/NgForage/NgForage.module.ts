@@ -5,7 +5,8 @@ import {InstanceFactory} from "./instance-factory/InstanceFactory.service";
 import {BaseConfigurableImpl} from "./config/BaseConfigurableImpl.service";
 import {NgForageCache} from "./cache/NgForageCache.service";
 
-@NgModule({
+/** @internal */
+export const module: NgModule = {
   providers: [
     NgForage,
     NgForageCache,
@@ -13,7 +14,9 @@ import {NgForageCache} from "./cache/NgForageCache.service";
     {provide: NgForageConfig, useFactory: NgForageConfig.factory} as FactoryProvider,
     {provide: InstanceFactory, useFactory: InstanceFactory.factory} as FactoryProvider
   ]
-})
+};
+
+@NgModule(module)
 export class NgForageModule {
 
 }
