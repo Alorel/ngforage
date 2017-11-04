@@ -1,12 +1,12 @@
 import {DemoComponent} from "./DemoComponent";
-import {MyModule} from "../MyModule/MyModule";
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
+import {NgForageModule} from "../NgForage/NgForage.module";
 
 @NgModule({
   imports: [
     BrowserModule,
-    MyModule
+    NgForageModule
   ],
   declarations: [DemoComponent],
   entryComponents: [DemoComponent],

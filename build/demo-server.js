@@ -12,7 +12,7 @@ gulp.task('server', cb => {
 
   server.start(() => {
     console.log('\t\t\tDemo server listening on');
-    console.log(`\t\t\thttps://127.0.0.1:${server.port}`);
+    console.log(`\t\t\thttp://127.0.0.1:${server.port}`);
     cb();
   });
 });
