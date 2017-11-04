@@ -51,7 +51,13 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @inheritDoc */
   configure(opts: NgForageOptions): this {
-    Object.assign(this.config, opts || {});
+    opts = opts || {};
+
+    if ('driver' in opts && opts.driver.slice) {
+      opts.driver = opts.driver.slice();
+    }
+
+    Object.assign(this.config, opts);
     this.storeNeedsRecalc = true;
     return this;
   }

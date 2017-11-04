@@ -3,7 +3,7 @@ import {NgForageOptions} from "./NgForageOptions";
 /**
  * A configurable object
  */
-export interface BaseConfigurable {
+export declare interface BaseConfigurable {
   /**
    * Bulk-set configuration options
    * @param {NgForageOptions} opts The configuration

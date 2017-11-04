@@ -3,7 +3,7 @@ import {BaseConfigurable} from "./BaseConfigurable";
 /**
  * A cacheable configurable object
  */
-export interface FullyConfigurable extends BaseConfigurable {
+export declare interface FullyConfigurable extends BaseConfigurable {
 
   /**
    * Cache time in milliseconds

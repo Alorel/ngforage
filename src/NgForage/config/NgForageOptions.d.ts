@@ -1,5 +1,5 @@
 import 'localforage';
 
-export type NgForageOptions = LocalForageOptions & {
+export declare type NgForageOptions = LocalForageOptions & {
   cacheTime?: number
 };

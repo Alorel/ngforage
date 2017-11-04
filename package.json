@@ -13,6 +13,10 @@
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod"
   },
+  "dependencies": {
+    "localforage": "^1.5",
+    "typescript-lazy-get-decorator": "^1.0"
+  },
   "peerDependencies": {
     "@angular/common": "^4.4",
     "@angular/core": "^4.4",
@@ -57,7 +61,6 @@
     "karma-mocha-reporter": "^2.2",
     "karma-sourcemap-loader": "^0.3",
     "karma-webpack": "^2.0",
-    "localforage": "^1.5.3",
     "lodash": "^4.17",
     "node-sass": "^4.5",
     "postcss": "^6.0",

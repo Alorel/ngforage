@@ -5,6 +5,17 @@ import {FullyConfigurable} from "./FullyConfigurable";
 
 let instance: NgForageConfig;
 
+/** @internal */
+const config: NgForageOptions = {
+  driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
+  name: 'ngForage',
+  size: 4980736,
+  storeName: 'ng_forage',
+  version: 1.0,
+  description: '',
+  cacheTime: 300000
+};
+
 /**
  * Default configuration
  */
@@ -18,20 +29,15 @@ export class NgForageConfig implements FullyConfigurable {
   /** The localStorage driver */
   static readonly DRIVER_LOCALSTORAGE: string = lf.LOCALSTORAGE;
 
-  /** @internal */
-  private static readonly config: NgForageOptions = {
-    driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
-    name: 'ngForage',
-    size: 4980736,
-    storeName: 'ng_forage',
-    version: 1.0,
-    description: '',
-    cacheTime: 300000
-  };
-
   /** @inheritDoc */
   configure(opts: NgForageOptions): this {
-    Object.assign(NgForageConfig.config, opts || {});
+    opts = opts || {};
+
+    if ('driver' in opts && opts.driver.slice) {
+      opts.driver = opts.driver.slice();
+    }
+
+    Object.assign(config, opts);
     return this;
   }
 
@@ -41,7 +47,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {number}
    */
   get cacheTime(): number {
-    return NgForageConfig.config.cacheTime;
+    return config.cacheTime;
   }
 
   /**
@@ -50,7 +56,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @param {number} t New cache time
    */
   set cacheTime(t: number) {
-    NgForageConfig.config.cacheTime = t;
+    config.cacheTime = t;
   }
 
   /**
@@ -62,11 +68,11 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {string | string[]}
    */
   get driver(): string | string[] {
-    if (typeof NgForageConfig.config.driver === 'string') {
-      return NgForageConfig.config.driver;
+    if (typeof config.driver === 'string') {
+      return config.driver;
     }
 
-    return NgForageConfig.config.driver.slice();
+    return config.driver.slice();
   }
 
   /**
@@ -78,7 +84,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @default [{@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB}, {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL}, {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}]
    */
   set driver(v: string | string[]) {
-    NgForageConfig.config.driver = v;
+    config.driver = v;
   }
 
   /**
@@ -88,7 +94,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {string}
    */
   get name(): string {
-    return NgForageConfig.config.name;
+    return config.name;
   }
 
   /**
@@ -98,7 +104,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @param {string} v New name
    */
   set name(v: string) {
-    NgForageConfig.config.name = v;
+    config.name = v;
   }
 
   /**
@@ -107,7 +113,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {number}
    */
   get size(): number {
-    return NgForageConfig.config.size;
+    return config.size;
   }
 
   /**
@@ -116,7 +122,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @param {number} v New size
    */
   set size(v: number) {
-    NgForageConfig.config.size = v;
+    config.size = v;
   }
 
   /**
@@ -129,7 +135,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {string}
    */
   get storeName(): string {
-    return NgForageConfig.config.storeName;
+    return config.storeName;
   }
 
   /**
@@ -142,7 +148,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @param {string} v New name
    */
   set storeName(v: string) {
-    NgForageConfig.config.storeName = v;
+    config.storeName = v;
   }
 
   /**
@@ -151,7 +157,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {number}
    */
   get version(): number {
-    return NgForageConfig.config.version;
+    return config.version;
   }
 
   /**
@@ -160,7 +166,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @param {number} v New version
    */
   set version(v: number) {
-    NgForageConfig.config.version = v;
+    config.version = v;
   }
 
   /**
@@ -169,7 +175,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @return {string}
    */
   get description(): string {
-    return NgForageConfig.config.description;
+    return config.description;
   }
 
   /**
@@ -178,7 +184,7 @@ export class NgForageConfig implements FullyConfigurable {
    * @param {string} v New description
    */
   set description(v: string) {
-    NgForageConfig.config.description = v;
+    config.description = v;
   }
 
   defineDriver(spec: LocalForageDriver): Promise<void> {
