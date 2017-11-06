@@ -89,9 +89,44 @@ describe("NgForageConfig service", () => {
       expect(conf.configure(<any>undefined)).toBe(conf);
     });
 
-    it("Setting config item should make it available inside instance", () => {
-      conf.configure({cacheTime: 1});
-      expect(conf.cacheTime).toBe(1);
+    const confs: NgForageOptions = {
+      cacheTime: 1,
+      driver: 'foo',
+      name: 'foo',
+      size: 1,
+      storeName: 'foo',
+      version: 1,
+      description: 'foo'
+    };
+
+    _.forEach(confs, (val: number | string, key: string) => {
+      describe(`${key}`, () => {
+        const checkSetter = () => {
+          expect(conf[key]).toBe(val);
+        };
+        const checkConfig = () => {
+          expect(conf.config[key]).toBe(val);
+        };
+
+        describe("Set via configure()", () => {
+          beforeEach(() => {
+            conf.configure({[key]: val});
+          });
+
+          it("Should be gettable via getter", checkSetter);
+          it("Should be gettable via #config", checkConfig);
+        });
+
+        describe("Set via setter", () => {
+          beforeEach(() => {
+            conf[key] = val;
+          });
+
+          it("Should be gettable via getter", checkSetter);
+          it("Should be gettable via #config", checkConfig);
+        });
+      });
     });
   });
+
 });
