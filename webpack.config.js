@@ -123,7 +123,7 @@ class WebpackFactory {
     if ([MODE.TEST, MODE.DEMO_JIT, MODE.DEMO_AOT].includes(this.mode)) {
       out.push(
         new webpack.ContextReplacementPlugin(
-          /angular(\\|\/)core(\\|\/)@angular/,
+          /angular[\/\\]core/,
           path.join(__dirname, 'src')
         )
       );
