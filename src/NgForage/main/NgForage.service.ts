@@ -110,7 +110,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Returns the name of the driver being used, or null if none can be used.
    * @return {string}
    */
-  activeDriver(): string {
+  get activeDriver(): string {
     return this.store.driver();
   }
 
