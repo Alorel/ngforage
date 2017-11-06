@@ -4,6 +4,7 @@ import {NgForageOptions} from "./NgForageOptions";
 import 'localforage';
 import {NgForageConfig} from "./NgForageConfig.service";
 import {BaseConfigurable} from "./BaseConfigurable";
+import {addToStringTag} from "../util/addToStringTag";
 
 /**
  * Abstract service-level configuration layer for NgForage
@@ -169,3 +170,5 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
     }
   }
 }
+
+addToStringTag(BaseConfigurableImpl, 'BaseConfigurable');

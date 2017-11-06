@@ -36,6 +36,10 @@ describe("BaseConfigurableImpl", () => {
     bc = TestBed.get(BC);
   });
 
+  it("toStringTag", () => {
+    expect(bc.toString()).toContain('BaseConfigurable');
+  });
+
   describe("get/set", () => {
     const tests = {
       driver: ['foo', 'bar'],
