@@ -9,6 +9,7 @@
     "reinstall": "npm install",
     "build": "gulp build",
     "start": "gulp server",
+    "pretest": "rimraf ./coverage",
     "test": "karma start",
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod"
@@ -22,7 +23,7 @@
     "@angular/core": "^4.4",
     "rxjs": "^5.5",
     "tslib": "^1.8",
-    "zone.js": ">=0.8 <1.0"
+    "zone.js": ">=0.8.4 <1.0"
   },
   "devDependencies": {
     "@angular/common": "^4.4",
