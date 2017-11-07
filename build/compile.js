@@ -14,11 +14,11 @@ const webpackEnv = (env, prod = false) => {
   const ret = {
     WEBPACK_COMPILE_MODE: env
   };
-
+  
   if (prod) {
     ret.NODE_ENV = 'production';
   }
-
+  
   return {env: ret};
 };
 
@@ -28,6 +28,10 @@ gulp.task('compile:esm2015', ['clean:dist:esm2015'], () => {
 
 gulp.task('compile:esm5', ['clean:dist:esm5'], () => {
   return spawn(ngcPath, ['-p', new TsConfigFactory(MODE.DIST_ESM5).file]);
+});
+
+gulp.task('compile:es5', ['clean:dist:es5'], () => {
+  return spawn(ngcPath, ['-p', new TsConfigFactory(MODE.DIST_ES5).file]);
 });
 
 gulp.task('compile:demo:aot:prepare', () => {

@@ -8,6 +8,7 @@ const {join} = require('path');
 const rimrafJobs = {
   'demo': '.demo',
   'dist:esm5': 'dist/esm5',
+  'dist:es5': 'dist/es5',
   'dist:esm2015': 'dist/esm2015',
   'dist:umd': 'dist/umd',
   'tmp:src-inlined-templates': '.tmp/src-inlined-templates',

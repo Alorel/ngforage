@@ -5,5 +5,6 @@ module.exports = Object.freeze({
   DEMO_PRE_AOT: 4,
   DEMO_AOT: 5,
   DEMO_JIT: 6,
-  TEST: 7
+  TEST: 7,
+  DIST_ES5: 8
 });

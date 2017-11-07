@@ -6,6 +6,7 @@ gulp.task('build', cb => {
     'inline:compile',
     [
       'compile:esm5',
+      'compile:es5',
       'compile:esm2015',
       'compile:umd'
     ],
@@ -19,11 +20,11 @@ const aotTask = isProd => {
     'clean:tmp:pre-aot',
     'clean:demo:map'
   ];
-
+  
   if (isProd) {
     lastStep.push('uglify:demo');
   }
-
+  
   return cb => {
     seq(
       [
