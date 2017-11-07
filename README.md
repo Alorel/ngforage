@@ -50,7 +50,7 @@ npm install localforage
 
 ```typescript
 import {NgModule} from "@angular/core";
-import {NgForageModule} from "../NgForage/NgForage.module";
+import {NgForageModule} from "ngforage";
 
 @NgModule({
   imports: [
