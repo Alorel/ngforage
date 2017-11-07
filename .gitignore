@@ -8,3 +8,4 @@
 /*.tmp.js
 /*.tmp.json
 /coverage/
+/package.json.bak

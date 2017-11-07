@@ -17,3 +17,5 @@
 /tsconfig.json
 /karma-test-entry.ts
 /karma.conf.ts
+/ci/
+/package.json.bak

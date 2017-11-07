@@ -1,13 +1,27 @@
 sudo: false
 language: node_js
-node_js: 8
+node_js: 9
+
+env:
+  - CI_NG_VERSION=4
+  - CI_NG_VERSION=5
+    CI_PUBLISH=1
 
 cache:
   directories:
     - node_modules
 
+before_install:
+  - node ./ci/TravisMgr.js backup
+  - node ./ci/TravisMgr.js set-version
+
 script:
   - ./node_modules/.bin/gulp build:demo:aot
+  - ./node_modules/.bin/gulp build
   - npm test
+
+after_script: node ./ci/TravisMgr.js restore
+
+before_cache: rm -rf ./node_modules/puppeteer
 
 after_success: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls

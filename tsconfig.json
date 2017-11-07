@@ -36,6 +36,7 @@
   "exclude": [
     "node_modules",
     ".demo",
+    "ci",
     "src/demo/**/*",
     "dist"
   ],
