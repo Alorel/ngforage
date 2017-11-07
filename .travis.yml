@@ -11,16 +11,14 @@ cache:
   directories:
     - node_modules
 
-before_install:
-  - node ./ci/TravisMgr.js backup
-  - node ./ci/TravisMgr.js set-version
+before_install: node ./ci/TravisMgr.js backup-pkg set-version
 
 script:
   - ./node_modules/.bin/gulp build:demo:aot:prod
   - ./node_modules/.bin/gulp build
   - npm test
 
-after_script: node ./ci/TravisMgr.js restore
+after_script: node ./ci/TravisMgr.js restore-pkg
 
 before_cache: rm -rf ./node_modules/puppeteer
 

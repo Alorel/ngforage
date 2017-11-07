@@ -7,8 +7,8 @@ localForage bindings for Angular 4 and 5
 [![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Version](https://img.shields.io/npm/v/ngforage.svg)](https://www.npmjs.com/package/ngforage)
 [![License](https://img.shields.io/npm/l/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg)](https://coveralls.io/github/Alorel/ngforage)
-[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=master)](https://travis-ci.org/Alorel/ngforage)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=1.0.0-rc.0)](https://coveralls.io/github/Alorel/ngforage?branch=1.0.0-rc.0)
+[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=1.0.0-rc.0)](https://travis-ci.org/Alorel/ngforage)
 
 # Table of Contents
 
@@ -42,7 +42,7 @@ npm install localforage
 ## UMD+CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ngforage@package-version/dist/umd/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ngforage@1.0.0-rc.0"></script>
 <!-- The library is now available as "ngForage" -->
 ```
 

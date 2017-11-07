@@ -1,6 +1,7 @@
 {
   "version": "1.0.0-rc.0",
   "browser": "dist/umd/index.js",
+  "jsdelivr": "dist/umd/index.min.js",
   "main": "dist/es5/index.js",
   "es2015": "dist/esm2015/index.js",
   "module": "dist/esm5/index.js",
@@ -12,8 +13,10 @@
     "start": "gulp server",
     "pretest": "rimraf ./coverage",
     "test": "karma start",
+    "tslint": "tslint -p . -c tslint.json",
     "build:demo:aot": "gulp build:demo:aot",
-    "build:demo:aot:prod": "gulp build:demo:aot:prod"
+    "build:demo:aot:prod": "gulp build:demo:aot:prod",
+    "prepack": "node ci/TravisMgr.js backup-readme update-readme"
   },
   "dependencies": {
     "localforage": "^1.5",
@@ -81,15 +84,15 @@
     "sass-loader": "^6.0",
     "static-server": "^2.0",
     "tmp": "^0.0.33",
-    "ts-node": "^3.3",
     "tslib": "^1.8",
+    "tslint": "^5.8.0",
     "typescript": ">=2.4.2 <2.5",
     "uglify-es": "^3.1",
     "uuid": "^3.1.0",
     "webpack": "^3.8",
     "webpack-angular-externals": "^1.0",
     "webpack-rxjs-externals": "^1.0",
-    "zone.js": "^0.8.18"
+    "zone.js": ">=0.8.4 <1.0"
   },
   "name": "ngforage",
   "description": "localForage bindings for Angular 4 and 5",

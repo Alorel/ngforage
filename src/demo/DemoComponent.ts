@@ -1,14 +1,24 @@
-import {ChangeDetectionStrategy, Component} from "@angular/core";
+import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import {NgForage} from "../NgForage/main/NgForage.service";
+import {NgForageCache} from "../NgForage/cache/NgForageCache.service";
 
 @Component({
   selector: 'my-demo',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: 'hai'
+  template: '<span>Demo coming soon</span><ul><li>{{store}}</li><li>{{cache}}</li></ul>',
+  providers: [NgForage, NgForageCache]
 })
-export class DemoComponent {
+export class DemoComponent implements OnInit {
 
-  constructor(ngf: NgForage) {
-    console.dir(`${ngf}`);
+  public store: string;
+  public cache: string;
+
+  constructor(private readonly ngf: NgForage, private readonly ngfc: NgForageCache) {
+
+  }
+
+  ngOnInit(): void {
+    this.store = this.ngf.toString();
+    this.cache = this.ngfc.toString();
   }
 }
