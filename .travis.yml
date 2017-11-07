@@ -16,7 +16,7 @@ before_install:
   - node ./ci/TravisMgr.js set-version
 
 script:
-  - ./node_modules/.bin/gulp build:demo:aot
+  - ./node_modules/.bin/gulp build:demo:aot:prod
   - ./node_modules/.bin/gulp build
   - npm test
 
