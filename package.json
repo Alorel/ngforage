@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.0-rc.0",
   "browser": "dist/umd/index.js",
   "main": "dist/es5/index.js",
   "es2015": "dist/esm2015/index.js",
