@@ -15,9 +15,13 @@ module.exports = (command, args = [], opts = {}) => {
         errored = true;
         reject(e);
       })
-      .once('exit', () => {
+      .once('exit', code => {
         if (!errored) {
-          resolve();
+          if (code === 0) {
+            resolve();
+          } else {
+            reject(new Error(`Exited with ${code}`))
+          }
         }
       });
   });

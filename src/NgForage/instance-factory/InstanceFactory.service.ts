@@ -4,7 +4,6 @@ import * as lf from 'localforage';
 
 let instance: InstanceFactory;
 
-/** @internal */
 interface InstanceMap {
   [hash: string]: LocalForage
 }

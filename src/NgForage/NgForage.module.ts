@@ -6,7 +6,7 @@ import {BaseConfigurableImpl} from "./config/BaseConfigurableImpl.service";
 import {NgForageCache} from "./cache/NgForageCache.service";
 
 /** @internal */
-export const module: NgModule = {
+export const def: NgModule = {
   providers: [
     NgForage,
     NgForageCache,
@@ -16,7 +16,7 @@ export const module: NgModule = {
   ]
 };
 
-@NgModule(module)
+@NgModule(def)
 export class NgForageModule {
 
 }

@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import {NgForageOptions} from "./NgForageOptions";
 import {TestBed} from "@angular/core/testing";
-import {module} from "../NgForage.module";
+import {def} from "../NgForage.module";
 import {NgForageConfig} from "./NgForageConfig.service";
 import 'localforage';
 import {NgForage} from "../main/NgForage.service";
@@ -11,7 +11,7 @@ describe("NgForageConfig service", () => {
   let defaults: NgForageOptions;
 
   beforeEach(() => {
-    TestBed.configureTestingModule(module);
+    TestBed.configureTestingModule(def);
     conf = TestBed.get(NgForageConfig);
     defaults = _.cloneDeep(conf.config);
   });

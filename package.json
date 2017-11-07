@@ -1,9 +1,9 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "dist/umd/index.js",
   "es2015": "dist/esm2015/index.js",
   "module": "dist/esm5/index.js",
-  "types": "dist/typings/index.d.ts",
+  "types": "dist/esm2015/index.d.ts",
   "scripts": {
     "prereinstall": "rm -rf node_modules package-lock.json",
     "reinstall": "npm install",
@@ -81,7 +81,7 @@
     "tmp": "^0.0.33",
     "ts-node": "^3.3",
     "tslib": "^1.8",
-    "typescript": "^2.5",
+    "typescript": ">=2.4.2 <2.5",
     "uglify-es": "^3.1",
     "uuid": "^3.1.0",
     "webpack": "^3.8",

@@ -1,6 +1,6 @@
 import {InstanceFactory} from "./InstanceFactory.service";
 import {TestBed} from "@angular/core/testing";
-import {module} from "../NgForage.module";
+import {def} from "../NgForage.module";
 import 'localforage';
 import {NgForageOptions} from "../config/NgForageOptions";
 import * as _ from 'lodash';
@@ -12,7 +12,7 @@ describe("Instance factory", () => {
   let i3: LocalForage;
 
   beforeEach(() => {
-    TestBed.configureTestingModule(module);
+    TestBed.configureTestingModule(def);
     const fact: InstanceFactory = TestBed.get(InstanceFactory);
 
     const getConf = (overrides: Partial<NgForageOptions> = {}): NgForageOptions => {

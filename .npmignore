@@ -11,3 +11,9 @@
 /*.tmp.json
 /coverage/
 /.yo-rc.json
+/package.json.bak
+/.travis.yml
+/webpack.config.js
+/tsconfig.json
+/karma-test-entry.ts
+/karma.conf.ts

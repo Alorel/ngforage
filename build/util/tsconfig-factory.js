@@ -31,11 +31,11 @@ class TsConfigFactory {
       case MODE.DIST_ESM5:
         return ['./.tmp/src-inlined-templates/index.ts'];
       case MODE.DEMO_JIT:
-        return ['./src/demo./demo.ts'];
+        return ['./src/demo/demo.ts'];
       case MODE.DEMO_PRE_AOT:
         return ['.tmp/pre-aot/demo/demo.ts'];
       case MODE.DEMO_AOT:
-        return ['./src/demo./demo.aot.ts'];
+        return ['./src/demo/demo.aot.ts'];
     }
   }
 
@@ -63,7 +63,6 @@ class TsConfigFactory {
   get noEmit() {
     return [
       MODE.DIST_UMD,
-      MODE.DEMO_PRE_AOT,
       MODE.DEMO_AOT,
       MODE.DEMO_JIT,
       MODE.TEST
@@ -71,25 +70,16 @@ class TsConfigFactory {
   }
 
   get awesomeTypescriptLoaderOptions() {
-    if ([MODE.DIST_UMD, MODE.DEMO_JIT, MODE.DEMO_AOT].includes(this.mode)) {
-      const out = {useCache: true};
-
-      switch (this.mode) {
-        case MODE.DIST_UMD:
-          out.cacheDirectory = '.awcache/umd';
-          break;
-        case MODE.DEMO_JIT:
-          out.cacheDirectory = '.awcache/demo';
-          break;
-        case MODE.DEMO_AOT:
-          out.cacheDirectory = '.awcache/aot';
-          break;
+    if ([MODE.DEMO_JIT].includes(this.mode)) {
+      return {
+        useCache: true,
+        cacheDirectory: '.awcache/jit'
+      };
+    } else {
+      return {
+        useCache: false
       }
-
-      return out;
     }
-
-    return null;
   }
 
   get angularCompilerOptions() {
@@ -121,8 +111,8 @@ class TsConfigFactory {
   get exclude() {
     const base = [
       ".tmp/src-inlined-templates/**/*.spec.ts",
-      "**/node_modules",
-      "**/.demo",
+      "node_modules",
+      ".demo",
       "dist"
     ];
 
@@ -171,6 +161,10 @@ class TsConfigFactory {
       },
       "exclude": this.exclude
     };
+
+    if (this.mode === MODE.DEMO_AOT) {
+      out.compilerOptions.allowJs = true;
+    }
 
     if (this.rootDir) {
       out.rootDir = this.rootDir;

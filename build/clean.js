@@ -10,8 +10,6 @@ const rimrafJobs = {
   'dist:esm5': 'dist/esm5',
   'dist:esm2015': 'dist/esm2015',
   'dist:umd': 'dist/umd',
-  'dist:typings': 'dist/typings',
-  'declarations': 'dist/esm2015/**/*.d.ts',
   'tmp:src-inlined-templates': '.tmp/src-inlined-templates',
   'tmp:pre-aot': '.tmp/pre-aot',
   'tmp:aot': '.tmp/aot',

@@ -1,6 +1,6 @@
 import {NgForage} from "./NgForage.service";
 import {TestBed} from "@angular/core/testing";
-import {module} from "../NgForage.module";
+import {def} from "../NgForage.module";
 import {NgForageConfig} from "../config/NgForageConfig.service";
 import * as _ from 'lodash';
 
@@ -14,7 +14,7 @@ describe("NgForage core service", () => {
   };
 
   beforeEach(() => {
-    TestBed.configureTestingModule(module);
+    TestBed.configureTestingModule(def);
     inst = TestBed.get(NgForage);
     inst.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
   });

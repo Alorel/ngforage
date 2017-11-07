@@ -3,14 +3,12 @@ const seq = require('gulp-sequence');
 
 gulp.task('build', cb => {
   seq(
-    ['inline:compile', 'clean:dist:typings'],
+    'inline:compile',
     [
       'compile:esm5',
       'compile:esm2015',
       'compile:umd'
     ],
-    'copy:typings',
-    'clean:declarations',
     cb
   );
 });

@@ -2,7 +2,7 @@ import {BaseConfigurableImpl} from "./BaseConfigurableImpl.service";
 import {Injectable} from "@angular/core";
 import {TestBed} from "@angular/core/testing";
 import * as _ from 'lodash';
-import {module} from "../NgForage.module";
+import {def} from "../NgForage.module";
 import {NgForageConfig} from "./NgForageConfig.service";
 import {NgForageOptions} from "./NgForageOptions";
 import 'localforage';
@@ -26,7 +26,7 @@ describe("BaseConfigurableImpl", () => {
   });
 
   beforeEach(() => {
-    const stdConfig = _.cloneDeep(module);
+    const stdConfig = _.cloneDeep(def);
     stdConfig.providers.push(BC);
     TestBed.configureTestingModule(stdConfig);
 
