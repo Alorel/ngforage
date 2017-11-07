@@ -26,10 +26,12 @@
     "zone.js": ">=0.8.4 <1.0"
   },
   "devDependencies": {
+    "@angular/cdk": "^5.0.0-rc0",
     "@angular/common": "^4.4 || ^5.0",
     "@angular/compiler": "^4.4 || ^5.0",
     "@angular/compiler-cli": "^4.4 || ^5.0",
     "@angular/core": "^4.4 || ^5.0",
+    "@angular/material": "^5.0.0-rc0",
     "@angular/platform-browser": "^4.4 || ^5.0",
     "@angular/platform-browser-dynamic": "^4.4 || ^5.0",
     "@angular/router": "^4.4 || ^5.0",
