@@ -16,6 +16,9 @@ export const def: NgModule = {
   ]
 };
 
+/**
+ * NgForage core module
+ */
 @NgModule(def)
 export class NgForageModule {
 

@@ -41,7 +41,7 @@ export class InstanceFactory {
     useFactory: InstanceFactory.factory
   };
 
-  private static factory(): InstanceFactory {
+  public static factory(): InstanceFactory {
     if (!instance) {
       instance = new InstanceFactory();
     }

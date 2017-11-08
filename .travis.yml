@@ -17,7 +17,7 @@ before_install: node ./ci/TravisMgr.js backup-pkg set-version
 script:
   - bash -c 'if [ "$CI_LINT" = "1" ]; then npm run tslint; fi;'
   - bash -c 'if [ "$CI_PUBLISH" = "1" ]; then npm run build:demo:aot:prod; else npm run build:demo:aot; fi;'
-  - ./node_modules/.bin/gulp build
+  - npm run build
   - npm test
 
 after_script: node ./ci/TravisMgr.js restore-pkg

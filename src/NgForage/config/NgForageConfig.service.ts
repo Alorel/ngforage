@@ -37,7 +37,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   };
 
   /** @internal */
-  private static factory(): NgForageConfig {
+  public static factory(): NgForageConfig {
     if (!instance) {
       instance = new NgForageConfig();
     }
