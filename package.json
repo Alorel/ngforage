@@ -17,7 +17,7 @@
     "tslint:fix": "tslint -p . --fix -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts'",
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
-    "prepack": "node ci/TravisMgr.js backup-readme update-readme"
+    "prepack": "node ci/TravisMgr.js update-readme"
   },
   "dependencies": {
     "localforage": "^1.5",
