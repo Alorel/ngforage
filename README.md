@@ -2,7 +2,6 @@
 
 localForage bindings for Angular 4 and 5
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 [![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Version](https://img.shields.io/npm/v/ngforage.svg)](https://www.npmjs.com/package/ngforage)
