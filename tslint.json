@@ -115,8 +115,6 @@
       true,
       "ignore-static"
     ],
-    "no-unnecessary-class": true,
-    "no-unsafe-any": true,
     "no-unsafe-finally": true,
     "no-unused-expression": [
       true,

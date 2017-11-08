@@ -1,44 +1,40 @@
-import {CachedItem} from "./CachedItem";
-import {LazyGetter} from "typescript-lazy-get-decorator";
-import {addToStringTag} from "../util/addToStringTag";
+import {LazyGetter} from 'typescript-lazy-get-decorator';
+import {addToStringTag} from '../util/addToStringTag';
+import {CachedItem} from './CachedItem';
 
 /** @internal */
 export class CachedItemImpl<T> implements CachedItem<T> {
 
-  readonly expires: Date;
+  public readonly expires: Date;
 
-  constructor(public readonly data: T,
-              expiryTime: number) {
+  public constructor(public readonly data: T,
+                     expiryTime: number) {
 
-    if (typeof expiryTime === 'number') {
-      this.expires = new Date(expiryTime);
-    } else {
-      this.expires = new Date(0);
-    }
+    this.expires = new Date(typeof expiryTime === 'number' ? expiryTime : 0);
   }
 
   @LazyGetter()
-  get hasData(): boolean {
+  public get hasData(): boolean {
     return this.data !== null;
   }
 
   @LazyGetter()
-  get expiresIn(): number {
+  public get expiresIn(): number {
     return Math.max(0, this.expires.getTime() - Date.now());
   }
 
   @LazyGetter()
-  get expired(): boolean {
+  public get expired(): boolean {
     return this.expiresIn === 0;
   }
 
-  toJSON(): CachedItem<T> {
+  public toJSON(): CachedItem<T> {
     return {
       data: this.data,
-      hasData: this.hasData,
       expired: this.expired,
+      expires: this.expires,
       expiresIn: this.expiresIn,
-      expires: this.expires
+      hasData: this.hasData
     };
   }
 }

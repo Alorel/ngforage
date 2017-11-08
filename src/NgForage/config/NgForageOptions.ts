@@ -8,5 +8,5 @@ export interface NgForageOptions extends LocalForageOptions {
    * Cache time in milliseconds
    * @default 300000
    */
-  cacheTime?: number
+  cacheTime?: number;
 }

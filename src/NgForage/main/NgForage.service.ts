@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {BaseConfigurableImpl} from "../config/BaseConfigurableImpl.service";
-import {BaseConfigurable} from "../config/BaseConfigurable";
-import {addToStringTag} from "../util/addToStringTag";
+import {Injectable} from '@angular/core';
+import {BaseConfigurable} from '../config/BaseConfigurable';
+import {BaseConfigurableImpl} from '../config/BaseConfigurableImpl.service';
+import {addToStringTag} from '../util/addToStringTag';
 
 /**
  * Cache instance
@@ -15,7 +15,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param {string} key Data key
    * @return {Promise<T>}
    */
-  getItem<T>(key: string): Promise<T> {
+  public getItem<T>(key: string): Promise<T> {
     return this.store.getItem<T>(key);
   }
 
@@ -42,7 +42,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param {T} data Data
    * @return {Promise<T>}
    */
-  setItem<T>(key: string, data: T): Promise<T> {
+  public setItem<T>(key: string, data: T): Promise<T> {
     return this.store.setItem<T>(key, data);
   }
 
@@ -51,7 +51,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param {string} key Data key
    * @return {Promise<void>}
    */
-  removeItem(key: string): Promise<void> {
+  public removeItem(key: string): Promise<void> {
     return this.store.removeItem(key);
   }
 
@@ -61,7 +61,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * clear() will remove <b>every item in the offline store</b>. Use this method with caution.
    * @return {Promise<void>}
    */
-  clear(): Promise<void> {
+  public clear(): Promise<void> {
     return this.store.clear();
   }
 
@@ -69,7 +69,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Gets the number of keys in the offline store (i.e. its “length”).
    * @return {Promise<number>}
    */
-  length(): Promise<number> {
+  public length(): Promise<number> {
     return this.store.length();
   }
 
@@ -78,7 +78,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param {number} index
    * @return {Promise<string>}
    */
-  key(index: number): Promise<string> {
+  public key(index: number): Promise<string> {
     return this.store.key(index);
   }
 
@@ -86,7 +86,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Get the list of all keys in the datastore.
    * @return {Promise<string[]>}
    */
-  keys(): Promise<string[]> {
+  public keys(): Promise<string[]> {
     return this.store.keys();
   }
 
@@ -102,7 +102,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param {(value: T, key: string, iterationNumber: number) => U} iteratee
    * @return {Promise<U>}
    */
-  iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
+  public iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
     return this.store.iterate(iteratee);
   }
 
@@ -110,7 +110,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Returns the name of the driver being used, or null if none can be used.
    * @return {string}
    */
-  get activeDriver(): string {
+  public get activeDriver(): string {
     return this.store.driver();
   }
 
@@ -119,7 +119,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param {string} driver Driver name
    * @return {boolean}
    */
-  supports(driver: string): boolean {
+  public supports(driver: string): boolean {
     return this.store.supports(driver);
   }
 
@@ -129,7 +129,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * That’s useful in cases like when we want to know which driver localForage has settled down using.
    * @return {Promise<void>}
    */
-  ready(): Promise<void> {
+  public ready(): Promise<void> {
     return this.store.ready();
   }
 }

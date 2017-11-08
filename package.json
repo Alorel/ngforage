@@ -13,8 +13,8 @@
     "start": "gulp server",
     "pretest": "rimraf ./coverage",
     "test": "karma start",
-    "tslint": "tslint -p . -c tslint.json",
-    "tslint:fix": "tslint --fix -p . -c tslint.json",
+    "tslint": "tslint -p . -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts'",
+    "tslint:fix": "tslint -p . --fix -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts'",
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
     "prepack": "node ci/TravisMgr.js backup-readme update-readme"
@@ -53,6 +53,7 @@
     "core.js": "^0.4.2",
     "coveralls": "^3.0",
     "cross-spawn": "^5.1",
+    "custom-tslint-formatters": "^2.1.1",
     "glob": "^7.1",
     "gulp": "^3.9",
     "gulp-inline-ng2-template": "^4.0",

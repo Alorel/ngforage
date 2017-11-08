@@ -1,22 +1,20 @@
-import {NgForageOptions} from "./NgForageOptions";
+import {NgForageOptions} from './NgForageOptions';
 
 /**
  * A configurable object
  */
 export interface BaseConfigurable {
-  /**
-   * Bulk-set configuration options
-   * @param {NgForageOptions} opts The configuration
-   * @return {this}
-   */
-  configure(opts: NgForageOptions): this;
 
   /**
    * The preferred driver(s) to use.
    * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
    * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @default [{@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB}, {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL}, {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}]
+   * @default [
+   *    {@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB},
+   *    {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL},
+   *    {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}
+   * ]
    */
   driver: string | string[];
 
@@ -54,4 +52,11 @@ export interface BaseConfigurable {
    * @default
    */
   description: string;
+
+  /**
+   * Bulk-set configuration options
+   * @param {NgForageOptions} opts The configuration
+   * @return {this}
+   */
+  configure(opts: NgForageOptions): this;
 }

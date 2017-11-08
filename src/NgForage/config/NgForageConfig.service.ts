@@ -1,20 +1,20 @@
-import {Injectable} from "@angular/core";
+import {FactoryProvider, Injectable} from '@angular/core';
 import * as lf from 'localforage';
-import {NgForageOptions} from "./NgForageOptions";
-import {CacheConfigurable} from "./CacheConfigurable";
-import {BaseConfigurable} from "./BaseConfigurable";
-import {addToStringTag} from "../util/addToStringTag";
+import {addToStringTag} from '../util/addToStringTag';
+import {BaseConfigurable} from './BaseConfigurable';
+import {CacheConfigurable} from './CacheConfigurable';
+import {NgForageOptions} from './NgForageOptions';
 
 let instance: NgForageConfig;
 
 const config: NgForageOptions = {
+  cacheTime: 300000,
+  description: '',
   driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
   name: 'ngForage',
   size: 4980736,
   storeName: 'ng_forage',
-  version: 1.0,
-  description: '',
-  cacheTime: 300000
+  version: 1,
 };
 
 /**
@@ -24,14 +24,29 @@ const config: NgForageOptions = {
 export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /** The IndexedDB driver */
-  static readonly DRIVER_INDEXEDDB: string = lf.INDEXEDDB;
+  public static readonly DRIVER_INDEXEDDB: string = lf.INDEXEDDB;
   /** The WebSQL driver */
-  static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
+  public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
   /** The localStorage driver */
-  static readonly DRIVER_LOCALSTORAGE: string = lf.LOCALSTORAGE;
+  public static readonly DRIVER_LOCALSTORAGE: string = lf.LOCALSTORAGE;
+
+  /** @internal */
+  public static readonly provider: FactoryProvider = {
+    provide: NgForageConfig,
+    useFactory: NgForageConfig.factory
+  };
+
+  /** @internal */
+  private static factory(): NgForageConfig {
+    if (!instance) {
+      instance = new NgForageConfig();
+    }
+
+    return instance;
+  }
 
   /** @inheritDoc */
-  configure(opts: NgForageOptions): this {
+  public configure(opts: NgForageOptions): this {
     opts = opts || {};
 
     if ('driver' in opts && opts.driver.slice) {
@@ -39,6 +54,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     }
 
     Object.assign(config, opts);
+
     return this;
   }
 
@@ -47,11 +63,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 300000
    * @return {number}
    */
-  get cacheTime(): number {
+  public get cacheTime(): number {
     return config.cacheTime;
   }
 
-  set cacheTime(t: number) {
+  public set cacheTime(t: number) {
     config.cacheTime = t;
   }
 
@@ -60,10 +76,14 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
    * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @default [{@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB}, {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL}, {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}]
+   * @default [
+   *    {@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB},
+   *    {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL},
+   *    {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}
+   * ]
    * @return {string | string[]}
    */
-  get driver(): string | string[] {
+  public get driver(): string | string[] {
     if (typeof config.driver === 'string') {
       return config.driver;
     }
@@ -71,7 +91,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     return config.driver.slice();
   }
 
-  set driver(v: string | string[]) {
+  public set driver(v: string | string[]) {
     config.driver = v;
   }
 
@@ -81,11 +101,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default ngForage
    * @return {string}
    */
-  get name(): string {
+  public get name(): string {
     return config.name;
   }
 
-  set name(v: string) {
+  public set name(v: string) {
     config.name = v;
   }
 
@@ -94,11 +114,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 4980736
    * @return {number}
    */
-  get size(): number {
+  public get size(): number {
     return config.size;
   }
 
-  set size(v: number) {
+  public set size(v: number) {
     config.size = v;
   }
 
@@ -111,11 +131,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default ng_forage
    * @return {string}
    */
-  get storeName(): string {
+  public get storeName(): string {
     return config.storeName;
   }
 
-  set storeName(v: string) {
+  public set storeName(v: string) {
     config.storeName = v;
   }
 
@@ -124,11 +144,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 1.0
    * @return {number}
    */
-  get version(): number {
+  public get version(): number {
     return config.version;
   }
 
-  set version(v: number) {
+  public set version(v: number) {
     config.version = v;
   }
 
@@ -137,25 +157,25 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default
    * @return {string}
    */
-  get description(): string {
+  public get description(): string {
     return config.description;
   }
 
-  set description(v: string) {
+  public set description(v: string) {
     config.description = v;
   }
 
   /**
    * Define a driver
    *
-   * You’ll want to make sure you accept a callback argument and that you pass the same arguments to callbacks as the default drivers do.
-   * You’ll also want to resolve or reject promises.
-   * Check any of the {@link https://github.com/mozilla/localForage/tree/master/src/drivers default drivers} for an idea
-   * of how to implement your own, custom driver.
+   * You’ll want to make sure you accept a callback argument and that you pass the same arguments to callbacks as the
+   * default drivers do. You’ll also want to resolve or reject promises.
+   * Check any of the {@link https://github.com/mozilla/localForage/tree/master/src/drivers default drivers}
+   * for an idea of how to implement your own, custom driver.
    * @param {LocalForageDriver} spec Driver spec
    * @return {Promise<void>}
    */
-  defineDriver(spec: LocalForageDriver): Promise<void> {
+  public defineDriver(spec: LocalForageDriver): Promise<void> {
     return lf.defineDriver(spec);
   }
 
@@ -163,31 +183,23 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * Get the compiled configuration
    * @return {NgForageOptions}
    */
-  get config(): NgForageOptions {
+  public get config(): NgForageOptions {
     return {
+      cacheTime: this.cacheTime,
+      description: this.description,
       driver: this.driver,
       name: this.name,
       size: this.size,
       storeName: this.storeName,
-      version: this.version,
-      description: this.description,
-      cacheTime: this.cacheTime
+      version: this.version
     };
   }
 
   /** @internal */
-  toJSON(): NgForageOptions {
+  public toJSON(): NgForageOptions {
     return this.config;
-  }
-
-  /** @internal */
-  static factory(): NgForageConfig {
-    if (!instance) {
-      instance = new NgForageConfig();
-    }
-
-    return instance;
   }
 }
 
+Object.freeze(NgForageConfig.provider);
 addToStringTag(NgForageConfig, 'NgForageConfig');
