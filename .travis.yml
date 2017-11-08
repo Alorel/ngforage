@@ -3,10 +3,10 @@ language: node_js
 node_js: 9
 
 env:
-  - CI_NG_VERSION=4
   - CI_NG_VERSION=5
     CI_PUBLISH=1
     CI_LINT=1
+  - CI_NG_VERSION=4
 
 cache:
   directories:
@@ -20,9 +20,9 @@ script:
   - npm run build
   - npm test
 
-after_script: node ./ci/TravisMgr.js restore-pkg
-
-after_success: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+  - node ./ci/TravisMgr.js restore-pkg
 
 before_cache: rm -rf ./node_modules/puppeteer
 
