@@ -14,6 +14,7 @@
     "pretest": "rimraf ./coverage",
     "test": "karma start",
     "tslint": "tslint -p . -c tslint.json",
+    "tslint:fix": "tslint --fix -p . -c tslint.json",
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
     "prepack": "node ci/TravisMgr.js backup-readme update-readme"
