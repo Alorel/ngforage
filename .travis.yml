@@ -24,7 +24,7 @@ script:
   - npm run build
   - npm test
 
-after_script: greenkeeper-lockfile-upload
+after_script: if [ "$CI_PUBLISH" = "1" ]; then greenkeeper-lockfile-upload; fi;
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
