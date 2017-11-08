@@ -3,9 +3,9 @@
   "linterOptions": {
     "exclude": [
       "**/src/demo/**/*",
-      "**/src/**/*.spec.ts",
       "**/.demo/**/*",
       "**/.tmp/**",
+      "**/dist/**",
       "**/build/**/*",
       "**/node_modules/**/*",
       "**/ci/**/*",

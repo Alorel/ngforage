@@ -1,12 +1,12 @@
-import {InstanceFactory} from "./InstanceFactory.service";
-import {TestBed} from "@angular/core/testing";
-import {def} from "../NgForage.module";
+import {TestBed} from '@angular/core/testing';
 import 'localforage';
-import {NgForageOptions} from "../config/NgForageOptions";
 import * as _ from 'lodash';
-import {NgForageConfig} from "../config/NgForageConfig.service";
+import {NgForageConfig} from '../config/NgForageConfig.service';
+import {NgForageOptions} from '../config/NgForageOptions';
+import {def} from '../NgForage.module';
+import {InstanceFactory} from './InstanceFactory.service';
 
-describe("Instance factory", () => {
+describe('Instance factory', () => {
   let i1: LocalForage;
   let i2: LocalForage;
   let i3: LocalForage;
@@ -31,15 +31,15 @@ describe("Instance factory", () => {
     i3 = fact.getInstance(getConf({driver: ''}));
   });
 
-  it("1 === 2", () => {
+  it('1 === 2', () => {
     expect(i1).toBe(i2);
   });
 
-  it("1 !== 3", () => {
+  it('1 !== 3', () => {
     expect(i1).not.toBe(i3);
   });
 
-  it("2 !== 3", () => {
+  it('2 !== 3', () => {
     expect(i2).not.toBe(i3);
   });
 });

@@ -1,17 +1,19 @@
-import {TestBed} from "@angular/core/testing";
-import {NgForageConfig} from "../config/NgForageConfig.service";
-import {NgForageCache} from "./NgForageCache.service";
-import {def} from "../NgForage.module";
+import {TestBed} from '@angular/core/testing';
 import * as _ from 'lodash';
 import * as uuid from 'uuid';
-import {NgForageOptions} from "../config/NgForageOptions";
-import {CachedItem} from "./CachedItem";
-import {CachedItemImpl} from "./CachedItemImpl";
+import {NgForageConfig} from '../config/NgForageConfig.service';
+import {NgForageOptions} from '../config/NgForageOptions';
+import {def} from '../NgForage.module';
+import {CachedItem} from './CachedItem';
+import {CachedItemImpl} from './CachedItemImpl';
+import {NgForageCache} from './NgForageCache.service';
 
-describe("NgForageCache Service", () => {
+describe('NgForageCache Service', () => {
   let conf: NgForageConfig;
   let cache: NgForageCache;
   let defaults: NgForageOptions;
+
+  const defaultCacheTime = 300000;
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
@@ -22,59 +24,63 @@ describe("NgForageCache Service", () => {
     cache.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
   });
 
-  it("NgForageConfig should be instantiated", () => {
+  it('NgForageConfig should be instantiated', () => {
     expect(conf instanceof NgForageConfig).toBe(true);
   });
 
-  it("#toJSON cacheTime should be set", () => {
-    expect(cache.toJSON().cacheTime).toBe(300000);
+  it('#toJSON cacheTime should be set', () => {
+    expect(cache.toJSON().cacheTime).toBe(defaultCacheTime);
   });
 
-  it("toStringTag should be set", () => {
+  it('toStringTag should be set', () => {
     expect(cache.toString()).toContain('NgForageCache');
   });
 
-  describe("Cache time", () => {
-    it("Should be 1min after changing default", () => {
+  describe('Cache time', () => {
+    it('Should be 1min after changing default', () => {
       try {
-        conf.cacheTime = 60000;
-        expect(cache.cacheTime).toBe(60000);
+        const t = 600000;
+
+        conf.cacheTime = t;
+        expect(cache.cacheTime).toBe(t);
       } finally {
         conf.configure(_.cloneDeep(defaults));
       }
     });
 
-    it("Should be 5min without changes", () => {
-      expect(cache.cacheTime).toBe(300000);
+    it('Should be 5min without changes', () => {
+      expect(cache.cacheTime).toBe(defaultCacheTime);
     });
 
-    it("Should be 2min after setting", () => {
-      cache.cacheTime = 120000;
-      expect(cache.cacheTime).toBe(120000);
+    it('Should be 2min after setting', () => {
+      const t = 120000;
+
+      cache.cacheTime = t;
+      expect(cache.cacheTime).toBe(t);
     });
   });
 
-  it("Getting a nonexistent item should return a null CachedItem", async done => {
+  it('Getting a nonexistent item should return a null CachedItem', async done => {
     expect(await cache.getCached(uuid.v4())).toEqual(new CachedItemImpl(null, null));
     done();
   });
 
-  describe("Full CRD", () => {
+  describe('Full CRD', () => {
     const key: string = uuid.v4();
     const data = Math.random();
 
-    it("Item should not exist initially", async done => {
+    it('Item should not exist initially', async done => {
       const item = await cache.getCached<string>(key);
       expect(item).toEqual(new CachedItemImpl(null, null));
       done();
     });
 
-    it("Setting an item should return it", async done => {
+    it('Setting an item should return it', async done => {
       expect(await cache.setCached(key, data)).toEqual(data);
       done();
     });
 
-    describe("Retrieving it again", () => {
+    describe('Retrieving it again', () => {
       let ci: CachedItem<number>;
 
       beforeAll(async done => {
@@ -82,22 +88,24 @@ describe("NgForageCache Service", () => {
         done();
       });
 
-      it("Should have a CachedItem with the data", () => {
+      it('Should have a CachedItem with the data', () => {
         expect(ci.data).toBe(data);
       });
 
-      it("That expires in ~5min", () => {
+      it('That expires in ~5min', () => {
+        // tslint:disable-next-line:no-magic-numbers
         expect(ci.expiresIn / 10000).toBeCloseTo(30, 0);
       });
     });
 
-    describe("Deleting it", () => {
-      it("Should return an empty promise", async done => {
+    describe('Deleting it', () => {
+      it('Should return an empty promise', async done => {
+        // tslint:disable-next-line:no-void-expression
         expect(await cache.removeCached(key)).toBeUndefined();
         done();
       });
 
-      it("And make the item disappear", async done => {
+      it('And make the item disappear', async done => {
         expect(await cache.getCached(key))
           .toEqual(new CachedItemImpl(null, null));
         done();
@@ -105,12 +113,13 @@ describe("NgForageCache Service", () => {
     });
   });
 
-  describe("Providing cache time in #setCached", () => {
+  describe('Providing cache time in #setCached', () => {
     const key = uuid.v4();
     let item: CachedItem<string>;
 
     beforeAll(async done => {
       await cache.removeCached(key);
+      // tslint:disable-next-line:no-magic-numbers
       await cache.setCached(key, uuid.v4(), 1000000);
       item = await cache.getCached<string>(key);
       done();
@@ -121,7 +130,8 @@ describe("NgForageCache Service", () => {
       done();
     });
 
-    it("Should override instance defaults", () => {
+    it('Should override instance defaults', () => {
+      // tslint:disable-next-line:no-magic-numbers
       expect(item.expiresIn / 1000).toBeCloseTo(1000, 0);
     });
   });

@@ -1,5 +1,6 @@
 import * as puppeteer from 'puppeteer';
 
+// tslint:disable-next-line:no-default-export
 export default config => {
   process.env.CHROME_BIN = puppeteer.executablePath();
   process.env.WEBPACK_COMPILE_MODE = require('./build/util/compile-mode').TEST;
@@ -39,8 +40,8 @@ export default config => {
     },
 
     coverageIstanbulReporter: {
-      reports: ['text-summary', 'html', 'lcovonly'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+      reports: ['text-summary', 'html', 'lcovonly']
     },
 
     // Test results reporter to use.
@@ -62,11 +63,12 @@ export default config => {
     browsers: ['ChromeHeadless'],
 
     browserConsoleLogOptions: {
-      terminal: true,
-      level: 'log'
+      level: 'log',
+      terminal: true
     },
 
-    singleRun: true,
-    colors: true
+    colors: true,
+
+    singleRun: true
   });
 };
