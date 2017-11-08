@@ -3,10 +3,10 @@ import 'localforage';
 /**
  * NgForage configuration
  */
-export type NgForageOptions = LocalForageOptions & {
+export interface NgForageOptions extends LocalForageOptions {
   /**
    * Cache time in milliseconds
    * @default 300000
    */
   cacheTime?: number
-};
+}
