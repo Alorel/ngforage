@@ -25,8 +25,10 @@ jobs:
       script:
         - npm run tslint
         - snyk test --dev --peer
+      before_install: true
       after_script:
         - node ./ci/TravisMgr.js restore-pkg
+        - greenkeeper-lockfile-update
         - greenkeeper-lockfile-upload
       after_success: snyk monitor --dev --peer
     - env:
