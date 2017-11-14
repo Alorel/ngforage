@@ -1,7 +1,5 @@
 # ngforage
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
-
 localForage bindings for Angular 4 and 5
 
 [![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
@@ -10,6 +8,7 @@ localForage bindings for Angular 4 and 5
 [![License](https://img.shields.io/npm/l/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
 [![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=1.0.0-rc.0)](https://coveralls.io/github/Alorel/ngforage?branch=1.0.0-rc.0)
 [![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=1.0.0-rc.0)](https://travis-ci.org/Alorel/ngforage)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 
 # Table of Contents
 
