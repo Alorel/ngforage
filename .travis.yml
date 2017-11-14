@@ -15,6 +15,10 @@ stages:
 before_cache: rm -rf ./node_modules/puppeteer
 before_script: greenkeeper-lockfile-update
 
+cache:
+  directories:
+    - node_modules
+
 std_job: &std_job
   stage: Lint & Test
   script:
