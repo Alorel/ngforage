@@ -18,8 +18,10 @@
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
     "prepack": "node ci/TravisMgr.js update-readme",
-    "snyk:wizard": "snyk wizard",
-    "prepare": "snyk protect"
+    "snyk:wizard": "snyk wizard --dev --peer",
+    "prepare": "snyk protect --dev --peer",
+    "precommit": "npm run tslint:fix",
+    "prepush": "npm run tslint"
   },
   "dependencies": {
     "localforage": "^1.5",
@@ -63,6 +65,7 @@
     "gulp-rename": "^1.2",
     "gulp-sequence": "^0.4",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
     "istanbul-instrumenter-loader": "^3.0",
     "jasmine-core": "^2.8",
     "karma": "^1.7",
@@ -91,7 +94,7 @@
     "ts-node": "^3.3.0",
     "tslib": "^1.8",
     "tslint": "^5.8.0",
-    "typescript": ">=2.6.1",
+    "typescript": ">=2.4.2 <2.5",
     "uglify-es": "^3.1",
     "uuid": "^3.1.0",
     "webpack": "^3.8",

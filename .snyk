@@ -1,4 +1,60 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.7.1
-ignore: {}
-patch: {}
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:parsejson:20170908':
+    - karma > socket.io > socket.io-client > engine.io-client > parsejson:
+        reason: no remediation
+        expires: '2057-12-14T11:55:32.516Z'
+  'npm:ws:20171108':
+    - karma > socket.io > engine.io > ws:
+        reason: no remediation
+        expires: '2057-12-14T11:55:32.517Z'
+    - karma > socket.io > socket.io-client > engine.io-client > ws:
+        reason: no remediation
+        expires: '2057-12-14T11:55:32.517Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - karma > socket.io > socket.io-adapter > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-client > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-client > engine.io-client > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-client > socket.io-parser > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-parser > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > engine.io > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > debug:
+        patched: '2017-11-14T11:54:21.591Z'
+  'npm:minimatch:20160620':
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2017-11-14T11:54:21.591Z'
+    - gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2017-11-14T11:54:21.591Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2017-11-14T11:54:21.591Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2017-11-14T11:54:21.591Z'
+  'npm:ms:20170412':
+    - karma > socket.io > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-adapter > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-client > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-client > engine.io-client > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > engine.io > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-client > socket.io-parser > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-parser > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2017-11-14T11:54:21.591Z'
