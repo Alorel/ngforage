@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import * as _ from 'lodash';
+import {def} from '../../../karma-test-entry';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
-import {def} from '../NgForage.module';
 import {InstanceFactory} from './InstanceFactory.service';
 
 describe('Instance factory', () => {

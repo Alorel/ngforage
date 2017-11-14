@@ -1,3 +1,4 @@
+/** @internal */
 type AddToStringTag = (target: any, tag: string) => void;
 
 /** @internal */

@@ -72,11 +72,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
    * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @default [
-   *    {@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB},
-   *    {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL},
-   *    {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}
-   * ]
+   * @default IndexedDB, WebSQL and localStorage
    * @return {string | string[]}
    */
   public get driver(): string | string[] {
@@ -151,7 +147,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * A description of the database, essentially for developer usage.
-   * @default
+   * @default ""
    * @return {string}
    */
   public get description(): string {

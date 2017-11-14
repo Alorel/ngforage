@@ -6,11 +6,13 @@ import {addToStringTag} from '../util/addToStringTag';
 import {CachedItem} from './CachedItem';
 import {CachedItemImpl} from './CachedItemImpl';
 
+/** @internal */
 interface CacheKeys {
   data: string;
   expiry: string;
 }
 
+/** @internal */
 function calculateCacheKeys(mainKey: string): CacheKeys {
   return {
     data: `${mainKey}_data`,
@@ -18,14 +20,17 @@ function calculateCacheKeys(mainKey: string): CacheKeys {
   };
 }
 
+/** @internal */
 function toCachedItem<T>(r: [T, number]) {
   return new CachedItemImpl<T>(r[0], r[1]);
 }
 
+/** @internal */
 function head<T>(r: [T, number]) {
   return r[0];
 }
 
+/** @internal */
 // tslint:disable-next-line:no-empty
 function toVoid() {
 

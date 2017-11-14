@@ -2,14 +2,18 @@ import {FactoryProvider, Injectable} from '@angular/core';
 import * as lf from 'localforage';
 import {NgForageOptions} from '../config/NgForageOptions';
 
+/** @internal */
 let instance: InstanceFactory;
 
+/** @internal */
 interface InstanceMap {
   [hash: string]: LocalForage;
 }
 
+/** @internal */
 const stores: InstanceMap = {};
 
+/** @internal */
 function getDriverString(driver?: string | string[]) {
   if (!driver) {
     return '';
@@ -20,6 +24,7 @@ function getDriverString(driver?: string | string[]) {
   }
 }
 
+/** @internal */
 function getHash(cfg: NgForageOptions): string {
   return [
     getDriverString(cfg.driver),

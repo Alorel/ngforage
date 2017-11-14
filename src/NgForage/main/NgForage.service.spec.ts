@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import * as _ from 'lodash';
+import {def} from '../../../karma-test-entry';
 import {NgForageConfig} from '../config/NgForageConfig.service';
-import {def} from '../NgForage.module';
 import {NgForage} from './NgForage.service';
 
 describe('NgForage core service', () => {

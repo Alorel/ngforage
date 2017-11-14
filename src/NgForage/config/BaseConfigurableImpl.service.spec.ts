@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import * as _ from 'lodash';
-import {def} from '../NgForage.module';
+import {def} from '../../../karma-test-entry';
 import {BaseConfigurableImpl} from './BaseConfigurableImpl.service';
 import {NgForageConfig} from './NgForageConfig.service';
 import {NgForageOptions} from './NgForageOptions';

@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
 import * as _ from 'lodash';
 import * as uuid from 'uuid';
+import {def} from '../../../karma-test-entry';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
-import {def} from '../NgForage.module';
 import {CachedItem} from './CachedItem';
 import {CachedItemImpl} from './CachedItemImpl';
 import {NgForageCache} from './NgForageCache.service';

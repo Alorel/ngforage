@@ -5,8 +5,10 @@ import {BaseConfigurable} from './BaseConfigurable';
 import {CacheConfigurable} from './CacheConfigurable';
 import {NgForageOptions} from './NgForageOptions';
 
+/** @internal */
 let instance: NgForageConfig;
 
+/** @internal */
 const config: NgForageOptions = {
   cacheTime: 300000,
   description: '',

@@ -1,4 +1,7 @@
-/** Cached data */
+/**
+ * Cached data
+ * @param T Data type
+ */
 export interface CachedItem<T> {
   /** The data */
   readonly data: T;

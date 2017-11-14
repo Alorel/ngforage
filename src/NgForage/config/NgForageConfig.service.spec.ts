@@ -1,8 +1,8 @@
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import * as _ from 'lodash';
+import {def} from '../../../karma-test-entry';
 import {NgForage} from '../main/NgForage.service';
-import {def} from '../NgForage.module';
 import {NgForageConfig} from './NgForageConfig.service';
 import {NgForageOptions} from './NgForageOptions';
 
