@@ -33,7 +33,7 @@ std_job: &std_job
 jobs:
   include:
     - stage: Lint
-      if: env(SNYK_TOKEN) AND env(GH_TOKEN)
+      if: type IN (push, cron)
       script: snyk test --peer
       after_script: greenkeeper-lockfile-upload
       after_success: snyk monitor --peer
