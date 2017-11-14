@@ -8,7 +8,8 @@ env:
     - secure: XZ5JBYalDUi5Bz3TUs/SXPgrmUD0OFNQYIk/t1+vkCneUDSfv+tl+dsd7Y1j52NyU1Q+6d41Pg+03ADvLC1YT5YtEV/p5WaxVY70Fj0pnKegS6Wgf6qqPEe8LEa78j6jX7CDN9SJodW6Tt5emWwB32Aw+f814tsDz9kvpNPSByWcbVsix9QvE1uM/DCMxVBbezBZ45PMdI49q/5libk7ioCIGEz0gFaOfAGQ/PHQfqk2Ua+voepLqrbo0asuIlC8EaTJNs07rpwg5lKJW3roaHtMOjKmpChq6cqatfsTUV00rInpp0bhPTkl2cFoXAPPXuKuBre6xjALKJ7bdmurlyG2ovMTUEhvdejW+nDx0/GVLatuZowxAWH/ix2m61BGS/DfSk9Mb2EJrL+4s0r6KO7IZZC4Db3j9zTQKqlLJZCsPwXBw+2f4NYRr9PX9pH9px8UqIaKeNqDu8s6aGoMDWaIQf+4uYkp2sFWS+INQCUHCZNwZ0LBHfYkK8bT4rdWFAGMLYbmSzWvhrWrQ4WVy9QoOxmXu1CZ/GFUZHR4DHnTK8sM6Gb7BK4Y6+0vWcM8vjfLaAZTCtrAyinn8tNuuu4YC2vIUP+Sraqh+k7meX1bD1InbGv54kD8bZKWlOZSuf7t69VYf1TefIBbrTqPJvfs4acF8LPPzFwrOu3igQY=
 
 stages:
-  - Lint & Test
+  - Lint
+  - Test
   - name: Deploy
     if: tag IS present
 
@@ -20,7 +21,7 @@ cache:
     - node_modules
 
 std_job: &std_job
-  stage: Lint & Test
+  stage: Test
   script:
     - npm run build
     - npm run build:demo:aot
@@ -31,13 +32,13 @@ std_job: &std_job
 
 jobs:
   include:
-    - stage: Lint & Test
+    - stage: Lint
       if: env(SNYK_TOKEN) AND env(GH_TOKEN)
-      script:
-        - npm run tslint
-        - snyk test --peer
+      script: snyk test --peer
       after_script: greenkeeper-lockfile-upload
       after_success: snyk monitor --peer
+    - stage: Lint
+      script: npm run tslint
     - <<: *std_job
       env:
         - CI_NG_VERSION=5
