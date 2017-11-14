@@ -14,6 +14,17 @@ stages:
 
 before_cache: rm -rf ./node_modules/puppeteer
 
+std_job: &std_job
+  stage: Lint & Test
+  script:
+    - npm run build
+    - npm run build:demo:aot
+    - npm test
+  after_script: node ./ci/TravisMgr.js restore-pkg
+  after_success: cat ./coverage/lcov.info | coveralls
+  before_install: node ./ci/TravisMgr.js backup-pkg set-version
+  before_script: greenkeeper-lockfile-update
+
 jobs:
   include:
     - stage: Lint & Test
@@ -24,17 +35,10 @@ jobs:
         - greenkeeper-lockfile-update
         - greenkeeper-lockfile-upload
       after_success: snyk monitor --dev --peer
-    - env:
-        - CI_NG_VERSION=5
+    - <<: *std_job
+    - <<: *std_job
+      env:
         - CI_NG_VERSION=4
-      script:
-        - npm run build
-        - npm run build:demo:aot
-        - npm test
-      after_script: node ./ci/TravisMgr.js restore-pkg
-      after_success: cat ./coverage/lcov.info | coveralls
-      before_install: node ./ci/TravisMgr.js backup-pkg set-version
-      before_script: greenkeeper-lockfile-update
     - stage: Deploy
       before_script: greenkeeper-lockfile-update
       script:
