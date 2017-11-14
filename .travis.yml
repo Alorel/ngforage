@@ -13,6 +13,7 @@ stages:
     if: tag IS present
 
 before_cache: rm -rf ./node_modules/puppeteer
+before_script: greenkeeper-lockfile-update
 
 std_job: &std_job
   stage: Lint & Test
@@ -23,24 +24,23 @@ std_job: &std_job
   after_script: node ./ci/TravisMgr.js restore-pkg
   after_success: cat ./coverage/lcov.info | coveralls
   before_install: node ./ci/TravisMgr.js backup-pkg set-version
-  before_script: greenkeeper-lockfile-update
 
 jobs:
   include:
     - stage: Lint & Test
+      if: env(SNYK_TOKEN) AND env(GH_TOKEN)
       script:
         - npm run tslint
-        - snyk test --dev --peer
-      after_script:
-        - greenkeeper-lockfile-update
-        - greenkeeper-lockfile-upload
-      after_success: snyk monitor --dev --peer
+        - snyk test --peer
+      after_script: greenkeeper-lockfile-upload
+      after_success: snyk monitor --peer
     - <<: *std_job
+      env:
+        - CI_NG_VERSION=5
     - <<: *std_job
       env:
         - CI_NG_VERSION=4
     - stage: Deploy
-      before_script: greenkeeper-lockfile-update
       script:
         - npm run build
         - npm run build:demo:aot:prod
