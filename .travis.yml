@@ -28,7 +28,7 @@ jobs:
       after_script:
         - node ./ci/TravisMgr.js restore-pkg
         - greenkeeper-lockfile-upload
-        - snyk monitor --dev --peer
+      after_success: snyk monitor --dev --peer
     - env:
         - CI_NG_VERSION=5
         - CI_NG_VERSION=4

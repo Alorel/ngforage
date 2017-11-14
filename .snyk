@@ -4,57 +4,57 @@ version: v1.7.1
 ignore:
   'npm:parsejson:20170908':
     - karma > socket.io > socket.io-client > engine.io-client > parsejson:
-        reason: no remediation
-        expires: '2057-12-14T11:55:32.516Z'
+        reason: None given
+        expires: '2027-12-14T12:17:57.028Z'
   'npm:ws:20171108':
     - karma > socket.io > engine.io > ws:
-        reason: no remediation
-        expires: '2057-12-14T11:55:32.517Z'
+        reason: None given
+        expires: '2027-12-14T12:17:57.028Z'
     - karma > socket.io > socket.io-client > engine.io-client > ws:
-        reason: no remediation
-        expires: '2057-12-14T11:55:32.517Z'
+        reason: None given
+        expires: '2027-12-14T12:17:57.028Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:debug:20170905':
     - karma > socket.io > socket.io-adapter > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-client > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-client > engine.io-client > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-adapter > socket.io-parser > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-client > socket.io-parser > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-parser > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > engine.io > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > debug:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
   'npm:minimatch:20160620':
     - gulp > vinyl-fs > glob-stream > minimatch:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - gulp > vinyl-fs > glob-stream > glob > minimatch:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
   'npm:ms:20170412':
     - karma > socket.io > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-adapter > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-client > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-client > engine.io-client > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > engine.io > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-client > socket.io-parser > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-parser > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
     - karma > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
-        patched: '2017-11-14T11:54:21.591Z'
+        patched: '2017-11-14T12:17:10.109Z'
