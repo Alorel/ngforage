@@ -35,7 +35,7 @@ jobs:
       after_success: cat ./coverage/lcov.info | coveralls
       before_install: node ./ci/TravisMgr.js backup-pkg set-version
       before_script: greenkeeper-lockfile-update
-    - name: Deploy
+    - stage: Deploy
       before_script: greenkeeper-lockfile-update
       script:
         - npm run build
