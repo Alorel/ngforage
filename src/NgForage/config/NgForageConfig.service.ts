@@ -47,7 +47,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     return instance;
   }
 
-  /** @inheritDoc */
+  /**
+   * Bulk-set configuration options
+   * @param {NgForageOptions} opts The configuration
+   * @return {this}
+   */
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
 

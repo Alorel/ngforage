@@ -53,7 +53,11 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
     return this._store;
   }
 
-  /** @inheritDoc */
+  /**
+   * Bulk-set configuration options
+   * @param {NgForageOptions} opts The configuration
+   * @return {this}
+   */
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
 
