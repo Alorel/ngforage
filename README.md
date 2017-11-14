@@ -1,5 +1,7 @@
 # ngforage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
+
 localForage bindings for Angular 4 and 5
 
 [![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
