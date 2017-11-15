@@ -1,5 +1,9 @@
 @import "../../node_modules/@angular/material/_theming.scss";
 
+body {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 $app-primary: mat-palette($mat-pink);
 $app-accent: mat-palette($mat-deep-purple);
 $app-warn: mat-palette($mat-red);
@@ -9,3 +13,6 @@ $theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 @include mat-core();
 @include mat-core-theme($theme);
 @include mat-button-theme($theme);
+@include mat-input-theme($theme);
+@include mat-form-field-theme($theme);
+@include mat-list-theme($theme);
