@@ -46,6 +46,7 @@ jobs:
         - CI_NG_VERSION=5
     - stage: Lint
       script: npm run tslint
+      before_install: node ./ci/TravisMgr.js set-version
       env:
         - CI_NG_VERSION=5
     - <<: *std_job
