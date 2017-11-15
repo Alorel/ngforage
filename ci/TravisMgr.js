@@ -87,7 +87,6 @@ const TravisMgr = (() => {
       return 'localForage bindings for Angular 5';
     }
 
-    /** @private */
     get pkgJsonContents() {
       return JSON.parse(fs.readFileSync(this.pkgJsonPath, 'utf8'));
     }
@@ -199,6 +198,7 @@ for (const cmd of cmds) {
         TravisMgr.writeNameDesc();
       }
 
+      console.log(require('util').inspect(TravisMgr.pkgJsonContents, {colors: true, depth: null}));
       break;
   }
 }
