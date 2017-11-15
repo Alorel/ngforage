@@ -1,0 +1,12 @@
+div
+  strong {{key}}
+  span :
+  |
+  |
+  span {{value|async}}
+div
+  button(
+  mat-button,
+  mat-raised-button,
+  (click)="rm()"
+  ) REMOVE

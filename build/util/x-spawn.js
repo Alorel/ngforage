@@ -1,7 +1,7 @@
 const spawn = require('cross-spawn');
 const {merge} = require('lodash');
 
-module.exports = (command, args = [], opts = {}) => {
+module.exports = (command, args = [], opts = {}, stdinWrite) => {
   return new Promise((resolve, reject) => {
     let errored = false;
     opts = merge({
@@ -10,7 +10,7 @@ module.exports = (command, args = [], opts = {}) => {
       cwd: process.cwd()
     }, opts);
 
-    spawn(command, args, opts)
+    const kid = spawn(command, args, opts)
       .once('error', e => {
         errored = true;
         reject(e);
@@ -24,5 +24,9 @@ module.exports = (command, args = [], opts = {}) => {
           }
         }
       });
+
+    if (stdinWrite) {
+      kid.stdin.write(stdinWrite);
+    }
   });
 };

@@ -1,9 +1,15 @@
 doctype html
 - var lang = 'en';
+- var polyfillURL = 'https://cdn.polyfill.io/v2/polyfill.min.js?rum=0&features=default,document.head,Object.freeze';
 html(lang=lang)
   head
-    title Demo
+    title NgForage Demo
     meta(charset='utf8')
     meta(http-equiv='Content-Language', content=lang)
+    link(rel='dns-prefetch', href='https://fonts.googleapis.com')
+    link(rel='dns-prefetch', href='https://fonts.gstatic.com')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,500,700')
+    link(rel='preload', as='script', href=polyfillURL)
   body.mat-app-background
-    ngf-demo
+    ngf-demo Loading...
+    script(src=polyfillURL, type='text/javascript')

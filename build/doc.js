@@ -11,7 +11,7 @@ const gzip = require('gulp-gzip');
 const fs = require('fs');
 const {resolve, dirname} = require('path');
 
-const versionPath = (()=>{
+const versionPath = (() => {
   const pkgVersion = require('../package.json').version;
   const semver = require('semver');
 
@@ -65,15 +65,17 @@ gulp.task('doc:min:svg', () => {
     .pipe(gulp.dest(docPath));
 });
 
-gulp.task('doc:css:replace-import', () => {});
+gulp.task('doc:css:replace-import', () => {
+});
 
 gulp.task('doc:min:css', () => {
   return gulp.src(`${docPath}/**/*.css`)
-    .pipe((()=>{
+    .pipe((() => {
       const {Transform} = require('stream');
+
       class Sass extends Transform {
         constructor() {
-          super({objectMode:true});
+          super({objectMode: true});
         }
 
         _transform(file, enc, done) {
@@ -83,7 +85,7 @@ gulp.task('doc:min:css', () => {
             outputStyle: 'compressed',
             importer(url, prev, done) {
               const href = resolve(dirname(file.path), url);
-              fs.readFile(href, 'utf8', (e,data) => {
+              fs.readFile(href, 'utf8', (e, data) => {
                 if (e) done(e);
                 else done({
                   file: href, // only one of them is required, see section Special Behaviours.
@@ -130,7 +132,7 @@ gulp.task('doc:archive', () => {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('doc', cb  => {
+gulp.task('doc', cb => {
   seq(
     'doc:clean',
     'doc:generate',

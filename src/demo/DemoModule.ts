@@ -1,11 +1,20 @@
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatInputModule, MatListModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatSelectModule,
+  MatToolbarModule
+} from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgForageModule} from '../NgForage/NgForage.module';
-import {DemoComponent} from './DemoComponent';
-import {NgfKeyComponent} from './NgfKeyComponent';
+import {DemoComponent} from './DemoComponent/DemoComponent';
+import {NgfKeyComponent} from './NgfKeyComponent/NgfKeyComponent';
 
 @NgModule({
   bootstrap: [DemoComponent],
@@ -18,7 +27,12 @@ import {NgfKeyComponent} from './NgfKeyComponent';
     NgForageModule,
     MatButtonModule,
     MatInputModule,
-    MatListModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatListModule,
+    MatToolbarModule,
+    MatMenuModule
   ]
 })
 export class DemoModule {

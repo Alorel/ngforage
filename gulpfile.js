@@ -9,9 +9,9 @@ const glob = require('glob');
 const gulp = require('gulp');
 const {join} = require('path');
 
-for (const file of glob.sync(join(__dirname, 'build', '**', '*.js'))) {
-  require(file);
-}
+glob.sync(join(__dirname, 'build', '**', '*.js'))
+  .filter(f => !f.endsWith('uglify-worker.js'))
+  .forEach(p => require(p));
 
 const watchTasks = Object.keys(gulp.tasks).filter(name => name.toLowerCase().endsWith(':watch'));
 if (watchTasks.length) {
@@ -19,8 +19,8 @@ if (watchTasks.length) {
 }
 
 //Sort tasks for display in IDE
-const tasksNew = {};
-for (const k of Object.keys(gulp.tasks).sort()) {
-  tasksNew[k] = gulp.tasks[k];
-}
-gulp.tasks = tasksNew;
+gulp.tasks = Object.keys(gulp.tasks).sort()
+  .reduce((acc, k) => {
+    acc[k] = gulp.tasks[k];
+    return acc;
+  }, {});
