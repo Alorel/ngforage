@@ -14,7 +14,8 @@
 /package.json.bak
 /.travis.yml
 /webpack.config.js
-/tsconfig.json
+/tsconfig*.json
+/.snyk
 /karma-test-entry.ts
 /karma.conf.ts
 /ci/
