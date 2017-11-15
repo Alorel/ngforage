@@ -10,6 +10,7 @@ const TsConfigFactory = require('./build/util/tsconfig-factory');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 const webpack = require('webpack');
@@ -108,6 +109,12 @@ class WebpackFactory {
             return module.context && module.context.indexOf('node_modules') !== -1;
           }
         }),
+        new CopyWebpackPlugin([
+          {
+            from: path.join(__dirname, 'documentation', '**', '*'),
+            force: true
+          }
+        ]),
         new HtmlWebpackPlugin({
           filename: 'index.html',
           template: require.resolve('./src/demo/demo.pug'),

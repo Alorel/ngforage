@@ -2,7 +2,6 @@
   "defaultSeverity": "error",
   "linterOptions": {
     "exclude": [
-      "**/src/demo/**/*",
       "**/.demo/**/*",
       "**/.tmp/**",
       "**/dist/**",

@@ -6,8 +6,8 @@ localForage bindings for Angular 4 and 5
 [![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Version](https://img.shields.io/npm/v/ngforage.svg)](https://www.npmjs.com/package/ngforage)
 [![License](https://img.shields.io/npm/l/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=1.0.0-rc.0)](https://coveralls.io/github/Alorel/ngforage?branch=1.0.0-rc.0)
-[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=1.0.0-rc.0)](https://travis-ci.org/Alorel/ngforage)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=1.0.0)](https://coveralls.io/github/Alorel/ngforage?branch=1.0.0)
+[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=1.0.0)](https://travis-ci.org/Alorel/ngforage)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 
 # Table of Contents
@@ -19,6 +19,7 @@ localForage bindings for Angular 4 and 5
 - [Installation](#installation)
   - [Local](#local)
   - [UMD+CDN](#umdcdn)
+- [Types and polyfills](#types-and-polyfills)
 - [Importing the module](#importing-the-module)
 - [Usage](#usage)
   - [Using the Standard Store](#using-the-standard-store)
@@ -45,6 +46,13 @@ npm install localforage
 <script src="https://cdn.jsdelivr.net/npm/ngforage@1.0.0-rc.0"></script>
 <!-- The library is now available as "ngForage" -->
 ```
+
+# Types and polyfills
+
+Ensure that the following is available globally:
+
+- `Promise`
+- `Object.assign`
 
 # Importing the module
 

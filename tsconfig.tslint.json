@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "node_modules",
+    ".demo",
+    "ci",
+    "dist"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "cacheDirectory": ".awcache/tslint"
+  }
+}

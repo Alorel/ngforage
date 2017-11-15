@@ -1,16 +1,16 @@
-import {DemoComponent} from "./DemoComponent";
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
-import {NgForageModule} from "../NgForage/NgForage.module";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgForageModule} from '../NgForage/NgForage.module';
+import {DemoComponent} from './DemoComponent';
 
 @NgModule({
+  bootstrap: [DemoComponent],
+  declarations: [DemoComponent],
+  entryComponents: [DemoComponent],
   imports: [
     BrowserModule,
     NgForageModule
-  ],
-  declarations: [DemoComponent],
-  entryComponents: [DemoComponent],
-  bootstrap: [DemoComponent]
+  ]
 })
 export class DemoModule {
 

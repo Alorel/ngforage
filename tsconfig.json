@@ -18,16 +18,6 @@
       "ES2015",
       "ES2016",
       "ES2017"
-    ],
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "types": [
-      "jasmine",
-      "karma",
-      "node",
-      "webpack",
-      "webpack-env"
     ]
   },
   "include": [

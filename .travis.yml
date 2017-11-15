@@ -45,8 +45,7 @@ jobs:
         - CI_NG_VERSION=4
     - stage: Deploy
       script:
-        - npm run build
-        - npm run build:demo:aot:prod
+        - concurrently "npm run build" "gulp doc" "npm pack" && npm run build:demo:aot:prod
       deploy:
         - provider: npm
           skip_cleanup: true
@@ -63,3 +62,13 @@ jobs:
           target_branch: gh-pages
           github_token:
             secure: VMkUx7mtTrcVIiI6AjCbVWFFZQ2+W51WoU5cvBHZ4uT84hC5il15QYmfuv752jc2bU8JrTLscqA2e5Twa40XgcaNim5Hh2eLeomHPRRcrfchPg/P41i/Kf63fpIAXFj2Il1zRA4NwtPEkw0mhSIfqdACOCahStutqfTT5ZUgxe5QVUDl/aH+rIqLfS3ZC01hPwKirHRmOZ/l4Whfb9ivaA4aSIEzN3GOO7eR2Tsd7JokyuNrSfoBZFcpJ61X0YP0VaspYVwYt75bp1noTVvx2ItWGVt2qIFiJdIAjlAjfgjkwSXJAawlrIHx5G+ajrlS6nbojmBd4s8UgNeXfIFJAG/AgDUq5uZzdklZmTkX57qrSiU9Uaq+9BYLu8I1ZNJSkieaeAy0PK0+pWBrXGAWd6rZeM5YmrqvVgrJcAST7W6HFYzLoRRmqtki5SysxpXI+ugKQgitGhGq5ES0EnwihXxuQ/xiVEjYLBFG5QviBrUZ3zc7IyfRYwCSNJ546c4XVhkwNkaBBTfz9IN4A7UscibWWd6lbO3w/tQCK+/a4D1IivRV5fnNyLw7BeoTcddWeVNHSRFupL84kE1/0jWrHs8FyMPpYyDO2jyZ9XY14iLiSiaaPIPtRQa4C7g3OEN2Nq2n1iNwmXjb0jQOPBkTBYCFdzkXJcoLagIz51EaHS4=
+        - provider: releases
+          skip_cleanup: true
+          api_key:
+            secure: VMkUx7mtTrcVIiI6AjCbVWFFZQ2+W51WoU5cvBHZ4uT84hC5il15QYmfuv752jc2bU8JrTLscqA2e5Twa40XgcaNim5Hh2eLeomHPRRcrfchPg/P41i/Kf63fpIAXFj2Il1zRA4NwtPEkw0mhSIfqdACOCahStutqfTT5ZUgxe5QVUDl/aH+rIqLfS3ZC01hPwKirHRmOZ/l4Whfb9ivaA4aSIEzN3GOO7eR2Tsd7JokyuNrSfoBZFcpJ61X0YP0VaspYVwYt75bp1noTVvx2ItWGVt2qIFiJdIAjlAjfgjkwSXJAawlrIHx5G+ajrlS6nbojmBd4s8UgNeXfIFJAG/AgDUq5uZzdklZmTkX57qrSiU9Uaq+9BYLu8I1ZNJSkieaeAy0PK0+pWBrXGAWd6rZeM5YmrqvVgrJcAST7W6HFYzLoRRmqtki5SysxpXI+ugKQgitGhGq5ES0EnwihXxuQ/xiVEjYLBFG5QviBrUZ3zc7IyfRYwCSNJ546c4XVhkwNkaBBTfz9IN4A7UscibWWd6lbO3w/tQCK+/a4D1IivRV5fnNyLw7BeoTcddWeVNHSRFupL84kE1/0jWrHs8FyMPpYyDO2jyZ9XY14iLiSiaaPIPtRQa4C7g3OEN2Nq2n1iNwmXjb0jQOPBkTBYCFdzkXJcoLagIz51EaHS4=
+          on:
+            tags: true
+          file_glob: true
+          file:
+            - ./documentation.tar.gz
+            - ./ngforage-*.tgz
