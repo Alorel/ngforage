@@ -2,74 +2,35 @@ const {Transform} = require('stream');
 const spawn = require('cross-spawn');
 const worker = require('path').join(__dirname, 'uglify-worker.js');
 const Promise = require('bluebird');
+const uglifyES = require('uglify-es');
+const {merge} = require('lodash');
 
 class GulpUglifyES extends Transform {
 
-  constructor() {
+  constructor(options = {}) {
     super({objectMode: true});
+    this.options = merge(require('../conf/uglify-options'), options);
   }
 
   _transform(file, encoding, callback) {
     try {
       file = file.clone();
-      GulpUglifyES.singleFile(file.contents.toString())
-        .then(c => {
-          file.contents = Buffer.from(c, 'utf8');
-          callback(null, file);
-        })
-        .catch(e => callback(e));
+      const out = uglifyES.minify(file.contents.toString(), this.options);
+
+      if (typeof out.code !== 'undefined') {
+        if (typeof out.code === 'string') {
+          out.code = Buffer.from(out.code, 'utf8');
+        }
+
+        file.contents = out.code;
+        setImmediate(callback, null, file);
+      } else {
+        console.error(require('util').inspect(out, {colors: true, depth: null}));
+        setImmediate(callback, new Error('No code'));
+      }
     } catch (e) {
       setImmediate(callback, e);
     }
-  }
-
-  static singleFile(contents) {
-    return new Promise((resolve, reject) => {
-      let errored = false;
-      let data;
-      const child = spawn(process.execPath, [worker], {
-        stdio: 'pipe',
-        env: process.env,
-        cwd: process.cwd()
-      });
-
-      child.once('error', e => {
-        errored = true;
-        reject(e);
-      });
-      child.stderr.on('data', d => {
-        if (typeof d !== 'string') {
-          d = d.toString();
-        }
-
-        process.stderr.write(d);
-      });
-      child.stdout.on('data', d => {
-        data = d;
-      });
-      child.once('exit', code => {
-        setImmediate(() => {
-          if (!errored) {
-            if (code === 0) {
-              if (data !== undefined) {
-                if (typeof data !== 'string') {
-                  data = data.toString();
-                }
-
-                resolve(data);
-              } else {
-                reject(new Error('No data'));
-              }
-            } else {
-              reject(new Error(`Exited with code ${code}`))
-            }
-          }
-        });
-      });
-
-      child.stdin.write(contents);
-      child.stdin.end();
-    });
   }
 }
 

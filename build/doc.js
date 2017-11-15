@@ -22,7 +22,7 @@ const docPath = `./documentation/${versionPath}`;
 
 gulp.task('doc:clean', cb => rimraf(docPath, cb));
 
-gulp.task('doc:generate', () => {
+gulp.task('doc:generate', ['update-readme'], () => {
   const opts = [
     '-p',
     'tsconfig.doc.json',
@@ -41,6 +41,8 @@ gulp.task('doc:generate', () => {
 
   return xSpawn('./node_modules/.bin/compodoc', opts);
 });
+
+gulp.task('update-readme', () => xSpawn('npm', ['run', 'prepack']));
 
 gulp.task('doc:min:html', () => {
   return gulp.src(`${docPath}/**/*.html`)
