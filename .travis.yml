@@ -47,8 +47,7 @@ jobs:
         - npm run build
         - npm test
     - stage: Deploy
-      script:
-        - concurrently "npm run build" "gulp doc" "npm pack" && npm run build:demo:aot:prod
+      script: npm run build
       deploy:
         - provider: npm
           skip_cleanup: true
@@ -57,6 +56,10 @@ jobs:
             tags: true
           api_key:
             secure: W46BFHze4FhyerHUQRzn7KI/wdTQGEu7B6y9zE4HP/n2+Ws18uE1x6Io0IV4AVSFaeIWLYqsv5fb7U43WNkC4i3ylGU/aNkAIigtIwyGbTPxWuyRtTN5YPa/djN5iRSNA2VBa5XnUq4FziGDbfHYIAV+L81Ld9HNSjyAqzX21mdJw6mR5Nktkv1+bfLhTpUMifat1xZqX1HsK45oVZFIFumAZKgOOgEpdUsLQT57NhcSoUx6QarhscO5hs3VywLjmIgrvyP2jX0HyAX/xkTP33vwhWvwSm5swlg7tbfC4T+00RDiabknDQsx6FAXpHQ158rJaQ8vzfbVgDyWEQYTKnArG+pikSjzqCZBx5BBwo9UFsuQW6HsoyB/vheJHyHHRIn62aAS/WUvE70Yn0lDXpmbLnc4+jcQteOwyyQ49dzP2/9/cAIc8gi/dMRlIvguC++bEuTRi0jDeIbIBmmP9J6EA/upfGPEOB/b1w1aZlvWnrb1cSX6Y6aqM2FupVKqIlKUcPeHf1wPOofdYY6hDTyB8lUTOsdYzZI+4mjVxJIhL5xDvq7pDxHTQdR5hTdYpuJQ01cFpnGr84CTgta3Ou9L/eU9XC3ritFHhvcWsWenpySug6ZMmIRFeEJdIZhFIwtGofLavHvJSKETdmzGUsHfK34T/umz5JQRfvMbdSU=
+    - stage: Deploy
+      script:
+        - concurrently "npm run build" "gulp doc" && concurrently "npm run build:demo:aot:prod" "npm pack"
+      deploy:
         - provider: pages
           skip_cleanup: true
           on:
