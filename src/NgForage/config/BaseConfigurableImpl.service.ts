@@ -55,8 +55,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Bulk-set configuration options
-   * @param {NgForageOptions} opts The configuration
-   * @return {this}
+   * @param opts The configuration
    */
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
@@ -77,7 +76,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
    * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
    * @default IndexedDB, WebSQL and localStorage
-   * @return {string | string[]}
    */
   public get driver(): string | string[] {
     return 'driver' in this.config ? this.config.driver : this.baseConfig.driver;
@@ -92,7 +90,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * The name of the database. May appear during storage limit prompts. Useful to use the name of your app here.
    * In localStorage, this is used as a key prefix for all keys stored in localStorage.
    * @default ngForage
-   * @return {string}
    */
   public get name(): string {
     return 'name' in this.config ? this.config.name : this.baseConfig.name;
@@ -106,7 +103,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   /**
    * The size of the database in bytes. Used only in WebSQL for now.
    * @default 4980736
-   * @return {number}
    */
   public get size(): number {
     return 'size' in this.config ? this.config.size : this.baseConfig.size;
@@ -124,7 +120,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * Must be alphanumeric, with underscores.
    * Any non-alphanumeric characters will be converted to underscores.
    * @default ng_forage
-   * @return {string}
    */
   public get storeName(): string {
     return 'storeName' in this.config ? this.config.storeName : this.baseConfig.storeName;
@@ -138,7 +133,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   /**
    * The version of your database. May be used for upgrades in the future; currently unused.
    * @default 1.0
-   * @return {number}
    */
   public get version(): number {
     return 'version' in this.config ? this.config.version : this.baseConfig.version;
@@ -152,7 +146,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   /**
    * A description of the database, essentially for developer usage.
    * @default ""
-   * @return {string}
    */
   public get description(): string {
     return 'description' in this.config ? this.config.description : this.baseConfig.description;

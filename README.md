@@ -2,12 +2,13 @@
 
 localForage bindings for Angular 4 and 5
 
-[![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
-[![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/package.json)
-[![Version](https://img.shields.io/npm/v/ngforage.svg)](https://www.npmjs.com/package/ngforage)
-[![License](https://img.shields.io/npm/l/ngforage.svg)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=1.0.0)](https://coveralls.io/github/Alorel/ngforage?branch=1.0.0)
-[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=1.0.0)](https://travis-ci.org/Alorel/ngforage)
+[![Release](https://img.shields.io/github/release/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/releases)
+[![Pre-release](https://img.shields.io/github/release/Alorel/ngforage/all.svg?style=flat-square)](https://github.com/Alorel/ngforage/releases)
+[![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
+[![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
+[![License](https://img.shields.io/github/license/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=master)](https://coveralls.io/github/Alorel/ngforage?branch=master)
+[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=master)](https://travis-ci.org/Alorel/ngforage)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 
 # Table of Contents
@@ -17,8 +18,6 @@ localForage bindings for Angular 4 and 5
 
 
 - [Installation](#installation)
-  - [Local](#local)
-  - [UMD+CDN](#umdcdn)
 - [Types and polyfills](#types-and-polyfills)
 - [Importing the module](#importing-the-module)
 - [Usage](#usage)
@@ -34,27 +33,25 @@ localForage bindings for Angular 4 and 5
 
 # Installation
 
-## Local
+The metadata version for Angular's AOT compiler differs between Angular 4.x and Angular 5.x, therefore two flavours of this library are released:
 
-```sh
-npm install localforage
-```
+| *Flavour* | **Angular 4**                                                                              | **Angular 5**                                                                              |
+|-----------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| **Local** | npm install [@ngforage/ngforage-ng4](https://www.npmjs.com/package/@ngforage/ngforage-ng4) | npm install [@ngforage/ngforage-ng5](https://www.npmjs.com/package/@ngforage/ngforage-ng5) |
+| **CDN**   | Choose version [here](https://www.jsdelivr.com/package/npm/ngforage-ng4)                   | Choose version [here](https://www.jsdelivr.com/package/npm/ngforage-ng5)                   |
 
-## UMD+CDN
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/ngforage@1.0.0-rc.0"></script>
-<!-- The library is now available as "ngForage" -->
-```
+The UMD global name is `ngForage`.
 
 # Types and polyfills
 
-Ensure that the following is available globally:
+Ensure that the following are available globally:
 
 - `Promise`
 - `Object.assign`
 
 # Importing the module
+
+Replace `ngforage` with `@ngforage/ngforage-ng4` or `@ngforage/ngforage-ng5` depending on which version of Angular you're using.
 
 ```typescript
 import {NgModule} from "@angular/core";

@@ -37,10 +37,13 @@ function getHash(cfg: NgForageOptions): string {
   ].join('|');
 }
 
-/** @internal */
+/**
+ * Creates localForage instances
+ */
 @Injectable()
 export class InstanceFactory {
 
+  /** @internal */
   public static readonly provider: FactoryProvider = {
     provide: InstanceFactory,
     useFactory: InstanceFactory.factory
@@ -54,6 +57,7 @@ export class InstanceFactory {
     return instance;
   }
 
+  /** @internal */
   public getInstance(cfg: NgForageOptions): LocalForage {
     const hash = getHash(cfg);
 

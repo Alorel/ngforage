@@ -38,7 +38,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     useFactory: NgForageConfig.factory
   };
 
-  /** @internal */
   public static factory(): NgForageConfig {
     if (!instance) {
       instance = new NgForageConfig();
@@ -49,8 +48,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /**
    * Bulk-set configuration options
-   * @param {NgForageOptions} opts The configuration
-   * @return {this}
+   * @param opts The configuration
    */
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
@@ -67,7 +65,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   /**
    * Cache time in milliseconds
    * @default 300000
-   * @return {number}
    */
   public get cacheTime(): number {
     return config.cacheTime;
@@ -82,12 +79,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
    * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @default [
-   *    {@link NgForageConfig#DRIVER_INDEXEDDB IndexedDB},
-   *    {@link NgForageConfig#DRIVER_INDEXEDDB WebSQL},
-   *    {@link NgForageConfig#DRIVER_LOCALSTORAGE localStorage}
-   * ]
-   * @return {string | string[]}
    */
   public get driver(): string | string[] {
     if (typeof config.driver === 'string') {
@@ -105,7 +96,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * The name of the database. May appear during storage limit prompts. Useful to use the name of your app here.
    * In localStorage, this is used as a key prefix for all keys stored in localStorage.
    * @default ngForage
-   * @return {string}
    */
   public get name(): string {
     return config.name;
@@ -118,7 +108,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   /**
    * The size of the database in bytes. Used only in WebSQL for now.
    * @default 4980736
-   * @return {number}
    */
   public get size(): number {
     return config.size;
@@ -135,7 +124,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * Must be alphanumeric, with underscores.
    * Any non-alphanumeric characters will be converted to underscores.
    * @default ng_forage
-   * @return {string}
    */
   public get storeName(): string {
     return config.storeName;
@@ -148,7 +136,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   /**
    * The version of your database. May be used for upgrades in the future; currently unused.
    * @default 1.0
-   * @return {number}
    */
   public get version(): number {
     return config.version;
@@ -161,7 +148,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   /**
    * A description of the database, essentially for developer usage.
    * @default
-   * @return {string}
    */
   public get description(): string {
     return config.description;
@@ -178,8 +164,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * default drivers do. You’ll also want to resolve or reject promises.
    * Check any of the {@link https://github.com/mozilla/localForage/tree/master/src/drivers default drivers}
    * for an idea of how to implement your own, custom driver.
-   * @param {LocalForageDriver} spec Driver spec
-   * @return {Promise<void>}
+   * @param spec Driver spec
    */
   public defineDriver(spec: LocalForageDriver): Promise<void> {
     return lf.defineDriver(spec);
@@ -187,7 +172,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /**
    * Get the compiled configuration
-   * @return {NgForageOptions}
    */
   public get config(): NgForageOptions {
     return {

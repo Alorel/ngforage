@@ -12,8 +12,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
   /**
    * Gets an item from the storage library.
    * If the key does not exist, getItem() will return null.
-   * @param {string} key Data key
-   * @return {Promise<T>}
+   * @param key Data key
    */
   public getItem<T>(key: string): Promise<T> {
     return this.store.getItem<T>(key);
@@ -38,9 +37,8 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    *  <li>Uint32Array</li>
    *  <li>String</li>
    * </ul>
-   * @param {string} key Data key
-   * @param {T} data Data
-   * @return {Promise<T>}
+   * @param key Data key
+   * @param data Data
    */
   public setItem<T>(key: string, data: T): Promise<T> {
     return this.store.setItem<T>(key, data);
@@ -48,8 +46,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Removes the value of a key from the offline store.
-   * @param {string} key Data key
-   * @return {Promise<void>}
+   * @param key Data key
    */
   public removeItem(key: string): Promise<void> {
     return this.store.removeItem(key);
@@ -59,7 +56,6 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Removes every key from the database, returning it to a blank slate.
    *
    * clear() will remove <b>every item in the offline store</b>. Use this method with caution.
-   * @return {Promise<void>}
    */
   public clear(): Promise<void> {
     return this.store.clear();
@@ -67,7 +63,6 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Gets the number of keys in the offline store (i.e. its “length”).
-   * @return {Promise<number>}
    */
   public length(): Promise<number> {
     return this.store.length();
@@ -75,8 +70,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Get the name of a key based on its ID.
-   * @param {number} index
-   * @return {Promise<string>}
+   * @param index
    */
   public key(index: number): Promise<string> {
     return this.store.key(index);
@@ -84,7 +78,6 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Get the list of all keys in the datastore.
-   * @return {Promise<string[]>}
    */
   public keys(): Promise<string[]> {
     return this.store.keys();
@@ -99,8 +92,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    *   <li>iterationNumber - one-based number</li>
    * </ol>
    * iterate() supports early exit by returning non undefined value inside iteratorCallback callback.
-   * @param {(value: T, key: string, iterationNumber: number) => U} iteratee
-   * @return {Promise<U>}
+   * @param iteratee
    */
   public iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
     return this.store.iterate(iteratee);
@@ -108,7 +100,6 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Returns the name of the driver being used, or null if none can be used.
-   * @return {string}
    */
   public get activeDriver(): string {
     return this.store.driver();
@@ -116,8 +107,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * Check whether the given driver is supported/registered.
-   * @param {string} driver Driver name
-   * @return {boolean}
+   * @param driver Driver name
    */
   public supports(driver: string): boolean {
     return this.store.supports(driver);
@@ -127,7 +117,6 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Even though localForage queues up all of its data API method calls,
    * ready() provides a way to determine whether the asynchronous driver initialization process has finished.
    * That’s useful in cases like when we want to know which driver localForage has settled down using.
-   * @return {Promise<void>}
    */
   public ready(): Promise<void> {
     return this.store.ready();

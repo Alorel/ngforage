@@ -51,8 +51,7 @@ export interface BaseConfigurable {
 
   /**
    * Bulk-set configuration options
-   * @param {NgForageOptions} opts The configuration
-   * @return {this}
+   * @param opts The configuration
    */
   configure(opts: NgForageOptions): this;
 }

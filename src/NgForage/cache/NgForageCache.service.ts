@@ -57,8 +57,7 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
 
   /**
    * Retrieve data
-   * @param {string} key Data key
-   * @return {Promise<CachedItem<T>>}
+   * @param key Data key
    */
   public getCached<T>(key: string): Promise<CachedItem<T>> {
     const keys = calculateCacheKeys(key);
@@ -70,10 +69,9 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
 
   /**
    * Set data
-   * @param {string} key Data key
-   * @param {T} data Data to set
-   * @param {number} [cacheTime] Override cache set in {@link CacheConfigurable#cacheTime global or instance config}.
-   * @return {Promise<T>}
+   * @param key Data key
+   * @param data Data to set
+   * @param [cacheTime] Override cache set in {@link CacheConfigurable#cacheTime global or instance config}.
    */
   public setCached<T>(key: string, data: T, cacheTime?: number): Promise<T> {
     const keys = calculateCacheKeys(key);
@@ -87,8 +85,7 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
 
   /**
    * Remove data
-   * @param {string} key Data key
-   * @return {Promise<void>}
+   * @param key Data key
    */
   public removeCached(key: string): Promise<void> {
     const keys = calculateCacheKeys(key);
