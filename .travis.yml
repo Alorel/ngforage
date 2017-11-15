@@ -43,6 +43,9 @@ jobs:
     - <<: *std_job
       env:
         - CI_NG_VERSION=4
+      script:
+        - npm run build
+        - npm test
     - stage: Deploy
       script:
         - concurrently "npm run build" "gulp doc" "npm pack" && npm run build:demo:aot:prod
