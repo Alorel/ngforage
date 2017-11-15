@@ -40,6 +40,7 @@
     "@angular/compiler": "^4.4 || ^5.0",
     "@angular/compiler-cli": "^4.4 || ^5.0",
     "@angular/core": "^4.4 || ^5.0",
+    "@angular/http": "^4.4 || ^5.0",
     "@angular/forms": "^2.0.0-beta.12 || ^5.0.0-rc0",
     "@angular/cdk": "^2.0.0-beta.12 || ^5.0.0-rc0",
     "@angular/material": "^2.0.0-beta.12 || ^5.0.0-rc0",
