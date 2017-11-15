@@ -59,12 +59,32 @@ const TravisMgr = (() => {
       if (this.CI_NG_VERSION === '4') {
         return '^2.0.0-beta.12';
       }
+
+      return '^5.0.0-rc0';
     }
 
     get ngVersion() {
       if (this.CI_NG_VERSION === '4') {
         return '^4.4';
       }
+
+      return '^5.0';
+    }
+
+    get pkgName() {
+      if (this.CI_NG_VERSION === '4') {
+        return '@ngforage/ngforage-ng4';
+      }
+
+      return '@ngforage/ngforage-ng5';
+    }
+
+    get pkgDesc() {
+      if (this.CI_NG_VERSION === '4') {
+        return 'localForage bindings for Angular 4';
+      }
+
+      return 'localForage bindings for Angular 5';
     }
 
     /** @private */
@@ -89,13 +109,6 @@ const TravisMgr = (() => {
     /** @private */
     get readmeContents() {
       return fs.readFileSync(this.readmePath, 'utf8');
-    }
-
-    updateReadme() {
-      let newContents = this.readmeContents.replace(/branch=[^)]+/igm, `branch=${encodeURIComponent(this.version)}`);
-      newContents = newContents.replace('ngforage@package-version', `ngforage@${this.version}`);
-
-      fs.writeFileSync(this.readmePath, newContents);
     }
 
     writeMat() {
@@ -123,6 +136,15 @@ const TravisMgr = (() => {
 
       this.writePkgJson(json);
     }
+
+    writeNameDesc() {
+      const json = this.pkgJsonContents;
+
+      json.name = this.pkgName;
+      json.description = this.pkgDesc;
+
+      this.writePkgJson(json);
+    }
   }
 
   return new TravisMgr();
@@ -130,12 +152,7 @@ const TravisMgr = (() => {
 
 function isKnownCommand(cmd) {
   return [
-    'backup-pkg',
-    'restore-pkg',
     'set-version',
-    'backup-readme',
-    'restore-readme',
-    'update-readme'
   ].includes(cmd);
 }
 
@@ -158,21 +175,6 @@ if (!cmds.length) {
 for (const cmd of cmds) {
   console.log(`Running ${cmd}`);
   switch (cmd) {
-    case 'backup-readme':
-      TravisMgr.backUpReadme();
-      break;
-    case 'restore-readme':
-      TravisMgr.restoreReadme();
-      break;
-    case 'update-readme':
-      TravisMgr.updateReadme();
-      break;
-    case 'backup-pkg':
-      TravisMgr.backUpPkg();
-      break;
-    case 'restore-pkg':
-      TravisMgr.restorePkg();
-      break;
     case 'set-version':
       if (TravisMgr.matVersion) {
         console.log(`Setting material version to ${TravisMgr.matVersion}`);
@@ -187,6 +189,16 @@ for (const cmd of cmds) {
       } else {
         console.log(`Skipping ng version replacement`);
       }
+
+      if (!TravisMgr.pkgName || !TravisMgr.pkgDesc) {
+        console.error('pkgName/pkgDesc absent');
+        process.exit(1);
+      } else {
+        console.log(`Setting package name to ${TravisMgr.pkgName}`);
+        console.log(`Setting package description to ${TravisMgr.pkgDesc}`);
+        TravisMgr.writeNameDesc();
+      }
+
       break;
   }
 }

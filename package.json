@@ -1,4 +1,6 @@
 {
+  "name": "ngforage",
+  "description": "localForage bindings for Angular 4 and 5",
   "version": "1.0.0",
   "browser": "dist/umd/index.js",
   "jsdelivr": "dist/umd/index.min.js",
@@ -17,7 +19,6 @@
     "tslint:fix": "tslint -p ./tsconfig.tslint.json --fix -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts'",
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
-    "prepack": "node ci/TravisMgr.js update-readme",
     "snyk:wizard": "snyk wizard --peer",
     "prepare": "snyk protect --peer",
     "precommit": "npm run tslint:fix",
@@ -28,24 +29,24 @@
     "typescript-lazy-get-decorator": "^1.0"
   },
   "peerDependencies": {
-    "@angular/common": "^4.4 || ^5.0",
-    "@angular/core": "^4.4 || ^5.0",
+    "@angular/common": "^5.0",
+    "@angular/core": "^5.0",
     "rxjs": "^5.5",
     "tslib": "^1.8",
     "zone.js": ">=0.8.4 <1.0"
   },
   "devDependencies": {
-    "@angular/animations": "^4.4 || ^5.0",
-    "@angular/cdk": "^2.0.0-beta.12 || ^5.0.0-rc0",
-    "@angular/common": "^4.4 || ^5.0",
-    "@angular/compiler": "^4.4 || ^5.0",
-    "@angular/compiler-cli": "^4.4 || ^5.0",
-    "@angular/core": "^4.4 || ^5.0",
-    "@angular/forms": "^2.0.0-beta.12 || ^5.0.0-rc0",
-    "@angular/http": "^4.4 || ^5.0",
-    "@angular/material": "^2.0.0-beta.12 || ^5.0.0-rc0",
-    "@angular/platform-browser": "^4.4 || ^5.0",
-    "@angular/platform-browser-dynamic": "^4.4 || ^5.0",
+    "@angular/animations": "^5.0",
+    "@angular/cdk": "^5.0.0-rc0",
+    "@angular/common": "^5.0",
+    "@angular/compiler": "^5.0",
+    "@angular/compiler-cli": "^5.0",
+    "@angular/core": "^5.0",
+    "@angular/forms": "^5.0.0-rc0",
+    "@angular/http": "^5.0",
+    "@angular/material": "^5.0.0-rc0",
+    "@angular/platform-browser": "^5.0",
+    "@angular/platform-browser-dynamic": "^5.0",
     "@compodoc/compodoc": "^1.0.4",
     "@types/jasmine": "^2.6",
     "@types/karma": "^1.7",
@@ -60,8 +61,6 @@
     "autoprefixer": "^7.1",
     "awesome-typescript-loader": "^3.2",
     "bluebird": "^3.5",
-    "commander": "^2.11.0",
-    "concurrently": "^3.5.0",
     "copy-webpack-plugin": "^4.2.0",
     "core.js": "^0.4.2",
     "coveralls": "^3.0",
@@ -117,8 +116,6 @@
     "webpack-rxjs-externals": "^1.0",
     "zone.js": ">=0.8.4 <1.0"
   },
-  "name": "ngforage",
-  "description": "localForage bindings for Angular 4 and 5",
   "private": false,
   "author": {
     "name": "Arturas Molcanovas",
@@ -134,5 +131,8 @@
     "url": "https://github.com/Alorel/ngforage/issues"
   },
   "snyk": true,
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
