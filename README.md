@@ -10,6 +10,8 @@ localForage bindings for Angular 4 and 5
 [![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=master)](https://travis-ci.org/Alorel/ngforage)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 
+Demo and documentation available [here](https://alorel.github.io/ngforage/).
+
 # Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->

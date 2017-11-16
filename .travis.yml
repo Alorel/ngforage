@@ -21,8 +21,6 @@ std_job: &std_job
 
 npm_deploy: &npm_deploy
   stage: Deploy
-  env:
-    - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
   script: npm run build
   before_install: node ./ci/TravisMgr.js set-version
   deploy:
@@ -70,9 +68,11 @@ jobs:
     - <<: *npm_deploy
       env:
         - CI_NG_VERSION=5
+        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - <<: *npm_deploy
       env:
         - CI_NG_VERSION=4
+        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - stage: Deploy
       before_install: node ./ci/TravisMgr.js set-version
       env:
