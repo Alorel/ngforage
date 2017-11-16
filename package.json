@@ -1,5 +1,5 @@
 {
-  "name": "ngforage",
+  "name": "@ngforage/ngforage-ng5",
   "description": "localForage bindings for Angular 4 and 5",
   "version": "1.0.3",
   "browser": "dist/umd/index.js",
