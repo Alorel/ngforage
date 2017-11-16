@@ -3,7 +3,6 @@
 localForage bindings for Angular 4 and 5
 
 [![Release](https://img.shields.io/github/release/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/releases)
-[![Pre-release](https://img.shields.io/github/release/Alorel/ngforage/all.svg?style=flat-square)](https://github.com/Alorel/ngforage/releases)
 [![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![License](https://img.shields.io/github/license/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
