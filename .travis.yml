@@ -8,7 +8,7 @@ stages:
   - name: Deploy
     if: tag IS present
 
-before_cache: rm -rf ./node_modules/puppeteer
+before_cache: rm -rf ./node_modules/puppeteer/.local-chromium
 
 cache:
   directories:
