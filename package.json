@@ -1,7 +1,7 @@
 {
   "name": "ngforage",
   "description": "localForage bindings for Angular 4 and 5",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "browser": "dist/umd/index.js",
   "jsdelivr": "dist/umd/index.min.js",
   "main": "dist/es5/index.js",
