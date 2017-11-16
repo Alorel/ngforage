@@ -21,8 +21,7 @@
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
     "snyk:wizard": "snyk wizard --peer",
     "prepare": "snyk protect --peer",
-    "precommit": "npm run tslint:fix",
-    "prepush": "npm run tslint"
+    "precommit": "npm run tslint:fix"
   },
   "dependencies": {
     "localforage": "^1.5",
