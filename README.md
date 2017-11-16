@@ -3,14 +3,13 @@
 localForage bindings for Angular 4 and 5
 
 [![Release](https://img.shields.io/github/release/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/releases)
+[![Demo and documentation](https://img.shields.io/badge/Documentation-demo-brightgreen.svg?style=flat-square)](https://github.com/Alorel/ngforage/releases)
+[![License](https://img.shields.io/github/license/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=master)](https://travis-ci.org/Alorel/ngforage)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=master)](https://coveralls.io/github/Alorel/ngforage?branch=master)
 [![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
-[![License](https://img.shields.io/github/license/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=master)](https://coveralls.io/github/Alorel/ngforage?branch=master)
-[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=master)](https://travis-ci.org/Alorel/ngforage)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
-
-Demo and documentation available [here](https://alorel.github.io/ngforage/).
 
 # Table of Contents
 
@@ -39,7 +38,7 @@ The metadata version for Angular's AOT compiler differs between Angular 4.x and 
 | *Flavour* | **Angular 4**                                                                              | **Angular 5**                                                                              |
 |-----------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
 | **Local** | npm install [@ngforage/ngforage-ng4](https://www.npmjs.com/package/@ngforage/ngforage-ng4) | npm install [@ngforage/ngforage-ng5](https://www.npmjs.com/package/@ngforage/ngforage-ng5) |
-| **CDN**   | Choose version [here](https://www.jsdelivr.com/package/npm/ngforage-ng4)                   | Choose version [here](https://www.jsdelivr.com/package/npm/ngforage-ng5)                   |
+| **CDN**   | [![CDN link](https://data.jsdelivr.com/v1/package/npm/@ngforage/ngforage-ng4/badge)](https://www.jsdelivr.com/package/npm/@ngforage/ngforage-ng4)                   | [![CDN link](https://data.jsdelivr.com/v1/package/npm/@ngforage/ngforage-ng5/badge)](https://www.jsdelivr.com/package/npm/@ngforage/ngforage-ng5)                   |
 
 The UMD global name is `ngForage`.
 
