@@ -14,27 +14,36 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgForageModule} from '../NgForage/NgForage.module';
 import {DemoComponent} from './DemoComponent/DemoComponent';
+import {ImgLink} from './ImgLink/ImgLink';
+import {GitHubIcon} from './NgfIcon/GitHubIcon';
+import {NgfIcon} from './NgfIcon/NgfIcon';
 import {NgfKeyComponent} from './NgfKeyComponent/NgfKeyComponent';
 
 @NgModule({
-  bootstrap: [DemoComponent],
-  declarations: [DemoComponent, NgfKeyComponent],
-  entryComponents: [DemoComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    NgForageModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatCardModule,
-    MatListModule,
-    MatToolbarModule,
-    MatMenuModule
-  ]
-})
+            bootstrap:       [DemoComponent],
+            declarations:    [
+              ImgLink,
+              GitHubIcon,
+              DemoComponent,
+              NgfKeyComponent,
+              NgfIcon
+            ],
+            entryComponents: [DemoComponent],
+            imports:         [
+              BrowserModule,
+              BrowserAnimationsModule,
+              ReactiveFormsModule,
+              NgForageModule,
+              MatButtonModule,
+              MatInputModule,
+              MatFormFieldModule,
+              MatSelectModule,
+              MatCardModule,
+              MatListModule,
+              MatToolbarModule,
+              MatMenuModule
+            ]
+          })
 export class DemoModule {
 
 }

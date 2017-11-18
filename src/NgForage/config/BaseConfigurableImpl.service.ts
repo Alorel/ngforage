@@ -14,60 +14,33 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
   protected readonly baseConfig: NgForageConfig;
-
   /** @internal */
   protected readonly config: NgForageOptions = {};
-
   /** @internal */
-  protected storeNeedsRecalc = true;
-
-  /** @internal */
-  private readonly fact: InstanceFactory;
-
+  protected storeNeedsRecalc                 = true;
   /** @internal */
   private _store: LocalForage;
+  /** @internal */
+  private readonly fact: InstanceFactory;
 
   /** @internal */
   public constructor(@Inject(NgForageConfig) config: NgForageConfig,
                      @Inject(InstanceFactory) instanceFactory: InstanceFactory) {
     this.baseConfig = config;
-    this.fact = instanceFactory;
-  }
-
-  /** @internal */
-  private get finalConfig(): NgForageOptions {
-    return Object.assign(
-      {},
-      this.baseConfig.config,
-      this.config
-    );
-  }
-
-  /** @internal */
-  protected get store(): LocalForage {
-    if (this.storeNeedsRecalc || !this._store) {
-      this._store = this.fact.getInstance(this.finalConfig);
-      this.storeNeedsRecalc = false;
-    }
-
-    return this._store;
+    this.fact       = instanceFactory;
   }
 
   /**
-   * Bulk-set configuration options
-   * @param opts The configuration
+   * A description of the database, essentially for developer usage.
+   * @default ""
    */
-  public configure(opts: NgForageOptions): this {
-    opts = opts || {};
+  public get description(): string {
+    return 'description' in this.config ? this.config.description : this.baseConfig.description;
+  }
 
-    if ('driver' in opts && opts.driver.slice) {
-      opts.driver = opts.driver.slice();
-    }
-
-    Object.assign(this.config, opts);
-    this.storeNeedsRecalc = true;
-
-    return this;
+  public set description(v: string) {
+    this.config.description = v;
+    this.storeNeedsRecalc   = true;
   }
 
   /**
@@ -82,7 +55,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   }
 
   public set driver(v: string | string[]) {
-    this.config.driver = v;
+    this.config.driver    = v;
     this.storeNeedsRecalc = true;
   }
 
@@ -96,7 +69,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   }
 
   public set name(v: string) {
-    this.config.name = v;
+    this.config.name      = v;
     this.storeNeedsRecalc = true;
   }
 
@@ -109,7 +82,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   }
 
   public set size(v: number) {
-    this.config.size = v;
+    this.config.size      = v;
     this.storeNeedsRecalc = true;
   }
 
@@ -139,32 +112,55 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   }
 
   public set version(v: number) {
-    this.config.version = v;
+    this.config.version   = v;
     this.storeNeedsRecalc = true;
+  }
+
+  /** @internal */
+  protected get store(): LocalForage {
+    if (this.storeNeedsRecalc || !this._store) {
+      this._store           = this.fact.getInstance(this.finalConfig);
+      this.storeNeedsRecalc = false;
+    }
+
+    return this._store;
+  }
+
+  /** @internal */
+  private get finalConfig(): NgForageOptions {
+    return Object.assign(
+      {},
+      this.baseConfig.config,
+      this.config
+    );
   }
 
   /**
-   * A description of the database, essentially for developer usage.
-   * @default ""
+   * Bulk-set configuration options
+   * @param opts The configuration
    */
-  public get description(): string {
-    return 'description' in this.config ? this.config.description : this.baseConfig.description;
-  }
+  public configure(opts: NgForageOptions): this {
+    opts = opts || {};
 
-  public set description(v: string) {
-    this.config.description = v;
+    if ('driver' in opts && opts.driver.slice) {
+      opts.driver = opts.driver.slice();
+    }
+
+    Object.assign(this.config, opts);
     this.storeNeedsRecalc = true;
+
+    return this;
   }
 
   /** @internal */
   public toJSON(): Partial<NgForageOptions> {
     return {
       description: this.description,
-      driver: this.driver,
-      name: this.name,
-      size: this.size,
-      storeName: this.storeName,
-      version: this.version
+      driver:      this.driver,
+      name:        this.name,
+      size:        this.size,
+      storeName:   this.storeName,
+      version:     this.version
     };
   }
 }

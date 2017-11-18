@@ -9,14 +9,14 @@ import {NgForage} from './main/NgForage.service';
  * NgForage core module
  */
 @NgModule({
-  providers: [
-    NgForage,
-    NgForageCache,
-    <Provider>BaseConfigurableImpl,
-    NgForageConfig.provider,
-    InstanceFactory.provider
-  ]
-})
+            providers: [
+              NgForage,
+              NgForageCache,
+              <Provider>BaseConfigurableImpl,
+              NgForageConfig.provider,
+              InstanceFactory.provider
+            ]
+          })
 export class NgForageModule {
 
 }

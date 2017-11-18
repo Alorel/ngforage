@@ -9,13 +9,13 @@ describe('NgForage core service', () => {
 
   const clear = done => {
     inst.clear()
-      .then(done)
-      .catch(done);
+        .then(done)
+        .catch(done);
   };
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    inst = TestBed.get(NgForage);
+    inst        = TestBed.get(NgForage);
     inst.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
   });
 
@@ -23,18 +23,18 @@ describe('NgForage core service', () => {
 
   it('#ready', done => {
     inst.ready()
-      .then(r => expect(r).toBeUndefined())
-      .then(done)
-      .catch(done);
+        .then(r => expect(r).toBeUndefined())
+        .then(done)
+        .catch(done);
   });
 
   it('#activeDriver', done => {
     inst.ready()
-      .then(() => {
-        expect(inst.activeDriver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
-        done();
-      })
-      .catch(done);
+        .then(() => {
+          expect(inst.activeDriver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
+          done();
+        })
+        .catch(done);
   });
 
   describe('#keys', () => {
@@ -43,21 +43,21 @@ describe('NgForage core service', () => {
 
     it('Should be empty initially', done => {
       inst.keys()
-        .then(k => {
-          expect(k).toEqual([]);
-          done();
-        })
-        .catch(done);
+          .then(k => {
+            expect(k).toEqual([]);
+            done();
+          })
+          .catch(done);
     });
 
     it('And contain foo afterwards', done => {
       inst.setItem('foo', 'bar')
-        .then(() => inst.keys())
-        .then(k => {
-          expect(k).toEqual(['foo']);
-          done();
-        })
-        .catch(done);
+          .then(() => inst.keys())
+          .then(k => {
+            expect(k).toEqual(['foo']);
+            done();
+          })
+          .catch(done);
     });
   });
 

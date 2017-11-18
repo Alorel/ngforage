@@ -115,6 +115,7 @@
     "uuid": "^3.1.0",
     "webpack": "^3.8",
     "webpack-angular-externals": "^1.0",
+    "webpack-pwa-manifest": "^3.3.2",
     "webpack-rxjs-externals": "^1.0",
     "zone.js": ">=0.8.4 <1.0"
   },

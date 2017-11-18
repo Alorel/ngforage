@@ -10,12 +10,82 @@ import {addToStringTag} from '../util/addToStringTag';
 export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**
+   * Returns the name of the driver being used, or null if none can be used.
+   */
+  public get activeDriver(): string {
+    return this.store.driver();
+  }
+
+  /**
+   * Removes every key from the database, returning it to a blank slate.
+   *
+   * clear() will remove <b>every item in the offline store</b>. Use this method with caution.
+   */
+  public clear(): Promise<void> {
+    return this.store.clear();
+  }
+
+  /**
    * Gets an item from the storage library.
    * If the key does not exist, getItem() will return null.
    * @param key Data key
    */
   public getItem<T>(key: string): Promise<T> {
     return this.store.getItem<T>(key);
+  }
+
+  /**
+   * Iterate over all value/key pairs in datastore.
+   * <i>iteratee</i> is called once for each pair, with the following arguments:
+   * <ol>
+   *   <li>Value</li>
+   *   <li>Key</li>
+   *   <li>iterationNumber - one-based number</li>
+   * </ol>
+   * iterate() supports early exit by returning non undefined value inside iteratorCallback callback.
+   * @param iteratee
+   */
+  public iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
+    return this.store.iterate(iteratee);
+  }
+
+  /**
+   * Get the name of a key based on its ID.
+   * @param index
+   */
+  public key(index: number): Promise<string> {
+    return this.store.key(index);
+  }
+
+  /**
+   * Get the list of all keys in the datastore.
+   */
+  public keys(): Promise<string[]> {
+    return this.store.keys();
+  }
+
+  /**
+   * Gets the number of keys in the offline store (i.e. its “length”).
+   */
+  public length(): Promise<number> {
+    return this.store.length();
+  }
+
+  /**
+   * Even though localForage queues up all of its data API method calls,
+   * ready() provides a way to determine whether the asynchronous driver initialization process has finished.
+   * That’s useful in cases like when we want to know which driver localForage has settled down using.
+   */
+  public ready(): Promise<void> {
+    return this.store.ready();
+  }
+
+  /**
+   * Removes the value of a key from the offline store.
+   * @param key Data key
+   */
+  public removeItem(key: string): Promise<void> {
+    return this.store.removeItem(key);
   }
 
   /**
@@ -45,81 +115,11 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
   }
 
   /**
-   * Removes the value of a key from the offline store.
-   * @param key Data key
-   */
-  public removeItem(key: string): Promise<void> {
-    return this.store.removeItem(key);
-  }
-
-  /**
-   * Removes every key from the database, returning it to a blank slate.
-   *
-   * clear() will remove <b>every item in the offline store</b>. Use this method with caution.
-   */
-  public clear(): Promise<void> {
-    return this.store.clear();
-  }
-
-  /**
-   * Gets the number of keys in the offline store (i.e. its “length”).
-   */
-  public length(): Promise<number> {
-    return this.store.length();
-  }
-
-  /**
-   * Get the name of a key based on its ID.
-   * @param index
-   */
-  public key(index: number): Promise<string> {
-    return this.store.key(index);
-  }
-
-  /**
-   * Get the list of all keys in the datastore.
-   */
-  public keys(): Promise<string[]> {
-    return this.store.keys();
-  }
-
-  /**
-   * Iterate over all value/key pairs in datastore.
-   * <i>iteratee</i> is called once for each pair, with the following arguments:
-   * <ol>
-   *   <li>Value</li>
-   *   <li>Key</li>
-   *   <li>iterationNumber - one-based number</li>
-   * </ol>
-   * iterate() supports early exit by returning non undefined value inside iteratorCallback callback.
-   * @param iteratee
-   */
-  public iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
-    return this.store.iterate(iteratee);
-  }
-
-  /**
-   * Returns the name of the driver being used, or null if none can be used.
-   */
-  public get activeDriver(): string {
-    return this.store.driver();
-  }
-
-  /**
    * Check whether the given driver is supported/registered.
    * @param driver Driver name
    */
   public supports(driver: string): boolean {
     return this.store.supports(driver);
-  }
-
-  /**
-   * Even though localForage queues up all of its data API method calls,
-   * ready() provides a way to determine whether the asynchronous driver initialization process has finished.
-   * That’s useful in cases like when we want to know which driver localForage has settled down using.
-   */
-  public ready(): Promise<void> {
-    return this.store.ready();
   }
 }
 

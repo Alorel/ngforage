@@ -15,7 +15,7 @@ interface CacheKeys {
 /** @internal */
 function calculateCacheKeys(mainKey: string): CacheKeys {
   return {
-    data: `${mainKey}_data`,
+    data:   `${mainKey}_data`,
     expiry: `${mainKey}_expiry`
   };
 }
@@ -60,27 +60,11 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * @param key Data key
    */
   public getCached<T>(key: string): Promise<CachedItem<T>> {
-    const keys = calculateCacheKeys(key);
-    const dataPromise = this.getItem<T>(keys.data);
+    const keys          = calculateCacheKeys(key);
+    const dataPromise   = this.getItem<T>(keys.data);
     const expiryPromise = this.getItem<number>(keys.expiry);
 
     return Promise.all([dataPromise, expiryPromise]).then(toCachedItem);
-  }
-
-  /**
-   * Set data
-   * @param key Data key
-   * @param data Data to set
-   * @param [cacheTime] Override cache set in {@link CacheConfigurable#cacheTime global or instance config}.
-   */
-  public setCached<T>(key: string, data: T, cacheTime?: number): Promise<T> {
-    const keys = calculateCacheKeys(key);
-    const expiry = typeof cacheTime === 'number' ? cacheTime : this.cacheTime;
-
-    const dataPromise = this.setItem<T>(keys.data, data);
-    const expiryPromise = this.setItem<number>(keys.expiry, Date.now() + expiry);
-
-    return Promise.all([dataPromise, expiryPromise]).then(head);
   }
 
   /**
@@ -90,10 +74,26 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
   public removeCached(key: string): Promise<void> {
     const keys = calculateCacheKeys(key);
 
-    const dataPromise = this.removeItem(keys.data);
+    const dataPromise   = this.removeItem(keys.data);
     const expiryPromise = this.removeItem(keys.expiry);
 
     return Promise.all([dataPromise, expiryPromise]).then(toVoid);
+  }
+
+  /**
+   * Set data
+   * @param key Data key
+   * @param data Data to set
+   * @param [cacheTime] Override cache set in {@link CacheConfigurable#cacheTime global or instance config}.
+   */
+  public setCached<T>(key: string, data: T, cacheTime?: number): Promise<T> {
+    const keys   = calculateCacheKeys(key);
+    const expiry = typeof cacheTime === 'number' ? cacheTime : this.cacheTime;
+
+    const dataPromise   = this.setItem<T>(keys.data, data);
+    const expiryPromise = this.setItem<number>(keys.expiry, Date.now() + expiry);
+
+    return Promise.all([dataPromise, expiryPromise]).then(head);
   }
 
   /** @internal */

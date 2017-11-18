@@ -1,6 +1,7 @@
 doctype html
 - var lang = 'en';
-- var polyfillURL = 'https://cdn.polyfill.io/v2/polyfill.min.js?rum=0&features=default,document.head,Object.freeze';
+- var polys = ['default', 'Object.freeze'].join(encodeURIComponent(','));
+- var polyfillURL = 'https://cdn.polyfill.io/v2/polyfill.min.js?rum=0&features=' + polys;
 html(lang=lang)
   head
     title NgForage Demo

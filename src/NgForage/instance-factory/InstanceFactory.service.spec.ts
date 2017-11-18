@@ -17,7 +17,7 @@ describe('Instance factory', () => {
 
     const getConf = (overrides: Partial<NgForageOptions> = {}): NgForageOptions => {
       const inst: NgForageConfig = TestBed.get(NgForageConfig);
-      const defaults = _.cloneDeep(inst.config);
+      const defaults             = _.cloneDeep(inst.config);
 
       inst.configure(overrides);
       const conf = inst.config;

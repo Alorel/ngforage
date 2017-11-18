@@ -10,13 +10,13 @@ let instance: NgForageConfig;
 
 /** @internal */
 const config: NgForageOptions = {
-  cacheTime: 300000,
+  cacheTime:   300000,
   description: '',
-  driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
-  name: 'ngForage',
-  size: 4980736,
-  storeName: 'ng_forage',
-  version: 1,
+  driver:      [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
+  name:        'ngForage',
+  size:        4980736,
+  storeName:   'ng_forage',
+  version:     1
 };
 
 /**
@@ -26,41 +26,16 @@ const config: NgForageOptions = {
 export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /** The IndexedDB driver */
-  public static readonly DRIVER_INDEXEDDB: string = lf.INDEXEDDB;
-  /** The WebSQL driver */
-  public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
+  public static readonly DRIVER_INDEXEDDB: string    = lf.INDEXEDDB;
   /** The localStorage driver */
   public static readonly DRIVER_LOCALSTORAGE: string = lf.LOCALSTORAGE;
-
+  /** The WebSQL driver */
+  public static readonly DRIVER_WEBSQL: string       = lf.WEBSQL;
   /** @internal */
-  public static readonly provider: FactoryProvider = {
-    provide: NgForageConfig,
+  public static readonly provider: FactoryProvider   = {
+    provide:    NgForageConfig,
     useFactory: NgForageConfig.factory
   };
-
-  public static factory(): NgForageConfig {
-    if (!instance) {
-      instance = new NgForageConfig();
-    }
-
-    return instance;
-  }
-
-  /**
-   * Bulk-set configuration options
-   * @param opts The configuration
-   */
-  public configure(opts: NgForageOptions): this {
-    opts = opts || {};
-
-    if ('driver' in opts && opts.driver.slice) {
-      opts.driver = opts.driver.slice();
-    }
-
-    Object.assign(config, opts);
-
-    return this;
-  }
 
   /**
    * Cache time in milliseconds
@@ -72,6 +47,33 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   public set cacheTime(t: number) {
     config.cacheTime = t;
+  }
+
+  /**
+   * Get the compiled configuration
+   */
+  public get config(): NgForageOptions {
+    return {
+      cacheTime:   this.cacheTime,
+      description: this.description,
+      driver:      this.driver,
+      name:        this.name,
+      size:        this.size,
+      storeName:   this.storeName,
+      version:     this.version
+    };
+  }
+
+  /**
+   * A description of the database, essentially for developer usage.
+   * @default
+   */
+  public get description(): string {
+    return config.description;
+  }
+
+  public set description(v: string) {
+    config.description = v;
   }
 
   /**
@@ -145,16 +147,28 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     config.version = v;
   }
 
-  /**
-   * A description of the database, essentially for developer usage.
-   * @default
-   */
-  public get description(): string {
-    return config.description;
+  public static factory(): NgForageConfig {
+    if (!instance) {
+      instance = new NgForageConfig();
+    }
+
+    return instance;
   }
 
-  public set description(v: string) {
-    config.description = v;
+  /**
+   * Bulk-set configuration options
+   * @param opts The configuration
+   */
+  public configure(opts: NgForageOptions): this {
+    opts = opts || {};
+
+    if ('driver' in opts && opts.driver.slice) {
+      opts.driver = opts.driver.slice();
+    }
+
+    Object.assign(config, opts);
+
+    return this;
   }
 
   /**
@@ -168,21 +182,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    */
   public defineDriver(spec: LocalForageDriver): Promise<void> {
     return lf.defineDriver(spec);
-  }
-
-  /**
-   * Get the compiled configuration
-   */
-  public get config(): NgForageOptions {
-    return {
-      cacheTime: this.cacheTime,
-      description: this.description,
-      driver: this.driver,
-      name: this.name,
-      size: this.size,
-      storeName: this.storeName,
-      version: this.version
-    };
   }
 
   /** @internal */

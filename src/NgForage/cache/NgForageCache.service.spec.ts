@@ -18,9 +18,9 @@ describe('NgForageCache Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule(def);
 
-    conf = TestBed.get(NgForageConfig);
-    defaults = _.cloneDeep(conf.config);
-    cache = TestBed.get(NgForageCache);
+    conf         = TestBed.get(NgForageConfig);
+    defaults     = _.cloneDeep(conf.config);
+    cache        = TestBed.get(NgForageCache);
     cache.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
   });
 
@@ -67,7 +67,7 @@ describe('NgForageCache Service', () => {
 
   describe('Full CRD', () => {
     const key: string = uuid.v4();
-    const data = Math.random();
+    const data        = Math.random();
 
     it('Item should not exist initially', async done => {
       const item = await cache.getCached<string>(key);

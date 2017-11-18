@@ -14,8 +14,8 @@ export class CachedItemImpl<T> implements CachedItem<T> {
   }
 
   @LazyGetter()
-  public get hasData(): boolean {
-    return this.data !== null;
+  public get expired(): boolean {
+    return this.expiresIn === 0;
   }
 
   @LazyGetter()
@@ -24,17 +24,17 @@ export class CachedItemImpl<T> implements CachedItem<T> {
   }
 
   @LazyGetter()
-  public get expired(): boolean {
-    return this.expiresIn === 0;
+  public get hasData(): boolean {
+    return this.data !== null;
   }
 
   public toJSON(): CachedItem<T> {
     return {
-      data: this.data,
-      expired: this.expired,
-      expires: this.expires,
+      data:      this.data,
+      expired:   this.expired,
+      expires:   this.expires,
       expiresIn: this.expiresIn,
-      hasData: this.hasData
+      hasData:   this.hasData
     };
   }
 }

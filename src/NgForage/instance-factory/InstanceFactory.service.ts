@@ -45,7 +45,7 @@ export class InstanceFactory {
 
   /** @internal */
   public static readonly provider: FactoryProvider = {
-    provide: InstanceFactory,
+    provide:    InstanceFactory,
     useFactory: InstanceFactory.factory
   };
 

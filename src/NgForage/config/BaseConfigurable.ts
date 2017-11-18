@@ -6,6 +6,11 @@ import {NgForageOptions} from './NgForageOptions';
 export interface BaseConfigurable {
 
   /**
+   * A description of the database, essentially for developer usage.
+   * @default ""
+   */
+  description: string;
+  /**
    * The preferred driver(s) to use.
    * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
@@ -13,20 +18,17 @@ export interface BaseConfigurable {
    * @default IndexedDB, WebSQL & localStorage
    */
   driver: string | string[];
-
   /**
    * The name of the database. May appear during storage limit prompts. Useful to use the name of your app here.
    * In localStorage, this is used as a key prefix for all keys stored in localStorage.
    * @default ngForage
    */
   name: string;
-
   /**
    * The size of the database in bytes. Used only in WebSQL for now.
    * @default 4980736
    */
   size: number;
-
   /**
    * The name of the datastore.
    * In IndexedDB this is the dataStore,
@@ -36,18 +38,11 @@ export interface BaseConfigurable {
    * @default ng_forage
    */
   storeName: string;
-
   /**
    * The version of your database. May be used for upgrades in the future; currently unused.
    * @default 1.0
    */
   version: number;
-
-  /**
-   * A description of the database, essentially for developer usage.
-   * @default ""
-   */
-  description: string;
 
   /**
    * Bulk-set configuration options
