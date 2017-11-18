@@ -2,6 +2,8 @@ if (!('WEBPACK_COMPILE_MODE') in process.env) {
   throw new Error('Webpack compile mode not found');
 }
 
+const forceUglify = 'WEBPACK_FORCE_UGLIFY' in process.env;
+
 process.chdir(__dirname);
 require('tmp').setGracefulCleanup();
 
@@ -17,6 +19,7 @@ const ExtractTextPlugin              = require('extract-text-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const WebpackPwaManifest             = require('webpack-pwa-manifest');
 const FaviconsWebpackPlugin          = require('favicons-webpack-plugin');
+const WorkboxPlugin                  = require('workbox-webpack-plugin');
 
 class WebpackFactory {
   
@@ -137,8 +140,11 @@ class WebpackFactory {
                                       })
     ];
     
-    if (this.mode === MODE.DIST_UMD) {
+    if (this.mode === MODE.DIST_UMD || forceUglify) {
       out.push(this.uglifyJSPlugin);
+    }
+    
+    if (this.mode === MODE.DIST_UMD) {
       out.push(new webpack.BannerPlugin({
                                           banner:    this.banner,
                                           raw:       true,
@@ -205,7 +211,7 @@ class WebpackFactory {
         new FaviconsWebpackPlugin({
                                     logo:            require.resolve('./src/demo/img/48x45.png'),
                                     inject:          true,
-                                    prefix:          this.mode === MODE.DEMO_JIT ? '' : '[hash]-',
+                                    prefix:          this.mode === MODE.DEMO_JIT ? 'ico-' : 'ico-[hash]-',
                                     persistentCache: true,
                                     icons:           {
                                       android:      false,
@@ -225,7 +231,7 @@ class WebpackFactory {
                                 template: require.resolve('./src/demo/demo.pug'),
                                 minify:   false,
                                 inject:   'body',
-                                preload:  ['**/*.js'],
+                                preload:  ['**/*'],
                                 prefetch: []
                               }),
         new HtmlWebpackIncludeAssetsPlugin({
@@ -235,7 +241,53 @@ class WebpackFactory {
                                              },
                                              append: true
                                            }),
-        new ResourceHintWebpackPlugin()
+        new ResourceHintWebpackPlugin(),
+        new WorkboxPlugin({
+                            globDirectory:                 path.join(__dirname, '.demo'),
+                            globPatterns:                  ['**/*.{html,js,css,png,json,svg,ico,otf,eot,ttf,woff,woff2}'],
+                            maximumFileSizeToCacheInBytes: Number.MAX_VALUE,
+                            directoryIndex:                'index.html',
+                            globIgnores:                   [
+                              '**/bootstrap.min.css',
+                              '**/bootstrap-card.css',
+                              '**/compodoc.css',
+                              '**/font-awesome.min.css',
+                              '**/original.css',
+                              '**/postmark.css',
+                              '**/prism.css',
+                              '**/readthedocs.css',
+                              '**/reset.css',
+                              '**/stripe.css',
+                              '**/tablesort.css',
+                              '**/vagrant.css'
+                            ],
+                            runtimeCaching:                (() => {
+                              const _      = require('lodash');
+                              const caches = {
+                                cacheFirst:           [
+                                  /cdn\.polyfill\.io/i,
+                                  /fonts\.googleapis\.com/i
+                                ],
+                                staleWhileRevalidate: [
+                                  /fonts\.gstatic\.com/i
+                                ],
+                                networkFirst:         [
+                                  /travis-ci\.org\/Alorel\/ngforage/i,
+                                  /img\.shields\.io/i,
+                                  /coveralls\.io/i,
+                                  /badges\.greenkeeper\.io/i
+                                ]
+                              };
+            
+                              return _.reduce(caches, (out, urls, handler) => {
+                                for (const urlPattern of urls) {
+                                  out.push({urlPattern, handler});
+                                }
+                                return out;
+                              }, []);
+                            })(),
+                            swDest:                        path.join(__dirname, '.demo', 'sw.js')
+                          })
       );
     }
     

@@ -16,3 +16,8 @@ $theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 @include mat-card-theme($theme);
 @include mat-toolbar-theme($theme);
 @include mat-menu-theme($theme);
+@include mat-snack-bar-theme($theme);
+
+.cdk-overlay-pane {
+  bottom: 0;
+}

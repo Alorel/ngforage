@@ -1,10 +1,12 @@
-const gulp = require('gulp');
+const gulp   = require('gulp');
 const Uglify = require('./util/uglify');
-const filter = require('gulp-filter');
 
 gulp.task('uglify:demo', () => {
-  return gulp.src('./.demo/**/*.js')
-    .pipe(filter(f => !f.path.includes('documentation')))
-    .pipe(new Uglify())
-    .pipe(gulp.dest('./.demo'));
+  const src = [
+    './.demo/sw.js',
+    './.demo/workbox-sw*.js'
+  ];
+  return gulp.src(src)
+             .pipe(new Uglify({ecma: 6}))
+             .pipe(gulp.dest('./.demo'));
 });

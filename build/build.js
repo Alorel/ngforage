@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const seq = require('gulp-sequence');
+const seq  = require('gulp-sequence');
 
 gulp.task('build', cb => {
   seq(
@@ -15,14 +15,14 @@ gulp.task('build', cb => {
 });
 
 const aotTask = isProd => {
-  const lastStep = [
+  const finalTask = [
     'clean:tmp:aot',
     'clean:tmp:pre-aot',
     'clean:demo:map'
   ];
   
   if (isProd) {
-    lastStep.push('uglify:demo');
+    finalTask.push('uglify:demo');
   }
   
   return cb => {
@@ -35,10 +35,10 @@ const aotTask = isProd => {
       'inline-templates',
       'copy:demo-to-pre-aot',
       'compile:demo:aot:prepare',
-      `compile:demo:aot:finalise`,
-      lastStep,
+      `compile:demo:aot:finalise${isProd ? ':prod' : ''}`,
+      finalTask,
       cb
-    )
+    );
   };
 };
 
@@ -50,5 +50,5 @@ gulp.task('build:demo:jit', cb => {
     'clean:demo',
     'compile:demo',
     cb
-  )
+  );
 });

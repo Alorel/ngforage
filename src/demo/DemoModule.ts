@@ -8,6 +8,7 @@ import {
   MatListModule,
   MatMenuModule,
   MatSelectModule,
+  MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import {ImgLink} from './ImgLink/ImgLink';
 import {GitHubIcon} from './NgfIcon/GitHubIcon';
 import {NgfIcon} from './NgfIcon/NgfIcon';
 import {NgfKeyComponent} from './NgfKeyComponent/NgfKeyComponent';
+import {ServiceWorkerRegistrator} from './ServiceWorkerRegistrator';
 
 @NgModule({
             bootstrap:       [DemoComponent],
@@ -41,8 +43,10 @@ import {NgfKeyComponent} from './NgfKeyComponent/NgfKeyComponent';
               MatCardModule,
               MatListModule,
               MatToolbarModule,
-              MatMenuModule
-            ]
+              MatMenuModule,
+              MatSnackBarModule
+            ],
+            providers:       [ServiceWorkerRegistrator]
           })
 export class DemoModule {
 

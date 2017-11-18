@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -14,6 +14,7 @@ import {NgForageCache} from '../../NgForage/cache/NgForageCache.service';
 import {NgForageConfig} from '../../NgForage/config/NgForageConfig.service';
 import {NgForage} from '../../NgForage/main/NgForage.service';
 import {ImgLinkSpec} from '../ImgLink/ImgLink';
+import {ServiceWorkerRegistrator} from '../ServiceWorkerRegistrator';
 import {StaticConf} from '../StaticConf';
 
 @Component({
@@ -23,10 +24,10 @@ import {StaticConf} from '../StaticConf';
              styleUrls:       ['./DemoComponent.scss'],
              templateUrl:     './DemoComponent.pug'
            })
-export class DemoComponent implements OnInit, OnDestroy {
+export class DemoComponent implements OnInit, OnDestroy, AfterViewInit {
   private nameSub: Subscription;
 
-  public constructor(private ngf: NgForage) {
+  public constructor(private readonly ngf: NgForage, private readonly sw: ServiceWorkerRegistrator) {
 
   }
 
@@ -148,5 +149,9 @@ export class DemoComponent implements OnInit, OnDestroy {
         this.ngf.configure({name, driver});
         this.liveNgf.next(this.ngf);
       });
+  }
+
+  public ngAfterViewInit(): void {
+    this.sw.register();
   }
 }

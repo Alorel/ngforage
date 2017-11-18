@@ -1,11 +1,11 @@
-const gulp = require('gulp');
-const spawn = require('./util/x-spawn');
-const {join} = require('path');
+const gulp            = require('gulp');
+const spawn           = require('./util/x-spawn');
+const {join}          = require('path');
 const TsConfigFactory = require('./util/tsconfig-factory');
 
 const binDir = join(process.cwd(), 'node_modules', '.bin');
 
-const ngcPath = join(binDir, 'ngc');
+const ngcPath     = join(binDir, 'ngc');
 const webpackPath = join(binDir, 'webpack');
 
 const MODE = require('./util/compile-mode');
@@ -16,7 +16,8 @@ const webpackEnv = (env, prod = false) => {
   };
   
   if (prod) {
-    ret.NODE_ENV = 'production';
+    ret.NODE_ENV             = 'production';
+    ret.WEBPACK_FORCE_UGLIFY = '1';
   }
   
   return {env: ret};
@@ -43,6 +44,14 @@ gulp.task('compile:demo:aot:finalise', () => {
     webpackPath,
     ['--color', '--config', 'webpack.config.js'],
     webpackEnv(MODE.DEMO_AOT)
+  );
+});
+
+gulp.task('compile:demo:aot:finalise:prod', () => {
+  return spawn(
+    webpackPath,
+    ['--color', '--config', 'webpack.config.js'],
+    webpackEnv(MODE.DEMO_AOT, true)
   );
 });
 
