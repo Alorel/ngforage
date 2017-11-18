@@ -15,6 +15,7 @@ const path                           = require('path');
 const webpack                        = require('webpack');
 const ExtractTextPlugin              = require('extract-text-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const WebpackPwaManifest             = require('webpack-pwa-manifest');
 
 class WebpackFactory {
   
@@ -177,6 +178,29 @@ class WebpackFactory {
                                 }
                               ]),
         new ExtractTextPlugin(`[name]${this.mode === MODE.DEMO_JIT ? '' : '.[contenthash]'}.css`),
+        new WebpackPwaManifest({
+                                 name:             'NgForage demo and documentation',
+                                 short_name:       'NgForage',
+                                 description:      'NgForage demo and documentation',
+                                 background_color: '#ffffff',
+                                 'theme_color':    '#673ab7',
+                                 ios:              true,
+                                 fingerprints:     this.mode !== MODE.DEMO_JIT,
+                                 icons:            (() => {
+                                   const fs  = require('fs');
+                                   const dir = path.join(__dirname, 'src', 'demo', 'img');
+            
+                                   return fs.readdirSync(dir, 'utf8')
+                                            .filter(p => /\d+x\d+\.png$/.test(p))
+                                            .map(f => {
+                                              const match = f.match(/(\d+x\d+)/);
+                                              return {
+                                                src:  path.join(dir, f),
+                                                size: match[1] || match[0]
+                                              };
+                                            });
+                                 })()
+                               }),
         new HtmlWebpackPlugin({
                                 filename: 'index.html',
                                 template: require.resolve('./src/demo/demo.pug'),
