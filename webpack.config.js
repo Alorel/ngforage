@@ -16,6 +16,7 @@ const webpack                        = require('webpack');
 const ExtractTextPlugin              = require('extract-text-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const WebpackPwaManifest             = require('webpack-pwa-manifest');
+const FaviconsWebpackPlugin          = require('favicons-webpack-plugin');
 
 class WebpackFactory {
   
@@ -201,6 +202,24 @@ class WebpackFactory {
                                             });
                                  })()
                                }),
+        new FaviconsWebpackPlugin({
+                                    logo:            require.resolve('./src/demo/img/48x45.png'),
+                                    inject:          true,
+                                    prefix:          this.mode === MODE.DEMO_JIT ? '' : '[hash]-',
+                                    persistentCache: true,
+                                    icons:           {
+                                      android:      false,
+                                      appleIcon:    false,
+                                      appleStartup: false,
+                                      coast:        false,
+                                      favicons:     true,
+                                      firefox:      false,
+                                      opengraph:    false,
+                                      twitter:      false,
+                                      yandex:       false,
+                                      windows:      false
+                                    }
+                                  }),
         new HtmlWebpackPlugin({
                                 filename: 'index.html',
                                 template: require.resolve('./src/demo/demo.pug'),
