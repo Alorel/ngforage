@@ -72,15 +72,9 @@ class TsConfigFactory {
   }
 
   get awesomeTypescriptLoaderOptions() {
-    if ([MODE.DEMO_JIT].includes(this.mode)) {
-      return {
-        useCache: true,
-        cacheDirectory: '.awcache/jit'
-      };
-    } else {
-      return {
-        useCache: false
-      }
+    return {
+      useCache: true,
+      cacheDirectory: `.awcache/${this.mode}`
     }
   }
 

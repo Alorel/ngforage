@@ -13,6 +13,8 @@ const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 class WebpackFactory {
 
@@ -33,11 +35,11 @@ class WebpackFactory {
         };
       case MODE.DEMO_JIT:
         return {
-          demo: './src/demo/demo.ts'
+          demo: ['./src/demo/demo.ts', './src/demo/demo.scss']
         };
       case MODE.DEMO_AOT:
         return {
-          demo: './src/demo/demo.aot.ts'
+          demo: ['./src/demo/demo.aot.ts', './src/demo/demo.scss']
         }
     }
   }
@@ -114,13 +116,21 @@ class WebpackFactory {
             force: true
           }
         ]),
+        new ExtractTextPlugin(`[name]${this.mode === MODE.DEMO_JIT ? '' : '.[contenthash]'}.css`),
         new HtmlWebpackPlugin({
           filename: 'index.html',
           template: require.resolve('./src/demo/demo.pug'),
           minify: false,
           inject: 'body',
-          preload: ['**/*.*'],
+          preload: ['**/*.js'],
           prefetch: []
+        }),
+        new HtmlWebpackIncludeAssetsPlugin({
+          assets: {
+            path: '',
+            glob: '**demo.css'
+          },
+          append: true
         }),
         new ResourceHintWebpackPlugin()
       );
@@ -189,7 +199,23 @@ class WebpackFactory {
     }
   }
 
-  get conf() {
+  get rules() {
+    const scssLoaderBase = [
+      {
+        loader: 'postcss-loader',
+        options: {
+          plugins: () => [require('autoprefixer')({
+            browsers: 'last 1000 versions',
+            grid: true
+          })]
+        }
+      },
+      {
+        loader: 'sass-loader',
+        options: {outputStyle: 'compressed'}
+      }
+    ];
+
     const rules = [
       {
         test: /\.pug$/,
@@ -204,25 +230,14 @@ class WebpackFactory {
         ]
       },
       {
-        test: /\.s?css$/,
-        use: [
-          'raw-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              outputStyle: 'compressed'
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [require('autoprefixer')({
-                browsers: 'last 1000 versions',
-                grid: true
-              })]
-            }
-          }
-        ]
+        test: /demo\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          use: ['css-loader'].concat(scssLoaderBase)
+        })
+      },
+      {
+        test: path => /\.s?css$/i.test(path) && !path.endsWith('demo.scss'),
+        use: ['raw-loader'].concat(scssLoaderBase)
       },
       {
         test: /\.ts$/,
@@ -253,6 +268,10 @@ class WebpackFactory {
       })
     }
 
+    return rules;
+  }
+
+  get conf() {
     const out = {
       devtool: this.devtool,
       cache: true,
@@ -270,7 +289,7 @@ class WebpackFactory {
       },
       plugins: this.plugins,
       module: {
-        rules
+        rules: this.rules
       }
     };
 
