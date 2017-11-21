@@ -9,8 +9,6 @@ stages:
   - name: Deploy
     if: tag IS present
 
-before_cache: rm -rf ./node_modules/puppeteer
-
 cache:
   directories:
     - node_modules
