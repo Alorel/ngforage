@@ -106,7 +106,7 @@
     "sass-loader": "^6.0",
     "semver": "^5.4.1",
     "snyk": "^1.49.3",
-    "static-server": "^2.0",
+    "static-server": "^3.0.0",
     "tmp": "^0.0.33",
     "ts-node": "^3.3.0",
     "tslib": "^1.8",
