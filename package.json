@@ -77,7 +77,7 @@
     "gulp-htmlmin": "^4.0.0",
     "gulp-inline-ng2-template": "^4.0",
     "gulp-rename": "^1.2",
-    "gulp-sequence": "^0.4",
+    "gulp-sequence": "^1.0.0",
     "gulp-tar": "^2.0.0",
     "html-webpack-include-assets-plugin": "^1.0.2",
     "html-webpack-plugin": "^2.30.1",
