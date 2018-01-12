@@ -5,70 +5,88 @@ export default config => {
   process.env.CHROME_BIN           = puppeteer.executablePath();
   process.env.WEBPACK_COMPILE_MODE = require('./build/util/compile-mode').TEST;
 
-  config.set({
-               // Base path that will be used to resolve all patterns (eg. files, exclude).
-               basePath: './',
+  const reports = ['text-summary'];
 
-               // Frameworks to use.
-               // Available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-               frameworks: ['jasmine'],
+  const finalConfig: any = {
+    // Base path that will be used to resolve all patterns (eg. files, exclude).
+    basePath: './',
 
-               // List of files to load in the browser.
-               files: [
-                 'karma-test-entry.ts'
-               ],
+    // Frameworks to use.
+    // Available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
 
-               // Preprocess matching files before serving them to the browser.
-               // Available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-               preprocessors: {
-                 'karma-test-entry.ts': ['webpack', 'sourcemap']
-               },
+    // List of files to load in the browser.
+    files: [
+      'karma-test-entry.ts'
+    ],
 
-               webpack: require('./webpack.config.js'),
+    // Preprocess matching files before serving them to the browser.
+    // Available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      'karma-test-entry.ts': ['webpack', 'sourcemap']
+    },
 
-               // Webpack please don't spam the console when running in karma!
-               webpackMiddleware: {
-                 noInfo: true,
-                 // Use stats to turn off verbose output.
-                 stats:  {
-                   chunks: false
-                 }
-               },
+    webpack: require('./webpack.config.js'),
 
-               mime: {
-                 'text/x-typescript': ['ts']
-               },
+    // Webpack please don't spam the console when running in karma!
+    webpackMiddleware: {
+      noInfo: true,
+      // Use stats to turn off verbose output.
+      stats:  {
+        chunks: false
+      }
+    },
 
-               coverageIstanbulReporter: {
-                 fixWebpackSourcePaths: true,
-                 reports:               ['text-summary', 'html', 'lcovonly']
-               },
+    mime: {
+      'text/x-typescript': ['ts']
+    },
 
-               // Test results reporter to use.
-               // Possible values: 'dots', 'progress'.
-               // Available reporters: https://npmjs.org/browse/keyword/karma-reporter
-               reporters: ['mocha', 'coverage-istanbul'],
+    coverageIstanbulReporter: {
+      fixWebpackSourcePaths: true,
+      reports
+    },
 
-               // Level of logging
-               // Possible values:
-               // - config.LOG_DISABLE
-               // - config.LOG_ERROR
-               // - config.LOG_WARN
-               // - config.LOG_INFO
-               // - config.LOG_DEBUG
-               logLevel: config.LOG_WARN,
+    // Test results reporter to use.
+    // Possible values: 'dots', 'progress'.
+    // Available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['mocha', 'coverage-istanbul'],
 
-               // Start these browsers.
-               // Available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-               browsers: ['ChromeHeadless'],
+    // Level of logging
+    // Possible values:
+    // - config.LOG_DISABLE
+    // - config.LOG_ERROR
+    // - config.LOG_WARN
+    // - config.LOG_INFO
+    // - config.LOG_DEBUG
+    logLevel: config.LOG_WARN,
 
-               browserConsoleLogOptions: {
-                 level:    'log',
-                 terminal: true
-               },
+    // Start these browsers.
+    // Available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['ChromeHeadless'],
 
-               colors: true,
+    browserConsoleLogOptions: {
+      level:    'log',
+      terminal: true
+    },
 
-               singleRun: true
-             });
+    colors: true,
+
+    singleRun: true
+  };
+
+  if (process.env.CI) {
+    reports.push('lcovonly');
+    finalConfig.browsers        = ['ChromeHeadlessTravis'];
+    finalConfig.customLaunchers = {
+      ChromeHeadlessTravis: {
+        base:  'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    };
+  } else {
+    reports.push('html');
+    finalConfig.browsers = ['ChromeHeadless'];
+  }
+
+  config.set(finalConfig);
 };
