@@ -12,3 +12,4 @@
 /README.md.bak
 /documentation/
 /*.tar.gz
+/package-lock.json
