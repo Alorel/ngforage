@@ -38,10 +38,7 @@ jobs:
       script:
         - snyk test --peer
         - npm run tslint
-      before_script: greenkeeper-lockfile-update
-      after_script:
-        - greenkeeper-lockfile-upload
-        - snyk monitor --peer
+      after_script: snyk monitor --peer
       env:
         - LINT=1
         - SNYK_GK=1
@@ -65,7 +62,6 @@ jobs:
         - npm run build
         - npm run build:demo:aot
         - npm test
-      before_script: greenkeeper-lockfile-update
     - <<: *std_job
       env:
         - CI_NG_VERSION=4
