@@ -19,8 +19,6 @@
     "tslint:fix": "tslint -p ./tsconfig.tslint.json --fix -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts'",
     "build:demo:aot": "gulp build:demo:aot",
     "build:demo:aot:prod": "gulp build:demo:aot:prod",
-    "snyk:wizard": "snyk wizard --peer",
-    "prepare": "snyk protect --peer",
     "precommit": "npm run tslint:fix"
   },
   "dependencies": {
@@ -50,7 +48,7 @@
     "@types/jasmine": "^2.6",
     "@types/karma": "^1.7",
     "@types/lodash": "^4.14.80",
-    "@types/node": "^8.0.52",
+    "@types/node": "^9.3.0",
     "@types/puppeteer": "^0.13.0",
     "@types/uuid": "^3.4.3",
     "@types/webpack": "^3.0",
@@ -104,7 +102,6 @@
     "rxjs": "^5.5",
     "sass-loader": "^6.0",
     "semver": "^5.4.1",
-    "snyk": "^1.49.3",
     "static-server": "^3.0.0",
     "tmp": "^0.0.33",
     "ts-node": "^4.0.0",
@@ -134,7 +131,6 @@
   "bugs": {
     "url": "https://github.com/Alorel/ngforage/issues"
   },
-  "snyk": true,
   "license": "MIT",
   "publishConfig": {
     "access": "public"
