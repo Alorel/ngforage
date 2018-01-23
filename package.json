@@ -61,7 +61,7 @@
     "copy-webpack-plugin": "^4.2.1",
     "core.js": "^0.4.2",
     "coveralls": "^3.0",
-    "cross-spawn": "^5.1",
+    "cross-spawn": "^6.0.0",
     "css-loader": "^0.28.7",
     "custom-tslint-formatters": "^2.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
