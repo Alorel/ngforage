@@ -1,8 +1,7 @@
-import * as puppeteer from 'puppeteer';
+import {set} from 'lodash';
 
 // tslint:disable-next-line:no-default-export
 export default config => {
-  process.env.CHROME_BIN           = puppeteer.executablePath();
   process.env.WEBPACK_COMPILE_MODE = require('./build/util/compile-mode').TEST;
 
   const reports = ['text-summary'];
@@ -10,10 +9,11 @@ export default config => {
   const finalConfig: any = {
     // Base path that will be used to resolve all patterns (eg. files, exclude).
     basePath: './',
+    browserNoActivityTimeout: 30000,
 
     // Frameworks to use.
     // Available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['detectBrowsers', 'jasmine'],
 
     // List of files to load in the browser.
     files: [
@@ -32,7 +32,7 @@ export default config => {
     webpackMiddleware: {
       noInfo: true,
       // Use stats to turn off verbose output.
-      stats:  {
+      stats: {
         chunks: false
       }
     },
@@ -44,6 +44,56 @@ export default config => {
     coverageIstanbulReporter: {
       fixWebpackSourcePaths: true,
       reports
+    },
+
+    detectBrowsers: {
+      plugins: [
+        'karma-chrome-launcher',
+        'karma-firefox-launcher'
+      ],
+      usePhantomJS: false,
+      postDetection(availableBrowsers: string[]): string[] {
+        if (!availableBrowsers || !availableBrowsers.length) {
+          throw new Error('Please install Chrome/Firefox');
+        }
+        availableBrowsers = availableBrowsers.map((b: string) => b.toLowerCase());
+
+        const out: string[] = [];
+
+        if (availableBrowsers.indexOf('chrome') !== -1) {
+          if (process.env.CI) {
+            out.push('ChromeHeadlessTravis');
+            set(
+              finalConfig,
+              'customLaunchers.ChromeHeadlessTravis',
+              {
+                base: 'ChromeHeadless',
+                flags: ['--no-sandbox']
+              }
+            );
+          } else {
+            out.push('ChromeHeadless');
+          }
+        }
+
+        if (availableBrowsers.indexOf('firefox') !== -1) {
+          set(
+            finalConfig,
+            'customLaunchers.FirefoxHeadless',
+            {
+              base: 'Firefox',
+              flags: ['-headless']
+            }
+          );
+          out.push('FirefoxHeadless');
+        }
+
+        if (!out.length) {
+          throw new Error('Please install Chrome/Firefox');
+        }
+
+        return out;
+      }
     },
 
     // Test results reporter to use.
@@ -62,10 +112,9 @@ export default config => {
 
     // Start these browsers.
     // Available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['ChromeHeadless'],
 
     browserConsoleLogOptions: {
-      level:    'log',
+      level: 'log',
       terminal: true
     },
 
@@ -76,16 +125,8 @@ export default config => {
 
   if (process.env.CI) {
     reports.push('lcovonly');
-    finalConfig.browsers        = ['ChromeHeadlessTravis'];
-    finalConfig.customLaunchers = {
-      ChromeHeadlessTravis: {
-        base:  'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
-    };
   } else {
     reports.push('html');
-    finalConfig.browsers = ['ChromeHeadless'];
   }
 
   config.set(finalConfig);

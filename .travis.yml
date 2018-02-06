@@ -1,6 +1,7 @@
 sudo: false
 language: node_js
 node_js: 9
+group: travis_latest
 
 std_stage_name: &std_stage_name Test & Lint
 
@@ -12,9 +13,13 @@ stages:
 cache:
   directories:
     - node_modules
+before_cache: rm -rf node_modules/.cache
 
 std_job: &std_job
   stage: *std_stage_name
+  addons:
+    chrome: stable
+    firefox: latest
   after_success: cat ./coverage/lcov.info | coveralls
   before_install: node ./ci/TravisMgr.js set-version
 
@@ -40,7 +45,6 @@ jobs:
         - LINT=1
         - SNYK_GK=0
         - CI_NG_VERSION=5
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - <<: *std_job
       env:
         - CI_NG_VERSION=5
@@ -57,16 +61,13 @@ jobs:
     - <<: *npm_deploy
       env:
         - CI_NG_VERSION=5
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - <<: *npm_deploy
       env:
         - CI_NG_VERSION=4
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - stage: Deploy
       before_install: node ./ci/TravisMgr.js set-version
       env:
         - CI_NG_VERSION=5
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
       script: gulp site
       deploy:
         - provider: pages

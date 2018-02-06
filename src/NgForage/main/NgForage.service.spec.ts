@@ -9,13 +9,13 @@ describe('NgForage core service', () => {
 
   const clear = done => {
     inst.clear()
-        .then(done)
-        .catch(done);
+      .then(done)
+      .catch(done);
   };
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    inst        = TestBed.get(NgForage);
+    inst = TestBed.get(NgForage);
     inst.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
   });
 
@@ -23,18 +23,18 @@ describe('NgForage core service', () => {
 
   it('#ready', done => {
     inst.ready()
-        .then(r => expect(r).toBeUndefined())
-        .then(done)
-        .catch(done);
+      .then(r => expect(r).toBeUndefined())
+      .then(done)
+      .catch(done);
   });
 
   it('#activeDriver', done => {
     inst.ready()
-        .then(() => {
-          expect(inst.activeDriver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
-          done();
-        })
-        .catch(done);
+      .then(() => {
+        expect(inst.activeDriver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
+        done();
+      })
+      .catch(done);
   });
 
   describe('#keys', () => {
@@ -43,21 +43,21 @@ describe('NgForage core service', () => {
 
     it('Should be empty initially', done => {
       inst.keys()
-          .then(k => {
-            expect(k).toEqual([]);
-            done();
-          })
-          .catch(done);
+        .then(k => {
+          expect(k).toEqual([]);
+          done();
+        })
+        .catch(done);
     });
 
     it('And contain foo afterwards', done => {
       inst.setItem('foo', 'bar')
-          .then(() => inst.keys())
-          .then(k => {
-            expect(k).toEqual(['foo']);
-            done();
-          })
-          .catch(done);
+        .then(() => inst.keys())
+        .then(k => {
+          expect(k).toEqual(['foo']);
+          done();
+        })
+        .catch(done);
     });
   });
 
@@ -105,8 +105,8 @@ describe('NgForage core service', () => {
     ];
 
     for (const s of drivers) {
-      it(`Should support ${s}`, () => {
-        expect(inst.supports(s)).toBe(true);
+      it(`Should return boolean for support of ${s}`, () => {
+        expect(typeof inst.supports(s)).toBe('boolean');
       });
     }
 
@@ -117,22 +117,27 @@ describe('NgForage core service', () => {
 
   describe('#key', () => {
     afterAll(clear);
+    let k1: string;
+    let k2: string;
+
     beforeAll(async done => {
       await inst.clear();
       await inst.setItem('bar', 1);
       await inst.setItem('foo', 1);
+      k1 = await inst.key(0);
+      k2 = await inst.key(1);
 
       done();
     });
 
-    it('Key 1 should be foo', async done => {
-      expect(await inst.key(0)).toBe('bar');
-      done();
+    it('Key 1 should be either foo or bar', () => {
+      expect(k1 === 'foo' || k1 === 'bar').toBe(true);
     });
 
-    it('Key 2 should be bar', async done => {
-      expect(await inst.key(1)).toBe('foo');
-      done();
+    it('Key 2 should be foo or bar, but not the same as key 2', () => {
+      let expct = k1 === 'foo' ? 'bar' : 'foo';
+
+      expect(k2).toBe(expct);
     });
   });
 
@@ -161,8 +166,11 @@ describe('NgForage core service', () => {
         done();
       });
 
-      it('array should contain both items', () => {
-        expect(out).toEqual(['bar:1', 'foo:1']);
+      it('array should contain bar:1', () => {
+        expect(out).toContain('bar:1');
+      });
+      it('array should contain foo:1', () => {
+        expect(out).toContain('foo:1');
       });
     });
 
