@@ -24,6 +24,21 @@ std_job: &std_job
   after_success: cat ./coverage/lcov.info | coveralls
   before_install: node ./ci/TravisMgr.js set-version
 
+osx_job: &osx_job
+  <<: *std_job
+  os: osx
+  osx_image: xcode9.2
+  sudo: required
+  addons:
+    apt:
+      packages:
+        - xvfb
+  before_script:
+    - "export DISPLAY=:99.0"
+    - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+    - sleep 3
+  script: npm test -- --browsers Safari
+
 npm_deploy: &npm_deploy
   stage: Deploy
   script: npm run build
@@ -47,35 +62,12 @@ jobs:
         - LINT=1
         - SNYK_GK=0
         - CI_NG_VERSION=5
-    - <<: *std_job
-      os: osx
-      osx_image: xcode9.2
-      sudo: required
-      addons: &osxAddons
-        apt:
-          packages:
-            - xvfb
+    - <<: *osx_job
       env:
         - CI_NG_VERSION=5
-      script:
-        - &osxTest npm test -- --browsers Safari
-        - npm run build
-        - npm run build:demo:aot
-      before_script: &guiTest
-        - "export DISPLAY=:99.0"
-        - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
-        - sleep 3
-    - <<: *std_job
-      os: osx
-      osx_image: xcode9.2
-      sudo: required
-      addons: *osxAddons
+    - <<: *osx_job
       env:
         - CI_NG_VERSION=4
-      script:
-        - *osxTest
-        - npm run build
-      before_script: *guiTest
     - <<: *std_job
       env:
         - CI_NG_VERSION=5
