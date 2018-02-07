@@ -1,5 +1,3 @@
-import {set} from 'lodash';
-
 // tslint:disable-next-line:no-default-export
 export default config => {
   process.env.WEBPACK_COMPILE_MODE = require('./build/util/compile-mode').TEST;
@@ -13,7 +11,7 @@ export default config => {
 
     // Frameworks to use.
     // Available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['detectBrowsers', 'jasmine'],
+    frameworks: ['jasmine'],
 
     // List of files to load in the browser.
     files: [
@@ -46,56 +44,6 @@ export default config => {
       reports
     },
 
-    detectBrowsers: {
-      plugins: [
-        'karma-chrome-launcher',
-        'karma-firefox-launcher'
-      ],
-      usePhantomJS: false,
-      postDetection(availableBrowsers: string[]): string[] {
-        if (!availableBrowsers || !availableBrowsers.length) {
-          throw new Error('Please install Chrome/Firefox');
-        }
-        availableBrowsers = availableBrowsers.map((b: string) => b.toLowerCase());
-
-        const out: string[] = [];
-
-        if (availableBrowsers.indexOf('chrome') !== -1) {
-          if (process.env.CI) {
-            out.push('ChromeHeadlessTravis');
-            set(
-              finalConfig,
-              'customLaunchers.ChromeHeadlessTravis',
-              {
-                base: 'ChromeHeadless',
-                flags: ['--no-sandbox']
-              }
-            );
-          } else {
-            out.push('ChromeHeadless');
-          }
-        }
-
-        if (availableBrowsers.indexOf('firefox') !== -1) {
-          set(
-            finalConfig,
-            'customLaunchers.FirefoxHeadless',
-            {
-              base: 'Firefox',
-              flags: ['-headless']
-            }
-          );
-          out.push('FirefoxHeadless');
-        }
-
-        if (!out.length) {
-          throw new Error('Please install Chrome/Firefox');
-        }
-
-        return out;
-      }
-    },
-
     // Test results reporter to use.
     // Possible values: 'dots', 'progress'.
     // Available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -120,12 +68,27 @@ export default config => {
 
     colors: true,
 
-    singleRun: true
+    singleRun: true,
+
+    customLaunchers: {
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: ['-headless']
+      }
+    },
+
+    browsers: ['FirefoxHeadless']
   };
 
   if (process.env.CI) {
     reports.push('lcovonly');
+    finalConfig.browsers.push('ChromeHeadlessTravis');
+    finalConfig.customLaunchers.ChromeHeadlessTravis = {
+      base: 'ChromeHeadless',
+      flags: ['--no-sandbox']
+    };
   } else {
+    finalConfig.browsers.push('ChromeHeadless');
     reports.push('html');
   }
 
