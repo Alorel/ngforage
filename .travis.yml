@@ -17,6 +17,7 @@ before_cache: rm -rf node_modules/.cache
 
 std_job: &std_job
   stage: *std_stage_name
+  os: linux
   addons:
     chrome: stable
     firefox: latest
@@ -39,12 +40,33 @@ npm_deploy: &npm_deploy
 jobs:
   include:
     - stage: *std_stage_name
+      os: linux
       script: npm run tslint
       before_install: node ./ci/TravisMgr.js set-version
       env:
         - LINT=1
         - SNYK_GK=0
         - CI_NG_VERSION=5
+    - <<: *std_job
+      os: osx
+      env:
+        - CI_NG_VERSION=5
+      script:
+        - npm run build
+        - npm run build:demo:aot
+        - npm test -- --browsers FirefoxHeadless ChromeHeadlessTravis Safari
+      before_script: &guiTest
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+        - sleep 3
+    - <<: *std_job
+      os: osx
+      env:
+        - CI_NG_VERSION=4
+      script:
+        - npm run build
+        - npm test -- --browsers FirefoxHeadless ChromeHeadlessTravis Safari
+      before_script: *guiTest
     - <<: *std_job
       env:
         - CI_NG_VERSION=5

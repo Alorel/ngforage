@@ -6,8 +6,6 @@ localForage bindings for Angular 4 and 5
 [![Demo and documentation](https://img.shields.io/badge/Documentation-demo-brightgreen.svg?style=flat-square)](https://alorel.github.io/ngforage/)
 [![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=master)](https://travis-ci.org/Alorel/ngforage)
 [![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=master)](https://coveralls.io/github/Alorel/ngforage?branch=master)
-[![Dependencies](https://img.shields.io/david/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
-[![Peer Dependencies](https://img.shields.io/david/peer/Alorel/ngforage.svg?style=flat-square)](https://github.com/Alorel/ngforage/blob/master/package.json)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 
 # Table of Contents
