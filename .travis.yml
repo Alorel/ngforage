@@ -1,6 +1,7 @@
 sudo: false
 language: node_js
 node_js: 9
+group: travis_latest
 
 std_stage_name: &std_stage_name Test & Lint
 
@@ -12,11 +13,31 @@ stages:
 cache:
   directories:
     - node_modules
+before_cache: rm -rf node_modules/.cache
 
 std_job: &std_job
   stage: *std_stage_name
+  os: linux
+  addons: &browsers
+    chrome: stable
+    firefox: latest
   after_success: cat ./coverage/lcov.info | coveralls
   before_install: node ./ci/TravisMgr.js set-version
+
+osx_job: &osx_job
+  <<: *std_job
+  os: osx
+  osx_image: xcode9.2
+  sudo: required
+  addons:
+    apt:
+      packages:
+        - xvfb
+  before_script:
+    - "export DISPLAY=:99.0"
+    - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+    - sleep 3
+  script: npm test -- --browsers Safari
 
 npm_deploy: &npm_deploy
   stage: Deploy
@@ -34,13 +55,19 @@ npm_deploy: &npm_deploy
 jobs:
   include:
     - stage: *std_stage_name
+      os: linux
       script: npm run tslint
       before_install: node ./ci/TravisMgr.js set-version
       env:
         - LINT=1
         - SNYK_GK=0
         - CI_NG_VERSION=5
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+    - <<: *osx_job
+      env:
+        - CI_NG_VERSION=5
+    - <<: *osx_job
+      env:
+        - CI_NG_VERSION=4
     - <<: *std_job
       env:
         - CI_NG_VERSION=5
@@ -57,16 +84,13 @@ jobs:
     - <<: *npm_deploy
       env:
         - CI_NG_VERSION=5
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - <<: *npm_deploy
       env:
         - CI_NG_VERSION=4
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
     - stage: Deploy
       before_install: node ./ci/TravisMgr.js set-version
       env:
         - CI_NG_VERSION=5
-        - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
       script: gulp site
       deploy:
         - provider: pages

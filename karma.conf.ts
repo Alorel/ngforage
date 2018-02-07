@@ -1,8 +1,5 @@
-import * as puppeteer from 'puppeteer';
-
 // tslint:disable-next-line:no-default-export
 export default config => {
-  process.env.CHROME_BIN           = puppeteer.executablePath();
   process.env.WEBPACK_COMPILE_MODE = require('./build/util/compile-mode').TEST;
 
   const reports = ['text-summary'];
@@ -10,6 +7,7 @@ export default config => {
   const finalConfig: any = {
     // Base path that will be used to resolve all patterns (eg. files, exclude).
     basePath: './',
+    browserNoActivityTimeout: 30000,
 
     // Frameworks to use.
     // Available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -32,7 +30,7 @@ export default config => {
     webpackMiddleware: {
       noInfo: true,
       // Use stats to turn off verbose output.
-      stats:  {
+      stats: {
         chunks: false
       }
     },
@@ -62,30 +60,36 @@ export default config => {
 
     // Start these browsers.
     // Available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['ChromeHeadless'],
 
     browserConsoleLogOptions: {
-      level:    'log',
+      level: 'log',
       terminal: true
     },
 
     colors: true,
 
-    singleRun: true
+    singleRun: true,
+
+    customLaunchers: {
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: ['-headless']
+      }
+    },
+
+    browsers: ['FirefoxHeadless']
   };
 
   if (process.env.CI) {
     reports.push('lcovonly');
-    finalConfig.browsers        = ['ChromeHeadlessTravis'];
-    finalConfig.customLaunchers = {
-      ChromeHeadlessTravis: {
-        base:  'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
+    finalConfig.browsers.push('ChromeHeadlessTravis');
+    finalConfig.customLaunchers.ChromeHeadlessTravis = {
+      base: 'ChromeHeadless',
+      flags: ['--no-sandbox']
     };
   } else {
+    finalConfig.browsers.push('ChromeHeadless');
     reports.push('html');
-    finalConfig.browsers = ['ChromeHeadless'];
   }
 
   config.set(finalConfig);
