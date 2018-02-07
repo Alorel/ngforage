@@ -52,20 +52,18 @@ jobs:
       osx_image: xcode9.2
       sudo: required
       addons: &osxAddons
-        <<: *browsers
         apt:
           packages:
             - xvfb
       env:
         - CI_NG_VERSION=5
       script:
+        - &osxTest npm test -- --browsers Safari
         - npm run build
         - npm run build:demo:aot
-        - &osxTest npm test -- --browsers FirefoxHeadless ChromeHeadlessTravis Safari
       before_script: &guiTest
         - "export DISPLAY=:99.0"
         - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
-#        - "sh -e /etc/init.d/xvfb start"
         - sleep 3
     - <<: *std_job
       os: osx
@@ -75,8 +73,8 @@ jobs:
       env:
         - CI_NG_VERSION=4
       script:
-        - npm run build
         - *osxTest
+        - npm run build
       before_script: *guiTest
     - <<: *std_job
       env:
