@@ -54,7 +54,7 @@
     "@types/webpack-env": "^1.13",
     "angular-router-loader": "^0.8.0",
     "angular2-template-loader": "^0.6.2",
-    "autoprefixer": "^7.1",
+    "autoprefixer": "^8.0.0",
     "awesome-typescript-loader": "^3.2",
     "bluebird": "^3.5",
     "copy-webpack-plugin": "^4.2.1",
