@@ -110,7 +110,7 @@
     "typescript": ">=2.4.2 <2.5",
     "uglify-es": "^3.1",
     "uuid": "^3.1.0",
-    "webpack": "^3.8",
+    "webpack": "^4.0.0",
     "webpack-angular-externals": "^1.0",
     "webpack-pwa-manifest": "^3.3.2",
     "webpack-rxjs-externals": "^1.0",
