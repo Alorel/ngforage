@@ -65,7 +65,7 @@
     "custom-tslint-formatters": "^2.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "favicons-webpack-plugin": "0.0.7",
-    "get-stdin": "^5.0.1",
+    "get-stdin": "^6.0.0",
     "glob": "^7.1",
     "gulp": "^3.9",
     "gulp-filter": "^5.0.1",
