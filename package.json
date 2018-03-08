@@ -55,7 +55,7 @@
     "angular-router-loader": "^0.8.0",
     "angular2-template-loader": "^0.6.2",
     "autoprefixer": "^8.0.0",
-    "awesome-typescript-loader": "^3.2",
+    "awesome-typescript-loader": "^5.0.0-1",
     "bluebird": "^3.5",
     "copy-webpack-plugin": "^4.2.1",
     "core.js": "^0.4.2",
