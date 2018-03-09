@@ -134,5 +134,13 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "webpack",
+      "@types/webpack",
+      "awesome-typescript-loader",
+      "jasmine-core"
+    ]
   }
 }
