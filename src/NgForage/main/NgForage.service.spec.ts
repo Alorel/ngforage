@@ -1,6 +1,8 @@
 import {TestBed} from '@angular/core/testing';
 import * as _ from 'lodash';
-import {def} from '../../../karma-test-entry';
+import * as uuid from 'uuid/v4';
+import {NgForageCache} from '../../';
+import {def} from '../../test.def';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForage} from './NgForage.service';
 
@@ -20,6 +22,26 @@ describe('NgForage core service', () => {
   });
 
   afterAll(clear);
+
+  describe('#clone', () => {
+    it('Should be the same type', () => {
+      const clone = inst.clone();
+      expect(clone instanceof NgForage).toEqual(true);
+      expect(clone instanceof NgForageCache).toEqual(false);
+    });
+
+    it('Should have the same configuration if unconfigured', () => {
+      expect(inst.clone()['finalConfig']).toEqual(inst['finalConfig']);
+    });
+
+    it('Should be configurable', () => {
+      const name = uuid();
+      const clone = inst.clone({name});
+      const expected = Object.assign(inst['finalConfig'], {name});
+
+      expect(clone['finalConfig']).toEqual(expected);
+    });
+  });
 
   it('#ready', done => {
     inst.ready()
@@ -101,7 +123,8 @@ describe('NgForage core service', () => {
     const drivers = [
       NgForageConfig.DRIVER_LOCALSTORAGE,
       NgForageConfig.DRIVER_WEBSQL,
-      NgForageConfig.DRIVER_INDEXEDDB
+      NgForageConfig.DRIVER_INDEXEDDB,
+      NgForageConfig.DRIVER_SESSIONSTORAGE
     ];
 
     for (const s of drivers) {

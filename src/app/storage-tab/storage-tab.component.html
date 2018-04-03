@@ -1,0 +1,7 @@
+<div class="row">
+  <form class="col-xs-12 col-md-6" [name]="formName">
+    <ngf-full-config [(ngModel)]="config" [ngModelOptions]="{standalone: true}"
+                     (change)="confChanged()" [showCacheTime]="showCache"></ngf-full-config>
+  </form>
+  <ngf-output #ngo [showCache]="showCache" [conf]="config" class="col-xs-12 col-md-6"></ngf-output>
+</div>

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import * as _ from 'lodash';
-import {def} from '../../../karma-test-entry';
+import {def} from '../../test.def';
 import {BaseConfigurableImpl} from './BaseConfigurableImpl.service';
 import {NgForageConfig} from './NgForageConfig.service';
 import {NgForageOptions} from './NgForageOptions';
@@ -30,7 +30,7 @@ describe('BaseConfigurableImpl', () => {
     stdConfig.providers.push(BC);
     TestBed.configureTestingModule(stdConfig);
 
-    conf     = TestBed.get(NgForageConfig);
+    conf = TestBed.get(NgForageConfig);
     defaults = _.cloneDeep(conf.config);
 
     bc = TestBed.get(BC);
@@ -43,13 +43,13 @@ describe('BaseConfigurableImpl', () => {
   describe('get/set', () => {
     const tests = {
       description: ['foo', 'bar'],
-      driver:      ['foo', 'bar'],
-      name:        ['foo', 'bar'],
+      driver: ['foo', 'bar'],
+      name: ['foo', 'bar'],
       // tslint:disable-next-line:no-magic-numbers
-      size:        [1, 2],
-      storeName:   ['foo', 'bar'],
+      size: [1, 2],
+      storeName: ['foo', 'bar'],
       // tslint:disable-next-line:no-magic-numbers
-      version:     [1, 2]
+      version: [1, 2]
     };
 
     _.forEach(tests, (v: [any, any], k: string) => {
@@ -71,7 +71,7 @@ describe('BaseConfigurableImpl', () => {
         describe('@instance', () => {
           beforeEach(() => {
             conf[k] = v[0];
-            bc[k]   = v[1];
+            bc[k] = v[1];
           });
 
           it('via getter', () => {
@@ -110,7 +110,7 @@ describe('BaseConfigurableImpl', () => {
 
     it('Passing a falsy value to configure() shouldn\'t cause trouble', () => {
       const conf1 = bc.toJSON();
-      const ret   = bc.configure(<any>undefined);
+      const ret = bc.configure(<any>undefined);
       const conf2 = bc.toJSON();
 
       expect(conf1).toEqual(conf2, 'Equality');
@@ -133,7 +133,7 @@ describe('BaseConfigurableImpl', () => {
 
     it('Setting driver via setter should achieve the same', () => {
       bc.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
-      inst3     = bc.getStore();
+      inst3 = bc.getStore();
 
       expect(bc.driver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
     });

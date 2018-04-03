@@ -1,6 +1,8 @@
 import {FactoryProvider, Injectable} from '@angular/core';
-import * as lf from 'localforage';
+import 'localforage';
+import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
+import {localForage as lf} from '../imports/localforage';
 
 /** @internal */
 let instance: InstanceFactory;
@@ -45,20 +47,28 @@ export class InstanceFactory {
 
   /** @internal */
   public static readonly provider: FactoryProvider = {
-    provide:    InstanceFactory,
+    deps: [NgForageConfig],
+    provide: InstanceFactory,
     useFactory: InstanceFactory.factory
   };
+  /** @internal */
+  private readonly conf: NgForageConfig;
 
-  public static factory(): InstanceFactory {
+  /** @internal */
+  private constructor(conf: NgForageConfig) {
+    this.conf = conf;
+  }
+
+  public static factory(conf: NgForageConfig): InstanceFactory {
     if (!instance) {
-      instance = new InstanceFactory();
+      instance = new InstanceFactory(conf);
     }
 
     return instance;
   }
 
-  /** @internal */
   public getInstance(cfg: NgForageOptions): LocalForage {
+    cfg = Object.assign(this.conf.config, cfg || {});
     const hash = getHash(cfg);
 
     if (!stores[hash]) {

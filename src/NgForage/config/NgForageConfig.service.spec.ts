@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import * as _ from 'lodash';
-import {def} from '../../../karma-test-entry';
+import {def} from '../../test.def';
 import {NgForage} from '../main/NgForage.service';
 import {NgForageConfig} from './NgForageConfig.service';
 import {NgForageOptions} from './NgForageOptions';
@@ -12,7 +12,7 @@ describe('NgForageConfig service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    conf     = TestBed.get(NgForageConfig);
+    conf = TestBed.get(NgForageConfig);
     defaults = _.cloneDeep(conf.config);
   });
 
@@ -34,7 +34,7 @@ describe('NgForageConfig service', () => {
 
     beforeAll(() => {
       spec = {
-        _driver:  __filename,
+        _driver: __filename,
         // tslint:disable-next-line:no-empty
         _initStorage() {
         },
@@ -73,11 +73,11 @@ describe('NgForageConfig service', () => {
 
     it('Defining driver should return void promise', done => {
       conf.defineDriver(spec)
-          .then(v => {
-            expect(v).toBeUndefined();
-            done();
-          })
-          .catch(done);
+        .then(v => {
+          expect(v).toBeUndefined();
+          done();
+        })
+        .catch(done);
     });
 
     it('Driver should now be supported', () => {
@@ -91,13 +91,13 @@ describe('NgForageConfig service', () => {
     });
 
     const confs: NgForageOptions = {
-      cacheTime:   1,
+      cacheTime: 1,
       description: 'foo',
-      driver:      'foo',
-      name:        'foo',
-      size:        1,
-      storeName:   'foo',
-      version:     1
+      driver: 'foo',
+      name: 'foo',
+      size: 1,
+      storeName: 'foo',
+      version: 1
     };
 
     _.forEach(confs, (val: number | string, key: string) => {

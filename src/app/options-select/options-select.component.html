@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form">
+  <div class="form-group" *ngFor="let c of controls">
+    <label [for]="c.id">{{c.name}}</label>
+    <input [type]="c.type || 'text'" [id]="c.id" [formControlName]="c.control" class="form-control" (blur)="_onBlur"/>
+  </div>
+  <div class="form-group" *ngIf="_showCacheTime|async">
+    <label [for]="idCacheTime">Cache time</label>
+    <input type="number" min="1000" [id]="idCacheTime" formControlName="cacheTime" class="form-control" (blur)="_onBlur"/>
+  </div>
+</ng-container>

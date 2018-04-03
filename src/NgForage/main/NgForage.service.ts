@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BaseConfigurable} from '../config/BaseConfigurable';
 import {BaseConfigurableImpl} from '../config/BaseConfigurableImpl.service';
+import {NgForageOptions} from '../config/NgForageOptions';
 import {addToStringTag} from '../util/addToStringTag';
 
 /**
@@ -23,6 +24,17 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    */
   public clear(): Promise<void> {
     return this.store.clear();
+  }
+
+  /**
+   * Make a clone of the instance
+   * @param config Optional configuration
+   */
+  public clone(config?: NgForageOptions): NgForage {
+    const inst = new NgForage(this.baseConfig, this.fact);
+    inst.configure(Object.assign(this.finalConfig, config || {}));
+
+    return inst;
   }
 
   /**

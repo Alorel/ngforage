@@ -1,110 +1,66 @@
 sudo: false
 language: node_js
-node_js: 9
+node_js: stable
 group: travis_latest
 
-std_stage_name: &std_stage_name Test & Lint
-
 stages:
-  - *std_stage_name
+  - &std_stage_name Test & Lint
   - name: Deploy
     if: tag IS present
 
-cache:
-  directories:
-    - node_modules
-before_cache: rm -rf node_modules/.cache
-
 std_job: &std_job
   stage: *std_stage_name
+  cache:
+    directories:
+      - node_modules
+  before_cache: rm -rf node_modules/.cache
   os: linux
   addons: &browsers
     chrome: stable
     firefox: latest
   after_success: cat ./coverage/lcov.info | coveralls
-  before_install: node ./ci/TravisMgr.js set-version
-
-osx_job: &osx_job
-  <<: *std_job
-  os: osx
-  osx_image: xcode9.2
-  sudo: required
-  addons:
-    apt:
-      packages:
-        - xvfb
-  before_script:
-    - "export DISPLAY=:99.0"
-    - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
-    - sleep 3
-  script: npm test -- --browsers Safari
-
-npm_deploy: &npm_deploy
-  stage: Deploy
-  script: npm run build
-  before_install: node ./ci/TravisMgr.js set-version
-  deploy:
-    - provider: npm
-      on:
-        tags: true
-      skip_cleanup: true
-      email: a.molcanovas@gmail.com
-      api_key:
-        secure: KXzzdKtu8k8my5D+ciF+TT1RiffIw71p9vIr/hmfFaxg47aCtyyFOtS8lTwh3BZKkYaXV2YZwuqZhLk3D44IPOIZcT6H3CUerrEgkVY6uiTD7iqLPG9E2XBdcjqMnAj5dGNKV99SaTs/5fBTsuwPLL6OvBtSJrBXQiCt0NzCjHhQPg5b8ujBNLWY1yOg0DcJF8b/BlkncwGqs9h5VpgzBwN/Pp6r1pU8oKXEzRLMBitzjyga4Os+1JPgvH2qZUf+rpnPsMIVZM6o+xtgpvy3QPilslBzSvXCtY/gIWrrCMtIDW1807aevfZcchYseyc5JGpVPNDY7hhFMh0X0msZYFsazRgwf4UoyKT6dZDd7PfSzu+PdMJQfISc5sOFSfRNJOJCbU3gj7zb3h6brJxustKX9fSrbUqFYT5cF7ejnNh7ZdQV3S5NVgzaCAaFQOxlpsVKlWTx/GGzBRYHL21SWT88fIDDyZ3w+CmNHfyNKYZuAzlfDHDxdv5NhIMWamzb4kBf7U4CewpApOIjjdsSKwqwrxOTRuPeqgWsKRcYu3hkxT1k/9V+Et6FGz29TiZnL3eeRL1WK6Xe4zbcRrCt9viWmkzo+XexSMB0eazYFZbh3XqYFhY0MJHLQnHMMU4RV93ejOEkGRkmUepRfBOSCds/Rv3Eh0c5EC6m8ZVlYTw=
+  before_install:
+    - npm install -g greenkeeper-lockfile
+    - greenkeeper-lockfile-update
+  after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
+  script:
+    - gulp tslint
+    - npm test
+    - gulp build:demo:prod
 
 jobs:
   include:
-    - stage: *std_stage_name
-      os: linux
-      script: npm run tslint
-      before_install: node ./ci/TravisMgr.js set-version
-      env:
-        - LINT=1
-        - SNYK_GK=0
-        - CI_NG_VERSION=5
-    - <<: *osx_job
-      env:
-        - CI_NG_VERSION=5
-    - <<: *osx_job
-      env:
-        - CI_NG_VERSION=4
     - <<: *std_job
-      env:
-        - CI_NG_VERSION=5
-      script:
-        - npm run build
-        - npm run build:demo:aot
-        - npm test
     - <<: *std_job
-      env:
-        - CI_NG_VERSION=4
-      script:
-        - npm run build
-        - npm test
-    - <<: *npm_deploy
-      env:
-        - CI_NG_VERSION=5
-    - <<: *npm_deploy
-      env:
-        - CI_NG_VERSION=4
+      os: osx
+      osx_image: xcode9.2
+      sudo: required
+      addons:
+        apt:
+          packages:
+            - xvfb
+      before_script:
+        - "export DISPLAY=:99.0"
+        - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+        - sleep 3
+      script: npm test -- --browsers Safari
     - stage: Deploy
-      before_install: node ./ci/TravisMgr.js set-version
-      env:
-        - CI_NG_VERSION=5
-      script: gulp site
+      before_script:
+        - gulp package build:demo:prod
+        - openssl aes-256-cbc -K $encrypted_1d92b726f585_key -iv $encrypted_1d92b726f585_iv -in .npmrc.enc -out ~/.npmrc -d
+      script: npm publish ./dist.tgz
       deploy:
         - provider: pages
           skip_cleanup: true
           on:
             tags: true
-          local_dir: "./.demo"
+          local_dir: ./demo
           target_branch: gh-pages
-          github_token:
-            secure: VMkUx7mtTrcVIiI6AjCbVWFFZQ2+W51WoU5cvBHZ4uT84hC5il15QYmfuv752jc2bU8JrTLscqA2e5Twa40XgcaNim5Hh2eLeomHPRRcrfchPg/P41i/Kf63fpIAXFj2Il1zRA4NwtPEkw0mhSIfqdACOCahStutqfTT5ZUgxe5QVUDl/aH+rIqLfS3ZC01hPwKirHRmOZ/l4Whfb9ivaA4aSIEzN3GOO7eR2Tsd7JokyuNrSfoBZFcpJ61X0YP0VaspYVwYt75bp1noTVvx2ItWGVt2qIFiJdIAjlAjfgjkwSXJAawlrIHx5G+ajrlS6nbojmBd4s8UgNeXfIFJAG/AgDUq5uZzdklZmTkX57qrSiU9Uaq+9BYLu8I1ZNJSkieaeAy0PK0+pWBrXGAWd6rZeM5YmrqvVgrJcAST7W6HFYzLoRRmqtki5SysxpXI+ugKQgitGhGq5ES0EnwihXxuQ/xiVEjYLBFG5QviBrUZ3zc7IyfRYwCSNJ546c4XVhkwNkaBBTfz9IN4A7UscibWWd6lbO3w/tQCK+/a4D1IivRV5fnNyLw7BeoTcddWeVNHSRFupL84kE1/0jWrHs8FyMPpYyDO2jyZ9XY14iLiSiaaPIPtRQa4C7g3OEN2Nq2n1iNwmXjb0jQOPBkTBYCFdzkXJcoLagIz51EaHS4=
+          github_token: $GH_TOKEN
         - provider: releases
           skip_cleanup: true
-          api_key:
-            secure: VMkUx7mtTrcVIiI6AjCbVWFFZQ2+W51WoU5cvBHZ4uT84hC5il15QYmfuv752jc2bU8JrTLscqA2e5Twa40XgcaNim5Hh2eLeomHPRRcrfchPg/P41i/Kf63fpIAXFj2Il1zRA4NwtPEkw0mhSIfqdACOCahStutqfTT5ZUgxe5QVUDl/aH+rIqLfS3ZC01hPwKirHRmOZ/l4Whfb9ivaA4aSIEzN3GOO7eR2Tsd7JokyuNrSfoBZFcpJ61X0YP0VaspYVwYt75bp1noTVvx2ItWGVt2qIFiJdIAjlAjfgjkwSXJAawlrIHx5G+ajrlS6nbojmBd4s8UgNeXfIFJAG/AgDUq5uZzdklZmTkX57qrSiU9Uaq+9BYLu8I1ZNJSkieaeAy0PK0+pWBrXGAWd6rZeM5YmrqvVgrJcAST7W6HFYzLoRRmqtki5SysxpXI+ugKQgitGhGq5ES0EnwihXxuQ/xiVEjYLBFG5QviBrUZ3zc7IyfRYwCSNJ546c4XVhkwNkaBBTfz9IN4A7UscibWWd6lbO3w/tQCK+/a4D1IivRV5fnNyLw7BeoTcddWeVNHSRFupL84kE1/0jWrHs8FyMPpYyDO2jyZ9XY14iLiSiaaPIPtRQa4C7g3OEN2Nq2n1iNwmXjb0jQOPBkTBYCFdzkXJcoLagIz51EaHS4=
+          api_key: $GH_TOKEN
+          file: dist.tgz
           on:
             tags: true
-          file: documentation.tar.gz
+

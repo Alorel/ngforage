@@ -1,16 +1,10 @@
 process.chdir(__dirname);
 
-global.Promise = require('bluebird');
-
-const tmp = require('tmp');
-tmp.setGracefulCleanup();
-
 const glob = require('glob');
 const gulp = require('gulp');
 const {join} = require('path');
 
-glob.sync(join(__dirname, 'build', '**', '*.js'))
-  .filter(f => !f.endsWith('uglify-worker.js'))
+glob.sync(join(__dirname, 'build', '*.js'))
   .forEach(p => require(p));
 
 const watchTasks = Object.keys(gulp.tasks).filter(name => name.toLowerCase().endsWith(':watch'));

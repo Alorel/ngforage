@@ -1,34 +1,22 @@
-const {Transform} = require('stream');
-const uglifyES    = require('uglify-es');
-const {merge}     = require('lodash');
+const create = require('./create-gulp-transformer');
 
-class GulpUglifyES extends Transform {
-  
-  constructor(options = {}) {
-    super({objectMode: true});
-    this.options = merge(require('../conf/uglify-options'), options);
-  }
-  
-  _transform(file, encoding, callback) {
-    try {
-      file      = file.clone();
-      const out = uglifyES.minify(file.contents.toString(), this.options);
-      
-      if (typeof out.code !== 'undefined') {
-        if (typeof out.code === 'string') {
-          out.code = Buffer.from(out.code, 'utf8');
-        }
-        
-        file.contents = out.code;
-        setImmediate(callback, null, file);
-      } else {
-        console.error(require('util').inspect(out, {colors: true, depth: null}));
-        setImmediate(callback, new Error('No code'));
-      }
-    } catch (e) {
-      setImmediate(callback, e);
+module.exports = create((file, encoding, done) => {
+  const uglify = require('uglify-es');
+
+  try {
+    const uglified = uglify.minify(file.contents.toString());
+
+    if (uglified.error) {
+      done(e);
+    } else {
+      const code = uglified.code.toString();
+
+      file = file.clone();
+      file.contents = Buffer.from(code, 'utf8');
+
+      done(null, file);
     }
+  } catch (e) {
+    done(e);
   }
-}
-
-module.exports = GulpUglifyES;
+});
