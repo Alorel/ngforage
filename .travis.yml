@@ -8,11 +8,12 @@ stages:
   - name: Deploy
     if: tag IS present
 
+cache:
+  directories:
+    - node_modules
+
 std_job: &std_job
   stage: *std_stage_name
-  cache:
-    directories:
-      - node_modules
   before_cache: rm -rf node_modules/.cache
   os: linux
   addons: &browsers
