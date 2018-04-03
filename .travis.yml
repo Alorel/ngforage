@@ -48,7 +48,7 @@ jobs:
       before_script:
         - gulp package build:demo:prod
         - openssl aes-256-cbc -K $encrypted_1d92b726f585_key -iv $encrypted_1d92b726f585_iv -in .npmrc.enc -out ~/.npmrc -d
-      script: npm publish ./dist.tgz
+      script: npm publish ./dist
       deploy:
         - provider: pages
           skip_cleanup: true

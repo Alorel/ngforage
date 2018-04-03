@@ -1,3 +1,5 @@
+2.0.1:
+  - fix: Fixed the README not generating properly for the packaged version
 2.0.0:
   - feat: A sessionStorage wrapper driver is now available
   - feat: NgForage and NgForageCache instances can now be cloned - this is useful mainly for services that can't have a providers annotation

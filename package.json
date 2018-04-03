@@ -2,7 +2,7 @@
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ngforage",
   "description": "localForage bindings for Angular 5",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "start": "ng serve",
