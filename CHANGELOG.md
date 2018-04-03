@@ -9,6 +9,16 @@
 </details>
 
 <details>
+  <summary>2.0.1</summary>
+
+  [Diff from 2.0.0](https://github.com/Alorel/ngforage/compare/2.0.0...2.0.1)
+
+  <ul>
+    <li><strong>fix:</strong> Fixed the README not generating properly for the packaged version</li>
+  </ul>
+</details>
+
+<details>
   <summary>2.0.0</summary>
 
   [Diff from 1.0.5](https://github.com/Alorel/ngforage/compare/1.0.5...2.0.0)
