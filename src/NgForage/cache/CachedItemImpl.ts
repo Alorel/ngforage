@@ -30,11 +30,11 @@ export class CachedItemImpl<T> implements CachedItem<T> {
 
   public toJSON(): CachedItem<T> {
     return {
-      data:      this.data,
-      expired:   this.expired,
-      expires:   this.expires,
+      data: this.data,
+      expired: this.expired,
+      expires: this.expires,
       expiresIn: this.expiresIn,
-      hasData:   this.hasData
+      hasData: this.hasData
     };
   }
 }

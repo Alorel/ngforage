@@ -1,4 +1,4 @@
-import {NgModule, Provider} from '@angular/core';
+import {ModuleWithProviders, NgModule, Provider} from '@angular/core';
 import {NgForageCache} from './cache/NgForageCache.service';
 import {BaseConfigurableImpl} from './config/BaseConfigurableImpl.service';
 import {NgForageConfig} from './config/NgForageConfig.service';
@@ -8,15 +8,19 @@ import {NgForage} from './main/NgForage.service';
 /**
  * NgForage core module
  */
-@NgModule({
-            providers: [
-              NgForage,
-              NgForageCache,
-              <Provider>BaseConfigurableImpl,
-              NgForageConfig.provider,
-              InstanceFactory.provider
-            ]
-          })
+@NgModule({})
 export class NgForageModule {
 
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: NgForageModule,
+      providers: [
+        NgForage,
+        NgForageCache,
+        <Provider>BaseConfigurableImpl,
+        NgForageConfig.provider,
+        InstanceFactory.provider
+      ]
+    };
+  }
 }

@@ -1,0 +1,71 @@
+<h1 class="text-center">Controls</h1>
+<button output (click)="clear()">clear()</button>
+<button output (click)="iterate()">iterate()</button>
+<button output (click)="keys()">keys()</button>
+<button output (click)="length()">length()</button>
+<hr/>
+<div class="form-inline">
+  <label class="sr-only" [for]="idKey">Key index</label>
+  <input min="0" step="1" type="number" [(ngModel)]="keyIndex" [id]="idKey" class="form-control"
+         placeholder="Key index"/>
+  <button output (click)="key()" [disabled]="shouldDisableKey">key({{keyIndex}})</button>
+</div>
+<hr/>
+<div class="form-inline">
+  <label class="sr-only" [for]="rmItemId">Key</label>
+  <input [(ngModel)]="rmItemKey" [id]="rmItemId" class="form-control" placeholder="Key"/>
+  <button output *ngIf="showCache; else rmNoCache" (click)="removeItemCached()" [disabled]="!rmItemKey">
+    removeCached('{{rmItemKey}}')
+  </button>
+  <ng-template #rmNoCache>
+    <button output (click)="removeItem()" [disabled]="!rmItemKey">removeItem('{{rmItemKey}}')</button>
+  </ng-template>
+</div>
+<hr/>
+<div class="form-inline">
+  <label class="sr-only" [for]="setItemKeyId">Key</label>
+  <input [(ngModel)]="setItemKey" [id]="setItemKeyId" class="form-control" placeholder="Key"/>
+  <label class="sr-only" [for]="setItemValueId">Value</label>
+  <input [(ngModel)]="setItemValue" [id]="setItemValueId" class="form-control" placeholder="Value"/>
+  <div class="form-check form-check-inline">
+    <input type="checkbox" [id]="idSetItemJson" [(ngModel)]="setItemJson" class="form-check-input"/>
+    <label class="form-check-label" [for]="idSetItemJson">JSON.parse</label>
+  </div>
+  <ng-container *ngIf="showCache; else setItemNoCache">
+    <div class="form-check form-check-inline">
+      <input type="checkbox" [id]="idSetItemCacheOverrideCheck" [(ngModel)]="setItemCacheOverrideCheck"
+             class="form-check-input"/>
+      <label class="form-check-label" [for]="idSetItemCacheOverrideCheck">Override cache time</label>
+    </div>
+    <label class="sr-only" [for]="idSetItemCacheOverrideNum">Cache time override</label>
+    <input type="number" min="1" step="1" [(ngModel)]="setItemCacheOverrideNum" [id]="idSetItemCacheOverrideNum"
+           class="form-control" placeholder="Cache time override" [disabled]="!setItemCacheOverrideCheck"/>
+    <button output
+            (click)="setItemCached()"
+            [disabled]="disableSetItem || (setItemCacheOverrideCheck && !setItemCacheOverrideNum)">
+      {{setItemCachedText}}
+    </button>
+  </ng-container>
+  <ng-template #setItemNoCache>
+    <button output
+            (click)="setItem()"
+            [disabled]="disableSetItem">setItem('{{setItemKey}}', '{{setItemText}}')
+    </button>
+  </ng-template>
+</div>
+<hr/>
+<div class="form-inline">
+  <label class="sr-only" [for]="getItemId">Key</label>
+  <input [(ngModel)]="getItemKey" [id]="getItemId" class="form-control" placeholder="Key"/>
+  <button output *ngIf="showCache; else getItemNoCache" (click)="getItemCached()" [disabled]="!getItemKey">
+    getCached('{{getItemKey}}')
+  </button>
+  <ng-template #getItemNoCache>
+    <button output (click)="getItem()" [disabled]="!getItemKey">getItem('{{getItemKey}}')</button>
+  </ng-template>
+</div>
+<hr/>
+<span class="text-danger" *ngIf="(error|async) as e; else noError">{{e.stack || e.message || e}}</span>
+<ng-template #noError>
+  <pre>{{output|async|asString}}</pre>
+</ng-template>

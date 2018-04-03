@@ -15,6 +15,7 @@ export interface BaseConfigurable {
    * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
    * @see {@link NgForageConfig#DRIVER_WEBSQL}
    * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
+   * @see {@link NgForageConfig#DRIVER_SESSIONSTORAGE}
    * @default IndexedDB, WebSQL & localStorage
    */
   driver: string | string[];

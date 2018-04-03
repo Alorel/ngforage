@@ -33,11 +33,11 @@ describe('CachedItemImpl', () => {
 
     it('#toJSON', () => {
       const eq: CachedItem<any> = {
-        data:      null,
-        expired:   true,
-        expires:   new Date(0),
+        data: null,
+        expired: true,
+        expires: new Date(0),
         expiresIn: 0,
-        hasData:   false
+        hasData: false
       };
 
       expect(c.toJSON()).toEqual(eq);
@@ -48,8 +48,8 @@ describe('CachedItemImpl', () => {
     let c: CachedItemImpl<string>;
     let now: Date;
 
-    const second  = 1000;
-    const div     = 100;
+    const second = 1000;
+    const div = 100;
     const closeTo = 10;
 
     beforeEach(() => {

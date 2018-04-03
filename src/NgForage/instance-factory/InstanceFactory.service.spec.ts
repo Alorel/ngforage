@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import * as _ from 'lodash';
-import {def} from '../../../karma-test-entry';
+import {def} from '../../test.def';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
 import {InstanceFactory} from './InstanceFactory.service';
@@ -17,7 +17,7 @@ describe('Instance factory', () => {
 
     const getConf = (overrides: Partial<NgForageOptions> = {}): NgForageOptions => {
       const inst: NgForageConfig = TestBed.get(NgForageConfig);
-      const defaults             = _.cloneDeep(inst.config);
+      const defaults = _.cloneDeep(inst.config);
 
       inst.configure(overrides);
       const conf = inst.config;

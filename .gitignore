@@ -1,15 +1,8 @@
 /.idea/
 /node_modules/
-/.tmp/
-/.demo/
 /*.tgz
 /dist/
-/.awcache
-/*.tmp.js
-/*.tmp.json
+/demo/
 /coverage/
-/package.json.bak
-/README.md.bak
-/documentation/
 /*.tar.gz
-/package-lock.json
+/.npmrc

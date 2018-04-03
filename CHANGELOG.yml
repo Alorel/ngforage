@@ -1,0 +1,18 @@
+2.0.0:
+  - feat: A sessionStorage wrapper driver is now available
+  - feat: NgForage and NgForageCache instances can now be cloned - this is useful mainly for services that can't have a providers annotation
+  - breaking: NgForageModule must now be imported in the app module via `NgForageModule.forRoot()`
+  - build: The library is now packaged with ng-packagr
+1.0.5:
+  - test: Added Firefox and Safari tests
+1.0.4:
+  - chore: Core refactored
+  - demo: Demo is now available offline
+1.0.3:
+  - chore: README link fix
+1.0.2:
+  - chore: Fixed CDN links
+  - chore: Package cleanup
+1.0.1:
+  - fix: Fixed demo site generation
+  - chore: Package cleanup

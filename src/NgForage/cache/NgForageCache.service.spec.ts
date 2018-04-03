@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import * as _ from 'lodash';
 import * as uuid from 'uuid';
-import {def} from '../../../karma-test-entry';
+import {def} from '../../test.def';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
 import {CachedItem} from './CachedItem';
@@ -18,10 +18,30 @@ describe('NgForageCache Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule(def);
 
-    conf         = TestBed.get(NgForageConfig);
-    defaults     = _.cloneDeep(conf.config);
-    cache        = TestBed.get(NgForageCache);
+    conf = TestBed.get(NgForageConfig);
+    defaults = _.cloneDeep(conf.config);
+    cache = TestBed.get(NgForageCache);
     cache.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
+  });
+
+  describe('#clone', () => {
+    it('Should be the same type', () => {
+      const clone = cache.clone();
+
+      expect(clone instanceof NgForageCache).toEqual(true);
+    });
+
+    it('Should have the same configuration if unconfigured', () => {
+      expect(cache.clone()['finalConfig']).toEqual(cache['finalConfig']);
+    });
+
+    it('Should be configurable', () => {
+      const name = uuid.v4();
+      const clone = cache.clone({name});
+      const expected = Object.assign(clone['finalConfig'], {name});
+
+      expect(clone['finalConfig']).toEqual(expected);
+    });
   });
 
   it('NgForageConfig should be instantiated', () => {
@@ -67,7 +87,7 @@ describe('NgForageCache Service', () => {
 
   describe('Full CRD', () => {
     const key: string = uuid.v4();
-    const data        = Math.random();
+    const data = Math.random();
 
     it('Item should not exist initially', async done => {
       const item = await cache.getCached<string>(key);

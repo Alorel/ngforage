@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.app.json",
+  "exclude": [
+    "./main.ts",
+    "./polyfills.ts",
+    "./test.def.ts",
+    "./app/**/*",
+    "./assets/**/*",
+    "./environments/**/*",
+    "./NgForage/imports/**/*",
+    "./NgForage/session-storage/**/*",
+  ]
+}

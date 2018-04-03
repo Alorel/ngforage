@@ -1,0 +1,24 @@
+<div class="container card">
+  <nav class="card-header">
+    <ul class="nav nav-pills">
+      <li class="nav-item" (click)="activeTab = 'regular'">
+        <a href="#" class="nav-link" [class.active]="activeTab === 'regular'">Regular storage</a>
+      </li>
+      <li class="nav-item" (click)="activeTab = 'cache'">
+        <a href="#" class="nav-link" [class.active]="activeTab === 'cache'">Cache storage</a>
+      </li>
+      <li class="nav-item">
+        <a href="docs/index.html" class="nav-link" target="_blank" rel="noopener">API Documentation</a>
+      </li>
+    </ul>
+  </nav>
+  <ngf-storage-tab [showCache]="false" *ngIf="activeTab === 'regular'"></ngf-storage-tab>
+  <ngf-storage-tab [showCache]="true" *ngIf="activeTab === 'cache'"></ngf-storage-tab>
+  <footer class="card-footer text-center">
+    <a href="https://www.npmjs.com/package/ngforage" target="_blank" rel="noopener">
+      <img src="https://nodei.co/npm/ngforage.png?downloads=true&downloadRank=true&stars=true"
+           alt="NPM link"/>
+    </a>
+    <ngf-github-ribbon></ngf-github-ribbon>
+  </footer>
+</div>

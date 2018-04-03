@@ -1,54 +1,48 @@
 const gulp = require('gulp');
-const seq  = require('gulp-sequence');
+const spawn = require('./util/spawn');
+const seq = require('./util/seq');
 
-gulp.task('build', cb => {
-  seq(
-    'inline:compile',
+gulp.task('build:demo:generate', () => {
+  return spawn(
+    process.execPath,
     [
-      'compile:esm5',
-      'compile:es5',
-      'compile:esm2015',
-      'compile:umd'
-    ],
-    cb
-  );
+      'node_modules/.bin/ng',
+      'build',
+      '--delete-output-path'
+    ]
+  )
 });
 
-const aotTask = isProd => {
-  const finalTask = [
-    'clean:tmp:aot',
-    'clean:tmp:pre-aot',
-    'clean:demo:map'
-  ];
-  
-  if (isProd) {
-    finalTask.push('uglify:demo');
-  }
-  
-  return cb => {
-    seq(
-      [
-        'clean:tmp:pre-aot',
-        'clean:tmp:aot',
-        'clean:demo'
-      ],
-      'inline-templates',
-      'copy:demo-to-pre-aot',
-      'compile:demo:aot:prepare',
-      `compile:demo:aot:finalise${isProd ? ':prod' : ''}`,
-      finalTask,
-      cb
-    );
-  };
-};
+gulp.task('build:demo', cb => {
+  seq('build:demo:generate', 'doc:generate', cb);
+})
 
-gulp.task('build:demo:aot', aotTask(false));
-gulp.task('build:demo:aot:prod', aotTask(true));
+gulp.task('build:demo:prod:generate', () => {
+  return spawn(
+    process.execPath,
+    [
+      'node_modules/.bin/ng',
+      'build',
+      '--delete-output-path',
+      '--environment',
+      'prod',
+      '--aot',
+      '--build-optimizer',
+      '--output-hashing',
+      'all'
+    ]
+  )
+});
 
-gulp.task('build:demo:jit', cb => {
+gulp.task('build:demo:prod', cb => {
   seq(
-    'clean:demo',
-    'compile:demo',
+    'build:demo:prod:generate',
+    [
+      'clean:demo-map',
+      'minify:demo-html',
+      'uglify:demo'
+    ],
+    'doc:generate',
     cb
-  );
+  )
 });
