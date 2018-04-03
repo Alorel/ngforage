@@ -1,7 +1,17 @@
 <details>
+  <summary>3.0.1</summary>
+
+  [Diff from 3.0.0](https://github.com/Alorel/ngforage/compare/3.0.0...3.0.1)
+
+  <ul>
+    <li><strong>fix:</strong> Fixed the README not generating properly for the packaged version</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.0.0</summary>
 
-  [Diff from 2.0.0](https://github.com/Alorel/ngforage/compare/2.0.0...3.0.0)
+  [Diff from 2.0.1](https://github.com/Alorel/ngforage/compare/2.0.1...3.0.0)
 
   <ul>
     <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>

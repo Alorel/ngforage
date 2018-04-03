@@ -1,3 +1,5 @@
+3.0.1:
+  - fix: Fixed the README not generating properly for the packaged version
 3.0.0:
   - chore: Packaged with Angular 6-specific dependencies
 2.0.1:
