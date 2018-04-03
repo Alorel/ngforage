@@ -75,7 +75,7 @@ gulp.task('changelog', cb => {
 
       return out.join('\n');
     }
-  ).join('\n\n');
+  ).join('\n\n') + '\n';
 
   require('fs').writeFile('./CHANGELOG.md', parsed, cb);
 });
