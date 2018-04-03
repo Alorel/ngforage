@@ -1,3 +1,5 @@
+3.0.2:
+  - chore: Add package keywords to npm
 3.0.1:
   - fix: Fixed the README not generating properly for the packaged version
 3.0.0:

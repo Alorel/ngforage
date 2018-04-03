@@ -1,4 +1,14 @@
 <details>
+  <summary>3.0.2</summary>
+
+  [Diff from 3.0.1](https://github.com/Alorel/ngforage/compare/3.0.1...3.0.2)
+
+  <ul>
+    <li><strong>chore:</strong> Add package keywords to npm</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.0.1</summary>
 
   [Diff from 3.0.0](https://github.com/Alorel/ngforage/compare/3.0.0...3.0.1)
