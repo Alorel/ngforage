@@ -1,6 +1,6 @@
 # ngforage
 
-[localforage](https://www.npmjs.com/package/localforage) bindings for Angular 5
+[localforage](https://www.npmjs.com/package/localforage) bindings for Angular 5 and 6
 
 -----
 
@@ -22,8 +22,8 @@
   <summary>Installation</summary>
   
   ```bash
-   npm install ngforage@^2.0.0 # for Angular 5
-   npm install ngforage@^3.0.0 # for Angular 6
+   npm install localforage@^1.5.0 ngforage@^2.0.0 # for Angular 5
+   npm install localforage@^1.5.0 ngforage@^3.0.0 # for Angular 6
   ```
 </details>
 <details>
