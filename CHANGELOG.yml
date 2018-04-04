@@ -1,15 +1,20 @@
+3.0.3:
+  - documentation: Added missing documentation for localForage as a peer dependency
 3.0.2:
   - chore: Add package keywords to npm
 3.0.1:
   - fix: Fixed the README not generating properly for the packaged version
 3.0.0:
   - chore: Packaged with Angular 6-specific dependencies
+2.0.2:
+  - documentation: Added missing documentation for localForage as a peer dependency
 2.0.1:
   - fix: Fixed the README not generating properly for the packaged version
 2.0.0:
   - feat: A sessionStorage wrapper driver is now available
   - feat: NgForage and NgForageCache instances can now be cloned - this is useful mainly for services that can't have a providers annotation
   - breaking: NgForageModule must now be imported in the app module via `NgForageModule.forRoot()`
+  - breaking: localForage is now a peer dependency
   - build: The library is now packaged with ng-packagr
 1.0.5:
   - test: Added Firefox and Safari tests
