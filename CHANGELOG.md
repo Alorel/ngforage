@@ -1,4 +1,14 @@
 <details>
+  <summary>3.0.3</summary>
+
+  [Diff from 3.0.2](https://github.com/Alorel/ngforage/compare/3.0.2...3.0.3)
+
+  <ul>
+    <li><strong>documentation:</strong> Added missing documentation for localForage as a peer dependency</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.0.2</summary>
 
   [Diff from 3.0.1](https://github.com/Alorel/ngforage/compare/3.0.1...3.0.2)
@@ -21,10 +31,20 @@
 <details>
   <summary>3.0.0</summary>
 
-  [Diff from 2.0.1](https://github.com/Alorel/ngforage/compare/2.0.1...3.0.0)
+  [Diff from 2.0.2](https://github.com/Alorel/ngforage/compare/2.0.2...3.0.0)
 
   <ul>
     <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>
+  </ul>
+</details>
+
+<details>
+  <summary>2.0.2</summary>
+
+  [Diff from 2.0.1](https://github.com/Alorel/ngforage/compare/2.0.1...2.0.2)
+
+  <ul>
+    <li><strong>documentation:</strong> Added missing documentation for localForage as a peer dependency</li>
   </ul>
 </details>
 
@@ -45,6 +65,7 @@
 
   <ul>
     <li><strong>breaking:</strong> NgForageModule must now be imported in the app module via `NgForageModule.forRoot()`</li>
+    <li><strong>breaking:</strong> localForage is now a peer dependency</li>
     <li><strong>build:</strong> The library is now packaged with ng-packagr</li>
     <li><strong>feat:</strong> A sessionStorage wrapper driver is now available</li>
     <li><strong>feat:</strong> NgForage and NgForageCache instances can now be cloned - this is useful mainly for services that can't have a providers annotation</li>
