@@ -1,4 +1,14 @@
 <details>
+  <summary>2.0.3</summary>
+
+  [Diff from 2.0.2](https://github.com/Alorel/ngforage/compare/2.0.2...2.0.3)
+
+  <ul>
+    <li><strong>fix:</strong> Package metadata for AoT compilation should now be generated correctly.</li>
+  </ul>
+</details>
+
+<details>
   <summary>2.0.2</summary>
 
   [Diff from 2.0.1](https://github.com/Alorel/ngforage/compare/2.0.1...2.0.2)
