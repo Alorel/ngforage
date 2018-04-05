@@ -1,4 +1,14 @@
 <details>
+  <summary>3.0.4</summary>
+
+  [Diff from 3.0.3](https://github.com/Alorel/ngforage/compare/3.0.3...3.0.4)
+
+  <ul>
+    <li><strong>fix:</strong> Package metadata for AoT compilation should now be generated correctly.</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.0.3</summary>
 
   [Diff from 3.0.2](https://github.com/Alorel/ngforage/compare/3.0.2...3.0.3)
@@ -31,10 +41,20 @@
 <details>
   <summary>3.0.0</summary>
 
-  [Diff from 2.0.2](https://github.com/Alorel/ngforage/compare/2.0.2...3.0.0)
+  [Diff from 2.0.3](https://github.com/Alorel/ngforage/compare/2.0.3...3.0.0)
 
   <ul>
     <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>
+  </ul>
+</details>
+
+<details>
+  <summary>2.0.3</summary>
+
+  [Diff from 2.0.2](https://github.com/Alorel/ngforage/compare/2.0.2...2.0.3)
+
+  <ul>
+    <li><strong>fix:</strong> Package metadata for AoT compilation should now be generated correctly.</li>
   </ul>
 </details>
 

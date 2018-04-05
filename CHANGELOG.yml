@@ -1,3 +1,5 @@
+3.0.4:
+  - fix: Package metadata for AoT compilation should now be generated correctly.
 3.0.3:
   - documentation: Added missing documentation for localForage as a peer dependency
 3.0.2:
