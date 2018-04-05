@@ -6,6 +6,8 @@
   - fix: Fixed the README not generating properly for the packaged version
 3.0.0:
   - chore: Packaged with Angular 6-specific dependencies
+2.0.3:
+  - fix: Package metadata for AoT compilation should now be generated correctly.
 2.0.2:
   - documentation: Added missing documentation for localForage as a peer dependency
 2.0.1:

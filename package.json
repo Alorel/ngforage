@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ngforage",
-  "description": "localForage bindings for Angular 5 and 6",
+  "description": "localForage bindings for Angular",
   "version": "3.0.3",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",

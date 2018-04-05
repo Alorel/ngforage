@@ -1,6 +1,6 @@
 # ngforage
 
-[localforage](https://www.npmjs.com/package/localforage) bindings for Angular 5 and 6
+[localforage](https://www.npmjs.com/package/localforage) bindings for Angular
 
 -----
 
