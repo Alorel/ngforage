@@ -2,5 +2,13 @@ import {checkIfSessionStorageThrows} from './checkIfSessionStorageThrows';
 
 /** @internal */
 export function _isSessionStorageUsable() {
-  return typeof sessionStorage !== 'undefined' && !checkIfSessionStorageThrows() || sessionStorage.length > 0;
+    if (typeof sessionStorage !== 'undefined') {
+        if( !checkIfSessionStorageThrows() || sessionStorage.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false
+    }
 }
