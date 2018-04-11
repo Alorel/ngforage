@@ -107,6 +107,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "contributors": [
+    {
+      "name": "patrykp57",
+      "url": "https://github.com/patrykp57"
+    }
+  ],
   "greenkeeper": {
     "ignore": [
       "webpack",
