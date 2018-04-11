@@ -51,10 +51,20 @@
 <details>
   <summary>3.0.0</summary>
 
-  [Diff from 2.0.3](https://github.com/Alorel/ngforage/compare/2.0.3...3.0.0)
+  [Diff from 2.0.4](https://github.com/Alorel/ngforage/compare/2.0.4...3.0.0)
 
   <ul>
     <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>
+  </ul>
+</details>
+
+<details>
+  <summary>2.0.4</summary>
+
+  [Diff from 2.0.3](https://github.com/Alorel/ngforage/compare/2.0.3...2.0.4)
+
+  <ul>
+    <li><strong>fix:</strong> sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a></li>
   </ul>
 </details>
 
