@@ -1,15 +1,5 @@
-3.0.5:
+2.0.4:
   - fix: sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a>
-3.0.4:
-  - fix: Package metadata for AoT compilation should now be generated correctly.
-3.0.3:
-  - documentation: Added missing documentation for localForage as a peer dependency
-3.0.2:
-  - chore: Add package keywords to npm
-3.0.1:
-  - fix: Fixed the README not generating properly for the packaged version
-3.0.0:
-  - chore: Packaged with Angular 6-specific dependencies
 2.0.3:
   - fix: Package metadata for AoT compilation should now be generated correctly.
 2.0.2:
