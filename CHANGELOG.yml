@@ -1,3 +1,5 @@
+3.0.5:
+  - fix: sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a>
 3.0.4:
   - fix: Package metadata for AoT compilation should now be generated correctly.
 3.0.3:

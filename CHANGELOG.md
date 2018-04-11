@@ -1,4 +1,14 @@
 <details>
+  <summary>3.0.5</summary>
+
+  [Diff from 3.0.4](https://github.com/Alorel/ngforage/compare/3.0.4...3.0.5)
+
+  <ul>
+    <li><strong>fix:</strong> sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a></li>
+  </ul>
+</details>
+
+<details>
   <summary>3.0.4</summary>
 
   [Diff from 3.0.3](https://github.com/Alorel/ngforage/compare/3.0.3...3.0.4)
