@@ -1,12 +1,13 @@
 <details>
-  <summary>2.0.5</summary>
+  <summary>2.1.0</summary>
 
-  [Diff from 2.0.4](https://github.com/Alorel/ngforage/compare/2.0.4...2.0.5)
+  [Diff from 2.0.4](https://github.com/Alorel/ngforage/compare/2.0.4...2.1.0)
 
   <ul>
     <li><strong>feat:</strong> Added toString() methods which return a JSON-encoded string of an object to all relevant classes.</li>
     <li><strong>refactor:</strong> Symbol.toStringTag is now added without a support check as the polyfill is required by Angular</li>
     <li><strong>refactor:</strong> Refactored internal and private methods + properties</li>
+    <li><strong>refactor:</strong> Removed extraneous @Injectable() decorations on classes that have factories</li>
   </ul>
 </details>
 

@@ -1,4 +1,3 @@
-import {Injectable} from '@angular/core';
 import 'localforage';
 import {localForage as lf} from '../imports/localforage';
 import {_driver} from '../session-storage';
@@ -23,7 +22,6 @@ const defaultConfig: NgForageOptions = {
 /**
  * Global/default configuration
  */
-@Injectable()
 export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /** The IndexedDB driver */
