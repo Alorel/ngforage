@@ -1,4 +1,87 @@
 <details>
+  <summary>3.2.0</summary>
+
+  [Diff from 3.1.0](https://github.com/Alorel/ngforage/compare/3.1.0...3.2.0)
+
+  <ul>
+    <li><strong>feat:</strong> Added toString() methods which return a JSON-encoded string of an object to all relevant classes.</li>
+    <li><strong>refactor:</strong> Symbol.toStringTag is now added without a support check as the polyfill is required by Angular</li>
+    <li><strong>refactor:</strong> Refactored internal and private methods + properties</li>
+    <li><strong>refactor:</strong> Removed extraneous @Injectable() decorations on classes that have factories</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.1.0</summary>
+
+  [Diff from 3.0.5](https://github.com/Alorel/ngforage/compare/3.0.5...3.1.0)
+
+  <ul>
+    <li><strong>feat:</strong> The library now makes use of better tree-shakeability provided by Angular 6.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.0.5</summary>
+
+  [Diff from 3.0.4](https://github.com/Alorel/ngforage/compare/3.0.4...3.0.5)
+
+  <ul>
+    <li><strong>fix:</strong> sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.0.4</summary>
+
+  [Diff from 3.0.3](https://github.com/Alorel/ngforage/compare/3.0.3...3.0.4)
+
+  <ul>
+    <li><strong>fix:</strong> Package metadata for AoT compilation should now be generated correctly.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.0.3</summary>
+
+  [Diff from 3.0.2](https://github.com/Alorel/ngforage/compare/3.0.2...3.0.3)
+
+  <ul>
+    <li><strong>documentation:</strong> Added missing documentation for localForage as a peer dependency</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.0.2</summary>
+
+  [Diff from 3.0.1](https://github.com/Alorel/ngforage/compare/3.0.1...3.0.2)
+
+  <ul>
+    <li><strong>chore:</strong> Add package keywords to npm</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.0.1</summary>
+
+  [Diff from 3.0.0](https://github.com/Alorel/ngforage/compare/3.0.0...3.0.1)
+
+  <ul>
+    <li><strong>fix:</strong> Fixed the README not generating properly for the packaged version</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3.0.0</summary>
+
+  [Diff from 2.1.0](https://github.com/Alorel/ngforage/compare/2.1.0...3.0.0)
+
+  <ul>
+    <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>
+  </ul>
+</details>
+
+<details>
   <summary>2.1.0</summary>
 
   [Diff from 2.0.4](https://github.com/Alorel/ngforage/compare/2.0.4...2.1.0)

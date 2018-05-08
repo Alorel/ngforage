@@ -140,7 +140,8 @@
       "webpack",
       "ts-loader",
       "jasmine-core",
-      "typescript"
+      "typescript",
+      "@angular/cli"
     ]
   }
 }
