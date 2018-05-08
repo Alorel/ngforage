@@ -2,7 +2,6 @@ import {FactoryProvider, Injectable} from '@angular/core';
 import 'localforage';
 import {localForage as lf} from '../imports/localforage';
 import {_driver} from '../session-storage';
-import {addToStringTag} from '../util/addToStringTag';
 import {BaseConfigurable} from './BaseConfigurable';
 import {CacheConfigurable} from './CacheConfigurable';
 import {NgForageOptions} from './NgForageOptions';
@@ -36,7 +35,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   /** The WebSQL driver */
   public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
   /** @internal */
-  public static readonly provider: FactoryProvider = {
+  public static readonly provider: Readonly<FactoryProvider> = {
     provide: NgForageConfig,
     useFactory: NgForageConfig.factory
   };
@@ -193,7 +192,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   public toJSON(): NgForageOptions {
     return this.config;
   }
+
+  public toString(): string {
+    return JSON.stringify(this.toJSON());
+  }
 }
 
 Object.freeze(NgForageConfig.provider);
-addToStringTag(NgForageConfig, 'NgForageConfig');
+Object.defineProperty(NgForageConfig.prototype, Symbol.toStringTag, {value: 'NgForageConfig'});

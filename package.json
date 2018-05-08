@@ -2,7 +2,7 @@
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ngforage",
   "description": "localForage bindings for Angular",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "start": "ng serve",
@@ -104,7 +104,7 @@
     "tsickle": "^0.28.0",
     "tslib": "^1.9.0",
     "tslint": "^5.10.0",
-    "typescript": ">=2.7.2 <2.8.0",
+    "typescript": ">=2.4.2 <2.7.0",
     "uglify-es": "^3.3.10",
     "uuid": "^3.1.0",
     "webpack": "^3.0.0",

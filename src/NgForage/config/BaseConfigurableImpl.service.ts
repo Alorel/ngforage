@@ -1,10 +1,11 @@
 import {Inject, Injectable} from '@angular/core';
 import 'localforage';
 import {InstanceFactory} from '../instance-factory/InstanceFactory.service';
-import {addToStringTag} from '../util/addToStringTag';
 import {BaseConfigurable} from './BaseConfigurable';
 import {NgForageConfig} from './NgForageConfig.service';
 import {NgForageOptions} from './NgForageOptions';
+
+const store$ = Symbol('Store');
 
 /**
  * Abstract service-level configuration layer for NgForage
@@ -20,8 +21,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   protected readonly fact: InstanceFactory;
   /** @internal */
   protected storeNeedsRecalc = true;
-  /** @internal */
-  private _store: LocalForage;
 
   /** @internal */
   public constructor(@Inject(NgForageConfig) config: NgForageConfig,
@@ -128,12 +127,12 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
   protected get store(): LocalForage {
-    if (this.storeNeedsRecalc || !this._store) {
-      this._store = this.fact.getInstance(this.finalConfig);
+    if (this.storeNeedsRecalc || !this[store$]) {
+      this[store$] = this.fact.getInstance(this.finalConfig);
       this.storeNeedsRecalc = false;
     }
 
-    return this._store;
+    return this[store$];
   }
 
   /**
@@ -164,6 +163,10 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
       version: this.version
     };
   }
+
+  public toString(): string {
+    return JSON.stringify(this.toJSON());
+  }
 }
 
-addToStringTag(BaseConfigurableImpl, 'BaseConfigurable');
+Object.defineProperty(BaseConfigurableImpl.prototype, Symbol.toStringTag, {value: 'BaseConfigurable'});
