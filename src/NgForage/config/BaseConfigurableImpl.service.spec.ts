@@ -37,7 +37,11 @@ describe('BaseConfigurableImpl', () => {
   });
 
   it('toStringTag', () => {
-    expect(bc.toString()).toContain('BaseConfigurable');
+    expect(bc[Symbol.toStringTag]).toContain('BaseConfigurable');
+  });
+
+  it('toString() should be a JSON.stringify', () => {
+    expect(bc.toString()).toEqual(JSON.stringify(bc));
   });
 
   describe('get/set', () => {

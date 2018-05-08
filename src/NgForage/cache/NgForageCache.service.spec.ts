@@ -52,8 +52,12 @@ describe('NgForageCache Service', () => {
     expect(cache.toJSON().cacheTime).toBe(defaultCacheTime);
   });
 
+  it('toString() should be a JSON.stringify', () => {
+    expect(cache.toString()).toEqual(JSON.stringify(cache));
+  });
+
   it('toStringTag should be set', () => {
-    expect(cache.toString()).toContain('NgForageCache');
+    expect(cache[Symbol.toStringTag]).toContain('NgForageCache');
   });
 
   describe('Cache time', () => {

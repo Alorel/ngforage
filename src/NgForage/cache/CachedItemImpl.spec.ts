@@ -5,7 +5,13 @@ describe('CachedItemImpl', () => {
   it('#toStringTag should be CachedItem', () => {
     const i = new CachedItemImpl<any>(null, null);
 
-    expect(i.toString()).toContain('CachedItem');
+    expect(i[Symbol.toStringTag]).toContain('CachedItem');
+  });
+
+  it('#toString should be a JSON.stringify', () => {
+    const i = new CachedItemImpl<any>(null, null);
+
+    expect(i.toString()).toEqual(JSON.stringify(i));
   });
 
   describe('No data, no expiry time', () => {
