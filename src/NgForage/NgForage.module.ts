@@ -10,6 +10,7 @@ import {NgForage} from './main/NgForage.service';
 @NgModule({})
 export class NgForageModule {
 
+  // istanbul ignore next
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: NgForageModule,
