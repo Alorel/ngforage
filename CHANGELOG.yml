@@ -1,3 +1,7 @@
+2.0.5:
+  - refactor: Symbol.toStringTag is now added without a support check as the polyfill is required by Angular
+  - refactor: Refactored internal and private methods + properties
+  - feat: Added toString() methods which return a JSON-encoded string of an object to all relevant classes.
 2.0.4:
   - fix: sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a>
 2.0.3:
