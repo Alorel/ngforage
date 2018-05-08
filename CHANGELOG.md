@@ -1,4 +1,14 @@
 <details>
+  <summary>2.1.1</summary>
+
+  [Diff from 2.1.0](https://github.com/Alorel/ngforage/compare/2.1.0...2.1.1)
+
+  <ul>
+    <li><strong>chore:</strong> Flagged some internal variables as internal.</li>
+  </ul>
+</details>
+
+<details>
   <summary>2.1.0</summary>
 
   [Diff from 2.0.4](https://github.com/Alorel/ngforage/compare/2.0.4...2.1.0)
