@@ -1,4 +1,3 @@
-import {Injectable} from '@angular/core';
 import 'localforage';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
@@ -44,7 +43,6 @@ const conf$ = Symbol('Config');
 /**
  * Creates localForage instances
  */
-@Injectable()
 export class InstanceFactory {
 
   /** @internal */

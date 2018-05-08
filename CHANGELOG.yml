@@ -1,6 +1,7 @@
 3.2.0:
   - refactor: Symbol.toStringTag is now added without a support check as the polyfill is required by Angular
   - refactor: Refactored internal and private methods + properties
+  - refactor: Removed extraneous @Injectable() decorations on classes that have factories
   - feat: Added toString() methods which return a JSON-encoded string of an object to all relevant classes.
 3.1.0:
   - feat: The library now makes use of better tree-shakeability provided by Angular 6.
@@ -19,6 +20,7 @@
 2.1.0:
   - refactor: Symbol.toStringTag is now added without a support check as the polyfill is required by Angular
   - refactor: Refactored internal and private methods + properties
+  - refactor: Removed extraneous @Injectable() decorations on classes that have factories
   - feat: Added toString() methods which return a JSON-encoded string of an object to all relevant classes.
 2.0.4:
   - fix: sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a>
