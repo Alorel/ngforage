@@ -8,6 +8,7 @@ import {_$factory$ as instanceFactoryFactory, InstanceFactory} from './instance-
 @NgModule({})
 export class NgForageModule {
 
+  // istanbul ignore next
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: NgForageModule,

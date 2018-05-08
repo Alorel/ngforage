@@ -10,6 +10,8 @@ describe('Instance factory', () => {
   let i1: LocalForage;
   let i2: LocalForage;
   let i3: LocalForage;
+  let i4: LocalForage;
+  let i5: LocalForage;
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
@@ -29,6 +31,12 @@ describe('Instance factory', () => {
     i1 = fact.getInstance(getConf({version: 2}));
     i2 = fact.getInstance(getConf({version: 2}));
     i3 = fact.getInstance(getConf({driver: ''}));
+    i4 = fact.getInstance(<any>null);
+    i5 = fact.getInstance({});
+  });
+
+  it('4 === 5', () => {
+    expect(i4).toBe(i5);
   });
 
   it('1 === 2', () => {
