@@ -74,10 +74,20 @@
 <details>
   <summary>3.0.0</summary>
 
-  [Diff from 2.1.0](https://github.com/Alorel/ngforage/compare/2.1.0...3.0.0)
+  [Diff from 2.1.1](https://github.com/Alorel/ngforage/compare/2.1.1...3.0.0)
 
   <ul>
     <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>
+  </ul>
+</details>
+
+<details>
+  <summary>2.1.1</summary>
+
+  [Diff from 2.1.0](https://github.com/Alorel/ngforage/compare/2.1.0...2.1.1)
+
+  <ul>
+    <li><strong>chore:</strong> Flagged some internal variables as internal.</li>
   </ul>
 </details>
 
