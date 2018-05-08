@@ -1,4 +1,4 @@
-import {FactoryProvider, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import 'localforage';
 import {localForage as lf} from '../imports/localforage';
 import {_driver} from '../session-storage';
@@ -34,11 +34,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   public static readonly DRIVER_SESSIONSTORAGE: string = _driver;
   /** The WebSQL driver */
   public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
-  /** @internal */
-  public static readonly provider: Readonly<FactoryProvider> = {
-    provide: NgForageConfig,
-    useFactory: NgForageConfig.factory
-  };
 
   /**
    * Cache time in milliseconds
@@ -151,14 +146,6 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     defaultConfig.version = v;
   }
 
-  public static factory(): NgForageConfig {
-    if (!instance) {
-      instance = new NgForageConfig();
-    }
-
-    return instance;
-  }
-
   /**
    * Bulk-set configuration options
    * @param opts The configuration
@@ -198,5 +185,13 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   }
 }
 
-Object.freeze(NgForageConfig.provider);
 Object.defineProperty(NgForageConfig.prototype, Symbol.toStringTag, {value: 'NgForageConfig'});
+
+/** @internal */
+export function _$factory(): NgForageConfig {
+  if (!instance) {
+    instance = new NgForageConfig();
+  }
+
+  return instance;
+}

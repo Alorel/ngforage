@@ -1,6 +1,6 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {NgForageConfig} from './config/NgForageConfig.service';
-import {InstanceFactory} from './instance-factory/InstanceFactory.service';
+import {_$factory as ngfcFactory, NgForageConfig} from './config/NgForageConfig.service';
+import {_$factory$ as instanceFactoryFactory, InstanceFactory} from './instance-factory/InstanceFactory.service';
 
 /**
  * NgForage core module
@@ -12,8 +12,16 @@ export class NgForageModule {
     return {
       ngModule: NgForageModule,
       providers: [
-        NgForageConfig.provider,
-        InstanceFactory.provider
+        {
+          deps: [],
+          provide: NgForageConfig,
+          useFactory: ngfcFactory
+        },
+        {
+          deps: [NgForageConfig],
+          provide: InstanceFactory,
+          useFactory: instanceFactoryFactory
+        }
       ]
     };
   }
