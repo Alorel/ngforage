@@ -39,6 +39,8 @@ function getHash(cfg: NgForageOptions): string {
   ].join('|');
 }
 
+const conf$ = Symbol('Config');
+
 /**
  * Creates localForage instances
  */
@@ -51,12 +53,10 @@ export class InstanceFactory {
     provide: InstanceFactory,
     useFactory: InstanceFactory.factory
   };
-  /** @internal */
-  private readonly conf: NgForageConfig;
 
   /** @internal */
   private constructor(conf: NgForageConfig) {
-    this.conf = conf;
+    this[conf$] = conf;
   }
 
   public static factory(conf: NgForageConfig): InstanceFactory {
@@ -68,7 +68,7 @@ export class InstanceFactory {
   }
 
   public getInstance(cfg: NgForageOptions): LocalForage {
-    cfg = Object.assign(this.conf.config, cfg || {});
+    cfg = Object.assign({}, this[conf$].config, cfg || {});
     const hash = getHash(cfg);
 
     if (!stores[hash]) {
@@ -78,3 +78,5 @@ export class InstanceFactory {
     return stores[hash];
   }
 }
+
+Object.defineProperty(InstanceFactory.prototype, Symbol.toStringTag, {value: 'InstanceFactory'});

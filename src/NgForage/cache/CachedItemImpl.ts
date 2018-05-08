@@ -1,5 +1,4 @@
 import {LazyGetter} from 'typescript-lazy-get-decorator';
-import {addToStringTag} from '../util/addToStringTag';
 import {CachedItem} from './CachedItem';
 
 /** @internal */
@@ -7,9 +6,7 @@ export class CachedItemImpl<T> implements CachedItem<T> {
 
   public readonly expires: Date;
 
-  public constructor(public readonly data: T,
-                     expiryTime: number) {
-
+  public constructor(public readonly data: T, expiryTime: number) {
     this.expires = new Date(typeof expiryTime === 'number' ? expiryTime : 0);
   }
 
@@ -37,6 +34,10 @@ export class CachedItemImpl<T> implements CachedItem<T> {
       hasData: this.hasData
     };
   }
+
+  public toString(): string {
+    return JSON.stringify(this.toJSON());
+  }
 }
 
-addToStringTag(CachedItemImpl, 'CachedItem');
+Object.defineProperty(CachedItemImpl.prototype, Symbol.toStringTag, {value: 'CachedItem'});

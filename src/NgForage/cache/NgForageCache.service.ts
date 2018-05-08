@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {CacheConfigurable} from '../config/CacheConfigurable';
 import {NgForageOptions} from '../config/NgForageOptions';
 import {NgForage} from '../main/NgForage.service';
-import {addToStringTag} from '../util/addToStringTag';
 import {CachedItem} from './CachedItem';
 import {CachedItemImpl} from './CachedItemImpl';
 
@@ -112,4 +111,4 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
   }
 }
 
-addToStringTag(NgForageCache, 'NgForageCache');
+Object.defineProperty(NgForageCache.prototype, Symbol.toStringTag, {value: 'NgForageCache'});

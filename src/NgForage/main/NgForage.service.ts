@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {BaseConfigurable} from '../config/BaseConfigurable';
 import {BaseConfigurableImpl} from '../config/BaseConfigurableImpl.service';
 import {NgForageOptions} from '../config/NgForageOptions';
-import {addToStringTag} from '../util/addToStringTag';
 
 /**
  * Cache instance
@@ -135,4 +134,4 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
   }
 }
 
-addToStringTag(NgForage, 'NgForage');
+Object.defineProperty(NgForage.prototype, Symbol.toStringTag, {value: 'NgForage'});
