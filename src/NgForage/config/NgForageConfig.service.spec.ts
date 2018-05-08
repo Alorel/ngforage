@@ -25,7 +25,11 @@ describe('NgForageConfig service', () => {
   });
 
   it('toStringTag', () => {
-    expect(conf.toString()).toContain('NgForageConfig');
+    expect(conf[Symbol.toStringTag]).toContain('NgForageConfig');
+  });
+
+  it('toString() should be a JSON.stringify', () => {
+    expect(conf.toString()).toEqual(JSON.stringify(conf));
   });
 
   describe('#defineDriver', () => {
