@@ -1,5 +1,6 @@
 import 'localforage';
 
+/** @internal */
 const lf: any = require('localforage');
 
 /** @internal */

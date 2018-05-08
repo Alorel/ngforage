@@ -5,6 +5,7 @@ import {BaseConfigurable} from './BaseConfigurable';
 import {NgForageConfig} from './NgForageConfig.service';
 import {NgForageOptions} from './NgForageOptions';
 
+/** @internal */
 const store$ = Symbol('Store');
 
 /**
