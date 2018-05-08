@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject} from '@angular/core';
 import 'localforage';
 import {InstanceFactory} from '../instance-factory/InstanceFactory.service';
 import {BaseConfigurable} from './BaseConfigurable';
@@ -10,7 +10,6 @@ const store$ = Symbol('Store');
 /**
  * Abstract service-level configuration layer for NgForage
  */
-@Injectable()
 export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
