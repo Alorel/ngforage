@@ -7,7 +7,7 @@ import {addToStringTag} from '../util/addToStringTag';
 /**
  * Cache instance
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
 
   /**

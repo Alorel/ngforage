@@ -1,3 +1,5 @@
+3.1.0:
+  - feat: The library now makes use of better tree-shakeability provided by Angular 6. See the updated Readme.
 3.0.5:
   - fix: sessionStorage not defined bug fixed in <a href="https://github.com/Alorel/ngforage/pull/60">!60</a>
 3.0.4:
