@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject} from '@angular/core';
 import 'localforage';
 import {InstanceFactory} from '../instance-factory/InstanceFactory.service';
 import {addToStringTag} from '../util/addToStringTag';
@@ -9,7 +9,6 @@ import {NgForageOptions} from './NgForageOptions';
 /**
  * Abstract service-level configuration layer for NgForage
  */
-@Injectable()
 export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
@@ -20,8 +19,9 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   protected readonly fact: InstanceFactory;
   /** @internal */
   protected storeNeedsRecalc = true;
+
   /** @internal */
-  private _store: LocalForage;
+  private __store: LocalForage; //tslint:disable-line:variable-name
 
   /** @internal */
   public constructor(@Inject(NgForageConfig) config: NgForageConfig,
@@ -128,12 +128,12 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
   protected get store(): LocalForage {
-    if (this.storeNeedsRecalc || !this._store) {
-      this._store = this.fact.getInstance(this.finalConfig);
+    if (this.storeNeedsRecalc || !this.__store) {
+      this.__store = this.fact.getInstance(this.finalConfig);
       this.storeNeedsRecalc = false;
     }
 
-    return this._store;
+    return this.__store;
   }
 
   /**

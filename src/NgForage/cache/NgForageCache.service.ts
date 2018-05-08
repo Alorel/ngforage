@@ -39,7 +39,7 @@ function toVoid(): void {
 /**
  * An extension of {@link NgForage} which adds expiration support
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class NgForageCache extends NgForage implements CacheConfigurable {
 
   /**

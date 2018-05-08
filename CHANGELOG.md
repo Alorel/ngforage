@@ -1,4 +1,14 @@
 <details>
+  <summary>3.1.0</summary>
+
+  [Diff from 3.0.5](https://github.com/Alorel/ngforage/compare/3.0.5...3.1.0)
+
+  <ul>
+    <li><strong>feat:</strong> The library now makes use of better tree-shakeability provided by Angular 6.</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.0.5</summary>
 
   [Diff from 3.0.4](https://github.com/Alorel/ngforage/compare/3.0.4...3.0.5)
