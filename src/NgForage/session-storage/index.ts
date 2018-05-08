@@ -14,6 +14,7 @@ import {setItem} from './setItem';
 /** @internal */
 export const _driver = 'ngforage_sessionStorage';
 
+/** @internal */
 const sessionStorageWrapper: LocalForageDriver = {
   _driver,
   _initStorage,

@@ -38,6 +38,7 @@ function getHash(cfg: NgForageOptions): string {
   ].join('|');
 }
 
+/** @internal */
 const conf$ = Symbol('Config');
 
 /**
