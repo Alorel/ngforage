@@ -12,7 +12,7 @@ const conf$ = Symbol('NgForageConfig');
 /** @internal */
 const if$ = Symbol('InstanceFactory');
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DedicatedInstanceFactory {
   public constructor(conf: NgForageConfig, instFact: InstanceFactory) {
     this[conf$] = conf;

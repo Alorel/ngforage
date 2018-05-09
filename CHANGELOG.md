@@ -1,4 +1,14 @@
 <details>
+  <summary>3.3.0</summary>
+
+  [Diff from 3.2.0](https://github.com/Alorel/ngforage/compare/3.2.0...3.3.0)
+
+  <ul>
+    <li><strong>feat:</strong> It's now possible to create dedicated instances via DedicatedInstanceFactory</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.2.0</summary>
 
   [Diff from 3.1.0](https://github.com/Alorel/ngforage/compare/3.1.0...3.2.0)
@@ -74,10 +84,20 @@
 <details>
   <summary>3.0.0</summary>
 
-  [Diff from 2.1.1](https://github.com/Alorel/ngforage/compare/2.1.1...3.0.0)
+  [Diff from 2.2.0](https://github.com/Alorel/ngforage/compare/2.2.0...3.0.0)
 
   <ul>
     <li><strong>chore:</strong> Packaged with Angular 6-specific dependencies</li>
+  </ul>
+</details>
+
+<details>
+  <summary>2.2.0</summary>
+
+  [Diff from 2.1.1](https://github.com/Alorel/ngforage/compare/2.1.1...2.2.0)
+
+  <ul>
+    <li><strong>feat:</strong> It's now possible to create dedicated instances via DedicatedInstanceFactory</li>
   </ul>
 </details>
 
