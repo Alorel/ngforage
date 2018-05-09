@@ -19,6 +19,8 @@
   - fix: Fixed the README not generating properly for the packaged version
 3.0.0:
   - chore: Packaged with Angular 6-specific dependencies
+2.2.1:
+  - fix: Quickfix: Add DedicatedInstanceFactory to index.ts exports
 2.2.0:
   - feat: It's now possible to create dedicated instances via DedicatedInstanceFactory
 2.1.1:
