@@ -9,3 +9,4 @@ export * from './CacheConfigurable';
 export * from './NgForageConfig';
 export * from './NgForageOptions';
 export * from './InstanceFactory';
+export * from './DedicatedInstanceFactory';
