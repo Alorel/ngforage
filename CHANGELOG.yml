@@ -1,3 +1,5 @@
+2.2.0:
+  - feat: It's now possible to create dedicated instances via DedicatedInstanceFactory
 2.1.1:
   - chore: Flagged some internal variables as internal.
 2.1.0:

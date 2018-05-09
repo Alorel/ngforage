@@ -1,4 +1,14 @@
 <details>
+  <summary>2.2.0</summary>
+
+  [Diff from 2.1.1](https://github.com/Alorel/ngforage/compare/2.1.1...2.2.0)
+
+  <ul>
+    <li><strong>feat:</strong> It's now possible to create dedicated instances via DedicatedInstanceFactory</li>
+  </ul>
+</details>
+
+<details>
   <summary>2.1.1</summary>
 
   [Diff from 2.1.0](https://github.com/Alorel/ngforage/compare/2.1.0...2.1.1)
