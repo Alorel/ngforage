@@ -1,4 +1,14 @@
 <details>
+  <summary>2.2.1</summary>
+
+  [Diff from 2.2.0](https://github.com/Alorel/ngforage/compare/2.2.0...2.2.1)
+
+  <ul>
+    <li><strong>fix:</strong> Quickfix: Add DedicatedInstanceFactory to index.ts exports</li>
+  </ul>
+</details>
+
+<details>
   <summary>2.2.0</summary>
 
   [Diff from 2.1.1](https://github.com/Alorel/ngforage/compare/2.1.1...2.2.0)

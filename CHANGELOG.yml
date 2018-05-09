@@ -1,3 +1,5 @@
+2.2.1:
+  - fix: Quickfix: Add DedicatedInstanceFactory to index.ts exports
 2.2.0:
   - feat: It's now possible to create dedicated instances via DedicatedInstanceFactory
 2.1.1:

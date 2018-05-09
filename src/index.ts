@@ -9,3 +9,4 @@ export * from './NgForage/config/NgForageConfig.service';
 export * from './NgForage/config/NgForageOptions';
 export * from './NgForage/main/NgForage.service';
 export * from './NgForage/instance-factory/InstanceFactory.service';
+export * from './NgForage/dedicated/DedicatedInstanceFactory';
