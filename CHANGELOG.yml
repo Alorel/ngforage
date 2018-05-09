@@ -1,3 +1,5 @@
+3.3.0:
+  - feat: It's now possible to create dedicated instances via DedicatedInstanceFactory
 3.2.0:
   - refactor: Symbol.toStringTag is now added without a support check as the polyfill is required by Angular
   - refactor: Refactored internal and private methods + properties
@@ -17,6 +19,8 @@
   - fix: Fixed the README not generating properly for the packaged version
 3.0.0:
   - chore: Packaged with Angular 6-specific dependencies
+2.2.0:
+  - feat: It's now possible to create dedicated instances via DedicatedInstanceFactory
 2.1.1:
   - chore: Flagged some internal variables as internal.
 2.1.0:
