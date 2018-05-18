@@ -1,3 +1,7 @@
+3.4.0:
+  - feat: NgForage now makes use of Angular 6's providedIn operator and therefore is more tree-shakeable
+  - feat: Importing NgForageModule is now optional in Angular 6 and up
+  - feat: NgForage can now be configured in NgForageModule.forRoot() by passing in the configuration params.
 3.3.0:
   - feat: It's now possible to create dedicated instances via DedicatedInstanceFactory
 3.2.0:

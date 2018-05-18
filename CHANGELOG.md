@@ -1,4 +1,16 @@
 <details>
+  <summary>3.4.0</summary>
+
+  [Diff from 3.3.0](https://github.com/Alorel/ngforage/compare/3.3.0...3.4.0)
+
+  <ul>
+    <li><strong>feat:</strong> NgForage now makes use of Angular 6's providedIn operator and therefore is more tree-shakeable</li>
+    <li><strong>feat:</strong> Importing NgForageModule is now optional in Angular 6 and up</li>
+    <li><strong>feat:</strong> NgForage can now be configured in NgForageModule.forRoot() by passing in the configuration params.</li>
+  </ul>
+</details>
+
+<details>
   <summary>3.3.0</summary>
 
   [Diff from 3.2.0](https://github.com/Alorel/ngforage/compare/3.2.0...3.3.0)

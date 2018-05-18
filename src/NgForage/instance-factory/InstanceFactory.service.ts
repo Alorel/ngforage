@@ -1,10 +1,8 @@
+import {Injectable} from '@angular/core';
 import 'localforage';
 import {NgForageConfig} from '../config/NgForageConfig.service';
 import {NgForageOptions} from '../config/NgForageOptions';
 import {localForage as lf} from '../imports/localforage';
-
-/** @internal */
-let instance: InstanceFactory;
 
 /** @internal */
 interface InstanceMap {
@@ -44,6 +42,7 @@ const conf$ = Symbol('Config');
 /**
  * Creates localForage instances
  */
+@Injectable({providedIn: 'root'})
 export class InstanceFactory {
 
   /** @internal */
@@ -64,12 +63,3 @@ export class InstanceFactory {
 }
 
 Object.defineProperty(InstanceFactory.prototype, Symbol.toStringTag, {value: 'InstanceFactory'});
-
-/** @internal */
-export function _$factory$(conf: NgForageConfig): InstanceFactory {
-  if (!instance) {
-    instance = new InstanceFactory(conf);
-  }
-
-  return instance;
-}

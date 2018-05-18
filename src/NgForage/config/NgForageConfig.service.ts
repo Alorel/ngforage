@@ -1,27 +1,18 @@
+import {Inject, Injectable, Optional} from '@angular/core';
 import 'localforage';
+import {DEFAULT_CONFIG} from '../DEFAULT_CONFIG.token';
 import {localForage as lf} from '../imports/localforage';
 import {_driver} from '../session-storage';
 import {BaseConfigurable} from './BaseConfigurable';
 import {CacheConfigurable} from './CacheConfigurable';
 import {NgForageOptions} from './NgForageOptions';
 
-/** @internal */
-let instance: NgForageConfig;
-
-/** @internal */
-const defaultConfig: NgForageOptions = {
-  cacheTime: 300000,
-  description: '',
-  driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
-  name: 'ngForage',
-  size: 4980736,
-  storeName: 'ng_forage',
-  version: 1
-};
+const $defaultConfig = Symbol('Default Config');
 
 /**
  * Global/default configuration
  */
+@Injectable({providedIn: 'root'})
 export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /** The IndexedDB driver */
@@ -33,16 +24,31 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   /** The WebSQL driver */
   public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
 
+  public constructor(@Optional() @Inject(DEFAULT_CONFIG) conf: NgForageOptions) {
+    this[$defaultConfig] = {
+      cacheTime: 300000,
+      description: '',
+      driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
+      name: 'ngForage',
+      size: 4980736,
+      storeName: 'ng_forage',
+      version: 1
+    };
+    if (conf) {
+      this.configure(conf);
+    }
+  }
+
   /**
    * Cache time in milliseconds
    * @default 300000
    */
   public get cacheTime(): number {
-    return defaultConfig.cacheTime;
+    return this[$defaultConfig].cacheTime;
   }
 
   public set cacheTime(t: number) {
-    defaultConfig.cacheTime = t;
+    this[$defaultConfig].cacheTime = t;
   }
 
   /**
@@ -65,11 +71,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default
    */
   public get description(): string {
-    return defaultConfig.description;
+    return this[$defaultConfig].description;
   }
 
   public set description(v: string) {
-    defaultConfig.description = v;
+    this[$defaultConfig].description = v;
   }
 
   /**
@@ -80,15 +86,15 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @see {@link NgForageConfig#DRIVER_SESSIONSTORAGE}
    */
   public get driver(): string | string[] {
-    if (typeof defaultConfig.driver === 'string') {
-      return defaultConfig.driver;
+    if (typeof this[$defaultConfig].driver === 'string') {
+      return this[$defaultConfig].driver;
     }
 
-    return defaultConfig.driver.slice();
+    return this[$defaultConfig].driver.slice();
   }
 
   public set driver(v: string | string[]) {
-    defaultConfig.driver = v;
+    this[$defaultConfig].driver = v;
   }
 
   /**
@@ -97,11 +103,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default ngForage
    */
   public get name(): string {
-    return defaultConfig.name;
+    return this[$defaultConfig].name;
   }
 
   public set name(v: string) {
-    defaultConfig.name = v;
+    this[$defaultConfig].name = v;
   }
 
   /**
@@ -109,11 +115,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 4980736
    */
   public get size(): number {
-    return defaultConfig.size;
+    return this[$defaultConfig].size;
   }
 
   public set size(v: number) {
-    defaultConfig.size = v;
+    this[$defaultConfig].size = v;
   }
 
   /**
@@ -125,11 +131,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default ng_forage
    */
   public get storeName(): string {
-    return defaultConfig.storeName;
+    return this[$defaultConfig].storeName;
   }
 
   public set storeName(v: string) {
-    defaultConfig.storeName = v;
+    this[$defaultConfig].storeName = v;
   }
 
   /**
@@ -137,11 +143,11 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 1.0
    */
   public get version(): number {
-    return defaultConfig.version;
+    return this[$defaultConfig].version;
   }
 
   public set version(v: number) {
-    defaultConfig.version = v;
+    this[$defaultConfig].version = v;
   }
 
   /**
@@ -155,7 +161,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
       opts.driver = opts.driver.slice();
     }
 
-    Object.assign(defaultConfig, opts);
+    Object.assign(this[$defaultConfig], opts);
 
     return this;
   }
@@ -184,12 +190,3 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 }
 
 Object.defineProperty(NgForageConfig.prototype, Symbol.toStringTag, {value: 'NgForageConfig'});
-
-/** @internal */
-export function _$factory(): NgForageConfig {
-  if (!instance) {
-    instance = new NgForageConfig();
-  }
-
-  return instance;
-}

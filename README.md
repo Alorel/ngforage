@@ -34,7 +34,17 @@
     
     @NgModule({
       imports: [
-        NgForageModule.forRoot()
+        // Optional in Angular 6 and up
+        NgForageModule.forRoot(),
+        
+        // Optional configuration as an alternative to what's below in Angular 6+
+        NgForageModule.forRoot({
+          name: 'MyApp',
+          driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
+            NgForageConfig.DRIVER_INDEXEDDB,
+            NgForageConfig.DRIVER_LOCALSTORAGE
+          ]
+        })
       ]
     })
     export class AppModule{
