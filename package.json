@@ -95,7 +95,7 @@
     "localstorage-browser-polyfill": "^0.1.0",
     "lodash": "^4.17.4",
     "lodash-es": "^4.17.8",
-    "ng-packagr": "^3.0.0",
+    "ng-packagr": "^4.0.0",
     "reflect-metadata": "^0.1.10",
     "rimraf": "^2.6",
     "rxjs": "^6.0.0",
