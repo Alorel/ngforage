@@ -81,7 +81,7 @@
     "html-minifier": "^3.5.13",
     "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine-core": "^2.8",
-    "karma": "^2.0.0",
+    "karma": "^3.0.0",
     "karma-chrome-launcher": "^2.2",
     "karma-coverage-istanbul-reporter": "^2.0.0",
     "karma-firefox-launcher": "^1.1.0",
