@@ -1,8 +1,8 @@
-/.idea/
-/node_modules/
-/*.tgz
+/.idea
+node_modules/
+projects/**/yarn.lock
 /dist/
-/demo/
 /coverage/
-/*.tar.gz
-/.npmrc
+*.tgz
+/docs/
+/yarn-error.log

@@ -24,6 +24,7 @@
   ```bash
    npm install localforage@^1.5.0 ngforage@^2.0.0 # for Angular 5
    npm install localforage@^1.5.0 ngforage@^3.0.0 # for Angular 6
+   npm install localforage@^1.5.0 ngforage@^4.0.0 # for Angular 7
   ```
 </details>
 <details>
