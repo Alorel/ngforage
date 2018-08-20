@@ -17,7 +17,7 @@ install:
 - yarn run sync
 - *yInstall
 
-script: yarn run lint && yarn run test && yarn run build:demo:prod
+script: yarn run lint && yarn run test && yarn run build:demo --aot
 
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/lcov.info | coveralls
