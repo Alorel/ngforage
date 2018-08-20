@@ -2,10 +2,6 @@ sudo: false
 language: node_js
 node_js: lts/*
 
-os:
-- osx
-- linux
-
 before_cache: rm -rf ./node_modules/.cache
 cache:
   yarn: true
