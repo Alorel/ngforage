@@ -29,6 +29,11 @@ stages:
 jobs:
   include:
   - stage: Test
+    os: linux
+    addons:
+      chrome: stable
+      firefox: latest
+  - stage: Test
     os: osx
     sudo: required
     addons:
@@ -40,8 +45,3 @@ jobs:
     - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
     - sleep 3
     script: yarn run test --browsers Safari
-  - stage: Test
-    os: linux
-    addons:
-      chrome: stable
-      firefox: latest
