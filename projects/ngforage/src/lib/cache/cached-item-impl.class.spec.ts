@@ -5,7 +5,7 @@ import {CachedItemImpl} from './cached-item-impl.class';
 
 describe('CachedItemImpl', () => {
   it('#toStringTag should be CachedItem', () => {
-    const i = new CachedItemImpl<any>(null, null);
+    const i = new CachedItemImpl<any>(null, 0);
 
     expect(i[Symbol.toStringTag]).toContain('CachedItem');
   });
