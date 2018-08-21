@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -6,9 +6,12 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject} from '@an
   styleUrls: ['./github-ribbon.component.css'],
   templateUrl: './github-ribbon.component.html'
 })
-export class GithubRibbonComponent {
+export class GithubRibbonComponent implements AfterViewInit {
 
-  public constructor(@Inject(ChangeDetectorRef) cdr: ChangeDetectorRef) {
-    cdr.detach();
+  public constructor(private readonly cdr: ChangeDetectorRef) {
+  }
+
+  public ngAfterViewInit(): void {
+    this.cdr.detach();
   }
 }

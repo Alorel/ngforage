@@ -3,6 +3,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {NgForage, NgForageConfig} from 'ngforage';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
+import {Proto} from 'typescript-proto-decorator';
 
 interface Engine {
   elementID: string;
@@ -26,10 +27,14 @@ interface Engine {
 })
 export class EngineSelectComponent implements ControlValueAccessor {
 
-  public _disabled = false;
-  public _onBlurFn: Function = noop;
-  public _onChangeFn: Function = noop;
-  public selected = '';
+  @Proto(false)
+  public _disabled: boolean;
+  @Proto(noop)
+  public _onBlurFn: Function;
+  @Proto(noop)
+  public _onChangeFn: Function;
+  @Proto('')
+  public selected: string;
 
   public constructor(private readonly ngf: NgForage) {
 

@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
+import {NgForageModule} from 'ngforage/src/lib';
 import {AppComponent} from './app.component';
 import {AsStringPipe} from './asString.pipe';
 import {ButtonStylingDirective} from './button-styling.directive';
@@ -27,7 +28,8 @@ import {StorageTabComponent} from './storage-tab/storage-tab.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgForageModule.forRoot()
   ]
 })
 export class AppModule {

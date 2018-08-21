@@ -1,11 +1,16 @@
-import {ChangeDetectionStrategy, Component, forwardRef, Inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {NgForage, NgForageConfig, NgForageConfig as C, NgForageOptions} from 'ngforage';
+import {NgxDecorate, Unsubscribe} from 'ngx-decorate';
 import {combineLatest, Subscription} from 'rxjs';
 import {debounceTime, map, startWith} from 'rxjs/operators';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
+import {Proto} from 'typescript-proto-decorator';
 
+const _sub: unique symbol = Symbol('sub');
+
+@NgxDecorate()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -18,18 +23,22 @@ import {LazyGetter} from 'typescript-lazy-get-decorator';
   selector: 'ngf-full-config',
   templateUrl: './full-config.component.html'
 })
-export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDestroy {
+export class FullConfigComponent implements ControlValueAccessor, OnInit {
 
-  public _onBlur: Function = noop;
-  public _val: any;
-  @Input('showCacheTime')
-  public showCacheTime = false;
-  private _onChange: Function = noop;
-  private _sub: Subscription;
+  @Proto(noop)
+  public _onBlur: Function;
+  public _val: NgForageOptions;
+  @Proto(false)
+  @Input()
+  public showCacheTime: boolean;
+  @Unsubscribe()
+  public [_sub]: Subscription;
+  @Proto(noop)
+  private _onChange: Function;
 
-  public constructor(@Inject(FormBuilder) private readonly fb: FormBuilder,
-                     @Inject(NgForage) private readonly ngf: NgForage,
-                     @Inject(NgForageConfig) private readonly cfg: NgForageConfig) {
+  public constructor(private readonly fb: FormBuilder,
+                     private readonly ngf: NgForage,
+                     private readonly cfg: NgForageConfig) {
   }
 
   @LazyGetter()
@@ -60,27 +69,21 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
     return C.DRIVER_LOCALSTORAGE;
   }
 
-  public ngOnDestroy(): void {
-    if (this._sub) {
-      this._sub.unsubscribe();
-    }
-  }
-
   public ngOnInit(): void {
     const eng$ = this.engine.valueChanges.pipe(startWith(this.engine.value));
     const cfg$ = this.otherConfig.valueChanges.pipe(startWith(this.otherConfig.value));
 
-    this._sub = combineLatest(eng$, cfg$)
+    this[_sub] = combineLatest(eng$, cfg$)
       .pipe(
         debounceTime(50), //tslint:disable-line:no-magic-numbers
-        map((v: [string, NgForageOptions]): NgForageOptions => {
+        map<[string, NgForageOptions], NgForageOptions>(v => {
           const out: NgForageOptions = Object.assign({}, v[1]);
           out.driver = v[0];
 
           return out;
         })
       )
-      .subscribe((v: NgForageConfig) => {
+      .subscribe(v => {
         this._onChange(v);
         this._val = v;
       });
@@ -92,9 +95,6 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
 
   public registerOnTouched(fn: any): void {
     this._onBlur = fn;
-  }
-
-  public setDisabledState(isDisabled: boolean): void { //tslint:disable-line:no-empty
   }
 
   public writeValue(obj: NgForageOptions): void {

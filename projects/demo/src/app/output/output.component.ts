@@ -1,41 +1,54 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
 import {uniqueId as uniqid} from 'lodash-es';
 import {NgForageCache, NgForageOptions} from 'ngforage';
+import {LazySubject, NgxDecorate} from 'ngx-decorate';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
+import {Proto} from 'typescript-proto-decorator';
 
+@NgxDecorate()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ngf-output[conf]',
   templateUrl: './output.component.html'
 })
-export class OutputComponent implements OnInit, OnDestroy {
+export class OutputComponent {
 
-  public error: Subject<Error | null>;
-  public getItemKey = '';
-  public keyIndex = 0;
-  public output: Subject<any>;
-  public rmItemKey = '';
-  public setItemCacheOverrideCheck = false;
-  public setItemCacheOverrideNum = 1000;
-  public setItemJson = false;
-  public setItemKey = '';
-  public setItemValue = '';
-  @Input('showCache')
+  @Proto('')
+  public getItemKey: string;
+  @Proto(0)
+  public keyIndex: number;
+  @Proto('')
+  public rmItemKey: string;
+  @Proto(false)
+  public setItemCacheOverrideCheck: boolean;
+  @Proto(1000)
+  public setItemCacheOverrideNum: number;
+  @Proto(false)
+  public setItemJson: boolean;
+  @Proto('')
+  public setItemKey: string;
+  @Proto('')
+  public setItemValue: string;
+  @Input()
   public showCache = false;
 
-  public constructor(@Inject(NgForageCache) private readonly ngf: NgForageCache,
-                     @Inject(ChangeDetectorRef) private readonly cdr: ChangeDetectorRef) {
-
+  public constructor(private readonly ngf: NgForageCache,
+                     private readonly cdr: ChangeDetectorRef) {
   }
 
-  @Input('conf')
+  @Input()
   public set conf(conf: NgForageOptions) {
     this.ngf.configure(conf);
   }
 
   public get disableSetItem(): boolean {
     return !this.setItemKey || !this.setItemValue;
+  }
+
+  @LazySubject()
+  public get error(): Subject<Error | null> {
+    return new Subject<Error | null>();
   }
 
   @LazyGetter()
@@ -61,6 +74,11 @@ export class OutputComponent implements OnInit, OnDestroy {
   @LazyGetter()
   public get idSetItemJson(): string {
     return uniqid('set-item-json-parse-');
+  }
+
+  @LazySubject()
+  public get output(): BehaviorSubject<any> {
+    return new BehaviorSubject<any>(null);
   }
 
   @LazyGetter()
@@ -189,21 +207,6 @@ export class OutputComponent implements OnInit, OnDestroy {
         this.output.next(r);
       })
       .catch(this.catcher);
-  }
-
-  public ngOnDestroy(): void {
-    if (this.output) {
-      try {
-        this.output.complete();
-      } finally {
-        this.error.complete();
-      }
-    }
-  }
-
-  public ngOnInit(): void {
-    this.output = new BehaviorSubject<any>(null);
-    this.error = new Subject<Error | null>();
   }
 
   public removeItem() {

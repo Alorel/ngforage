@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, Inject, Input, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
 import {uniqueId} from 'lodash-es';
-import {NgForage, NgForageCache} from 'ngforage';
+import {NgForage} from 'ngforage/src/lib';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
 import {OutputComponent} from '../output/output.component';
 
@@ -20,10 +20,10 @@ export class StorageTabComponent {
   @ViewChild('ngo')
   public ngo: OutputComponent;
 
-  @Input('showCache')
+  @Input()
   public showCache = false;
 
-  public constructor(@Inject(NgForageCache) public readonly ngf: NgForage) {
+  public constructor(public readonly ngf: NgForage) {
   }
 
   @LazyGetter()

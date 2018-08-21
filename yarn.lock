@@ -4669,6 +4669,10 @@ ng-packagr@^4.0.0:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
+ngx-decorate@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/ngx-decorate/-/ngx-decorate-1.2.3.tgz#e1d04cf56d8dc3f4f03eb852fa287be7b7bc6033"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"

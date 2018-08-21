@@ -1,8 +1,14 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "../../out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "ngforage": [
+        "../ngforage/src/public_api.ts"
+      ]
+    }
   },
   "exclude": [
     "test.ts",

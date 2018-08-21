@@ -1,10 +1,14 @@
-import {ChangeDetectionStrategy, Component, forwardRef, Inject, Input, OnDestroy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, Input} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {NgForageConfig, NgForageOptions} from 'ngforage';
+import {LazySubject, NgxDecorate, Unsubscribe} from 'ngx-decorate';
 import {BehaviorSubject, combineLatest, Subscription} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
+import {Proto} from 'typescript-proto-decorator';
+
+const _sub: unique symbol = Symbol('sub');
 
 interface Control {
   control: string;
@@ -13,6 +17,7 @@ interface Control {
   type?: string;
 }
 
+@NgxDecorate()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
@@ -23,15 +28,21 @@ interface Control {
   selector: 'ngf-options-select',
   templateUrl: './options-select.component.html'
 })
-export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
-  public _onBlur: Function = noop;
-  public _showCacheTime: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  private _onChange: Function = noop;
+export class OptionsSelectComponent implements ControlValueAccessor {
+  @Proto(noop)
+  public _onBlur: Function;
+  @Unsubscribe()
+  public [_sub]: Subscription;
+  @Proto(noop)
+  private _onChange: Function;
 
-  private _sub: Subscription;
+  public constructor(private readonly fb: FormBuilder,
+                     private readonly cfg: NgForageConfig) {
+  }
 
-  public constructor(@Inject(FormBuilder) private readonly fb: FormBuilder,
-                     @Inject(NgForageConfig) private readonly cfg: NgForageConfig) {
+  @LazySubject()
+  public get _showCacheTime(): BehaviorSubject<boolean> {
+    return new BehaviorSubject<boolean>(false);
   }
 
   @LazyGetter()
@@ -74,7 +85,7 @@ export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
 
     const gr: FormGroup = this.fb.group(opts);
 
-    this._sub = combineLatest(gr.valueChanges.pipe(startWith(opts)), this._showCacheTime)
+    this[_sub] = combineLatest(gr.valueChanges.pipe(startWith(opts)), this._showCacheTime)
       .pipe(
         map((v: [NgForageOptions, boolean]): any => {
           const out: NgForageOptions = Object.assign({}, v[0]);
@@ -105,14 +116,6 @@ export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Input('showCacheTime')
   public set showCacheTime(show: boolean) {
     this._showCacheTime.next(show);
-  }
-
-  public ngOnDestroy(): void {
-    if (this._sub) {
-      this._sub.unsubscribe();
-    }
-
-    this._showCacheTime.complete();
   }
 
   public registerOnChange(fn: any): void {

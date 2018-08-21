@@ -11,6 +11,7 @@
     "pretest": "npm run sync && rimraf coverage",
     "prelint": "npm run sync",
     "start": "ng serve demo",
+    "start:aot": "npm run start -- --aot",
     "build:demo": "ng build demo",
     "build:demo:prod": "npm run build:demo -- --prod --aot",
     "build:lib": "ng build ngforage",
@@ -50,9 +51,6 @@
     "typescript-proto-decorator": "^2.0.0"
   },
   "devDependencies": {
-    "rxjs": "^6.0.0",
-    "typescript-lazy-get-decorator": "^1.0.0",
-    "zone.js": "~0.8.26",
     "@alorel-personal/tslint-rules": "1.2.2",
     "@angular-devkit/build-angular": "^0.7.0",
     "@angular-devkit/build-ng-packagr": "~0.8.0-beta.0",
@@ -90,15 +88,19 @@
     "lodash": "^4.17.10",
     "lodash-es": "^4.17.10",
     "ng-packagr": "^4.0.0",
+    "ngx-decorate": "^1.2.3",
     "protractor": "^5.4.0",
     "rimraf": "^2.6.2",
+    "rxjs": "^6.0.0",
     "ts-node": "^7.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "^5.9.1",
     "typescript": ">=2.7.0 <3.0.0",
+    "typescript-lazy-get-decorator": "^1.0.0",
     "typescript-proto-decorator": "^2.0.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "zone.js": "~0.8.26"
   },
   "author": {
     "name": "Arturas Molcanovas",
