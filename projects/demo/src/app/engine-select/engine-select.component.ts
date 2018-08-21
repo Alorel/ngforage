@@ -1,13 +1,13 @@
 import {ChangeDetectionStrategy, Component, forwardRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
-import {NgForage, NgForageConfig} from 'ngforage';
+import {Driver as D, NgForage} from 'ngforage';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
 import {Proto} from 'typescript-proto-decorator';
 
 interface Engine {
   elementID: string;
-  id: string;
+  id: D;
   name: string;
   supported: boolean;
 }
@@ -43,30 +43,10 @@ export class EngineSelectComponent implements ControlValueAccessor {
   @LazyGetter()
   public get engines(): Engine[] {
     return [
-      {
-        elementID: uniqid('engine-'),
-        id: NgForageConfig.DRIVER_INDEXEDDB,
-        name: 'IndexedDB',
-        supported: this.ngf.supports(NgForageConfig.DRIVER_INDEXEDDB)
-      },
-      {
-        elementID: uniqid('engine-'),
-        id: NgForageConfig.DRIVER_WEBSQL,
-        name: 'WebSQL',
-        supported: this.ngf.supports(NgForageConfig.DRIVER_WEBSQL)
-      },
-      {
-        elementID: uniqid('engine-'),
-        id: NgForageConfig.DRIVER_LOCALSTORAGE,
-        name: 'localStorage',
-        supported: this.ngf.supports(NgForageConfig.DRIVER_LOCALSTORAGE)
-      },
-      {
-        elementID: uniqid('engine-'),
-        id: NgForageConfig.DRIVER_SESSIONSTORAGE,
-        name: 'sessionStorage',
-        supported: this.ngf.supports(NgForageConfig.DRIVER_SESSIONSTORAGE)
-      }
+      this.mkEngine(D.INDEXED_DB, 'IndexedDB'),
+      this.mkEngine(D.WEB_SQL, 'WebSQL'),
+      this.mkEngine(D.LOCAL_STORAGE, 'localStirage'),
+      this.mkEngine(D.SESSION_STORAGE, 'sessionStorage')
     ];
   }
 
@@ -84,5 +64,14 @@ export class EngineSelectComponent implements ControlValueAccessor {
 
   public writeValue(obj: any): void {
     this.selected = obj;
+  }
+
+  private mkEngine(id: D, name: string): Engine {
+    return {
+      elementID: uniqid('engine-'),
+      id,
+      name,
+      supported: this.ngf.supports(id)
+    };
   }
 }

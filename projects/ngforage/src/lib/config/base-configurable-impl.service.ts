@@ -2,6 +2,7 @@ import {Inject} from '@angular/core';
 import 'localforage';
 import {Proto} from 'typescript-proto-decorator';
 import {InstanceFactory} from '../instance-factory/instance-factory.service';
+import {DriverType} from '../misc/driver-type.type';
 import {NC_NE_NW} from '../misc/std-descriptors';
 import {BaseConfigurable} from './base-configurable';
 import {NgForageConfig} from './ng-forage-config.service';
@@ -50,17 +51,13 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /**
    * The preferred driver(s) to use.
-   * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
-   * @see {@link NgForageConfig#DRIVER_WEBSQL}
-   * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @see {@link NgForageConfig#DRIVER_SESSIONSTORAGE}
    * @default IndexedDB, WebSQL and localStorage
    */
-  public get driver(): string | string[] {
-    return this.config.driver && this.config.driver.length ? this.config.driver : this.baseConfig.driver;
+  public get driver(): DriverType | DriverType[] {
+    return this.config.driver || this.baseConfig.driver;
   }
 
-  public set driver(v: string | string[]) {
+  public set driver(v: DriverType | DriverType[]) {
     this.config.driver = v;
     this.storeNeedsRecalc = true;
   }
@@ -148,7 +145,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
 
-    if (opts.driver && opts.driver.slice) {
+    if (Array.isArray(opts.driver)) {
       opts.driver = opts.driver.slice();
     }
 

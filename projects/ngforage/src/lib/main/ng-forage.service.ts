@@ -3,6 +3,8 @@ import {Proto} from 'typescript-proto-decorator';
 import {BaseConfigurable} from '../config/base-configurable';
 import {BaseConfigurableImpl} from '../config/base-configurable-impl.service';
 import {NgForageOptions} from '../config/ng-forage-options';
+import {DriverType} from '../misc/driver-type.type';
+import {Driver} from '../misc/driver.enum';
 import {NC_NE_NW} from '../misc/std-descriptors';
 
 /**
@@ -18,7 +20,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
   /**
    * Returns the name of the driver being used, or null if none can be used.
    */
-  public get activeDriver(): string {
+  public get activeDriver(): DriverType {
     return this.store.driver();
   }
 
@@ -135,7 +137,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * Check whether the given driver is supported/registered.
    * @param driver Driver name
    */
-  public supports(driver: string): boolean {
-    return this.store.supports(driver);
+  public supports(driver: Driver | string): boolean {
+    return this.store.supports(<string>driver);
   }
 }

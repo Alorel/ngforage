@@ -2,9 +2,10 @@ import {Inject, Injectable, Optional} from '@angular/core';
 import 'localforage';
 import {Proto} from 'typescript-proto-decorator';
 import {localForage as lf} from '../imports/localforage';
+import {DriverType} from '../misc/driver-type.type';
+import {Driver} from '../misc/driver.enum';
 import {DEFAULT_CONFIG} from '../misc/injection-tokens';
 import {NC_NE_NW} from '../misc/std-descriptors';
-import {_driver} from '../session-storage';
 import {BaseConfigurable} from './base-configurable';
 import {CacheConfigurable} from './cache-configurable';
 import {NgForageOptions} from './ng-forage-options';
@@ -17,15 +18,6 @@ const $defaultConfig: unique symbol = Symbol('Default Config');
 @Injectable({providedIn: 'root'})
 export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
-  /** The IndexedDB driver */
-  public static readonly DRIVER_INDEXEDDB: string = lf.INDEXEDDB;
-  /** The localStorage driver */
-  public static readonly DRIVER_LOCALSTORAGE: string = lf.LOCALSTORAGE;
-  /** The sessionStorage driver */
-  public static readonly DRIVER_SESSIONSTORAGE: string = _driver;
-  /** The WebSQL driver */
-  public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
-
   /** @internal */
   @Proto('NgForageConfig', NC_NE_NW)
   public readonly [Symbol.toStringTag]: string;
@@ -37,7 +29,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     this[$defaultConfig] = {
       cacheTime: 300000,
       description: '',
-      driver: [lf.INDEXEDDB, lf.WEBSQL, lf.LOCALSTORAGE],
+      driver: [Driver.INDEXED_DB, Driver.WEB_SQL, Driver.LOCAL_STORAGE],
       name: 'ngForage',
       size: 4980736,
       storeName: 'ng_forage',
@@ -89,12 +81,8 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
 
   /**
    * The preferred driver(s) to use.
-   * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
-   * @see {@link NgForageConfig#DRIVER_WEBSQL}
-   * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @see {@link NgForageConfig#DRIVER_SESSIONSTORAGE}
    */
-  public get driver(): string | string[] {
+  public get driver(): DriverType | DriverType[] {
     if (typeof this[$defaultConfig].driver === 'string') {
       return <string>this[$defaultConfig].driver;
     }
@@ -102,7 +90,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     return (<string[]>this[$defaultConfig].driver).slice();
   }
 
-  public set driver(v: string | string[]) {
+  public set driver(v: DriverType | DriverType[]) {
     this[$defaultConfig].driver = v;
   }
 
@@ -166,8 +154,8 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
 
-    if (opts.driver && opts.driver.slice) {
-      opts.driver = opts.driver.slice();
+    if (opts.driver && (<any[]>opts.driver).slice) {
+      opts.driver = (<DriverType[]>opts.driver).slice();
     }
 
     Object.assign(this[$defaultConfig], opts);

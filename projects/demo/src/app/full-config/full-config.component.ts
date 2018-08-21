@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
-import {NgForage, NgForageConfig, NgForageConfig as C, NgForageOptions} from 'ngforage';
+import {Driver as D, NgForage, NgForageConfig, NgForageOptions} from 'ngforage';
 import {NgxDecorate, Unsubscribe} from 'ngx-decorate';
 import {combineLatest, Subscription} from 'rxjs';
 import {debounceTime, map, startWith} from 'rxjs/operators';
@@ -59,14 +59,14 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit {
     return this.fb.control(conf);
   }
 
-  private get _engineValue(): string {
-    for (const engine of [C.DRIVER_INDEXEDDB, C.DRIVER_WEBSQL, C.DRIVER_LOCALSTORAGE, C.DRIVER_SESSIONSTORAGE]) {
+  private get _engineValue(): D {
+    for (const engine of [D.INDEXED_DB, D.WEB_SQL, D.LOCAL_STORAGE, D.SESSION_STORAGE]) {
       if (this.ngf.supports(engine)) {
         return engine;
       }
     }
 
-    return C.DRIVER_LOCALSTORAGE;
+    return D.LOCAL_STORAGE;
   }
 
   public ngOnInit(): void {

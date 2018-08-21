@@ -1,3 +1,4 @@
+import {DriverType} from '../misc/driver-type.type';
 import {NgForageOptions} from './ng-forage-options';
 
 /**
@@ -12,13 +13,9 @@ export interface BaseConfigurable {
   description: string;
   /**
    * The preferred driver(s) to use.
-   * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
-   * @see {@link NgForageConfig#DRIVER_WEBSQL}
-   * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @see {@link NgForageConfig#DRIVER_SESSIONSTORAGE}
    * @default IndexedDB, WebSQL & localStorage
    */
-  driver: string | string[];
+  driver: DriverType | DriverType[];
   /**
    * The name of the database. May appear during storage limit prompts. Useful to use the name of your app here.
    * In localStorage, this is used as a key prefix for all keys stored in localStorage.

@@ -3,6 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import {cloneDeep, forEach} from 'lodash-es';
 import {def} from '../../test.def';
+import {Driver as D} from '../misc/driver.enum';
 import {BaseConfigurableImpl} from './base-configurable-impl.service';
 import {NgForageConfig} from './ng-forage-config.service';
 import {NgForageOptions} from './ng-forage-options';
@@ -124,24 +125,24 @@ describe('BaseConfigurableImpl', () => {
     });
 
     it('Configuring a driver should set the array appropriately', () => {
-      bc.configure({driver: [NgForageConfig.DRIVER_LOCALSTORAGE, NgForageConfig.DRIVER_INDEXEDDB]});
+      bc.configure({driver: [D.LOCAL_STORAGE, D.INDEXED_DB]});
       inst1 = bc.getStore();
 
-      expect(bc.driver).toEqual([NgForageConfig.DRIVER_LOCALSTORAGE, NgForageConfig.DRIVER_INDEXEDDB]);
+      expect(bc.driver).toEqual([D.LOCAL_STORAGE, D.INDEXED_DB]);
     });
 
     it('Configuring a driver with just one value should do the same', () => {
-      bc.configure({driver: NgForageConfig.DRIVER_LOCALSTORAGE});
+      bc.configure({driver: D.LOCAL_STORAGE});
       inst2 = bc.getStore();
 
-      expect(bc.driver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
+      expect(bc.driver).toBe(D.LOCAL_STORAGE);
     });
 
     it('Setting driver via setter should achieve the same', () => {
-      bc.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
+      bc.driver = D.LOCAL_STORAGE;
       inst3 = bc.getStore();
 
-      expect(bc.driver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
+      expect(bc.driver).toBe(D.LOCAL_STORAGE);
     });
 
     describe('Driver equalities', () => {

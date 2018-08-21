@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
-import {range} from 'lodash-es';
+import {range, values} from 'lodash-es';
 import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
 import {NgForageCache} from '../cache/ng-forage-cache.service';
-import {NgForageConfig} from '../config/ng-forage-config.service';
+import {Driver} from '../misc/driver.enum';
 import {NgForage} from './ng-forage.service';
 
 //tslint:disable:no-floating-promises
@@ -20,7 +20,7 @@ describe('NgForage core service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule(def);
     inst = TestBed.get(NgForage);
-    inst.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
+    inst.driver = Driver.LOCAL_STORAGE;
   });
 
   afterAll(clear);
@@ -55,7 +55,7 @@ describe('NgForage core service', () => {
   it('#activeDriver', done => {
     inst.ready()
       .then(() => {
-        expect(inst.activeDriver).toBe(NgForageConfig.DRIVER_LOCALSTORAGE);
+        expect(inst.activeDriver).toBe(Driver.LOCAL_STORAGE);
         done();
       })
       .catch(done);
@@ -122,12 +122,7 @@ describe('NgForage core service', () => {
       done();
     });
 
-    const drivers = [
-      NgForageConfig.DRIVER_LOCALSTORAGE,
-      NgForageConfig.DRIVER_WEBSQL,
-      NgForageConfig.DRIVER_INDEXEDDB,
-      NgForageConfig.DRIVER_SESSIONSTORAGE
-    ];
+    const drivers = values(Driver);
 
     for (const s of drivers) {
       it(`Should return boolean for support of ${s}`, () => {

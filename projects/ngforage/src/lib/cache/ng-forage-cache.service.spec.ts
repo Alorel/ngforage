@@ -4,6 +4,7 @@ import * as uuid from 'uuid';
 import {def} from '../../test.def';
 import {NgForageConfig} from '../config/ng-forage-config.service';
 import {NgForageOptions} from '../config/ng-forage-options';
+import {Driver} from '../misc/driver.enum';
 import {CachedItem} from './cached-item';
 import {CachedItemImpl} from './cached-item-impl.class';
 import {NgForageCache} from './ng-forage-cache.service';
@@ -23,7 +24,7 @@ describe('NgForageCache Service', () => {
     conf = TestBed.get(NgForageConfig);
     defaults = cloneDeep(conf.config);
     cache = TestBed.get(NgForageCache);
-    cache.driver = NgForageConfig.DRIVER_LOCALSTORAGE;
+    cache.driver = Driver.LOCAL_STORAGE;
   });
 
   describe('#clone', () => {

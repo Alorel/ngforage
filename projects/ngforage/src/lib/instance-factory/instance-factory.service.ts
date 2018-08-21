@@ -4,6 +4,7 @@ import {Proto} from 'typescript-proto-decorator';
 import {NgForageConfig} from '../config/ng-forage-config.service';
 import {NgForageOptions} from '../config/ng-forage-options';
 import {localForage as lf} from '../imports/localforage';
+import {DriverType} from '../misc/driver-type.type';
 import {NC_NE_NW} from '../misc/std-descriptors';
 
 /** @internal */
@@ -15,13 +16,13 @@ interface InstanceMap {
 const stores: InstanceMap = {};
 
 /** @internal */
-function getDriverString(driver?: string | string[]) {
+function getDriverString(driver?: DriverType | DriverType[]): string {
   if (!driver) {
     return '';
-  } else if (typeof driver === 'string') {
-    return driver;
-  } else {
+  } else if (Array.isArray(driver)) {
     return driver.slice().sort().join(',');
+  } else {
+    return <string>driver;
   }
 }
 
