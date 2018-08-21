@@ -1,6 +1,7 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {NgForageOptions} from './config/ng-forage-options';
 import {DEFAULT_CONFIG} from './DEFAULT_CONFIG.token';
+import './session-storage';
 
 /**
  * NgForage core module

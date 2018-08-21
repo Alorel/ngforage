@@ -1,7 +1,9 @@
 import {Inject, Injectable, Optional} from '@angular/core';
 import 'localforage';
+import {Proto} from 'typescript-proto-decorator';
 import {DEFAULT_CONFIG} from '../DEFAULT_CONFIG.token';
 import {localForage as lf} from '../imports/localforage';
+import {NC_NE_NW} from '../misc/std-descriptors';
 import {_driver} from '../session-storage';
 import {BaseConfigurable} from './base-configurable';
 import {CacheConfigurable} from './cache-configurable';
@@ -23,6 +25,9 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   public static readonly DRIVER_SESSIONSTORAGE: string = _driver;
   /** The WebSQL driver */
   public static readonly DRIVER_WEBSQL: string = lf.WEBSQL;
+  /** @internal */
+  @Proto('NgForageConfig', NC_NE_NW)
+  public readonly [Symbol.toStringTag]: string;
 
   public constructor(@Optional() @Inject(DEFAULT_CONFIG) conf: NgForageOptions) {
     this[$defaultConfig] = {
@@ -188,5 +193,3 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     return JSON.stringify(this.toJSON());
   }
 }
-
-Object.defineProperty(NgForageConfig.prototype, Symbol.toStringTag, {value: 'NgForageConfig'});

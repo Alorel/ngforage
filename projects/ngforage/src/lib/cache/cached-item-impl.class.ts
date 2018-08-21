@@ -1,9 +1,14 @@
 import {LazyGetter} from 'typescript-lazy-get-decorator';
+import {Proto} from 'typescript-proto-decorator';
+import {NC_NE_NW} from '../misc/std-descriptors';
 import {CachedItem} from './cached-item';
 
 /** @internal */
 export class CachedItemImpl<T> implements CachedItem<T> {
 
+  /** @internal */
+  @Proto('CachedItem', NC_NE_NW)
+  public readonly [Symbol.toStringTag];
   public readonly expires: Date;
 
   public constructor(public readonly data: T, expiryTime: number) {
@@ -39,5 +44,3 @@ export class CachedItemImpl<T> implements CachedItem<T> {
     return JSON.stringify(this.toJSON());
   }
 }
-
-Object.defineProperty(CachedItemImpl.prototype, Symbol.toStringTag, {value: 'CachedItem'});

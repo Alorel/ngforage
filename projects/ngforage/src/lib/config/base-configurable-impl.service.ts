@@ -1,6 +1,8 @@
 import {Inject} from '@angular/core';
 import 'localforage';
+import {Proto} from 'typescript-proto-decorator';
 import {InstanceFactory} from '../instance-factory/instance-factory.service';
+import {NC_NE_NW} from '../misc/std-descriptors';
 import {BaseConfigurable} from './base-configurable';
 import {NgForageConfig} from './ng-forage-config.service';
 import {NgForageOptions} from './ng-forage-options';
@@ -14,13 +16,17 @@ const store$ = Symbol('Store');
 export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
+  @Proto('BaseConfigurable', NC_NE_NW)
+  public readonly [Symbol.toStringTag];
+  /** @internal */
   protected readonly baseConfig: NgForageConfig;
   /** @internal */
   protected readonly config: NgForageOptions = {};
   /** @internal */
   protected readonly fact: InstanceFactory;
   /** @internal */
-  protected storeNeedsRecalc = true;
+  @Proto(true)
+  protected storeNeedsRecalc: boolean;
 
   /** @internal */
   public constructor(@Inject(NgForageConfig) config: NgForageConfig,
@@ -152,7 +158,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
     return this;
   }
 
-  /** @internal */
   public toJSON(): Partial<NgForageOptions> {
     return {
       description: this.description,
@@ -168,5 +173,3 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
     return JSON.stringify(this.toJSON());
   }
 }
-
-Object.defineProperty(BaseConfigurableImpl.prototype, Symbol.toStringTag, {value: 'BaseConfigurable'});
