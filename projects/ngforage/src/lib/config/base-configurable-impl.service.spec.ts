@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Provider} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import {cloneDeep, forEach} from 'lodash-es';
@@ -29,7 +29,7 @@ describe('BaseConfigurableImpl', () => {
 
   beforeEach(() => {
     const stdConfig = cloneDeep(def);
-    stdConfig.providers.push(BC);
+    (<Provider[]>stdConfig.providers).push(BC);
     TestBed.configureTestingModule(stdConfig);
 
     conf = TestBed.get(NgForageConfig);
@@ -58,7 +58,7 @@ describe('BaseConfigurableImpl', () => {
       version: [1, 2]
     };
 
-    forEach(tests, (v: [any, any], k: string) => {
+    forEach(tests, (v: any, k: string) => {
       describe(k, () => {
         describe('@cfg', () => {
           beforeEach(() => {

@@ -10,9 +10,9 @@ import {NgForageCacheDedicated} from './ng-forage-cache-dedicated.class';
 import {NgForageDedicated} from './ng-forage-dedicated.class';
 
 /** @internal */
-const conf$ = Symbol('NgForageConfig');
+const conf$: unique symbol = Symbol('NgForageConfig');
 /** @internal */
-const if$ = Symbol('InstanceFactory');
+const if$: unique symbol = Symbol('InstanceFactory');
 
 @Injectable({providedIn: 'root'})
 export class DedicatedInstanceFactory {
@@ -20,13 +20,19 @@ export class DedicatedInstanceFactory {
   @Proto('DedicatedInstanceFactory', NC_NE_NW)
   public readonly [Symbol.toStringTag]: string;
 
+  /** @internal */
+  private readonly [conf$]: NgForageConfig;
+
+  /** @internal */
+  private readonly [if$]: InstanceFactory;
+
   public constructor(conf: NgForageConfig, instFact: InstanceFactory) {
     this[conf$] = conf;
     this[if$] = instFact;
   }
 
   public createCache(config?: NgForageOptions): NgForageCache {
-    const inst = new NgForageCacheDedicated(<NgForageConfig>this[conf$], <InstanceFactory>this[if$]);
+    const inst = new NgForageCacheDedicated(this[conf$], this[if$]);
     if (config) {
       inst.configure(config);
     }
@@ -35,7 +41,7 @@ export class DedicatedInstanceFactory {
   }
 
   public createNgForage(config?: NgForageOptions): NgForage {
-    const inst = new NgForageDedicated(<NgForageConfig>this[conf$], <InstanceFactory>this[if$]);
+    const inst = new NgForageDedicated(this[conf$], this[if$]);
     if (config) {
       inst.configure(config);
     }

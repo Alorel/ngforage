@@ -46,28 +46,28 @@ describe('NgForageConfig service', () => {
         },
         _support: true,
         getItem() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         setItem() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         removeItem() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         clear() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         length() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         key() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         keys() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         },
         iterate() {
-          return Promise.resolve(null);
+          return Promise.resolve<any>(null);
         }
       };
       inst = TestBed.get(NgForage);
@@ -106,7 +106,7 @@ describe('NgForageConfig service', () => {
       version: 1
     };
 
-    forEach(confs, (val: number | string, key: string) => {
+    forEach(confs, (val: any, key: string) => {
       describe(`${key}`, () => {
         const checkSetter = () => {
           expect(conf[key]).toBe(val);

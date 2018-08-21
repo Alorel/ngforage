@@ -68,6 +68,7 @@
     "@types/jasminewd2": "^2.0.3",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^10.0.0",
+    "@types/uuid": "^3.4.3",
     "bootstrap-material-design": "^4.1.1",
     "classlist.js": "^1.1.20150312",
     "codelyzer": "^4.2.1",

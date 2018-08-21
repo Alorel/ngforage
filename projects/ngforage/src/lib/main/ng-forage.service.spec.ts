@@ -11,7 +11,7 @@ import {NgForage} from './ng-forage.service';
 describe('NgForage core service', () => {
   let inst: NgForage;
 
-  const clear = done => {
+  const clear = (done: any) => {
     inst.clear()
       .then(done)
       .catch(done);
@@ -90,7 +90,7 @@ describe('NgForage core service', () => {
     afterAll(clear);
 
     const key = Math.random().toString();
-    const get = async done => {
+    const get = async(done: any) => {
       expect(await inst.getItem(key)).toBeNull();
       done();
     };
@@ -226,7 +226,7 @@ describe('NgForage core service', () => {
     afterAll(clear);
 
     const expectN = (n: number) => {
-      return async done => {
+      return async(done: any) => {
         expect(await inst.length()).toBe(n);
         done();
       };

@@ -11,13 +11,13 @@ describe('CachedItemImpl', () => {
   });
 
   it('#toString should be a JSON.stringify', () => {
-    const i = new CachedItemImpl<any>(null, null);
+    const i = new CachedItemImpl<any>(null, 0);
 
     expect(i.toString()).toEqual(JSON.stringify(i));
   });
 
   describe('No data, no expiry time', () => {
-    const c: CachedItemImpl<any> = new CachedItemImpl(null, null);
+    const c: CachedItemImpl<any> = new CachedItemImpl(null, 0);
 
     it('#hasData should be false', () => {
       expect(c.hasData).toBe(false);

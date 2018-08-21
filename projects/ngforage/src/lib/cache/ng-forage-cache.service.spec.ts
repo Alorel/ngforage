@@ -87,7 +87,7 @@ describe('NgForageCache Service', () => {
   });
 
   it('Getting a nonexistent item should return a null CachedItem', async done => {
-    expect(await cache.getCached(uuid.v4())).toEqual(new CachedItemImpl(null, null));
+    expect(await cache.getCached(uuid.v4())).toEqual(new CachedItemImpl<any>(null, 0));
     done();
   });
 
@@ -97,7 +97,7 @@ describe('NgForageCache Service', () => {
 
     it('Item should not exist initially', async done => {
       const item = await cache.getCached<string>(key);
-      expect(item).toEqual(new CachedItemImpl(null, null));
+      expect(item).toEqual(new CachedItemImpl<any>(null, 0));
       done();
     });
 
@@ -133,7 +133,7 @@ describe('NgForageCache Service', () => {
 
       it('And make the item disappear', async done => {
         expect(await cache.getCached(key))
-          .toEqual(new CachedItemImpl(null, null));
+          .toEqual(new CachedItemImpl<any>(null, 0));
         done();
       });
     });
