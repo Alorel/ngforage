@@ -1,3 +1,4 @@
+//@ts-ignore
 import * as serializer$ from 'localforage/src/utils/serializer';
 
 /** @internal */

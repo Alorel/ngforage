@@ -162,7 +162,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
 
-    if ('driver' in opts && opts.driver.slice) {
+    if (opts.driver && opts.driver.slice) {
       opts.driver = opts.driver.slice();
     }
 

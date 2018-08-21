@@ -52,7 +52,7 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * @default 300000
    */
   public get cacheTime(): number {
-    return 'cacheTime' in this.config ? this.config.cacheTime : this.baseConfig.cacheTime;
+    return this.config.cacheTime || this.baseConfig.cacheTime;
   }
 
   public set cacheTime(t: number) {

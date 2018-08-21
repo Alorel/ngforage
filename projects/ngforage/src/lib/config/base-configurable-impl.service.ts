@@ -17,7 +17,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
   @Proto('BaseConfigurable', NC_NE_NW)
-  public readonly [Symbol.toStringTag];
+  public readonly [Symbol.toStringTag]: string;
   /** @internal */
   protected readonly baseConfig: NgForageConfig;
   /** @internal */
@@ -40,7 +40,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default ""
    */
   public get description(): string {
-    return 'description' in this.config ? this.config.description : this.baseConfig.description;
+    return this.config.description || this.baseConfig.description;
   }
 
   public set description(v: string) {
@@ -57,7 +57,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default IndexedDB, WebSQL and localStorage
    */
   public get driver(): string | string[] {
-    return 'driver' in this.config ? this.config.driver : this.baseConfig.driver;
+    return this.config.driver && this.config.driver.length ? this.config.driver : this.baseConfig.driver;
   }
 
   public set driver(v: string | string[]) {
@@ -71,7 +71,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default ngForage
    */
   public get name(): string {
-    return 'name' in this.config ? this.config.name : this.baseConfig.name;
+    return this.config.name || this.baseConfig.name;
   }
 
   public set name(v: string) {
@@ -84,7 +84,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default 4980736
    */
   public get size(): number {
-    return 'size' in this.config ? this.config.size : this.baseConfig.size;
+    return this.config.size || this.baseConfig.size;
   }
 
   public set size(v: number) {
@@ -101,7 +101,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default ng_forage
    */
   public get storeName(): string {
-    return 'storeName' in this.config ? this.config.storeName : this.baseConfig.storeName;
+    return this.config.storeName || this.baseConfig.storeName;
   }
 
   public set storeName(v: string) {
@@ -114,7 +114,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default 1.0
    */
   public get version(): number {
-    return 'version' in this.config ? this.config.version : this.baseConfig.version;
+    return 'version' in this.config ? <number>this.config.version : this.baseConfig.version;
   }
 
   public set version(v: number) {
@@ -148,7 +148,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   public configure(opts: NgForageOptions): this {
     opts = opts || {};
 
-    if ('driver' in opts && opts.driver.slice) {
+    if (opts.driver && opts.driver.slice) {
       opts.driver = opts.driver.slice();
     }
 

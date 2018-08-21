@@ -8,7 +8,7 @@ export class CachedItemImpl<T> implements CachedItem<T> {
 
   /** @internal */
   @Proto('CachedItem', NC_NE_NW)
-  public readonly [Symbol.toStringTag];
+  public readonly [Symbol.toStringTag]: string;
   public readonly expires: Date;
 
   public constructor(public readonly data: T, expiryTime: number) {
