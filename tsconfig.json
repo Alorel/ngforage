@@ -23,7 +23,6 @@
     "strictPropertyInitialization": false,
     "removeComments": false,
     "strict": true,
-    "allowJs": true,
     "checkJs": false,
     "target": "es5",
     "lib": [

@@ -28,18 +28,6 @@
               "**/session-storage/**/*.{ts,js}"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngforage/tsconfig.lib.json",
-              "projects/ngforage/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
