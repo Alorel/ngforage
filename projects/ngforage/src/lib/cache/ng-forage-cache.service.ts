@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {CacheConfigurable} from '../config/CacheConfigurable';
-import {NgForageOptions} from '../config/NgForageOptions';
-import {NgForage} from '../main/NgForage.service';
-import {CachedItem} from './CachedItem';
-import {CachedItemImpl} from './CachedItemImpl';
+import {CacheConfigurable} from '../config/cache-configurable';
+import {NgForageOptions} from '../config/ng-forage-options';
+import {NgForage} from '../main/ng-forage.service';
+import {CachedItem} from './cached-item';
+import {CachedItemImpl} from './cached-item-impl.class';
 
 /** @internal */
 interface CacheKeys {

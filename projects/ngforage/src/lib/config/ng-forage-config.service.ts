@@ -3,9 +3,9 @@ import 'localforage';
 import {DEFAULT_CONFIG} from '../DEFAULT_CONFIG.token';
 import {localForage as lf} from '../imports/localforage';
 import {_driver} from '../session-storage';
-import {BaseConfigurable} from './BaseConfigurable';
-import {CacheConfigurable} from './CacheConfigurable';
-import {NgForageOptions} from './NgForageOptions';
+import {BaseConfigurable} from './base-configurable';
+import {CacheConfigurable} from './cache-configurable';
+import {NgForageOptions} from './ng-forage-options';
 
 const $defaultConfig = Symbol('Default Config');
 

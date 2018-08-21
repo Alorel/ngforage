@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {BaseConfigurable} from '../config/BaseConfigurable';
-import {BaseConfigurableImpl} from '../config/BaseConfigurableImpl.service';
-import {NgForageOptions} from '../config/NgForageOptions';
+import {BaseConfigurable} from '../config/base-configurable';
+import {BaseConfigurableImpl} from '../config/base-configurable-impl.service';
+import {NgForageOptions} from '../config/ng-forage-options';
 
 /**
  * Cache instance

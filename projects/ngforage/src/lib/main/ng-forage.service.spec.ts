@@ -2,9 +2,9 @@ import {TestBed} from '@angular/core/testing';
 import {range} from 'lodash-es';
 import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
-import {NgForageCache} from '../cache/NgForageCache.service';
-import {NgForageConfig} from '../config/NgForageConfig.service';
-import {NgForage} from './NgForage.service';
+import {NgForageCache} from '../cache/ng-forage-cache.service';
+import {NgForageConfig} from '../config/ng-forage-config.service';
+import {NgForage} from './ng-forage.service';
 
 //tslint:disable:no-floating-promises
 

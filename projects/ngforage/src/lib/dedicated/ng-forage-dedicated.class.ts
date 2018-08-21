@@ -1,5 +1,5 @@
-import {NgForageOptions} from '../config/NgForageOptions';
-import {NgForage} from '../main/NgForage.service';
+import {NgForageOptions} from '../config/ng-forage-options';
+import {NgForage} from '../main/ng-forage.service';
 
 /** @internal */
 export class NgForageDedicated extends NgForage {

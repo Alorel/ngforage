@@ -1,9 +1,9 @@
 import {Inject} from '@angular/core';
 import 'localforage';
-import {InstanceFactory} from '../instance-factory/InstanceFactory.service';
-import {BaseConfigurable} from './BaseConfigurable';
-import {NgForageConfig} from './NgForageConfig.service';
-import {NgForageOptions} from './NgForageOptions';
+import {InstanceFactory} from '../instance-factory/instance-factory.service';
+import {BaseConfigurable} from './base-configurable';
+import {NgForageConfig} from './ng-forage-config.service';
+import {NgForageOptions} from './ng-forage-options';
 
 /** @internal */
 const store$ = Symbol('Store');

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import 'localforage';
-import {NgForageConfig} from '../config/NgForageConfig.service';
-import {NgForageOptions} from '../config/NgForageOptions';
+import {NgForageConfig} from '../config/ng-forage-config.service';
+import {NgForageOptions} from '../config/ng-forage-options';
 import {localForage as lf} from '../imports/localforage';
 
 /** @internal */

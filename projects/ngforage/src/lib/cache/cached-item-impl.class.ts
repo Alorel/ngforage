@@ -1,5 +1,5 @@
 import {LazyGetter} from 'typescript-lazy-get-decorator';
-import {CachedItem} from './CachedItem';
+import {CachedItem} from './cached-item';
 
 /** @internal */
 export class CachedItemImpl<T> implements CachedItem<T> {

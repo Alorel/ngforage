@@ -1,4 +1,4 @@
-import {NgForageOptions} from './NgForageOptions';
+import {NgForageOptions} from './ng-forage-options';
 
 /**
  * A configurable object

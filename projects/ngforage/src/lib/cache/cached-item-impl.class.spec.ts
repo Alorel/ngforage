@@ -1,5 +1,5 @@
-import {CachedItem} from './CachedItem';
-import {CachedItemImpl} from './CachedItemImpl';
+import {CachedItem} from './cached-item';
+import {CachedItemImpl} from './cached-item-impl.class';
 
 //tslint:disable:no-floating-promises
 

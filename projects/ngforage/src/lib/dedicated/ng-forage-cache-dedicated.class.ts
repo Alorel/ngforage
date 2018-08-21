@@ -1,5 +1,5 @@
-import {NgForageCache} from '../cache/NgForageCache.service';
-import {NgForageOptions} from '../config/NgForageOptions';
+import {NgForageCache} from '../cache/ng-forage-cache.service';
+import {NgForageOptions} from '../config/ng-forage-options';
 
 /** @internal */
 export class NgForageCacheDedicated extends NgForageCache {

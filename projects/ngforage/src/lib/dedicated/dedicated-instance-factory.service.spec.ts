@@ -1,11 +1,11 @@
 import {TestBed} from '@angular/core/testing';
 import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
-import {NgForageCache} from '../cache/NgForageCache.service';
-import {NgForage} from '../main/NgForage.service';
-import {DedicatedInstanceFactory} from './DedicatedInstanceFactory';
-import {NgForageCacheDedicated} from './NgForageCacheDedicated';
-import {NgForageDedicated} from './NgForageDedicated';
+import {NgForageCache} from '../cache/ng-forage-cache.service';
+import {NgForage} from '../main/ng-forage.service';
+import {DedicatedInstanceFactory} from './dedicated-instance-factory.service';
+import {NgForageCacheDedicated} from './ng-forage-cache-dedicated.class';
+import {NgForageDedicated} from './ng-forage-dedicated.class';
 
 //tslint:disable:no-floating-promises
 

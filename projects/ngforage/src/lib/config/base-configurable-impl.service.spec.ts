@@ -3,9 +3,9 @@ import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import {cloneDeep, forEach} from 'lodash-es';
 import {def} from '../../test.def';
-import {BaseConfigurableImpl} from './BaseConfigurableImpl.service';
-import {NgForageConfig} from './NgForageConfig.service';
-import {NgForageOptions} from './NgForageOptions';
+import {BaseConfigurableImpl} from './base-configurable-impl.service';
+import {NgForageConfig} from './ng-forage-config.service';
+import {NgForageOptions} from './ng-forage-options';
 
 //tslint:disable:no-floating-promises
 

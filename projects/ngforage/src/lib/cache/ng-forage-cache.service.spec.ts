@@ -2,11 +2,11 @@ import {TestBed} from '@angular/core/testing';
 import {cloneDeep} from 'lodash-es';
 import * as uuid from 'uuid';
 import {def} from '../../test.def';
-import {NgForageConfig} from '../config/NgForageConfig.service';
-import {NgForageOptions} from '../config/NgForageOptions';
-import {CachedItem} from './CachedItem';
-import {CachedItemImpl} from './CachedItemImpl';
-import {NgForageCache} from './NgForageCache.service';
+import {NgForageConfig} from '../config/ng-forage-config.service';
+import {NgForageOptions} from '../config/ng-forage-options';
+import {CachedItem} from './cached-item';
+import {CachedItemImpl} from './cached-item-impl.class';
+import {NgForageCache} from './ng-forage-cache.service';
 
 //tslint:disable:no-floating-promises
 

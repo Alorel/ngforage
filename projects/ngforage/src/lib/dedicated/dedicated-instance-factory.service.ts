@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {NgForageCache} from '../cache/NgForageCache.service';
-import {NgForageConfig} from '../config/NgForageConfig.service';
-import {NgForageOptions} from '../config/NgForageOptions';
-import {InstanceFactory} from '../instance-factory/InstanceFactory.service';
-import {NgForage} from '../main/NgForage.service';
-import {NgForageCacheDedicated} from './NgForageCacheDedicated';
-import {NgForageDedicated} from './NgForageDedicated';
+import {NgForageCache} from '../cache/ng-forage-cache.service';
+import {NgForageConfig} from '../config/ng-forage-config.service';
+import {NgForageOptions} from '../config/ng-forage-options';
+import {InstanceFactory} from '../instance-factory/instance-factory.service';
+import {NgForage} from '../main/ng-forage.service';
+import {NgForageCacheDedicated} from './ng-forage-cache-dedicated.class';
+import {NgForageDedicated} from './ng-forage-dedicated.class';
 
 /** @internal */
 const conf$ = Symbol('NgForageConfig');
