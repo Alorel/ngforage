@@ -52,7 +52,6 @@ jobs:
   - stage: Release
     node_js: stable
     before_install: npm i -g yarn
-    - npm i -g yarn @alorel-personal/build-tools
     before_script:
     - alo ci-setup-release
     - yarn run build:lib
