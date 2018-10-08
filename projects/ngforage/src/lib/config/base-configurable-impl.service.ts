@@ -9,7 +9,7 @@ import {NgForageConfig} from './ng-forage-config.service';
 import {NgForageOptions} from './ng-forage-options';
 
 /** @internal */
-const store$ = Symbol('Store');
+const store$: unique symbol = Symbol('Store');
 
 /**
  * Abstract service-level configuration layer for NgForage

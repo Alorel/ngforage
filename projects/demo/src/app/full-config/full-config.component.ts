@@ -1,8 +1,7 @@
-import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {Driver as D, NgForage, NgForageConfig, NgForageOptions} from 'ngforage';
-import {NgxDecorate, Unsubscribe} from 'ngx-decorate';
 import {combineLatest, Subscription} from 'rxjs';
 import {debounceTime, map, startWith} from 'rxjs/operators';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
@@ -10,7 +9,6 @@ import {Proto} from 'typescript-proto-decorator';
 
 const _sub: unique symbol = Symbol('sub');
 
-@NgxDecorate()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -23,7 +21,7 @@ const _sub: unique symbol = Symbol('sub');
   selector: 'ngf-full-config',
   templateUrl: './full-config.component.html'
 })
-export class FullConfigComponent implements ControlValueAccessor, OnInit {
+export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
   @Proto(noop)
   public _onBlur: Function;
@@ -31,7 +29,6 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit {
   @Proto(false)
   @Input()
   public showCacheTime: boolean;
-  @Unsubscribe()
   public [_sub]: Subscription;
   @Proto(noop)
   private _onChange: Function;
@@ -67,6 +64,12 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit {
     }
 
     return D.LOCAL_STORAGE;
+  }
+
+  public ngOnDestroy(): void {
+    if (this[_sub]) {
+      this[_sub].unsubscribe();
+    }
   }
 
   public ngOnInit(): void {

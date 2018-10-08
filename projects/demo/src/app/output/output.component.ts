@@ -1,18 +1,18 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy} from '@angular/core';
 import {uniqueId as uniqid} from 'lodash-es';
 import {NgForageCache, NgForageOptions} from 'ngforage';
-import {LazySubject, NgxDecorate} from 'ngx-decorate';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
 import {Proto} from 'typescript-proto-decorator';
 
-@NgxDecorate()
+const _sbj: unique symbol = Symbol('sbj');
+
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ngf-output[conf]',
   templateUrl: './output.component.html'
 })
-export class OutputComponent {
+export class OutputComponent implements OnDestroy {
 
   @Proto('')
   public getItemKey: string;
@@ -33,6 +33,8 @@ export class OutputComponent {
   @Input()
   public showCache = false;
 
+  private readonly [_sbj]: Subject<any>[] = [];
+
   public constructor(private readonly ngf: NgForageCache,
                      private readonly cdr: ChangeDetectorRef) {
   }
@@ -46,9 +48,12 @@ export class OutputComponent {
     return !this.setItemKey || !this.setItemValue;
   }
 
-  @LazySubject()
+  @LazyGetter()
   public get error(): Subject<Error | null> {
-    return new Subject<Error | null>();
+    const s = new Subject<Error | null>();
+    this[_sbj].push(s);
+
+    return s;
   }
 
   @LazyGetter()
@@ -76,9 +81,12 @@ export class OutputComponent {
     return uniqid('set-item-json-parse-');
   }
 
-  @LazySubject()
+  @LazyGetter()
   public get output(): BehaviorSubject<any> {
-    return new BehaviorSubject<any>(null);
+    const s = new BehaviorSubject<any>(null);
+    this[_sbj].push(s);
+
+    return s;
   }
 
   @LazyGetter()
@@ -207,6 +215,12 @@ export class OutputComponent {
         this.output.next(r);
       })
       .catch(this.catcher);
+  }
+
+  public ngOnDestroy(): void {
+    for (const s of this[_sbj]) {
+      s.complete();
+    }
   }
 
   public removeItem() {

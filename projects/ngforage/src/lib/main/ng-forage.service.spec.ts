@@ -90,7 +90,7 @@ describe('NgForage core service', () => {
     afterAll(clear);
 
     const key = Math.random().toString();
-    const get = async(done: any) => {
+    const get = async (done: any) => {
       expect(await inst.getItem(key)).toBeNull();
       done();
     };
@@ -221,7 +221,7 @@ describe('NgForage core service', () => {
     afterAll(clear);
 
     const expectN = (n: number) => {
-      return async(done: any) => {
+      return async (done: any) => {
         expect(await inst.length()).toBe(n);
         done();
       };

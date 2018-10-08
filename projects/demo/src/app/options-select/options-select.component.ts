@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, Component, forwardRef, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {NgForageConfig, NgForageOptions} from 'ngforage';
-import {LazySubject, NgxDecorate, Unsubscribe} from 'ngx-decorate';
-import {BehaviorSubject, combineLatest, Subscription} from 'rxjs';
+import {BehaviorSubject, combineLatest, Subject, Subscription} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {LazyGetter} from 'typescript-lazy-get-decorator';
 import {Proto} from 'typescript-proto-decorator';
 
 const _sub: unique symbol = Symbol('sub');
+const _sbj: unique symbol = Symbol('sbj');
 
 interface Control {
   control: string;
@@ -17,7 +17,6 @@ interface Control {
   type?: string;
 }
 
-@NgxDecorate()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
@@ -28,21 +27,24 @@ interface Control {
   selector: 'ngf-options-select',
   templateUrl: './options-select.component.html'
 })
-export class OptionsSelectComponent implements ControlValueAccessor {
+export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Proto(noop)
   public _onBlur: Function;
-  @Unsubscribe()
   public [_sub]: Subscription;
   @Proto(noop)
   private _onChange: Function;
+  private readonly [_sbj]: Subject<any>[] = [];
 
   public constructor(private readonly fb: FormBuilder,
                      private readonly cfg: NgForageConfig) {
   }
 
-  @LazySubject()
+  @LazyGetter()
   public get _showCacheTime(): BehaviorSubject<boolean> {
-    return new BehaviorSubject<boolean>(false);
+    const s = new BehaviorSubject<boolean>(false);
+    this[_sbj].push(s);
+
+    return s;
   }
 
   @LazyGetter()
@@ -116,6 +118,15 @@ export class OptionsSelectComponent implements ControlValueAccessor {
   @Input('showCacheTime')
   public set showCacheTime(show: boolean) {
     this._showCacheTime.next(show);
+  }
+
+  public ngOnDestroy(): void {
+    if (this[_sub]) {
+      this[_sub].unsubscribe();
+    }
+    for (const s of this[_sbj]) {
+      s.complete();
+    }
   }
 
   public registerOnChange(fn: any): void {

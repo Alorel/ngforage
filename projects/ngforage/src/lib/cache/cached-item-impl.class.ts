@@ -12,7 +12,7 @@ export class CachedItemImpl<T> implements CachedItem<T> {
   public readonly expires: Date;
 
   public constructor(public readonly data: T, expiryTime: number) {
-    this.expires = new Date(typeof expiryTime === 'number' ? expiryTime : 0);
+    this.expires = new Date(typeof <any>expiryTime === 'number' ? expiryTime : 0);
   }
 
   @LazyGetter()
