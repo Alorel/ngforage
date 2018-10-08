@@ -50,7 +50,6 @@ jobs:
     - sleep 3
     script: yarn run test --browsers Safari
   - stage: Release
-    node_js: stable
     before_install:
     - npm i -g yarn
     - ./.alobuild-prep-release.sh
