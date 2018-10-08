@@ -9,8 +9,8 @@ export enum Driver {
   WEB_SQL = <any>lf.WEBSQL
 }
 
-// for (const d of [lf.INDEXEDDB, lf.LOCALSTORAGE, _driver, lf.WEBSQL]) {
-//   delete Driver[d];
-// }
+for (const d of [lf.INDEXEDDB, lf.LOCALSTORAGE, lf.WEBSQL]) {
+  delete Driver[d];
+}
 
 Object.freeze(Driver);
