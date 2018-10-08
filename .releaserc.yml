@@ -1,0 +1,34 @@
+branch: master
+tagFormat: '${version}'
+
+verifyConditions:
+- path: &npm '@semantic-release/npm'
+  pkgRoot: '.'
+- &gh '@semantic-release/github'
+
+prepare:
+- '@semantic-release/changelog'
+- '@alorel-personal/semantic-release'
+- *npm
+- path: &exec '@semantic-release/exec'
+  cmd: doctoc --github MIGRATING.md
+- path: *exec
+  cmd: alo copy-files
+- path: *exec
+  cmd: alo clean-pkg-json
+- path: '@semantic-release/git'
+  message: 'chore(release): ${nextRelease.version}'
+  assets:
+  - CHANGELOG.md
+  - README.md
+  - MIGRATING.md
+  - package.json
+  - yarn.lock
+
+publish:
+- path: *npm
+  pkgRoot: './dist/ngforage'
+- *gh
+
+generateNotes:
+  config: '@alorel-personal/conventional-changelog-alorel'

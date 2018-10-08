@@ -24,13 +24,14 @@
   ```bash
    npm install localforage@^1.5.0 ngforage@^2.0.0 # for Angular 5
    npm install localforage@^1.5.0 ngforage@^3.0.0 # for Angular 6
+   npm install localforage@^1.5.0 ngforage@^4.0.0 # for Angular 7
   ```
 </details>
 <details>
   <summary>Basic Usage</summary>
   
   ```typescript
-    import {NgForageModule, NgForageConfig} from 'ngforage';
+    import {NgForageModule, NgForageConfig, Driver} from 'ngforage';
     
     @NgModule({
       imports: [
@@ -40,9 +41,9 @@
         // Optional configuration as an alternative to what's below in Angular 6+
         NgForageModule.forRoot({
           name: 'MyApp',
-          driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
-            NgForageConfig.DRIVER_INDEXEDDB,
-            NgForageConfig.DRIVER_LOCALSTORAGE
+          driver: [ // defaults to indexedDB -> webSQL -> localStorage
+            Driver.INDEXED_DB,
+            Driver.LOCAL_STORAGE
           ]
         })
       ]
@@ -51,9 +52,9 @@
       public constructor(ngfConfig: NgForageConfig) {
         ngfConfig.configure({
           name: 'MyApp',
-          driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
-            NgForageConfig.DRIVER_INDEXEDDB,
-            NgForageConfig.DRIVER_LOCALSTORAGE
+          driver: [ // defaults to indexedDB -> webSQL -> localStorage
+            Driver.INDEXED_DB,
+            Driver.LOCAL_STORAGE
           ]
         });
       }
@@ -61,7 +62,7 @@
   ```
   
   ```typescript
-    import {NgForage, NgForageCache, NgForageConfig, CachedItem} from 'ngforage';
+    import {NgForage, Driver, NgForageCache, NgForageConfig, CachedItem} from 'ngforage';
 
     @Component({
       /* If you plan on making per-component config adjustments, add the services to the component's providers
@@ -89,7 +90,7 @@
       
       public ngOnInit() {
         this.ngf.name = 'SomeStore';
-        this.cache.driver = NgForageConfig.DRIVER_SESSIONSTORAGE;
+        this.cache.driver = Driver.LOCAL_STORAGE;
       }
     }
   ```

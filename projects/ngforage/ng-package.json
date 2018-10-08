@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngforage",
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "deleteDestPath": true,
+    "umdModuleIds": {
+      "localforage": "localforage",
+      "typescript-lazy-get-decorator": "LazyGet",
+      "typescript-proto-decorator": "ProtoDecorator"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "typescript-lazy-get-decorator",
+    "typescript-proto-decorator"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "ngforage",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0-beta.0",
+    "@angular/core": "^7.0.0-beta.0",
+    "localforage": "^1.5.0"
+  },
+  "dependencies": {
+    "typescript-lazy-get-decorator": "^1.0.0",
+    "typescript-proto-decorator": "^2.0.0"
+  },
+  "devDependencies": {
+    "lodash-es": "^4.17.10",
+    "uuid": "^3.3.2",
+    "core-js": "^2.5.7",
+    "zone.js": "~0.8.26",
+    "@angular/platform-browser-dynamic": "^7.0.0-beta.0"
+  },
+  "description": "localForage bindings for Angular",
+  "keywords": [
+    "localforage",
+    "binding",
+    "angular",
+    "indexeddb",
+    "indexed",
+    "db",
+    "websql",
+    "web",
+    "sql",
+    "local",
+    "session",
+    "storage",
+    "localstorage",
+    "sessionstorage",
+    "pwa",
+    "offline",
+    "progressive",
+    "web",
+    "app"
+  ],
+  "author": {
+    "name": "Arturas Molcanovas",
+    "url": "https://alorel.github.io",
+    "email": "a.molcanovas@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alorel/ngforage.git"
+  },
+  "homepage": "https://alorel.github.io/ngforage/",
+  "bugs": {
+    "url": "https://github.com/Alorel/ngforage/issues"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "contributors": [
+    {
+      "name": "patrykp57",
+      "url": "https://github.com/patrykp57"
+    }
+  ]
+}

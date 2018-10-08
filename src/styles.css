@@ -1,7 +1,0 @@
-ngf-engine-select {
-  display: inline-block;
-}
-
-ngf-demo, ngf-regular-storage, ngf-options-select, ngf-full-config, ngf-output, ngf-regular-storage form {
-  display: block;
-}

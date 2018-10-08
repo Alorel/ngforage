@@ -1,0 +1,10 @@
+tsconfig: ./projects/ngforage/tsconfig.lib.json
+output: ./dist/demo/docs
+name: NgForage API docs
+theme: material
+hideGenerator: true
+disablePrivate: true
+disableInternal: true
+customFavicon: projects/demo/src/favicon.ico
+disableCoverage: true
+
