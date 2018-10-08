@@ -1,5 +1,3 @@
-import './session-storage';
-
 export * from './cache';
 export * from './config';
 export * from './dedicated';

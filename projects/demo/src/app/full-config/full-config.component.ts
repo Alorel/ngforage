@@ -57,7 +57,7 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
   }
 
   private get _engineValue(): D {
-    for (const engine of [D.INDEXED_DB, D.WEB_SQL, D.LOCAL_STORAGE, D.SESSION_STORAGE]) {
+    for (const engine of [D.INDEXED_DB, D.WEB_SQL, D.LOCAL_STORAGE]) {
       if (this.ngf.supports(engine)) {
         return engine;
       }
