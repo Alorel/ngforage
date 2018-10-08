@@ -10,6 +10,7 @@ import {BaseConfigurable} from './base-configurable';
 import {CacheConfigurable} from './cache-configurable';
 import {NgForageOptions} from './ng-forage-options';
 
+/** @internal */
 const $defaultConfig: unique symbol = Symbol('Default Config');
 
 /**
