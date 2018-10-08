@@ -1,4 +1,4 @@
-const {resolve, join} = require('path');
+const {resolve} = require('path');
 const glob = require('glob').sync;
 const fs = require('fs');
 const _ = require('lodash');

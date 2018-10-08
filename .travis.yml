@@ -1,5 +1,5 @@
-sudo: false
 language: node_js
+sudo: false
 node_js: lts/*
 
 before_cache: rm -rf ./node_modules/.cache
@@ -9,7 +9,8 @@ cache:
   - node_modules
 
 before_install:
-- npm i -g greenkeeper-lockfile yarn
+- npm i -g yarn greenkeeper-lockfile
+- if [[ $GH_TOKEN ]]; then alo ci-setup-release; fi;
 - greenkeeper-lockfile-update
 
 install:
@@ -17,14 +18,17 @@ install:
 - yarn run sync
 - *yInstall
 
-script: yarn run lint && yarn run test && yarn run build:demo --aot
-
+script:
+- yarn run lint
+- yarn test
+- yarn run build:demo --aot
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/lcov.info | coveralls
 
 stages:
 - Test
-- Release
+- name: Release
+  if: branch = master AND type = push
 
 jobs:
   include:
@@ -45,3 +49,23 @@ jobs:
     - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
     - sleep 3
     script: yarn run test --browsers Safari
+  - stage: Release
+    node_js: stable
+    before_install:
+    - npm i -g yarn
+    - if [[ $GH_TOKEN ]]; then alo ci-setup-release; fi;
+    before_script: yarn run build:lib
+    script: semantic-release
+    after_success: []
+    after_script: []
+    before_deploy:
+      - yarn run build:demo:prod
+      - yarn run compodoc
+    deploy:
+      - provider: pages
+        skip_cleanup: true
+        on:
+          tags: true
+        local_dir: dist/demo
+        target_branch: gh-pages
+        github_token: $GH_TOKEN

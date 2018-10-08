@@ -1,0 +1,11 @@
+clean-pkg-json:
+  sort-scripts: true
+  dist-dirs: dist/ngforage
+
+copy-files:
+  from:
+  - CHANGELOG.md
+  - README.md
+  - LICENSE
+  - MIGRATING.md
+  to: dist/ngforage

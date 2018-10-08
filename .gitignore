@@ -6,3 +6,9 @@ projects/**/yarn.lock
 *.tgz
 /docs/
 /yarn-error.log
+.idea/
+dist/
+coverage/
+.nyc_output/
+yarn-error.log
+package-lock.json

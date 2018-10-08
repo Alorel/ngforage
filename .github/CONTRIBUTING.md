@@ -1,0 +1,9 @@
+- Please only include exactly one feature/bugfix per commit.
+- Please use the [Angular commit message format](https://github.com/bcoe/conventional-changelog-standard/blob/61da424c2aabf93ff9302b42d6fc2c17ff95c087/convention.md) for your commits.
+  - When applicable, please use an appropriate scope, e.g. if fixing a bug in the *foo* feature, the commit message could look something like `fix(foo): The hug() method no longer eats babies`.
+- Please ensure that your branch is up to date with master before opening the pull request.
+- Please ensure that there is adequate test coverage for your code: run `yarn test` and see the `coverage` directory.
+- Please lint your work; see [package.json](https://github.com/Alorel/ngforage/blob/master/package.json).
+- Please ensure that your code is well-documented. Add README entries if applicable.
+- If your pull request is a work in progress, please start the title with `[WIP]`, e.g. `[WIP] One glorious feature`
+- Please ensure you use [yarn package manager](https://yarnpkg.com) and not npm.
