@@ -9,7 +9,7 @@ cache:
   - node_modules
 
 before_install:
-- npm i -g yarn greenkeeper-lockfile
+- if [[ $GH_TOKEN ]]; then npm i -g yarn greenkeeper-lockfile @alorel-personal/build-tools; else npm i -g yarn greenkeeper-lockfile; fi;
 - if [[ $GH_TOKEN ]]; then alo ci-setup-release; fi;
 - greenkeeper-lockfile-update
 
@@ -51,21 +51,22 @@ jobs:
     script: yarn run test --browsers Safari
   - stage: Release
     node_js: stable
-    before_install:
-    - npm i -g yarn
-    - if [[ $GH_TOKEN ]]; then alo ci-setup-release; fi;
-    before_script: yarn run build:lib
+    before_install: npm i -g yarn
+    - npm i -g yarn @alorel-personal/build-tools
+    before_script:
+    - alo ci-setup-release
+    - yarn run build:lib
     script: semantic-release
     after_success: []
     after_script: []
     before_deploy:
-      - yarn run build:demo:prod
-      - yarn run compodoc
+    - yarn run build:demo:prod
+    - yarn run compodoc
     deploy:
-      - provider: pages
-        skip_cleanup: true
-        on:
-          tags: true
-        local_dir: dist/demo
-        target_branch: gh-pages
-        github_token: $GH_TOKEN
+    - provider: pages
+      skip_cleanup: true
+      on:
+        tags: true
+      local_dir: dist/demo
+      target_branch: gh-pages
+      github_token: $GH_TOKEN
