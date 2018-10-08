@@ -45,8 +45,7 @@ export class EngineSelectComponent implements ControlValueAccessor {
     return [
       this.mkEngine(D.INDEXED_DB, 'IndexedDB'),
       this.mkEngine(D.WEB_SQL, 'WebSQL'),
-      this.mkEngine(D.LOCAL_STORAGE, 'localStirage'),
-      this.mkEngine(D.SESSION_STORAGE, 'sessionStorage')
+      this.mkEngine(D.LOCAL_STORAGE, 'localStorage')
     ];
   }
 
