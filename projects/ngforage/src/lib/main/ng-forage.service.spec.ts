@@ -6,7 +6,7 @@ import {NgForageCache} from '../cache/ng-forage-cache.service';
 import {Driver} from '../misc/driver.enum';
 import {NgForage} from './ng-forage.service';
 
-//tslint:disable:no-floating-promises
+//tslint:disable:no-floating-promises no-big-function
 
 describe('NgForage core service', () => {
   let inst: NgForage;
