@@ -26,6 +26,7 @@ prepare:
   - MIGRATING.md
   - package.json
   - yarn.lock
+  - projects/ngforage/package.json
 - path: *exec
   cmd: ./mkrelease.sh
 
