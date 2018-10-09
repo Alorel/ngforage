@@ -7,7 +7,7 @@ verifyConditions:
 - &gh '@semantic-release/github'
 
 prepare:
-#- '@semantic-release/changelog'
+- '@semantic-release/changelog'
 - '@alorel-personal/semantic-release'
 - *npm
 - path: &exec '@semantic-release/exec'
