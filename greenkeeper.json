@@ -1,0 +1,16 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "projects/ngforage/package.json"
+      ]
+    }
+  },
+  "ignore": [
+    "typescript",
+    "jasmine-core",
+    "karma",
+    "karma-jasmine-html-reporter"
+  ]
+}

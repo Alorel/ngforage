@@ -136,14 +136,6 @@
       "url": "https://github.com/patrykp57"
     }
   ],
-  "greenkeeper": {
-    "ignore": [
-      "typescript",
-      "jasmine-core",
-      "karma",
-      "karma-jasmine-html-reporter"
-    ]
-  },
   "workspaces": [
     "projects/*"
   ]

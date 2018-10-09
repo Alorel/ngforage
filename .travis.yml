@@ -14,9 +14,8 @@ before_install:
 - greenkeeper-lockfile-update
 
 install:
-- &yInstall yarn install --check-files
+- yarn install --check-files
 - yarn run sync
-- *yInstall
 
 script:
 - yarn run lint
