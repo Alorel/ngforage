@@ -16,6 +16,8 @@ prepare:
   cmd: alo copy-files
 - path: *exec
   cmd: alo clean-pkg-json
+- path: *exec
+  cmd: node ./build/patch-version.js
 - path: '@semantic-release/git'
   message: 'chore(release): ${nextRelease.version}'
   assets:
