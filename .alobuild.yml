@@ -8,5 +8,4 @@ copy-files:
   - README.md
   - LICENSE
   - MIGRATING.md
-  - .npmrc
   to: dist/ngforage

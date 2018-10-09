@@ -26,10 +26,12 @@ prepare:
   - MIGRATING.md
   - package.json
   - yarn.lock
+- path: *exec
+  cmd: ./mkrelease.sh
 
 publish:
-- path: *npm
-  pkgRoot: './dist/ngforage'
+- path: *exec
+  cmd: npm publish ./dist.tgz
 - *gh
 
 generateNotes:
