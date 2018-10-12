@@ -2,6 +2,10 @@ language: node_js
 sudo: false
 node_js: lts/*
 
+env:
+  global:
+  - GK_LOCK_YARN_OPTS=-W
+
 cache:
   yarn: true
 
@@ -54,13 +58,13 @@ jobs:
     after_success: []
     after_script: []
     before_deploy:
-      - yarn run build:demo:prod
-      - yarn run compodoc
+    - yarn run build:demo:prod
+    - yarn run compodoc
     deploy:
-      - provider: pages
-        skip_cleanup: true
-        on:
-          tags: true
-        local_dir: dist/demo
-        target_branch: gh-pages
-        github_token: $GH_TOKEN
+    - provider: pages
+      skip_cleanup: true
+      on:
+        tags: true
+      local_dir: dist/demo
+      target_branch: gh-pages
+      github_token: $GH_TOKEN
