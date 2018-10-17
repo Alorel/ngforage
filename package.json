@@ -102,7 +102,7 @@
     "protractor": "^5.4.0",
     "rimraf": "^2.6.2",
     "rxjs": "^6.0.0",
-    "semantic-release": "~15.9.17",
+    "semantic-release": "~15.10.3",
     "ts-node": "^7.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
