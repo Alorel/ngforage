@@ -53,6 +53,13 @@
     tslint-sonarts "1.8.0"
     typescript ">=2.2.0 <4.0.0"
 
+"@angular-devkit/architect@0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.10.0.tgz#83e983c69df0215149d451ec2d8487052da99306"
+  dependencies:
+    "@angular-devkit/core" "7.0.0"
+    rxjs "6.3.3"
+
 "@angular-devkit/architect@0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.8.5.tgz#26f095ff5cc6cb2809a0c765a54ac49c9994e018"
@@ -122,14 +129,14 @@
   optionalDependencies:
     node-sass "^4.9.3"
 
-"@angular-devkit/build-ng-packagr@~0.8.0-beta.0":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.8.5.tgz#730bd91fd49712b60605479f987e582b067343f1"
+"@angular-devkit/build-ng-packagr@~0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.10.0.tgz#44ab5dab6e9a8d043a95bd0fdf6b839a84c5848e"
   dependencies:
-    "@angular-devkit/architect" "0.8.5"
-    "@angular-devkit/core" "0.8.5"
-    rxjs "~6.2.0"
-    semver "^5.3.0"
+    "@angular-devkit/architect" "0.10.0"
+    "@angular-devkit/core" "7.0.0"
+    rxjs "6.3.3"
+    semver "5.5.1"
 
 "@angular-devkit/build-optimizer@0.8.5":
   version "0.8.5"
@@ -156,6 +163,16 @@
     chokidar "^2.0.3"
     rxjs "~6.2.0"
     source-map "^0.5.6"
+
+"@angular-devkit/core@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.0.0.tgz#a6898cbb4967b980e39c2f898e8c01b067091711"
+  dependencies:
+    ajv "6.5.3"
+    chokidar "2.0.4"
+    fast-json-stable-stringify "2.0.0"
+    rxjs "6.3.3"
+    source-map "0.7.3"
 
 "@angular-devkit/core@7.0.0-rc.3":
   version "7.0.0-rc.3"
