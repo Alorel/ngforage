@@ -234,7 +234,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/platform-browser-dynamic@^7.0.0", "@angular/platform-browser-dynamic@^7.0.0-beta.0":
+"@angular/platform-browser-dynamic@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-7.0.0.tgz#2b2a50b5a8176bee257f90ee47b1d873502f7182"
   integrity sha512-lH2KuH+Em1y/mTOE6yTJmsOxYkMbYKzKLP9gYzc9vZu3er1df6Jx6jxefeBmAr9v+kNCLnpnHWHz2y4GzAesJA==
@@ -485,12 +485,13 @@
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.2.0.tgz#ee9d5a09c9969eade1ec864776aeda5c5cddbbf0"
   integrity sha512-9Tj/qn+y2j+sjCI3Jd+qseGtHjOAeg7dU2/lVcqIQ9TV3QDaDXDYXcoOHU+7o2Hwh8L8ymL4gfuO7KxDs3q2zg==
 
-"@semantic-release/exec@~3.1.3":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@semantic-release/exec/-/exec-3.1.3.tgz#4afef8005904567e007c4830d54a718877c5ed39"
-  integrity sha512-B9pqgHHorSjxVPD5can6K9XQl5pVlmyXaFKs0p+gQF3iMwg3lTByZFAAHm0OkkzW0uOVA17CAchTloebrn+HrQ==
+"@semantic-release/exec@~3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@semantic-release/exec/-/exec-3.3.0.tgz#3ceaf66084cee82fb4babde387583259701ed381"
+  integrity sha512-6a5nMGLyYJUl5me4orEIA89mf1Roz1jEVlv0GgIJv1k/yjEcmWicYQ76PrPfUzh81sVtfHfK0zLN5Vikz8f5oA==
   dependencies:
     "@semantic-release/error" "^2.1.0"
+    aggregate-error "^1.0.0"
     debug "^4.0.0"
     execa "^1.0.0"
     lodash "^4.17.4"
