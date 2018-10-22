@@ -9,13 +9,13 @@ import {DEFAULT_CONFIG} from './misc/injection-tokens';
 export class NgForageModule {
 
   // istanbul ignore next
-  public static forRoot(config: Partial<NgForageOptions> = {}): ModuleWithProviders {
+  public static forRoot(config?: Partial<NgForageOptions>): ModuleWithProviders {
     return {
       ngModule: NgForageModule,
       providers: [
         {
           provide: DEFAULT_CONFIG,
-          useValue: Object.assign({}, config)
+          useValue: config ? Object.assign({}, config) : {}
         }
       ]
     };
