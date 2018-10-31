@@ -1,3 +1,18 @@
+## [4.0.1](https://github.com/Alorel/ngforage.git/compare/4.0.0...4.0.1) (2018-10-31)
+
+
+### Maintenance
+
+* Remove tslint as explicit dependency, set ng version to ^7.0.0 ([78917bb](https://github.com/Alorel/ngforage.git/commit/78917bb))
+* Update ngforage service test for new tslint rules ([b50a006](https://github.com/Alorel/ngforage.git/commit/b50a006))
+
+
+### Refactoring
+
+* DEFAULT_CONFIG injection token no longer flagged as internal ([1232362](https://github.com/Alorel/ngforage.git/commit/1232362))
+* NgForageModule.forRoot config param refactored as optional ([210080a](https://github.com/Alorel/ngforage.git/commit/210080a))
+* Remove diff type in favour of the built-in Exclude type ([191ac66](https://github.com/Alorel/ngforage.git/commit/191ac66))
+
 # [4.0.0](https://github.com/Alorel/ngforage/compare/3.4.0...4.0.0) (2018-10-09)
 
 
