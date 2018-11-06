@@ -42,9 +42,9 @@
     json5 "^2.0.0"
     lodash "^4.0.0"
 
-"@alorel-personal/semantic-release@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/semantic-release/-/semantic-release-1.3.1.tgz#9745839fc510a803eee79d750b7c2f86c6871335"
+"@alorel-personal/semantic-release@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/semantic-release/-/semantic-release-1.4.0.tgz#c6655d8ea31a812d0cdfe9d0bfe529176900b17d"
   dependencies:
     fs-extra "^7.0.0"
     tslib "^1.6.0"
