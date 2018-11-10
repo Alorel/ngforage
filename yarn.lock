@@ -49,9 +49,9 @@
     fs-extra "^7.0.0"
     tslib "^1.6.0"
 
-"@alorel-personal/tslint-rules@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/tslint-rules/-/tslint-rules-4.1.0.tgz#172239deaa43407c9ff2806f2362f0ccfdceaea6"
+"@alorel-personal/tslint-rules@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/tslint-rules/-/tslint-rules-4.1.1.tgz#c985893a8be47e57e72b5b2ac251cf840ac52a21"
   dependencies:
     tslint "^5.11.0"
     tslint-sonarts "1.8.0"
