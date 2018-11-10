@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.3.0.tgz#e7ec5f925651ab764cd27d10362cf6dd72eb2e05"
+"@alorel-personal/build-tools@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.3.1.tgz#2e5e626fa060c72a9280be9856fd809a9da78e29"
   dependencies:
     chalk "^2.4.0"
     cross-spawn "^6.0.0"
@@ -22,7 +22,7 @@
     request "^2.88.0"
     request-promise "^4.2.0"
     rimraf "^2.6.0"
-    rollup "~0.66.6"
+    rollup "~0.67.0"
     rollup-plugin-node-resolve "^3.4.0"
     rollup-plugin-typescript2 "~0.17.2"
     tmp "~0.0.33"
@@ -7516,9 +7516,16 @@ rollup-pluginutils@2.3.3, rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.3.1, 
     estree-walker "^0.5.2"
     micromatch "^2.3.11"
 
-rollup@^0.66.0, rollup@~0.66.6:
+rollup@^0.66.0:
   version "0.66.6"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.66.6.tgz#ce7d6185beb7acea644ce220c25e71ae03275482"
+  dependencies:
+    "@types/estree" "0.0.39"
+    "@types/node" "*"
+
+rollup@~0.67.0:
+  version "0.67.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.67.0.tgz#16d4f259c55224dded6408e7666b7731500797a3"
   dependencies:
     "@types/estree" "0.0.39"
     "@types/node" "*"
