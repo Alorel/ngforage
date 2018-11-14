@@ -7651,9 +7651,9 @@ selfsigned@^1.9.1:
   dependencies:
     node-forge "0.7.5"
 
-semantic-release@~15.11.0:
-  version "15.11.0"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.11.0.tgz#da4c2cc82361f1fcfb546a295931f3d728e5f8c2"
+semantic-release@~15.12.0:
+  version "15.12.0"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.12.0.tgz#061f390bbf999ae56ae52a71f0a986659bbe556d"
   dependencies:
     "@semantic-release/commit-analyzer" "^6.1.0"
     "@semantic-release/error" "^2.2.0"
