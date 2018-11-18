@@ -8,6 +8,8 @@
     }
   },
   "ignore": [
+    "karma-jasmine",
+    "@types/jasmine",
     "typescript",
     "jasmine-core",
     "karma",
