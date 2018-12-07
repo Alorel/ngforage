@@ -1,5 +1,4 @@
 language: node_js
-sudo: false
 node_js: lts/*
 
 env:
@@ -37,18 +36,18 @@ jobs:
     addons:
       chrome: stable
       firefox: latest
-  - stage: Test
-    os: osx
-    sudo: required
-    addons:
-      apt:
-        packages:
-        - xvfb
-    before_script:
-    - "export DISPLAY=:99.0"
-    - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
-    - sleep 3
-    script: yarn run test --browsers Safari
+#   - stage: Test
+#     os: osx
+#     sudo: required
+#     addons:
+#       apt:
+#         packages:
+#         - xvfb
+#     before_script:
+#     - "export DISPLAY=:99.0"
+#     - sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+#     - sleep 3
+#     script: yarn run test --browsers Safari
   - stage: Release
     before_install:
     - npm i -g yarn
