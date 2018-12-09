@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.0.tgz#b89210167ae5187e0c29f2b2971317dc2c82ff16"
-  integrity sha512-3rfeUHs1JMHE35yKxUSKyksoF+1qeIDZVWuLu4QoTSKbxUWjcTcsUQ15GIQV9ka8uEu4/0FeVlxzBKhth7AbOQ==
+"@alorel-personal/build-tools@4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.1.tgz#6793c96d3b9c85bbc84958815526a2a3a213b206"
+  integrity sha512-0zubaIIlWlPxXle724Zs1K/ZNfd1Zi4bAOg+YprL5iKHHIA1+yAT2Jn6hTXpE9iGrNUmXrsE2DpcyC0Jb9dJLQ==
   dependencies:
     chalk "^2.4.0"
     cross-spawn "^6.0.0"
@@ -24,7 +24,7 @@
     request-promise "^4.2.0"
     rimraf "^2.6.0"
     rollup "~0.67.0"
-    rollup-plugin-node-resolve "^3.4.0"
+    rollup-plugin-node-resolve "^4.0.0"
     rollup-plugin-typescript2 "~0.18.0"
     tmp "~0.0.33"
     tslib "^1.9.0"
@@ -1767,6 +1767,11 @@ builtin-modules@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-2.0.0.tgz#60b7ef5ae6546bd7deefa74b08b62a43a232648e"
   integrity sha512-3U5kUA5VPsRUA3nofm/BXX7GVHKfxz0hOBAPxXrIvHzlDRkQVqEn6yi8QJegxl4LzOHLdvb7XF5dVawa/VVYBg==
+
+builtin-modules@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.0.0.tgz#1e587d44b006620d90286cc7a9238bbc6129cab1"
+  integrity sha512-hMIeU4K2ilbXV6Uv93ZZ0Avg/M91RaKXucQ+4me2Do1txxBDyDZWCBa5bJSLqoNTRpXTLwEzIk1KmloenDDjhg==
 
 builtin-status-codes@^3.0.0:
   version "3.0.0"
@@ -8664,7 +8669,7 @@ rollup-plugin-json@^3.1.0:
   dependencies:
     rollup-pluginutils "^2.3.1"
 
-rollup-plugin-node-resolve@^3.0.0, rollup-plugin-node-resolve@^3.4.0:
+rollup-plugin-node-resolve@^3.0.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.4.0.tgz#908585eda12e393caac7498715a01e08606abc89"
   integrity sha512-PJcd85dxfSBWih84ozRtBkB731OjXk0KnzN0oGp7WOWcarAFkVa71cV5hTJg2qpVsV2U8EUwrzHP3tvy9vS3qg==
@@ -8672,6 +8677,15 @@ rollup-plugin-node-resolve@^3.0.0, rollup-plugin-node-resolve@^3.4.0:
     builtin-modules "^2.0.0"
     is-module "^1.0.0"
     resolve "^1.1.6"
+
+rollup-plugin-node-resolve@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-4.0.0.tgz#9bc6b8205e9936cc0e26bba2415f1ecf1e64d9b2"
+  integrity sha512-7Ni+/M5RPSUBfUaP9alwYQiIKnKeXCOHiqBpKUl9kwp3jX5ZJtgXAait1cne6pGEVUUztPD6skIKH9Kq9sNtfw==
+  dependencies:
+    builtin-modules "^3.0.0"
+    is-module "^1.0.0"
+    resolve "^1.8.1"
 
 rollup-plugin-sourcemaps@^0.4.2:
   version "0.4.2"
