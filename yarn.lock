@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.1":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.1.tgz#6793c96d3b9c85bbc84958815526a2a3a213b206"
-  integrity sha512-0zubaIIlWlPxXle724Zs1K/ZNfd1Zi4bAOg+YprL5iKHHIA1+yAT2Jn6hTXpE9iGrNUmXrsE2DpcyC0Jb9dJLQ==
+"@alorel-personal/build-tools@4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.2.tgz#d694589c6fb644971a33ca71f5a6d5dc662a2ae5"
+  integrity sha512-xakXkfnNyIRgXbAHqVUhxMfw++HcVdwQnNSgJHizQTB0wvE8pCulmv1lXYGwOrURJLdAoLky4qTIhiL9j3OZtQ==
   dependencies:
     chalk "^2.4.0"
     cross-spawn "^6.0.0"
@@ -23,7 +23,7 @@
     request "^2.88.0"
     request-promise "^4.2.0"
     rimraf "^2.6.0"
-    rollup "~0.67.0"
+    rollup "~0.68.0"
     rollup-plugin-node-resolve "^4.0.0"
     rollup-plugin-typescript2 "~0.18.0"
     tmp "~0.0.33"
@@ -8721,10 +8721,10 @@ rollup@^0.66.0:
     "@types/estree" "0.0.39"
     "@types/node" "*"
 
-rollup@~0.67.0:
-  version "0.67.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.67.3.tgz#55475b1b62c43220c3b4bd7edc5846233932f50b"
-  integrity sha512-TyNQCz97rKuVVbsKUTXfwIjV7UljWyTVd7cTMuE+aqlQ7WJslkYF5QaYGjMLR2BlQtUOO5CAxSVnpQ55iYp5jg==
+rollup@~0.68.0:
+  version "0.68.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.68.0.tgz#e4fbde2e6278354962be530b498fc485298c0fc3"
+  integrity sha512-UbmntCf8QBlOqJnwsNWQCI0oonHOgs9y1OLoO8BHf2r8gCyRLp3JzLHXARJpsNDAS08Qm3LDjzyWma5sqnCxDQ==
   dependencies:
     "@types/estree" "0.0.39"
     "@types/node" "*"
