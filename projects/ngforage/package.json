@@ -11,11 +11,11 @@
     "typescript-proto-decorator": "^2.0.0"
   },
   "devDependencies": {
+    "@angular/platform-browser-dynamic": "^7.0.0",
+    "core-js": "^2.5.7",
     "lodash-es": "^4.17.10",
     "uuid": "^3.3.2",
-    "core-js": "^2.5.7",
-    "zone.js": "~0.8.26",
-    "@angular/platform-browser-dynamic": "^7.0.0"
+    "zone.js": "~0.8.26"
   },
   "description": "localForage bindings for Angular",
   "keywords": [

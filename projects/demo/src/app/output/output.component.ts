@@ -267,7 +267,7 @@ export class OutputComponent implements OnDestroy {
       args.push(this.setItemCacheOverrideNum);
     }
 
-    this.ngf.setCached.apply(this.ngf, args)
+    this.ngf.setCached.apply(this.ngf, <any>args)
       .then(() => {
         this.output.next('Cached item set!');
       })
