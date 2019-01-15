@@ -1,3 +1,16 @@
+## [4.0.2](https://github.com/Alorel/ngforage/compare/4.0.1...4.0.2) (2019-01-15)
+
+
+### Bug Fixes
+
+* CachedItem.hasData now returns false if the value is undefined ([08fb1d9](https://github.com/Alorel/ngforage/commit/08fb1d9))
+
+
+### Maintenance
+
+* ignore jasmine updates ([fb084d2](https://github.com/Alorel/ngforage/commit/fb084d2))
+* Update deps ([4d5131f](https://github.com/Alorel/ngforage/commit/4d5131f))
+
 ## [4.0.1](https://github.com/Alorel/ngforage.git/compare/4.0.0...4.0.1) (2018-10-31)
 
 
