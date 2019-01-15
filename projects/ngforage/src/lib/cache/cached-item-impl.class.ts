@@ -27,7 +27,7 @@ export class CachedItemImpl<T> implements CachedItem<T> {
 
   @LazyGetter()
   public get hasData(): boolean {
-    return this.data !== null;
+    return this.data != null; //tslint:disable-line:triple-equals
   }
 
   public toJSON(): CachedItem<T> {
