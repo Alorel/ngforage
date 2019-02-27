@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.5":
-  version "4.4.5"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.5.tgz#be320721521b04c34fa7160a9e7068ce4fe7f964"
-  integrity sha512-VOo1FHb1MBNwLjIJMuvEeMaljvvmlhVhRMrPzpJJOrW99/LFHxhdgRbMM+9iWopvOWj56WUYVl1KHyvGqbaUPA==
+"@alorel-personal/build-tools@4.4.6":
+  version "4.4.6"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.6.tgz#2735cedd36d0465759b267d1cdd27fa2fc8fee97"
+  integrity sha512-1UPB4OBXbPfS3L+TQ7WW5H9Ot7eiSMxhuLbZRz447XOS1Eg3+NRAu+/pc/+27Nu+XfGD/1lupmJaHJcZP9lLFw==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -23,7 +23,7 @@
     request "^2.88.0"
     request-promise "^4.2.4"
     rimraf "^2.6.3"
-    rollup "~1.2.2"
+    rollup "~1.3.1"
     rollup-plugin-node-resolve "^4.0.0"
     rollup-plugin-typescript2 "^0.19.2"
     tmp "~0.0.33"
@@ -658,6 +658,11 @@
   version "11.9.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.0.tgz#35fea17653490dab82e1d5e69731abfdbf13160d"
   integrity sha512-ry4DOrC+xenhQbzk1iIPzCZGhhPGEFv7ia7Iu6XXSLVluiJIe9FfG7Iu3mObH9mpxEXCWLCMU4JWbCCR9Oy1Zg==
+
+"@types/node@^11.9.5":
+  version "11.9.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.5.tgz#011eece9d3f839a806b63973e228f85967b79ed3"
+  integrity sha512-vVjM0SVzgaOUpflq4GYBvCpozes8OgIIS5gVXVka+OfK3hvnkC1i93U8WiY2OtNE4XUWyyy/86Kf6e0IHTQw1Q==
 
 "@types/q@^0.0.32":
   version "0.0.32"
@@ -8689,13 +8694,13 @@ rollup@^0.67.0:
     "@types/estree" "0.0.39"
     "@types/node" "*"
 
-rollup@~1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.2.2.tgz#960416d098d3dba44bbe64c8db94510d6e568104"
-  integrity sha512-fsn5KJcfSuejjrv8GV7kZNciElqxyzZdUq8rA3e528JsR3ccxrWwoptyUY8GGLlgMFAQMB3dZW8nWF2I1/xrZA==
+rollup@~1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.3.1.tgz#cf3bad0ba38ee4534e3057cc6b7e662b6db83d78"
+  integrity sha512-XaVp/ggPVQ3zD4wktUzJo0XGbsnRHsGWk4B4497hE35emWods/WkrIEVgoLRSvMSxCpklLPBfWZAiTs/VeFSNg==
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "*"
+    "@types/node" "^11.9.5"
     acorn "^6.1.0"
 
 run-async@^2.2.0:
