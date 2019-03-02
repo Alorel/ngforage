@@ -5805,6 +5805,11 @@ latest-version@^3.0.0:
   dependencies:
     package-json "^4.0.0"
 
+lazy-get-decorator@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/lazy-get-decorator/-/lazy-get-decorator-2.0.0.tgz#6333f45feb1ac8fa86af7c8f119822a8b42594c3"
+  integrity sha512-qVy1dWI69X8/mWMDXeI71uqbdBtlNrh09exQa8hM5COVUinhHMZ9anYLhpSF5tbCvnKi/AHtvxU4xBaFJo/40g==
+
 lazy-property@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lazy-property/-/lazy-property-1.0.0.tgz#84ddc4b370679ba8bd4cdcfa4c06b43d57111147"
@@ -8114,6 +8119,11 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
+proto-decorator@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/proto-decorator/-/proto-decorator-3.0.3.tgz#168eaaa8bd3040de6843e3591a07d605d167d4a1"
+  integrity sha512-JdBQoBmgBQ8yj8KXlV52IZuWypdlNG+VVlnposgaiuJOBLXsdjdd1nueLgSxQOEz2h+063hXR3E4f8aG8mbjcQ==
+
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
@@ -10395,15 +10405,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-lazy-get-decorator@^1.0.0, typescript-lazy-get-decorator@^1.2.0:
+typescript-lazy-get-decorator@^1.2.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/typescript-lazy-get-decorator/-/typescript-lazy-get-decorator-1.2.2.tgz#f7ffe9f9225b830f851f2701376409cfd640100e"
   integrity sha512-XNqWMl2qI2AgQqVoUa7+TJa3J6XUKYOS9kK6HvptL6+uY3r2wjnpFjykA2Y7h5w9TkTV5DY4v5leTOavBEbKcQ==
-
-typescript-proto-decorator@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/typescript-proto-decorator/-/typescript-proto-decorator-2.1.0.tgz#287df62667d717d395995560cf17f0f705808777"
-  integrity sha512-U6q7B8iKEFnq8+leGrpBijzQOM8agWQdRbSsTEPaGZq6rGKSYqNyi/9l23d7BlwtPqY/SFstLHv1TMVWmyf4gA==
 
 typescript@2.9.1:
   version "2.9.1"
