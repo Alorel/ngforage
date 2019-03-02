@@ -13,6 +13,9 @@
     "uuid": "^3.3.2",
     "zone.js": "~0.8.26"
   },
+  "dependencies": {
+    "tslib": "^1.6.0"
+  },
   "description": "localForage bindings for Angular",
   "keywords": [
     "localforage",
