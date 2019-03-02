@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, forwardRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {LazyGetter} from 'lazy-get-decorator';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {Driver as D, NgForage} from 'ngforage';
-import {LazyGetter} from 'typescript-lazy-get-decorator';
-import {Proto} from 'typescript-proto-decorator';
+import {Proto} from 'proto-decorator';
 
 interface Engine {
   elementID: string;

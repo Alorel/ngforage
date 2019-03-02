@@ -48,8 +48,7 @@
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
     "localforage": "^1.5.0",
-    "typescript-lazy-get-decorator": "^1.0.0",
-    "typescript-proto-decorator": "^2.0.0"
+    "tslib": "^1.6.0"
   },
   "devDependencies": {
     "@alorel-personal/build-tools": "4.4.8",
@@ -95,10 +94,12 @@
     "karma-jasmine": "^1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-safari-launcher": "^1.0.0",
+    "lazy-get-decorator": "^2.0.0",
     "localforage": "^1.7.2",
     "lodash": "^4.17.10",
     "lodash-es": "^4.17.10",
     "ng-packagr": "^4.0.0",
+    "proto-decorator": "^3.0.3",
     "protractor": "^5.4.0",
     "rimraf": "^2.6.2",
     "rxjs": "^6.0.0",
@@ -107,8 +108,6 @@
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "typescript": ">=3.1.1 <3.3.0",
-    "typescript-lazy-get-decorator": "^1.0.0",
-    "typescript-proto-decorator": "^2.0.0",
     "uuid": "^3.3.2",
     "zone.js": "~0.8.26"
   },
