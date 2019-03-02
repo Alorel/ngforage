@@ -1,3 +1,17 @@
+## [4.0.3](https://github.com/Alorel/ngforage/compare/4.0.2...4.0.3) (2019-03-02)
+
+
+### Maintenance
+
+* **demo:** Upgrade lazy get and proto dependencies ([067f9de](https://github.com/Alorel/ngforage/commit/067f9de))
+* Lower required tslib version to 1.6.0 ([3a2c90b](https://github.com/Alorel/ngforage/commit/3a2c90b))
+
+
+### Refactoring
+
+* Remove typescript-lazy-get-decorator dependency ([ad0c313](https://github.com/Alorel/ngforage/commit/ad0c313))
+* Remove typescript-proto-decorator dependency ([086a129](https://github.com/Alorel/ngforage/commit/086a129))
+
 ## [4.0.2](https://github.com/Alorel/ngforage/compare/4.0.1...4.0.2) (2019-01-15)
 
 

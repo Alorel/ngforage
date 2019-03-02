@@ -6,8 +6,8 @@
 
 [![NPM link](https://nodei.co/npm/ngforage.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ngforage)
 
-[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=4.0.2)](https://travis-ci.org/Alorel/ngforage)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=4.0.2)](https://coveralls.io/github/Alorel/ngforage?branch=4.0.2)
+[![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=4.0.3)](https://travis-ci.org/Alorel/ngforage)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=4.0.3)](https://coveralls.io/github/Alorel/ngforage?branch=4.0.3)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
 ![Tested on Safari](https://img.shields.io/badge/Safari-tested-brightgreen.svg)
 ![Tested on Chrome](https://img.shields.io/badge/Chrome-tested-brightgreen.svg)
