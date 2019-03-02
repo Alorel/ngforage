@@ -1,13 +1,8 @@
-import {Proto} from 'typescript-proto-decorator';
-import {NC_NE_NW} from '../misc/std-descriptors';
+import {setToStringTag} from '../misc/setToStringTag.function';
 import {CachedItem} from './cached-item';
 
 /** @internal */
 export class CachedItemImpl<T> implements CachedItem<T> {
-
-  /** @internal */
-  @Proto('CachedItem', NC_NE_NW)
-  public readonly [Symbol.toStringTag]: string;
 
   public readonly expires: Date;
 
@@ -54,3 +49,5 @@ export class CachedItemImpl<T> implements CachedItem<T> {
     return JSON.stringify(this.toJSON());
   }
 }
+
+setToStringTag(CachedItemImpl, 'CachedItem');

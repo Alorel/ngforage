@@ -5,12 +5,7 @@
     "entryFile": "src/public_api.ts",
     "deleteDestPath": true,
     "umdModuleIds": {
-      "localforage": "localforage",
-      "typescript-proto-decorator": "ProtoDecorator"
+      "localforage": "localforage"
     }
-  },
-  "whitelistedNonPeerDependencies": [
-    "typescript-lazy-get-decorator",
-    "typescript-proto-decorator"
-  ]
+  }
 }

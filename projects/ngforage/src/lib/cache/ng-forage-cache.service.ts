@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {Proto} from 'typescript-proto-decorator';
 import {CacheConfigurable} from '../config/cache-configurable';
 import {NgForageOptions} from '../config/ng-forage-options';
 import {NgForage} from '../main/ng-forage.service';
-import {NC_NE_NW} from '../misc/std-descriptors';
+import {setToStringTag} from '../misc/setToStringTag.function';
 import {CachedItem} from './cached-item';
 import {CachedItemImpl} from './cached-item-impl.class';
 
 /** @internal */
 interface CacheKeys {
   data: string;
+
   expiry: string;
 }
 
@@ -42,10 +42,6 @@ function toVoid(): void {
  */
 @Injectable({providedIn: 'root'})
 export class NgForageCache extends NgForage implements CacheConfigurable {
-
-  /** @internal */
-  @Proto('NgForageCache', NC_NE_NW)
-  public readonly [Symbol.toStringTag]: string;
 
   /**
    * Cache time in milliseconds
@@ -116,3 +112,5 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
     return Object.assign(super.toJSON(), ass);
   }
 }
+
+setToStringTag(NgForageCache);

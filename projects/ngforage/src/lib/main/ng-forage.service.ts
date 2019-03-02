@@ -1,21 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Proto} from 'typescript-proto-decorator';
 import {BaseConfigurable} from '../config/base-configurable';
 import {BaseConfigurableImpl} from '../config/base-configurable-impl.service';
 import {NgForageOptions} from '../config/ng-forage-options';
 import {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
-import {NC_NE_NW} from '../misc/std-descriptors';
+import {setToStringTag} from '../misc/setToStringTag.function';
 
 /**
  * Cache instance
  */
 @Injectable({providedIn: 'root'})
 export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
-
-  /** @internal */
-  @Proto('NgForage', NC_NE_NW)
-  public readonly [Symbol.toStringTag]: string;
 
   /**
    * Returns the name of the driver being used, or null if none can be used.
@@ -141,3 +136,5 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
     return this.store.supports(<string>driver);
   }
 }
+
+setToStringTag(NgForage);

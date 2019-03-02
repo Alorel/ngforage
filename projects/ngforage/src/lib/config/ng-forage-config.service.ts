@@ -1,11 +1,10 @@
 import {Inject, Injectable, Optional} from '@angular/core';
 import 'localforage';
-import {Proto} from 'typescript-proto-decorator';
 import {localForage as lf} from '../imports/localforage';
 import {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
 import {DEFAULT_CONFIG} from '../misc/injection-tokens';
-import {NC_NE_NW} from '../misc/std-descriptors';
+import {setToStringTag} from '../misc/setToStringTag.function';
 import {BaseConfigurable} from './base-configurable';
 import {CacheConfigurable} from './cache-configurable';
 import {NgForageOptions} from './ng-forage-options';
@@ -18,10 +17,6 @@ const $defaultConfig: unique symbol = Symbol('Default Config');
  */
 @Injectable({providedIn: 'root'})
 export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
-
-  /** @internal */
-  @Proto('NgForageConfig', NC_NE_NW)
-  public readonly [Symbol.toStringTag]: string;
 
   /** @internal */
   private readonly [$defaultConfig]: NgForageOptions;
@@ -186,3 +181,5 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     return JSON.stringify(this.toJSON());
   }
 }
+
+setToStringTag(NgForageConfig);

@@ -1,9 +1,8 @@
 import {Inject} from '@angular/core';
 import 'localforage';
-import {Proto} from 'typescript-proto-decorator';
 import {InstanceFactory} from '../instance-factory/instance-factory.service';
 import {DriverType} from '../misc/driver-type.type';
-import {NC_NE_NW} from '../misc/std-descriptors';
+import {setToStringTag} from '../misc/setToStringTag.function';
 import {BaseConfigurable} from './base-configurable';
 import {NgForageConfig} from './ng-forage-config.service';
 import {NgForageOptions} from './ng-forage-options';
@@ -17,16 +16,15 @@ const store$: unique symbol = Symbol('Store');
 export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
-  @Proto('BaseConfigurable', NC_NE_NW)
-  public readonly [Symbol.toStringTag]: string;
-  /** @internal */
   protected readonly baseConfig: NgForageConfig;
+
   /** @internal */
   protected readonly config: NgForageOptions = {};
+
   /** @internal */
   protected readonly fact: InstanceFactory;
+
   /** @internal */
-  @Proto(true)
   protected storeNeedsRecalc: boolean;
 
   /** @internal */
@@ -170,3 +168,11 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
     return JSON.stringify(this.toJSON());
   }
 }
+
+setToStringTag(BaseConfigurableImpl, 'BaseConfigurable');
+Object.defineProperty(<any>BaseConfigurableImpl, 'storeNeedsRecalc', {
+  configurable: true,
+  enumerable: true,
+  value: true,
+  writable: true
+});

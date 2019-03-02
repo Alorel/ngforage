@@ -7,8 +7,11 @@ import {Proto} from 'typescript-proto-decorator';
 
 interface Engine {
   elementID: string;
+
   id: D;
+
   name: string;
+
   supported: boolean;
 }
 
@@ -29,10 +32,13 @@ export class EngineSelectComponent implements ControlValueAccessor {
 
   @Proto(false)
   public _disabled: boolean;
+
   @Proto(noop)
   public _onBlurFn: Function;
+
   @Proto(noop)
   public _onChangeFn: Function;
+
   @Proto('')
   public selected: string;
 
