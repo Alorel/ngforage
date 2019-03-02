@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy} from '@angular/core';
+import {LazyGetter} from 'lazy-get-decorator';
 import {uniqueId as uniqid} from 'lodash-es';
 import {NgForageCache, NgForageOptions} from 'ngforage';
+import {Proto} from 'proto-decorator';
 import {BehaviorSubject, Subject} from 'rxjs';
-import {LazyGetter} from 'typescript-lazy-get-decorator';
-import {Proto} from 'typescript-proto-decorator';
 
 const _sbj: unique symbol = Symbol('sbj');
 

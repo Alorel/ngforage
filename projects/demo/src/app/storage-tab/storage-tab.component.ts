@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
+import {LazyGetter} from 'lazy-get-decorator';
 import {uniqueId} from 'lodash-es';
 import {NgForage} from 'ngforage/src/lib';
-import {LazyGetter} from 'typescript-lazy-get-decorator';
 import {OutputComponent} from '../output/output.component';
 
 @Component({

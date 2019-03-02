@@ -1,11 +1,11 @@
 import {ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {LazyGetter} from 'lazy-get-decorator';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {NgForageConfig, NgForageOptions} from 'ngforage';
+import {Proto} from 'proto-decorator';
 import {BehaviorSubject, combineLatest, Subject, Subscription} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {LazyGetter} from 'typescript-lazy-get-decorator';
-import {Proto} from 'typescript-proto-decorator';
 
 const _sub: unique symbol = Symbol('sub');
 const _sbj: unique symbol = Symbol('sbj');
