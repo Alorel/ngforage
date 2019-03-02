@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.8":
-  version "4.4.8"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.8.tgz#8c8630516afe94814e89f9ac94f2e5e0ea970280"
-  integrity sha512-kN6+SzSdGKXyzjmGU13/5yNrFKTq80wlzzetPOsoSF/2/CDo4MhJ7XFKpgLacXMcaVUYpT5UvuEoaItXTx8gwA==
+"@alorel-personal/build-tools@4.4.9":
+  version "4.4.9"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.9.tgz#f1802eb4d6750c91b903a4bd2ddc7c3b1fff24d6"
+  integrity sha512-kQD4mh2iPnLJhyCl+6Lw4XtNfGLR9b8o1eRWXvSd/Y0spP914ciP9xNxlup5YHG8lJnhFDnlwLm17IMn9VWzGw==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -15,6 +15,7 @@
     glob "^7.0.0"
     json-to-graphql-query "^1.7.0"
     json5 "^2.0.0"
+    lazy-get-decorator "^2.0.0"
     lodash "^4.17.0"
     log-symbols "^2.2.0"
     moment "^2.24.0"
@@ -30,7 +31,6 @@
     tslib "^1.9.0"
     tslint "5.13.1"
     typescript "^3.1.6"
-    typescript-lazy-get-decorator "^1.2.0"
     uglify-es "~3.3.9"
     yamljs "^0.3.0"
     yargs "^13.2.1"
@@ -10372,11 +10372,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typescript-lazy-get-decorator@^1.2.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/typescript-lazy-get-decorator/-/typescript-lazy-get-decorator-1.2.2.tgz#f7ffe9f9225b830f851f2701376409cfd640100e"
-  integrity sha512-XNqWMl2qI2AgQqVoUa7+TJa3J6XUKYOS9kK6HvptL6+uY3r2wjnpFjykA2Y7h5w9TkTV5DY4v5leTOavBEbKcQ==
 
 typescript@2.9.1:
   version "2.9.1"
