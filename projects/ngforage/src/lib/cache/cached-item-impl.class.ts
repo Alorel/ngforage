@@ -1,4 +1,3 @@
-import {LazyGetter} from 'typescript-lazy-get-decorator';
 import {Proto} from 'typescript-proto-decorator';
 import {NC_NE_NW} from '../misc/std-descriptors';
 import {CachedItem} from './cached-item';
@@ -9,25 +8,36 @@ export class CachedItemImpl<T> implements CachedItem<T> {
   /** @internal */
   @Proto('CachedItem', NC_NE_NW)
   public readonly [Symbol.toStringTag]: string;
+
   public readonly expires: Date;
 
   public constructor(public readonly data: T, expiryTime: number) {
     this.expires = new Date(typeof <any>expiryTime === 'number' ? expiryTime : 0);
   }
 
-  @LazyGetter()
   public get expired(): boolean {
-    return this.expiresIn === 0;
+    const value = this.expiresIn === 0;
+    if (value) {
+      Object.defineProperty(this, 'expired', {value});
+    }
+
+    return value;
   }
 
-  @LazyGetter()
   public get expiresIn(): number {
-    return Math.max(0, this.expires.getTime() - Date.now());
+    const value = Math.max(0, this.expires.getTime() - Date.now());
+    if (!value) {
+      Object.defineProperty(this, 'expiresIn', {value});
+    }
+
+    return value;
   }
 
-  @LazyGetter()
   public get hasData(): boolean {
-    return this.data != null; //tslint:disable-line:triple-equals
+    const value = this.data != null; //tslint:disable-line:triple-equals
+    Object.defineProperty(this, 'hasData', {value});
+
+    return value;
   }
 
   public toJSON(): CachedItem<T> {

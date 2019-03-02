@@ -6,7 +6,6 @@
     "deleteDestPath": true,
     "umdModuleIds": {
       "localforage": "localforage",
-      "typescript-lazy-get-decorator": "LazyGet",
       "typescript-proto-decorator": "ProtoDecorator"
     }
   },
