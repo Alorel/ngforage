@@ -12,8 +12,11 @@ const _sbj: unique symbol = Symbol('sbj');
 
 interface Control {
   control: string;
+
   id: string;
+
   name: string;
+
   type?: string;
 }
 
@@ -30,9 +33,12 @@ interface Control {
 export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Proto(noop)
   public _onBlur: Function;
+
   public [_sub]: Subscription;
+
   @Proto(noop)
   private _onChange: Function;
+
   private readonly [_sbj]: Subject<any>[] = [];
 
   public constructor(private readonly fb: FormBuilder,

@@ -16,20 +16,28 @@ export class OutputComponent implements OnDestroy {
 
   @Proto('')
   public getItemKey: string;
+
   @Proto(0)
   public keyIndex: number;
+
   @Proto('')
   public rmItemKey: string;
+
   @Proto(false)
   public setItemCacheOverrideCheck: boolean;
+
   @Proto(1000)
   public setItemCacheOverrideNum: number;
+
   @Proto(false)
   public setItemJson: boolean;
+
   @Proto('')
   public setItemKey: string;
+
   @Proto('')
   public setItemValue: string;
+
   @Input()
   public showCache = false;
 

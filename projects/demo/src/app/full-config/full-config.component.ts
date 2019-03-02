@@ -25,11 +25,15 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
 
   @Proto(noop)
   public _onBlur: Function;
+
   public _val: NgForageOptions;
+
   @Proto(false)
   @Input()
   public showCacheTime: boolean;
+
   public [_sub]: Subscription;
+
   @Proto(noop)
   private _onChange: Function;
 
