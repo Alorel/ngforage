@@ -100,7 +100,7 @@
     "lodash-es": "^4.17.10",
     "ng-packagr": "^4.0.0",
     "proto-decorator": "^3.0.3",
-    "protractor": "^5.4.0",
+    "protractor": "^6.0.0",
     "rimraf": "^2.6.2",
     "rxjs": "^6.0.0",
     "semantic-release": "~15.13.0",
