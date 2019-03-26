@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.13":
-  version "4.4.13"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.13.tgz#699367de9b2cb68b938559f5c9145b79821940f7"
-  integrity sha512-upl+fCAstjJdGMnYu3lLYud77VbARjmxlv48al3tBKAUuoPU1hgOYPLHM9wJRgdecih/Z/8cRuLe2brrZ4mQmA==
+"@alorel-personal/build-tools@4.4.14":
+  version "4.4.14"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.14.tgz#155263d88f87d5711bbaa6e462992130c0350a87"
+  integrity sha512-dpz9sCpC6sPHXfwHaycMLAK2yGWs+7kbFwC0X6lKAddXHTaU5Nsi9SUFUrdcrWQ+z8kqTE/xn4iPTWaSY1Glrw==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -27,7 +27,7 @@
     rollup "~1.7.0"
     rollup-plugin-node-resolve "^4.0.1"
     rollup-plugin-typescript2 "^0.20.1"
-    tmp "~0.0.33"
+    tmp "~0.1.0"
     tslib "^1.9.0"
     tslint "5.13.1"
     typescript "^3.1.6"
@@ -10071,12 +10071,19 @@ tmp@0.0.31:
   dependencies:
     os-tmpdir "~1.0.1"
 
-tmp@0.0.x, tmp@^0.0.33, tmp@~0.0.33:
+tmp@0.0.x, tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
   integrity sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==
   dependencies:
     os-tmpdir "~1.0.2"
+
+tmp@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.1.0.tgz#ee434a4e22543082e294ba6201dcc6eafefa2877"
+  integrity sha512-J7Z2K08jbGcdA1kkQpJSqLF6T0tdQqpR2pnSUXsIchbPdTI9v3e85cLW0d6WDhwuAleOV71j2xWs8qMPfK7nKw==
+  dependencies:
+    rimraf "^2.6.3"
 
 to-array@0.1.4:
   version "0.1.4"
