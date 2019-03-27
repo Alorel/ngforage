@@ -9,9 +9,6 @@
 [![Build Status](https://travis-ci.org/Alorel/ngforage.svg?branch=4.0.3)](https://travis-ci.org/Alorel/ngforage)
 [![Coverage Status](https://coveralls.io/repos/github/Alorel/ngforage/badge.svg?branch=4.0.3)](https://coveralls.io/github/Alorel/ngforage?branch=4.0.3)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngforage.svg)](https://greenkeeper.io/)
-![Tested on Safari](https://img.shields.io/badge/Safari-tested-brightgreen.svg)
-![Tested on Chrome](https://img.shields.io/badge/Chrome-tested-brightgreen.svg)
-![Tested on Firefox](https://img.shields.io/badge/Firefox-tested-brightgreen.svg)
 
 * [Demo](https://alorel.github.io/ngforage/)
 * [API documentation](https://alorel.github.io/ngforage/docs/)
