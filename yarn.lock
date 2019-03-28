@@ -35,13 +35,13 @@
     yamljs "^0.3.0"
     yargs "^13.2.1"
 
-"@alorel-personal/conventional-changelog-alorel@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/conventional-changelog-alorel/-/conventional-changelog-alorel-2.0.4.tgz#a8e3eb15c15889eee927d65e721d5298ac9f83d7"
-  integrity sha512-mHhrj4YxFljsDIExEqvjG5B82ywGI2dMWFHpwgk+WK3UZtYPsCpLbm2IutmpvnFbo4Iks0BDjI2m+o1hWuzGHQ==
+"@alorel-personal/conventional-changelog-alorel@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/conventional-changelog-alorel/-/conventional-changelog-alorel-2.1.0.tgz#f4aef2dc99f2908fc7d9805230a4083c55eb91cb"
+  integrity sha512-3rXA8PpAfyXbJ8H8Qg1ydhWTnVFyelxGYNrVVym1TJP9Hwy3hYjEBpvOcs0IwKrlbkuzCTKv3NQWpYZRYDstUQ==
   dependencies:
-    conventional-changelog-angular "^5.0.0"
-    json5 "^2.0.0"
+    conventional-changelog-angular "^5.0.3"
+    json5 "^2.1.0"
     lodash "^4.0.0"
 
 "@alorel-personal/semantic-release@1.4.0":
@@ -2537,7 +2537,7 @@ content-type@~1.0.4:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
-conventional-changelog-angular@^5.0.0:
+conventional-changelog-angular@^5.0.0, conventional-changelog-angular@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/conventional-changelog-angular/-/conventional-changelog-angular-5.0.3.tgz#299fdd43df5a1f095283ac16aeedfb0a682ecab0"
   integrity sha512-YD1xzH7r9yXQte/HF9JBuEDfvjxxwDGGwZU1+ndanbY0oFgA+Po1T9JDSpPLdP0pZT6MhCAsdvFKC4TJ4MTJTA==
