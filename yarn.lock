@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.14":
-  version "4.4.14"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.14.tgz#155263d88f87d5711bbaa6e462992130c0350a87"
-  integrity sha512-dpz9sCpC6sPHXfwHaycMLAK2yGWs+7kbFwC0X6lKAddXHTaU5Nsi9SUFUrdcrWQ+z8kqTE/xn4iPTWaSY1Glrw==
+"@alorel-personal/build-tools@4.4.15":
+  version "4.4.15"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.15.tgz#a419e9bcfbd289cbbd2e4f71029df77a646e7a74"
+  integrity sha512-mboH8tg2sHtB7UBXJORNUm7Hvcd09hUprFs5yvEnenGdeGzXl2NlFoWBmh9CzE8KDAnSOVgI4xwEfCKPYdAVUA==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -15,7 +15,7 @@
     glob "^7.0.0"
     json-to-graphql-query "^1.7.0"
     json5 "^2.0.0"
-    lazy-get-decorator "^2.0.0"
+    lazy-get-decorator "^2.1.0"
     lodash "^4.17.0"
     log-symbols "^2.2.0"
     moment "^2.24.0"
@@ -24,13 +24,13 @@
     request "^2.88.0"
     request-promise "^4.2.4"
     rimraf "^2.6.3"
-    rollup "~1.7.0"
+    rollup "~1.7.3"
     rollup-plugin-node-resolve "^4.0.1"
     rollup-plugin-typescript2 "^0.20.1"
     tmp "~0.1.0"
     tslib "^1.9.0"
-    tslint "5.13.1"
-    typescript "^3.1.6"
+    tslint "~5.14.0"
+    typescript "^3.3.4000"
     uglify-es "~3.3.9"
     yamljs "^0.3.0"
     yargs "^13.2.1"
@@ -659,10 +659,15 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.121.tgz#9327e20d49b95fc2bf983fc2f045b2c6effc80b9"
   integrity sha512-ORj7IBWj13iYufXt/VXrCNMbUuCTJfhzme5kx9U/UtcIPdJYuvPDUAlHlbNhz/8lKCLy9XGIZnGrqXOtQbPGoQ==
 
-"@types/node@*", "@types/node@^11.9.0", "@types/node@^11.9.5":
+"@types/node@*", "@types/node@^11.9.0":
   version "11.10.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.4.tgz#3f5fc4f0f322805f009e00ab35a2ff3d6b778e42"
   integrity sha512-wa09itaLE8L705aXd8F80jnFpxz3Y1/KRHfKsYL2bPc0XF+wEWu8sR9n5bmeu8Ba1N9z2GRNzm/YdHcghLkLKg==
+
+"@types/node@^11.11.6":
+  version "11.12.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.12.1.tgz#d90123f6c61fdf2f7cddd286ddae891586dd3488"
+  integrity sha512-sKDlqv6COJrR7ar0+GqqhrXQDzQlMcqMnF2iEU6m9hLo8kxozoAGUazwPyELHlRVmjsbvlnGXjnzyptSXVmceA==
 
 "@types/source-list-map@*":
   version "0.1.2"
@@ -5764,6 +5769,11 @@ lazy-get-decorator@^2.0.0:
   resolved "https://registry.yarnpkg.com/lazy-get-decorator/-/lazy-get-decorator-2.0.0.tgz#6333f45feb1ac8fa86af7c8f119822a8b42594c3"
   integrity sha512-qVy1dWI69X8/mWMDXeI71uqbdBtlNrh09exQa8hM5COVUinhHMZ9anYLhpSF5tbCvnKi/AHtvxU4xBaFJo/40g==
 
+lazy-get-decorator@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/lazy-get-decorator/-/lazy-get-decorator-2.1.0.tgz#8404204f0c0731ce8ae8712dbee086300f788cd6"
+  integrity sha512-CoIJtCRmUSfN3ne0nmvtMtQsMV0DX0JCzzNy/+TmfcQhpswyUtMRcmWmUl6iog0K8kuCywjkYEToLw5RUNqDCw==
+
 lazy-property@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lazy-property/-/lazy-property-1.0.0.tgz#84ddc4b370679ba8bd4cdcfa4c06b43d57111147"
@@ -8846,13 +8856,13 @@ rollup@^0.67.0:
     "@types/estree" "0.0.39"
     "@types/node" "*"
 
-rollup@~1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.7.0.tgz#2f5063c0f344f2225d1077655dc54d105a512bb2"
-  integrity sha512-hjuWSCgoQsFSTsmsNP4AH1l1kfkFqW82gW00V9nL81Zr3JtnKn3rvxh18jUAAEMb7qNoHj21PR5SqbK2mhBgMg==
+rollup@~1.7.3:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.7.4.tgz#dd9d1d4935d3db38f16e1caaef635d8d1b0831c4"
+  integrity sha512-nc86fETLHdozhRWlW/uNVIQ7ODuA1vU2/L8znAxP9TNMx1NA6GTth3llqoxxCle2kkyui+OfGzbKaQxD60NJjA==
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^11.9.5"
+    "@types/node" "^11.11.6"
     acorn "^6.1.1"
 
 run-async@^2.2.0:
@@ -10246,7 +10256,7 @@ tslint-sonarts@1.8.0:
   dependencies:
     immutable "^3.8.2"
 
-tslint@5.13.1, tslint@^5.11.0:
+tslint@^5.11.0:
   version "5.13.1"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.13.1.tgz#fbc0541c425647a33cd9108ce4fd4cd18d7904ed"
   integrity sha512-fplQqb2miLbcPhyHoMV4FU9PtNRbgmm/zI5d3SZwwmJQM6V0eodju+hplpyfhLWpmwrDNfNYU57uYRb8s0zZoQ==
@@ -10265,7 +10275,26 @@ tslint@5.13.1, tslint@^5.11.0:
     tslib "^1.8.0"
     tsutils "^2.27.2"
 
-tsutils@^2.27.2:
+tslint@~5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.14.0.tgz#be62637135ac244fc9b37ed6ea5252c9eba1616e"
+  integrity sha512-IUla/ieHVnB8Le7LdQFRGlVJid2T/gaJe5VkjzRVSRR6pA2ODYrnfR1hmxi+5+au9l50jBwpbBL34txgv4NnTQ==
+  dependencies:
+    babel-code-frame "^6.22.0"
+    builtin-modules "^1.1.1"
+    chalk "^2.3.0"
+    commander "^2.12.1"
+    diff "^3.2.0"
+    glob "^7.1.1"
+    js-yaml "^3.7.0"
+    minimatch "^3.0.4"
+    mkdirp "^0.5.1"
+    resolve "^1.3.2"
+    semver "^5.3.0"
+    tslib "^1.8.0"
+    tsutils "^2.29.0"
+
+tsutils@^2.27.2, tsutils@^2.29.0:
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.29.0.tgz#32b488501467acbedd4b85498673a0812aca0b99"
   integrity sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==
@@ -10319,7 +10348,7 @@ typescript@3.2.4, "typescript@>=3.1.1 <3.3.0":
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
   integrity sha512-0RNDbSdEokBeEAkgNbxJ+BLwSManFy9TeXz8uW+48j/xhEXv1ePME60olyzw2XzUqUBNAYFeJadIqAgNqIACwg==
 
-"typescript@>=2.2.0 <4.0.0", typescript@^3.1.6:
+"typescript@>=2.2.0 <4.0.0":
   version "3.3.3333"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
   integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
@@ -10328,6 +10357,11 @@ typescript@^2.4.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
   integrity sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==
+
+typescript@^3.3.4000:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.1.tgz#b6691be11a881ffa9a05765a205cb7383f3b63c6"
+  integrity sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
 
 uglify-es@~3.3.9:
   version "3.3.9"
