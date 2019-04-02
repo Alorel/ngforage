@@ -51,7 +51,7 @@
     "tslib": "^1.6.0"
   },
   "devDependencies": {
-    "@alorel-personal/build-tools": "4.4.15",
+    "@alorel-personal/build-tools": "4.4.16",
     "@alorel-personal/conventional-changelog-alorel": "2.1.0",
     "@alorel-personal/semantic-release": "1.4.0",
     "@alorel-personal/tslint-rules": "4.1.1",
