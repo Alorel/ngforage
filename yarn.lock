@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.4.16":
-  version "4.4.16"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.4.16.tgz#cfa03aa82176f6b2eaecdd31f4bfb9d39d5f0745"
-  integrity sha512-jylgHCEhby0LIJuNofryyW7m3rPpgSyblEk4LxzIHcBUe802mLHtX1J4yNfTs+N9NXNr+ER33Ilcw3rXbH32WA==
+"@alorel-personal/build-tools@4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.5.0.tgz#fbd60ce90f8b47b60faf188597f69750f8b084d0"
+  integrity sha512-IzNFVDnBueWzk9xiQBjj5G57bWIBF8uxVHCfDAMI5RSDnVPPoyDuLU9qiAvIEweolmTyQAmQGRth8ESad+kySA==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -29,8 +29,8 @@
     rollup-plugin-typescript2 "^0.20.1"
     tmp "~0.1.0"
     tslib "^1.9.0"
-    tslint "~5.14.0"
-    typescript "^3.3.4000"
+    tslint "~5.15.0"
+    typescript "^3.4.1"
     uglify-es "~3.3.9"
     yamljs "^0.3.0"
     yargs "^13.2.1"
@@ -5549,6 +5549,14 @@ js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
+js-yaml@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.0.tgz#38ee7178ac0eea2c97ff6d96fff4b18c7d8cf98e"
+  integrity sha512-pZZoSxcCYco+DIKBTimr67J6Hy+EYGZDY/HCWC+iAEA9h1ByhMXAIVUXMcMFpOCxQ/xjXmPI2MkDL5HRm5eFrQ==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -10307,10 +10315,10 @@ tslint@^5.11.0:
     tslib "^1.8.0"
     tsutils "^2.27.2"
 
-tslint@~5.14.0:
-  version "5.14.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.14.0.tgz#be62637135ac244fc9b37ed6ea5252c9eba1616e"
-  integrity sha512-IUla/ieHVnB8Le7LdQFRGlVJid2T/gaJe5VkjzRVSRR6pA2ODYrnfR1hmxi+5+au9l50jBwpbBL34txgv4NnTQ==
+tslint@~5.15.0:
+  version "5.15.0"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.15.0.tgz#6ffb180986d63afa1e531feb2a134dbf961e27d3"
+  integrity sha512-6bIEujKR21/3nyeoX2uBnE8s+tMXCQXhqMmaIPJpHmXJoBJPTLcI7/VHRtUwMhnLVdwLqqY3zmd8Dxqa5CVdJA==
   dependencies:
     babel-code-frame "^6.22.0"
     builtin-modules "^1.1.1"
@@ -10318,7 +10326,7 @@ tslint@~5.14.0:
     commander "^2.12.1"
     diff "^3.2.0"
     glob "^7.1.1"
-    js-yaml "^3.7.0"
+    js-yaml "^3.13.0"
     minimatch "^3.0.4"
     mkdirp "^0.5.1"
     resolve "^1.3.2"
@@ -10390,7 +10398,7 @@ typescript@^2.4.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
   integrity sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==
 
-typescript@^3.3.4000:
+typescript@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.1.tgz#b6691be11a881ffa9a05765a205cb7383f3b63c6"
   integrity sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
