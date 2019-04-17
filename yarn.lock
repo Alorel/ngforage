@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.5.2.tgz#b1c9496b8dbc2a4155375c8040991b04d0657476"
-  integrity sha512-ZLKlg8Lq20PkDxuGPcayMh3Iw2A35K/8esX2qq5tNHCvkfsNeFOlABvecsV1L+5x7ClRJYNUJOfSPtqQ4v0+tQ==
+"@alorel-personal/build-tools@4.5.3":
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.5.3.tgz#9fc56622a569076c9ea5e9ac719309c733b59804"
+  integrity sha512-bSC1Ve2mhLi84xoh2sGOz+XrGgMVLaaZxmDWyClbLcILlvtG51z+1bK3z3VJnENkgF0i+uTFUX4EQdd909822g==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -17,7 +17,7 @@
     json5 "^2.0.0"
     lazy-get-decorator "^2.1.0"
     lodash "^4.17.0"
-    log-symbols "^2.2.0"
+    log-symbols "^3.0.0"
     moment "^2.24.0"
     readline-sync "^1.4.0"
     reflect-metadata "^0.1.13"
@@ -29,7 +29,7 @@
     rollup-plugin-typescript2 "^0.20.1"
     tmp "~0.1.0"
     tslib "^1.9.0"
-    tslint "~5.15.0"
+    tslint "~5.16.0"
     typescript "^3.4.1"
     uglify-es "~3.3.9"
     yamljs "^0.3.0"
@@ -6160,6 +6160,13 @@ log-symbols@^2.2.0:
   dependencies:
     chalk "^2.0.1"
 
+log-symbols@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
+  integrity sha512-dSkNGuI7iG3mfvDzUuYZyvk5dD9ocYCYzNU6CYDE6+Xqd+gwme6Z00NS3dUh8mq/73HaEtT7m6W+yUPtU6BZnQ==
+  dependencies:
+    chalk "^2.4.2"
+
 log4js@^0.6.31:
   version "0.6.38"
   resolved "https://registry.yarnpkg.com/log4js/-/log4js-0.6.38.tgz#2c494116695d6fb25480943d3fc872e662a522fd"
@@ -10320,12 +10327,12 @@ tslint@^5.11.0:
     tslib "^1.8.0"
     tsutils "^2.27.2"
 
-tslint@~5.15.0:
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.15.0.tgz#6ffb180986d63afa1e531feb2a134dbf961e27d3"
-  integrity sha512-6bIEujKR21/3nyeoX2uBnE8s+tMXCQXhqMmaIPJpHmXJoBJPTLcI7/VHRtUwMhnLVdwLqqY3zmd8Dxqa5CVdJA==
+tslint@~5.16.0:
+  version "5.16.0"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.16.0.tgz#ae61f9c5a98d295b9a4f4553b1b1e831c1984d67"
+  integrity sha512-UxG2yNxJ5pgGwmMzPMYh/CCnCnh0HfPgtlVRDs1ykZklufFBL1ZoTlWFRz2NQjcoEiDoRp+JyT0lhBbbH/obyA==
   dependencies:
-    babel-code-frame "^6.22.0"
+    "@babel/code-frame" "^7.0.0"
     builtin-modules "^1.1.1"
     chalk "^2.3.0"
     commander "^2.12.1"
