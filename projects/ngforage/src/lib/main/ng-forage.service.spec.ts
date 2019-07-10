@@ -250,14 +250,15 @@ describe('NgForage core service', () => {
   });
 
   describe('#clear & #length', () => {
-    const expectN = (n: number) => {
-      return async (done: any) => {
-        expect(await inst.length()).toBe(n);
-        done();
-      };
-    };
 
-    it('Length should be 0 initially', expectN(0));
+    it('Length should be 0 initially', done => {
+      inst.length()
+        .then(l => {
+          expect(l).toBe(0);
+          done();
+        })
+        .catch(done);
+    });
 
     it('Setting 5 items should increase length to 5', async done => {
       const r = 5;
@@ -273,7 +274,5 @@ describe('NgForage core service', () => {
       expect(await inst.clear()).toBeUndefined();
       done();
     });
-
-    it('Length should be 0 again', expectN(0));
   });
 });
