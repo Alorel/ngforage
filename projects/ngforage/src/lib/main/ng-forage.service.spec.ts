@@ -252,7 +252,8 @@ describe('NgForage core service', () => {
   describe('#clear & #length', () => {
 
     it('Length should be 0 initially', done => {
-      inst.length()
+      inst.clear()
+        .then(() => inst.length())
         .then(l => {
           expect(l).toBe(0);
           done();
@@ -263,6 +264,7 @@ describe('NgForage core service', () => {
     it('Setting 5 items should increase length to 5', async done => {
       const r = 5;
 
+      await inst.clear();
       await Promise.all(range(r).map((v: number) => inst.setItem(v.toString(), v)));
 
       expect(await inst.length()).toBe(r);
