@@ -10,7 +10,6 @@ cache:
 
 before_install:
 - npm i -g yarn greenkeeper-lockfile
-- if [[ $GH_TOKEN ]]; then ./.alobuild-prep-release.sh; fi;
 - greenkeeper-lockfile-update
 
 install:
@@ -49,9 +48,7 @@ jobs:
 #     - sleep 3
 #     script: yarn run test --browsers Safari
   - stage: Release
-    before_install:
-    - npm i -g yarn
-    - ./.alobuild-prep-release.sh
+    before_install: npm i -g yarn
     before_script: yarn run build:lib
     script: semantic-release
     after_success: []
