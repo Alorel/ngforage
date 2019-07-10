@@ -2,11 +2,16 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [5.0.0](#500)
 - [4.0.0](#400)
   - [sessionStorage support](#sessionstorage-support)
   - [Driver name constants have moved](#driver-name-constants-have-moved)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# 5.0.0
+
+No migration steps needed
 
 # 4.0.0
 

@@ -1,10 +1,12 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "downlevelIteration": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "newLine": "lf",
@@ -23,13 +25,25 @@
     "removeComments": false,
     "strict": true,
     "checkJs": false,
-    "target": "es5",
+    "target": "es2015",
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngforage": [
+        "dist/ngforage"
+      ],
+      "ngforage/*": [
+        "dist/ngforage/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

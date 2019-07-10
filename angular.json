@@ -3,62 +3,12 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngforage": {
-      "root": "projects/ngforage",
-      "sourceRoot": "projects/ngforage/src",
-      "projectType": "library",
-      "prefix": "ngf",
-      "targets": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/ngforage/tsconfig.lib.json",
-            "project": "projects/ngforage/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "codeCoverage": true,
-            "main": "projects/ngforage/src/test.ts",
-            "tsConfig": "projects/ngforage/tsconfig.spec.json",
-            "karmaConfig": "projects/ngforage/karma.conf.js",
-            "codeCoverageExclude": [
-              "**/*.spec.{ts,js}",
-              "**/session-storage/**/*.{ts,js}"
-            ]
-          }
-        }
-      }
-    },
     "demo": {
+      "projectType": "application",
+      "schematics": {},
       "root": "projects/demo/",
       "sourceRoot": "projects/demo/src",
-      "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:class": {
-          "spec": false
-        },
-        "@schematics/angular:component": {
-          "spec": false
-        },
-        "@schematics/angular:directive": {
-          "spec": false
-        },
-        "@schematics/angular:guard": {
-          "spec": false
-        },
-        "@schematics/angular:module": {
-          "spec": false
-        },
-        "@schematics/angular:pipe": {
-          "spec": false
-        },
-        "@schematics/angular:service": {
-          "spec": false
-        }
-      },
       "targets": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -68,6 +18,7 @@
             "main": "projects/demo/src/main.ts",
             "polyfills": "projects/demo/src/polyfills.ts",
             "tsConfig": "projects/demo/tsconfig.app.json",
+            "aot": false,
             "assets": [
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets"
@@ -94,7 +45,14 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -107,6 +65,34 @@
             "production": {
               "browserTarget": "demo:build:production"
             }
+          }
+        }
+      }
+    },
+    "ngforage": {
+      "projectType": "library",
+      "root": "projects/ngforage",
+      "sourceRoot": "projects/ngforage/src",
+      "prefix": "ngf",
+      "targets": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngforage/tsconfig.lib.json",
+            "project": "projects/ngforage/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "codeCoverage": true,
+            "main": "projects/ngforage/src/test.ts",
+            "tsConfig": "projects/ngforage/tsconfig.spec.json",
+            "karmaConfig": "projects/ngforage/karma.conf.js",
+            "codeCoverageExclude": [
+              "**/*.spec.{ts,js}",
+              "**/session-storage/**/*.{ts,js}"
+            ]
           }
         }
       }

@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
 import {cloneDeep, forEach} from 'lodash-es';
+import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
 import {NgForage} from '../main/ng-forage.service';
 import {NgForageConfig} from './ng-forage-config.service';
@@ -38,9 +39,9 @@ describe('NgForageConfig service', () => {
     let spec: LocalForageDriver;
     let inst: NgForage;
 
-    beforeAll(() => {
+    beforeEach(() => {
       spec = {
-        _driver: __filename,
+        _driver: uuid(),
         // tslint:disable-next-line:no-empty
         _initStorage() {
         },
@@ -86,8 +87,13 @@ describe('NgForageConfig service', () => {
         .catch(done);
     });
 
-    it('Driver should now be supported', () => {
-      expect(inst.supports(spec._driver)).toBe(true);
+    it('Driver should now be supported', done => {
+      conf.defineDriver(spec)
+        .then(() => {
+          expect(inst.supports(spec._driver)).toBe(true);
+          done();
+        })
+        .catch(done);
     });
   });
 

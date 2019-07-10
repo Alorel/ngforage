@@ -124,38 +124,55 @@ describe('BaseConfigurableImpl', () => {
       expect(ret).toBe(bc, 'Same obj');
     });
 
-    it('Configuring a driver should set the array appropriately', () => {
+    function initInst1() {
       bc.configure({driver: [D.LOCAL_STORAGE, D.INDEXED_DB]});
       inst1 = bc.getStore();
 
+      return inst1;
+    }
+
+    function initInst2() {
+      bc.configure({driver: D.LOCAL_STORAGE});
+      inst2 = bc.getStore();
+
+      return inst2;
+    }
+
+    function initInst3() {
+      bc.driver = D.LOCAL_STORAGE;
+      inst3 = bc.getStore();
+
+      return inst3;
+    }
+
+    it('Configuring a driver should set the array appropriately', () => {
+      initInst1();
       expect(bc.driver).toEqual([D.LOCAL_STORAGE, D.INDEXED_DB]);
     });
 
     it('Configuring a driver with just one value should do the same', () => {
-      bc.configure({driver: D.LOCAL_STORAGE});
-      inst2 = bc.getStore();
+      initInst2();
 
       expect(bc.driver).toBe(D.LOCAL_STORAGE);
     });
 
     it('Setting driver via setter should achieve the same', () => {
-      bc.driver = D.LOCAL_STORAGE;
-      inst3 = bc.getStore();
+      initInst3();
 
       expect(bc.driver).toBe(D.LOCAL_STORAGE);
     });
 
     describe('Driver equalities', () => {
       it('1 !== 2', () => {
-        expect(inst1).not.toBe(inst2);
+        expect(initInst1()).not.toBe(initInst2());
       });
 
       it('1 !== 3', () => {
-        expect(inst1).not.toBe(inst3);
+        expect(initInst1()).not.toBe(initInst3());
       });
 
       it('2 === 3', () => {
-        expect(inst2).toBe(inst3);
+        expect(initInst2()).toBe(initInst3());
       });
     });
   });

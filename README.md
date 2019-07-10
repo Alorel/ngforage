@@ -19,9 +19,18 @@
   <summary>Installation</summary>
   
   ```bash
-   npm install localforage@^1.5.0 ngforage@^2.0.0 # for Angular 5
-   npm install localforage@^1.5.0 ngforage@^3.0.0 # for Angular 6
+   npm install localforage@^1.5.0 ngforage@^5.0.0 # for Angular 8
    npm install localforage@^1.5.0 ngforage@^4.0.0 # for Angular 7
+   npm install localforage@^1.5.0 ngforage@^3.0.0 # for Angular 6
+   npm install localforage@^1.5.0 ngforage@^2.0.0 # for Angular 5
+  ```
+  
+  Alternatively, you can replace the following ngforage versions with a dist tag:
+  
+  ```bash
+  npm install ngforage@ng7
+  npm install ngforage@ng6
+  npm install ngforage@ng5
   ```
 </details>
 <details>

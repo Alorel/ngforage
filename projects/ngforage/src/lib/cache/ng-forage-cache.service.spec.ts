@@ -29,7 +29,7 @@ describe('NgForageCache Service', () => {
 
   describe('#clone', () => {
     it('Should be the same type', () => {
-      const clone = cache.clone();
+      const clone: any = cache.clone();
 
       expect(clone instanceof NgForageCache).toEqual(true);
     });
@@ -48,7 +48,7 @@ describe('NgForageCache Service', () => {
   });
 
   it('NgForageConfig should be instantiated', () => {
-    expect(conf instanceof NgForageConfig).toBe(true);
+    expect(<any>conf instanceof NgForageConfig).toBe(true);
   });
 
   it('#toJSON cacheTime should be set', () => {
@@ -94,7 +94,11 @@ describe('NgForageCache Service', () => {
 
   describe('Full CRD', () => {
     const key: string = uuid.v4();
-    const data = Math.random();
+    const data: number = Math.random();
+
+    afterEach(done => {
+      cache.clear().then(done, done);
+    });
 
     it('Item should not exist initially', async done => {
       const item = await cache.getCached<string>(key);
@@ -110,9 +114,14 @@ describe('NgForageCache Service', () => {
     describe('Retrieving it again', () => {
       let ci: CachedItem<number>;
 
-      beforeAll(async done => {
-        ci = await cache.getCached<number>(key);
-        done();
+      beforeEach(done => {
+        cache.setCached(key, data)
+          .then(() => cache.getCached<number>(key))
+          .then(v => {
+            ci = v;
+            done();
+          })
+          .catch(done);
       });
 
       it('Should have a CachedItem with the data', () => {
@@ -144,17 +153,15 @@ describe('NgForageCache Service', () => {
     const key = uuid.v4();
     let item: CachedItem<string>;
 
-    beforeAll(async done => {
-      await cache.removeCached(key);
+    beforeEach(done => {
       // tslint:disable-next-line:no-magic-numbers
-      await cache.setCached(key, uuid.v4(), 1000000);
-      item = await cache.getCached<string>(key);
-      done();
-    });
-
-    afterAll(async done => {
-      await cache.removeCached(key);
-      done();
+      cache.setCached(key, uuid.v4(), 1000000)
+        .then(() => cache.getCached<string>(key))
+        .then(v => {
+          item = v;
+          done();
+        })
+        .catch(done);
     });
 
     it('Should override instance defaults', () => {

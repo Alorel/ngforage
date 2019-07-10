@@ -93,7 +93,7 @@ export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
 
     const gr: FormGroup = this.fb.group(opts);
 
-    this[_sub] = combineLatest(gr.valueChanges.pipe(startWith(opts)), this._showCacheTime)
+    this[_sub] = combineLatest([gr.valueChanges.pipe(startWith(opts)), this._showCacheTime])
       .pipe(
         map((v: [NgForageOptions, boolean]): any => {
           const out: NgForageOptions = Object.assign({}, v[0]);
