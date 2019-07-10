@@ -10,8 +10,7 @@ module.exports = config => {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-firefox-launcher'),
-      require('karma-safari-launcher'),
+      // require('karma-safari-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -28,23 +27,24 @@ module.exports = config => {
     port: 9876,
     colors: true,
     logLevel: config.LOG_DEBUG,
-    browsers: ['FirefoxHeadless'],
+    browsers: [],
     singleRun: true,
     customLaunchers: {
-      FirefoxHeadless: {
-        base: 'Firefox',
-        flags: ['-headless']
-      }
     },
   };
 
   if (process.env.CI) {
     reports.push('lcovonly');
-    finalConfig.browsers.push('ChromeHeadlessTravis');
+    finalConfig.plugins.push(require('karma-firefox-launcher'));
+    finalConfig.browsers.push('ChromeHeadlessTravis', 'FirefoxHeadless');
     finalConfig.customLaunchers.ChromeHeadlessTravis = {
       base: 'ChromeHeadless',
       flags: ['--no-sandbox']
     };
+    finalConfig.customLaunchers.FirefoxHeadless = {
+      base: 'Firefox',
+        flags: ['-headless']
+    }
   } else {
     finalConfig.browsers.push('ChromeHeadless');
     reports.push('html');

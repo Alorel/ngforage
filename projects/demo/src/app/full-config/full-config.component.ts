@@ -37,9 +37,11 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
   @Proto(noop)
   private _onChange: Function;
 
-  public constructor(private readonly fb: FormBuilder,
-                     private readonly ngf: NgForage,
-                     private readonly cfg: NgForageConfig) {
+  public constructor(
+    private readonly fb: FormBuilder,
+    private readonly ngf: NgForage,
+    private readonly cfg: NgForageConfig
+  ) {
   }
 
   @LazyGetter()
@@ -77,13 +79,17 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
   }
 
   public ngOnInit(): void {
-    const eng$ = this.engine.valueChanges.pipe(startWith(this.engine.value));
-    const cfg$ = this.otherConfig.valueChanges.pipe(startWith(this.otherConfig.value));
+    const eng$ = this.engine.valueChanges.pipe(
+      startWith<string, string>(this.engine.value)
+    );
+    const cfg$ = this.otherConfig.valueChanges.pipe(
+      startWith<NgForageOptions, NgForageOptions>(this.otherConfig.value)
+    );
 
-    this[_sub] = combineLatest(eng$, cfg$)
+    this[_sub] = combineLatest([eng$, cfg$])
       .pipe(
         debounceTime(50), //tslint:disable-line:no-magic-numbers
-        map<[string, NgForageOptions], NgForageOptions>(v => {
+        map((v: [string, NgForageOptions]): NgForageOptions => {
           const out: NgForageOptions = Object.assign({}, v[1]);
           out.driver = v[0];
 

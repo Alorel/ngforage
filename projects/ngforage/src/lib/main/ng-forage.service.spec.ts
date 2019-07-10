@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {range, values} from 'lodash-es';
+import {noop, range, values} from 'lodash-es';
 import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
 import {NgForageCache} from '../cache/ng-forage-cache.service';
@@ -11,23 +11,19 @@ import {NgForage} from './ng-forage.service';
 describe('NgForage core service', () => {
   let inst: NgForage;
 
-  const clear = (done: any) => {
-    inst.clear()
-      .then(done)
-      .catch(done);
-  };
-
   beforeEach(() => {
     TestBed.configureTestingModule(def);
     inst = TestBed.get(NgForage);
     inst.driver = Driver.LOCAL_STORAGE;
   });
 
-  afterAll(clear);
+  afterEach((done: any) => {
+    inst.clear().then(done, done);
+  });
 
   describe('#clone', () => {
     it('Should be the same type', () => {
-      const clone = inst.clone();
+      const clone: any = inst.clone();
       expect(clone instanceof NgForage).toEqual(true);
       expect(clone instanceof NgForageCache).toEqual(false);
     });
@@ -62,9 +58,6 @@ describe('NgForage core service', () => {
   });
 
   describe('#keys', () => {
-    beforeAll(clear);
-    afterAll(clear);
-
     it('Should be empty initially', done => {
       inst.keys()
         .then(k => {
@@ -86,10 +79,7 @@ describe('NgForage core service', () => {
   });
 
   describe('get, set, remove item', () => {
-    beforeAll(clear);
-    afterAll(clear);
-
-    const key = Math.random().toString();
+    const key = uuid();
     const get = async (done: any) => {
       expect(await inst.getItem(key)).toBeNull();
       done();
@@ -102,9 +92,15 @@ describe('NgForage core service', () => {
       done();
     });
 
-    it('Getting item should return foo', async done => {
-      expect(await inst.getItem(key)).toBe('foo');
-      done();
+    it('Getting item should return foo', done => {
+      const v = uuid();
+      inst.setItem(key, v)
+        .then(() => inst.getItem<string>(key))
+        .then(returned => {
+          expect(returned).toBe(v);
+          done();
+        })
+        .catch(done);
     });
 
     it('Removing item should return void', async done => {
@@ -117,9 +113,8 @@ describe('NgForage core service', () => {
   });
 
   describe('#supports', () => {
-    beforeAll(async done => {
-      await inst.ready();
-      done();
+    beforeEach(done => {
+      inst.ready().then(done, done);
     });
 
     const drivers = values(Driver);
@@ -131,56 +126,74 @@ describe('NgForage core service', () => {
     }
 
     it('Should not support an undefined driver', () => {
-      expect(inst.supports(Math.random().toString())).toBe(false);
+      expect(inst.supports(uuid())).toBe(false);
     });
   });
 
   describe('#key', () => {
-    afterAll(clear);
     let k1: string;
     let k2: string;
 
-    beforeAll(async done => {
-      await inst.clear();
-      await inst.setItem('bar', 1);
-      await inst.setItem('foo', 1);
-      k1 = await inst.key(0);
-      k2 = await inst.key(1);
-
-      done();
+    beforeEach(done => {
+      inst.clear()
+        .then(() => Promise.all([
+          inst.setItem('bar', 1)
+            .then(() => inst.key(0))
+            .then(v => {
+              k1 = v;
+            }),
+          inst.setItem('foo', 1)
+            .then(() => inst.key(1))
+            .then(v => {
+              k2 = v;
+            })
+        ]))
+        .then(done, done);
     });
 
     it('Key 1 should be either foo or bar', () => {
-      expect(k1 === 'foo' || k1 === 'bar').toBe(true);
+      expect(k1 === 'foo' || k1 === 'bar').toBe(true, `k1 was ${k1}`);
     });
 
     it('Key 2 should be foo or bar, but not the same as key 2', () => {
-      let expct = k1 === 'foo' ? 'bar' : 'foo';
+      const expct = k1 === 'foo' ? 'bar' : 'foo';
 
-      expect(k2).toBe(expct);
+      expect(k2).toBe(expct, `k2 was ${k2}; k1 was ${k1}`);
     });
   });
 
   describe('#iterate', () => {
-    afterAll(clear);
-    beforeAll(async done => {
-      await inst.clear();
-
-      await inst.setItem('bar', 1);
-      await inst.setItem('foo', 1);
-
-      done();
+    beforeEach(done => {
+      inst.clear()
+        .then(() => Promise.all([
+          inst.setItem('foo', 1),
+          inst.setItem('bar', 1)
+        ]))
+        .then(done, done);
     });
 
     describe('No early termination', () => {
-      let out: string[] = [];
+      let out: string[];
+
+      beforeEach(done => {
+        const ret: string[] = [];
+        inst
+          .iterate<number, void>((value, key) => {
+            ret.push(`${key}:${value}`);
+          })
+          .then(() => {
+            ret.sort();
+            out = ret;
+            done();
+          })
+          .catch(done);
+      });
 
       it('Should return undefined', async done => {
         const p = inst.iterate<number, void>((v: number, k: string) => {
-          out.push(`${k}:${v}`);
+          noop(v, k);
         });
 
-        out.sort();
         // tslint:disable-next-line:no-void-expression
         expect(await p).toBeUndefined();
         done();
@@ -195,31 +208,48 @@ describe('NgForage core service', () => {
     });
 
     describe('Early termination', () => {
-      let out: string[] = [];
+      it('Should return test-generated uuid', done => {
+        const r = uuid();
 
-      it('Should return 5', async done => {
-        const r = 5;
+        inst.setItem(uuid(), uuid())
+          .then(() => {
+            return inst.iterate<number, string>((v: number, k: string) => {
+              noop(v, k);
 
-        const p = inst.iterate<number, number>((v: number, k: string) => {
-          out.push(`${k}:${v}`);
-
-          return r;
-        });
-
-        expect(await p).toBe(r);
-        done();
+              return r;
+            });
+          })
+          .then(v => {
+            expect(v).toBe(r, `Value was ${v}`);
+            done();
+          })
+          .catch(done);
       });
 
-      it('array should contain one item', () => {
-        expect(out.length).toBe(1);
+      it('array should contain one item', done => {
+        inst.setItem(uuid() + '1', uuid())
+          .then(() => inst.setItem(uuid() + '2', uuid()))
+          .then(() => {
+            const out: any[] = [];
+
+            return inst
+              .iterate<any, any>((value, key) => {
+                out.push(`${key}:${value}`);
+
+                return value;
+              })
+              .then(() => out);
+          })
+          .then(out => {
+            expect(out.length).toBe(1);
+            done();
+          })
+          .catch(done);
       });
     });
   });
 
   describe('#clear & #length', () => {
-    beforeAll(clear);
-    afterAll(clear);
-
     const expectN = (n: number) => {
       return async (done: any) => {
         expect(await inst.length()).toBe(n);
