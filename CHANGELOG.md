@@ -1,3 +1,15 @@
+## [5.0.1](https://github.com/Alorel/ngforage/compare/5.0.0...5.0.1) (2019-07-10)
+
+
+### Bug Fixes
+
+* **tests:** Removed "Length should be 0 initially" test as it was no longer needed and would sometimes fail due to changes in the updated Karma lib ([5122181](https://github.com/Alorel/ngforage/commit/5122181))
+
+
+### Maintenance
+
+* Add .npmrc to .gitignore ([5eba92e](https://github.com/Alorel/ngforage/commit/5eba92e))
+
 # [5.0.0](https://github.com/Alorel/ngforage/compare/4.0.3...5.0.0) (2019-07-10)
 
 
