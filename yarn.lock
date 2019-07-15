@@ -52,13 +52,13 @@
     fs-extra "^7.0.0"
     tslib "^1.6.0"
 
-"@alorel-personal/tslint-rules@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/tslint-rules/-/tslint-rules-4.1.1.tgz#c985893a8be47e57e72b5b2ac251cf840ac52a21"
-  integrity sha512-VXoTuchXAngBUSvOJ16SMPJf+Ch6xAiBu0vBBkEPOsxomK/cxorN+A6Sr5BPZo62Nkk9mVS8uqiaG/Zss0oFcQ==
+"@alorel-personal/tslint-rules@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/tslint-rules/-/tslint-rules-5.0.0.tgz#2b1d23c7437b0fd294f5683412a0c48834a83274"
+  integrity sha512-/NvmVGm/cZWJupKPiugu6JEh44bok8M49FngsGnCprpif0AklBB3opBvvWab1MZG4FEsu3PCwweJXK4PWC5AYA==
   dependencies:
-    tslint "^5.11.0"
-    tslint-sonarts "1.8.0"
+    tslint "^5.18.0"
+    tslint-sonarts "1.9.0"
     typescript ">=2.2.0 <4.0.0"
 
 "@angular-devkit/architect@0.801.1":
@@ -10152,14 +10152,14 @@ tslib@1.10.0, tslib@^1.6.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-tslint-sonarts@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/tslint-sonarts/-/tslint-sonarts-1.8.0.tgz#80f2e8addd418c3b8807fc0155dec33b5a81e8d1"
-  integrity sha512-tpijO5VR18e+Ny99uMNNov3Hw7diiYQ8KoJkezpHGw9hSFFrO5g2PhwdQQo7O9puhJKMIutLl9g+ICMgg+bh0w==
+tslint-sonarts@1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/tslint-sonarts/-/tslint-sonarts-1.9.0.tgz#feb593e92db328c0328b430b838adbe65d504de9"
+  integrity sha512-CJWt+IiYI8qggb2O/JPkS6CkC5DY1IcqRsm9EHJ+AxoWK70lvtP7jguochyNDMP2vIz/giGdWCfEM39x/I/Vnw==
   dependencies:
     immutable "^3.8.2"
 
-tslint@^5.11.0, tslint@~5.18.0:
+tslint@^5.18.0, tslint@~5.18.0:
   version "5.18.0"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.18.0.tgz#f61a6ddcf372344ac5e41708095bbf043a147ac6"
   integrity sha512-Q3kXkuDEijQ37nXZZLKErssQVnwCV/+23gFEMROi8IlbaBG6tXqLPQJ5Wjcyt/yHPKBC+hD5SzuGaMora+ZS6w==
