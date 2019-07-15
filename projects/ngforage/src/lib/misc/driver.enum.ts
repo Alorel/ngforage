@@ -1,6 +1,7 @@
 import {localForage as lf} from '../imports/localforage';
 
-export enum Driver {
+/** ngforage abstraction over localforage driver names */
+enum Driver {
   /** The IndexedDB driver */
   INDEXED_DB = <any>lf.INDEXEDDB,
   /** The localStorage driver */
@@ -9,8 +10,11 @@ export enum Driver {
   WEB_SQL = <any>lf.WEBSQL
 }
 
+// Clean up after Typescript's two-way enum transpilig
 for (const d of [lf.INDEXEDDB, lf.LOCALSTORAGE, lf.WEBSQL]) {
   delete Driver[d];
 }
 
 Object.freeze(Driver);
+
+export {Driver};
