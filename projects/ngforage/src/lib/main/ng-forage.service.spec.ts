@@ -59,7 +59,8 @@ describe('NgForage core service', () => {
 
   describe('#keys', () => {
     it('Should be empty initially', done => {
-      inst.keys()
+      inst.clear()
+        .then(() => inst.keys())
         .then(k => {
           expect(k).toEqual([]);
           done();
@@ -68,7 +69,8 @@ describe('NgForage core service', () => {
     });
 
     it('And contain foo afterwards', done => {
-      inst.setItem('foo', 'bar')
+      inst.clear()
+        .then(() => inst.setItem('foo', 'bar'))
         .then(() => inst.keys())
         .then(k => {
           expect(k).toEqual(['foo']);
