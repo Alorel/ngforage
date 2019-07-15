@@ -8,7 +8,6 @@
     }
   },
   "ignore": [
-    "karma-jasmine",
     "typescript"
   ]
 }
