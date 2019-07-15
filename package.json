@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@alorel-personal/build-tools": "4.5.14",
-    "@alorel-personal/conventional-changelog-alorel": "2.1.0",
+    "@alorel-personal/conventional-changelog-alorel": "2.1.1",
     "@alorel-personal/semantic-release": "1.4.0",
     "@alorel-personal/tslint-rules": "4.1.1",
     "@angular-devkit/build-angular": "~0.801.0",
