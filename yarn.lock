@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.5.17":
-  version "4.5.17"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.5.17.tgz#c436a00ce50e41abc65a3a51a6932bde16735f49"
-  integrity sha512-I6zRJLcDAwk0UqEXq1anwnlWfx4gUQp/wMZ20znPHwNELe/iy7AJXuuiwwLmXC0mL3H84l4OD8U4xPvo+Te1Fw==
+"@alorel-personal/build-tools@4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.6.0.tgz#b59bcd178be0df6dcca50e0cbbe54d84e91dc5b1"
+  integrity sha512-snYPQ0k6DBXXCMtheQ+Y6es/cFZzopjSwFhmYcQ7fd2gUzZhasDnd98lNFipxwFUxi2aKejtAVEvovNIKII/Hw==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -16,7 +16,7 @@
     json-to-graphql-query "^1.7.0"
     json5 "^2.0.0"
     lazy-get-decorator "^2.2.0"
-    lodash "^4.17.0"
+    lodash "^4.17.15"
     log-symbols "^3.0.0"
     moment "^2.24.0"
     readline-sync "^1.4.0"
@@ -30,10 +30,10 @@
     tmp "~0.1.0"
     tslib "^1.9.0"
     tslint "~5.18.0"
-    typescript "^3.4.5"
+    typescript "^3.5.3"
     uglify-es "~3.3.9"
     yamljs "^0.3.0"
-    yargs "^13.2.4"
+    yargs "^13.3.0"
 
 "@alorel-personal/conventional-changelog-alorel@2.1.1":
   version "2.1.1"
@@ -6256,10 +6256,15 @@ lodash.without@~4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
 
-lodash@^4.15.0, lodash@^4.17.0, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1:
+lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1:
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
+
+lodash@^4.17.15:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 log-driver@^1.2.7:
   version "1.2.7"
@@ -10243,7 +10248,7 @@ typescript@3.4.5, typescript@~3.4.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
   integrity sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
 
-"typescript@>=2.2.0 <4.0.0", typescript@^3.4.5:
+"typescript@>=2.2.0 <4.0.0", typescript@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
   integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
@@ -11076,7 +11081,7 @@ yargs@^11.0.0:
     y18n "^3.2.1"
     yargs-parser "^9.0.2"
 
-yargs@^13.1.0, yargs@^13.2.4:
+yargs@^13.1.0, yargs@^13.3.0:
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-13.3.0.tgz#4c657a55e07e5f2cf947f8a366567c04a0dedc83"
   integrity sha512-2eehun/8ALW8TLoIl7MVaRUrg+yCnenu8B4kBlRxj3GJGDKU1Og7sMXPNm1BYyM1DOJmTZ4YeN/Nwxv+8XJsUA==
