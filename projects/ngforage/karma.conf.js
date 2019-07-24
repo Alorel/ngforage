@@ -44,7 +44,7 @@ module.exports = config => {
     finalConfig.customLaunchers.FirefoxHeadless = {
       base: 'Firefox',
         flags: ['-headless']
-    }
+    };
   } else {
     finalConfig.browsers.push('ChromeHeadless');
     reports.push('html');
