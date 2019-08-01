@@ -20,6 +20,7 @@ script:
   - yarn run lint
   - yarn test
   - yarn run build:demo --aot
+  - yarn run build:lib
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/lcov.info | coveralls
 

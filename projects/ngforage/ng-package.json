@@ -3,7 +3,6 @@
   "dest": "../../dist/ngforage",
   "lib": {
     "entryFile": "src/public_api.ts",
-    "deleteDestPath": true,
     "umdModuleIds": {
       "localforage": "localforage"
     }
