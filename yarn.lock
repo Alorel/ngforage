@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.7.2":
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.7.2.tgz#1dc3ff345d2ae53ea9212b88be9681d8c2cb34e9"
-  integrity sha512-VW3WwWoX0nQpNiX9ah1vcAnImojRgcwET3jDp6HKnq/57MuftelsKkSj4WsvDZRgwsrh3Oe0XMpF7ZOCae8wCA==
+"@alorel-personal/build-tools@4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.7.3.tgz#679368692fadbb99f944e35665001025f4ea4129"
+  integrity sha512-8HcdN+nwrgF0WcLfTI917umk5Q81WboVszvm81rN/p8ePcG+QYrsC18pwa2tg1gO3z5Yh3wToghbapSPtOngWQ==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^6.0.0"
@@ -23,7 +23,7 @@
     reflect-metadata "^0.1.13"
     request "^2.88.0"
     request-promise "^4.2.4"
-    rimraf "^2.6.3"
+    rimraf "^3.0.0"
     rollup "~1.19.1"
     rollup-plugin-node-resolve "^5.0.0"
     rollup-plugin-typescript2 "^0.22.0"
