@@ -55,7 +55,7 @@
     "@alorel-personal/conventional-changelog-alorel": "2.1.1",
     "@alorel-personal/semantic-release": "1.4.0",
     "@alorel-personal/tslint-rules": "5.0.5",
-    "@angular-devkit/build-angular": "~0.802.0",
+    "@angular-devkit/build-angular": "~0.803.0",
     "@angular-devkit/build-ng-packagr": "~0.802.0",
     "@angular/cli": "^8.0.0",
     "@angular/common": "^8.0.0",
