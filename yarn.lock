@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.7.12":
-  version "4.7.12"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.7.12.tgz#b54fd46cf6fa2f5ca9514dce7f0f3fd5f6768fbd"
-  integrity sha512-eqjmnLFRvLodX864ONOwVJfYzTTmBof5HyvKQogVDJJBsDwhTI4SlNDp5APuFj58q49gPQ2ye3fLb/Z1BavTew==
+"@alorel-personal/build-tools@4.7.13":
+  version "4.7.13"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.7.13.tgz#dfea7f18c6b4b65b4abc56357047399d6896a11a"
+  integrity sha512-lhfMX56o1w7BHCVG+yn9c/IrVd26lPjmPIvq6HmEzxQtc0VsM0qUh/VwEBpLqOjtS/+C4852GyIsL953E9/EkQ==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^7.0.0"
@@ -24,7 +24,7 @@
     request "^2.88.0"
     request-promise "^4.2.4"
     rimraf "^3.0.0"
-    rollup "~1.25.0"
+    rollup "~1.26.0"
     rollup-plugin-node-resolve "^5.0.0"
     rollup-plugin-typescript2 "^0.24.1"
     tmp "~0.1.0"
@@ -9909,10 +9909,10 @@ rollup@^1.12.1:
     "@types/node" "*"
     acorn "^7.1.0"
 
-rollup@~1.25.0:
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.25.0.tgz#0c293d16be13000fa69c5a3035ab21a852d04bd7"
-  integrity sha512-tcf5ThhnhOUaNrxBSABvaaX9uC8hNxgyJpJmDIXaCkKHq/nPocaDz/4F/KBDiUpOt/ThvUxFrUq3XkyWiyXQiQ==
+rollup@~1.26.0:
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.26.0.tgz#cf40fd5e1edc4d7f3d4235a0a43f1c2be1cf294b"
+  integrity sha512-5HljNYn9icFvXX+Oe97qY5TWvnWhKqgGT0HGeWWqFPx7w7+Anzg7dfHMtUif7YYy6QxAgynDSwK6uxbgcrVUxw==
   dependencies:
     "@types/estree" "*"
     "@types/node" "*"
