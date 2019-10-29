@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alorel-personal/build-tools@4.7.13":
-  version "4.7.13"
-  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.7.13.tgz#dfea7f18c6b4b65b4abc56357047399d6896a11a"
-  integrity sha512-lhfMX56o1w7BHCVG+yn9c/IrVd26lPjmPIvq6HmEzxQtc0VsM0qUh/VwEBpLqOjtS/+C4852GyIsL953E9/EkQ==
+"@alorel-personal/build-tools@4.7.14":
+  version "4.7.14"
+  resolved "https://registry.yarnpkg.com/@alorel-personal/build-tools/-/build-tools-4.7.14.tgz#b9dc6723ce047e6c8b423fba2368adc183a3c569"
+  integrity sha512-58d4/ZO8BOBA/Ehd2XszqL7tMU6kYBcrns0VdLqDzWAVZwn+l38B1L30jEd9NOavoQMHDlOrSblcAeELJFWpfw==
   dependencies:
     chalk "^2.4.2"
     cross-spawn "^7.0.0"
@@ -26,7 +26,7 @@
     rimraf "^3.0.0"
     rollup "~1.26.0"
     rollup-plugin-node-resolve "^5.0.0"
-    rollup-plugin-typescript2 "^0.24.1"
+    rollup-plugin-typescript2 "^0.25.1"
     tmp "~0.1.0"
     tslib "^1.9.0"
     tslint "~5.20.0"
@@ -9875,10 +9875,10 @@ rollup-plugin-sourcemaps@^0.4.2:
     rollup-pluginutils "^2.0.1"
     source-map-resolve "^0.5.0"
 
-rollup-plugin-typescript2@^0.24.1:
-  version "0.24.3"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.24.3.tgz#276fa33a9d584d500da62d3e5400307f4a46bdf2"
-  integrity sha512-D7yovQlhnRoz7pG/RF0ni+koxgzEShwfAGuOq6OVqKzcATHOvmUt2ePeYVdc9N0adcW1PcTzklUEM0oNWE/POw==
+rollup-plugin-typescript2@^0.25.1:
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.25.1.tgz#f2058a3d7103c1cbc350aff2da607df6cc04113e"
+  integrity sha512-9Wocpsm8X53/57YmCkJqTJKh3m4qLdm7eHmCFkGuyARxVtkEa2pgOEHNAiJ8oKyNjN+GYYGEi9wm+u1nbuqO1g==
   dependencies:
     find-cache-dir "^3.0.0"
     fs-extra "8.1.0"
