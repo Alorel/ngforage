@@ -32,7 +32,7 @@ prepare:
 
 publish:
 - path: *exec
-  cmd: npm publish ./dist.tgz
+  cmd: npm publish --tag ng8 ./dist.tgz
 - *gh
 
 generateNotes:
