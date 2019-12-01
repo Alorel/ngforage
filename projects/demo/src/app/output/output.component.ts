@@ -254,7 +254,7 @@ export class OutputComponent implements OnDestroy {
   public setItem() {
     this.output.next('Setting value...');
     this.error.next(null);
-    try {
+    try { //tslint:disable-line:no-try-promise
       this.ngf.setItem(this.setItemKey, this._setItemValue)
         .then(() => {
           this.output.next('Value set!');

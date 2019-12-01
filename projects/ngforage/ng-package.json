@@ -6,5 +6,8 @@
     "umdModuleIds": {
       "localforage": "localforage"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@angular/cdk"
+  ]
 }

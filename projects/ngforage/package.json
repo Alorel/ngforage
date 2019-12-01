@@ -6,6 +6,12 @@
     "@angular/core": "^8.0.0",
     "localforage": "^1.5.0"
   },
+  "schematics": "./schematics/collection.json",
+  "scripts": {
+    "build": "tsc -p tsconfig.schematics.json",
+    "watch": "npm --scripts-prepend-node-path=auto run build -- --watch",
+    "postbuild": "node cp.js"
+  },
   "devDependencies": {
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@types/uuid": "^3.4.3",
@@ -14,6 +20,7 @@
     "zone.js": "~0.10.0"
   },
   "dependencies": {
+    "@angular/cdk": "^8.2.3",
     "tslib": "^1.6.0"
   },
   "description": "localForage bindings for Angular",

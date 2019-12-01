@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Add ngforage to the project.",
+      "factory": "./ng-add/index#ngAdd",
+      "schema": "./ng-add/schema.json"
+    },
+    "ng-add-setup-project": {
+      "description": "Set up ngforage in your app module",
+      "factory": "./ng-add/setup#ngAddSetupProject",
+      "schema": "./ng-add/schema.json"
+    }
+  }
+}

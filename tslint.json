@@ -1,3 +1,6 @@
 {
-  "extends": "./node_modules/@alorel-personal/tslint-rules/tslint.json"
+  "extends": "./node_modules/@alorel-personal/tslint-rules/tslint.json",
+  "rules": {
+    "no-object-literal-type-assertion": false
+  }
 }
