@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="TSConfig">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="TSConfig" />
+              <option name="relativePathToSchema" value="http://json.schemastore.org/tsconfig" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="projects/ngforage/tsconfig.schematics.json" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="projects/tsconfig.lint.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="collection-schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="collection-schema" />
+              <option name="relativePathToSchema" value="node_modules/@angular-devkit/schematics/collection-schema.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="projects/ngforage/src/schematics/collection.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="ng-package.schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="ng-package.schema" />
+              <option name="relativePathToSchema" value="node_modules/ng-packagr/ng-package.schema.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="projects/ngforage/ng-package.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
