@@ -18,16 +18,26 @@
 <details>
   <summary>Installation</summary>
   
+  For Angular versions >=9.0.0 and ngforage versions >=6.0.0 you can use Angular CLI:
+  
   ```bash
-   npm install localforage@^1.5.0 ngforage@^5.0.0 # for Angular 8
-   npm install localforage@^1.5.0 ngforage@^4.0.0 # for Angular 7
-   npm install localforage@^1.5.0 ngforage@^3.0.0 # for Angular 6
-   npm install localforage@^1.5.0 ngforage@^2.0.0 # for Angular 5
+    ng add ngforage
+  ```
+
+  You can also npm install manually:
+  
+  ```bash
+   npm install localforage@^1.5.0 ngforage@^6.0.0 # Angular 9
+   npm install localforage@^1.5.0 ngforage@^5.0.0 # Angular 8
+   npm install localforage@^1.5.0 ngforage@^4.0.0 # Angular 7
+   npm install localforage@^1.5.0 ngforage@^3.0.0 # Angular 6
+   npm install localforage@^1.5.0 ngforage@^2.0.0 # Angular 5
   ```
   
   Alternatively, you can replace the following ngforage versions with a dist tag:
   
   ```bash
+  npm install ngforage@ng8
   npm install ngforage@ng7
   npm install ngforage@ng6
   npm install ngforage@ng5
