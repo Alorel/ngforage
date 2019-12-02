@@ -7,6 +7,9 @@
     "localforage": "^1.5.0"
   },
   "schematics": "./schematics/collection.json",
+  "ng-update": {
+    "migrations": "./schematics/migration.json"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.schematics.json",
     "watch": "npm --scripts-prepend-node-path=auto run build -- --watch",

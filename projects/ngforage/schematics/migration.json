@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "migration-v6": {
+      "version": "6.0.0",
+      "description": "Update ngforage to v6",
+      "factory": "./ng-update/v6#update"
+    }
+  }
+}
