@@ -1,4 +1,4 @@
-import {Rule, UpdateRecorder} from '@angular-devkit/schematics';
+import {FileEntry, Rule, Tree, TypedSchematicContext, UpdateRecorder} from '@angular-devkit/schematics';
 import {isImported} from '@schematics/angular/utility/ast-utils';
 import * as ts from 'typescript';
 import {insertMetaEntry} from '../_common/insertMetaEntry';
@@ -101,14 +101,71 @@ function migrateImports(file: ts.SourceFile, importCfg: boolean, recorder: Updat
   }
 }
 
+function migrateOmit(tree: Tree, ctx: TypedSchematicContext<any, any>) {
+  const regExclude = /node_modules/;
+  const regInclude = /\.ts$/;
+
+  ctx.logger.info('Building file tree');
+  const matchedFiles: Readonly<FileEntry>[] = [];
+
+  tree.visit((paff, entreh) => {
+    if (regExclude.test(paff) || !regInclude.test(paff) || !entreh) {
+      ctx.logger.debug(`${paff} didn't match`);
+
+      return;
+    }
+
+    ctx.logger.debug(`${paff} matched`);
+    matchedFiles.push(entreh);
+  });
+
+  let content: string;
+  let src: ts.SourceFile;
+  let recorder: UpdateRecorder;
+  let hasChange: boolean;
+  let stmt: ts.Statement;
+  let i: number;
+  for (const mf of matchedFiles) {
+    content = (mf.content || tree.read(mf.path)).toString();
+    src = ts.createSourceFile(mf.path, content, ts.ScriptTarget.Latest, true);
+
+    if (!src.statements || !src.statements.length) {
+      continue;
+    }
+
+    hasChange = false;
+    recorder = tree.beginUpdate(mf.path);
+
+    for (i = src.statements.length - 1; i > -1; i--) {
+      stmt = src.statements[i];
+      if (
+        !ts.isImportDeclaration(stmt) ||
+        !ts.isStringLiteral(stmt.moduleSpecifier) ||
+        stmt.moduleSpecifier.text !== 'ngforage/lib/misc/omit.type'
+      ) {
+        continue;
+      }
+
+      ctx.logger.debug(`Found ${stmt.getText()} in ${mf.path}`);
+      recorder.remove(stmt.getFullStart(), stmt.getFullWidth());
+      hasChange = true;
+    }
+
+    if (hasChange) {
+      tree.commitUpdate(recorder);
+    }
+  }
+}
+
 export function update(options: { project: string }): Rule {
-  return (tree, _ctx) => {
+  return (tree, ctx) => {
     const {ngModuleMetadata, modulePath, appModule} = loadAppModule(tree, options.project);
-    const recorder = tree.beginUpdate(modulePath);
+    const modulePathRecorder = tree.beginUpdate(modulePath);
 
-    const importCfg = migrateForRoot(appModule, ngModuleMetadata, recorder);
-    migrateImports(appModule, importCfg, recorder);
+    const importCfg = migrateForRoot(appModule, ngModuleMetadata, modulePathRecorder);
+    migrateImports(appModule, importCfg, modulePathRecorder);
+    migrateOmit(tree, ctx);
 
-    tree.commitUpdate(recorder);
+    tree.commitUpdate(modulePathRecorder);
   };
 }
