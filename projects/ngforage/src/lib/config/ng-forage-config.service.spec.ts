@@ -27,10 +27,6 @@ describe('NgForageConfig service', () => {
     expect(conf.toJSON()).toEqual(conf.config);
   });
 
-  it('toStringTag', () => {
-    expect(conf[Symbol.toStringTag]).toContain('NgForageConfig');
-  });
-
   it('toString() should be a JSON.stringify', () => {
     expect(conf.toString()).toEqual(JSON.stringify(conf));
   });

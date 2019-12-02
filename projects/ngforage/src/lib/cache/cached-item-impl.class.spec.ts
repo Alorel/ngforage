@@ -4,11 +4,6 @@ import {CachedItemImpl} from './cached-item-impl.class';
 //tslint:disable:no-floating-promises
 
 describe('CachedItemImpl', () => {
-  it('#toStringTag should be CachedItem', () => {
-    const i = new CachedItemImpl<any>(null, 0);
-
-    expect(i[Symbol.toStringTag]).toContain('CachedItem');
-  });
 
   it('#toString should be a JSON.stringify', () => {
     const i = new CachedItemImpl<any>(null, 0);

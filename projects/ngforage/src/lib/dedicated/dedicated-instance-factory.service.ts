@@ -4,7 +4,6 @@ import {NgForageConfig} from '../config/ng-forage-config.service';
 import {NgForageOptions} from '../config/ng-forage-options';
 import {InstanceFactory} from '../instance-factory/instance-factory.service';
 import {NgForage} from '../main/ng-forage.service';
-import {setToStringTag} from '../misc/setToStringTag.function';
 import {NgForageCacheDedicated} from './ng-forage-cache-dedicated.class';
 import {NgForageDedicated} from './ng-forage-dedicated.class';
 
@@ -45,5 +44,3 @@ export class DedicatedInstanceFactory {
     return inst;
   }
 }
-
-setToStringTag(DedicatedInstanceFactory);

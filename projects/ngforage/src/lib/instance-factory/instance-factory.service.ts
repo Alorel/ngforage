@@ -4,7 +4,6 @@ import {NgForageConfig} from '../config/ng-forage-config.service';
 import {NgForageOptions} from '../config/ng-forage-options';
 import {localForage as lf} from '../imports/localforage';
 import {DriverType} from '../misc/driver-type.type';
-import {setToStringTag} from '../misc/setToStringTag.function';
 
 /** @internal */
 interface InstanceMap {
@@ -63,5 +62,3 @@ export class InstanceFactory {
     return stores[hash];
   }
 }
-
-setToStringTag(InstanceFactory);

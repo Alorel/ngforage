@@ -1,4 +1,3 @@
-import {setToStringTag} from '../misc/setToStringTag.function';
 import {CachedItem} from './cached-item';
 
 /** @internal */
@@ -49,5 +48,3 @@ export class CachedItemImpl<T> implements CachedItem<T> {
     return JSON.stringify(this.toJSON());
   }
 }
-
-setToStringTag(CachedItemImpl, 'CachedItem');
