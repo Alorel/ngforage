@@ -68,7 +68,7 @@
   ```
   
   ```typescript
-    import {NgForage, Driver, NgForageCache, NgForageConfig, CachedItem} from 'ngforage';
+    import {NgForage, Driver, NgForageCache, CachedItem} from 'ngforage';
 
     @Component({
       /* If you plan on making per-component config adjustments, add the services to the component's providers
