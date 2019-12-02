@@ -106,8 +106,6 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
 
   /** @internal */
   public toJSON(): NgForageOptions {
-    const ass: Partial<NgForageOptions> = {cacheTime: this.cacheTime};
-
-    return Object.assign(super.toJSON(), ass);
+    return Object.assign(super.toJSON() as NgForageOptions, {cacheTime: this.cacheTime});
   }
 }
