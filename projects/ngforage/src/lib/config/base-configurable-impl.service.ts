@@ -24,7 +24,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   protected readonly fact: InstanceFactory;
 
   /** @internal */
-  protected storeNeedsRecalc: boolean;
+  protected storeNeedsRecalc = true;
 
   /** @internal */
   public constructor(
@@ -169,10 +169,3 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
     return JSON.stringify(this.toJSON());
   }
 }
-
-Object.defineProperty(<any>BaseConfigurableImpl, 'storeNeedsRecalc', {
-  configurable: true,
-  enumerable: true,
-  value: true,
-  writable: true
-});
