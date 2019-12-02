@@ -1,6 +1,5 @@
 import {NgForageCache} from '../cache/ng-forage-cache.service';
 import {NgForageOptions} from '../config/ng-forage-options';
-import {setToStringTag} from '../misc/setToStringTag.function';
 
 /** @internal */
 export class NgForageCacheDedicated extends NgForageCache {
@@ -12,5 +11,3 @@ export class NgForageCacheDedicated extends NgForageCache {
     return inst;
   }
 }
-
-setToStringTag(NgForageCacheDedicated, 'NgForageCache (dedicated)');

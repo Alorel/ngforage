@@ -2,7 +2,6 @@ import {Inject} from '@angular/core';
 import 'localforage';
 import {InstanceFactory} from '../instance-factory/instance-factory.service';
 import {DriverType} from '../misc/driver-type.type';
-import {setToStringTag} from '../misc/setToStringTag.function';
 import {BaseConfigurable} from './base-configurable';
 import {NgForageConfig} from './ng-forage-config.service';
 import {NgForageOptions} from './ng-forage-options';
@@ -28,8 +27,10 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   protected storeNeedsRecalc: boolean;
 
   /** @internal */
-  public constructor(@Inject(NgForageConfig) config: NgForageConfig,
-                     @Inject(InstanceFactory) instanceFactory: InstanceFactory) {
+  public constructor(
+    @Inject(NgForageConfig) config: NgForageConfig,
+    @Inject(InstanceFactory) instanceFactory: InstanceFactory
+  ) {
     this.baseConfig = config;
     this.fact = instanceFactory;
   }
@@ -169,7 +170,6 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
   }
 }
 
-setToStringTag(BaseConfigurableImpl, 'BaseConfigurable');
 Object.defineProperty(<any>BaseConfigurableImpl, 'storeNeedsRecalc', {
   configurable: true,
   enumerable: true,

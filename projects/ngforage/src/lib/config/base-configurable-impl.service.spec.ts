@@ -39,10 +39,6 @@ describe('BaseConfigurableImpl', () => {
     bc = TestBed.get(BC);
   });
 
-  it('toStringTag', () => {
-    expect(bc[Symbol.toStringTag]).toContain('BaseConfigurable');
-  });
-
   it('toString() should be a JSON.stringify', () => {
     expect(bc.toString()).toEqual(JSON.stringify(bc));
   });

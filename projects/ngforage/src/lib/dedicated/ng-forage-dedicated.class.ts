@@ -1,6 +1,5 @@
 import {NgForageOptions} from '../config/ng-forage-options';
 import {NgForage} from '../main/ng-forage.service';
-import {setToStringTag} from '../misc/setToStringTag.function';
 
 /** @internal */
 export class NgForageDedicated extends NgForage {
@@ -12,5 +11,3 @@ export class NgForageDedicated extends NgForage {
     return inst;
   }
 }
-
-setToStringTag(NgForageDedicated, 'NgForage (dedicated)');

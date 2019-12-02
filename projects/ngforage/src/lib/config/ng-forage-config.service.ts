@@ -4,7 +4,6 @@ import {localForage as lf} from '../imports/localforage';
 import {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
 import {DEFAULT_CONFIG} from '../misc/injection-tokens';
-import {setToStringTag} from '../misc/setToStringTag.function';
 import {BaseConfigurable} from './base-configurable';
 import {CacheConfigurable} from './cache-configurable';
 import {NgForageOptions} from './ng-forage-options';
@@ -181,5 +180,3 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
     return JSON.stringify(this.toJSON());
   }
 }
-
-setToStringTag(NgForageConfig);

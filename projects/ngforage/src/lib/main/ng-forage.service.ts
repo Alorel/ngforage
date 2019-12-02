@@ -4,7 +4,6 @@ import {BaseConfigurableImpl} from '../config/base-configurable-impl.service';
 import {NgForageOptions} from '../config/ng-forage-options';
 import {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
-import {setToStringTag} from '../misc/setToStringTag.function';
 
 /**
  * Cache instance
@@ -136,5 +135,3 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
     return this.store.supports(<string>driver);
   }
 }
-
-setToStringTag(NgForage);

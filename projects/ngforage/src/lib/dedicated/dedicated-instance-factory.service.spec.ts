@@ -34,10 +34,6 @@ describe('NgForaceDedicated', () => {
       expect(i1).not.toBe(i2);
     });
 
-    it('Should be instanceof dedicated cache', () => {
-      expect(factory.createCache()[Symbol.toStringTag]).toBe('NgForageCache (dedicated)');
-    });
-
     it('Should be instanceof cache', () => {
       expect(factory.createCache() instanceof NgForageCache).toBe(true);
     });
@@ -75,10 +71,6 @@ describe('NgForaceDedicated', () => {
       let i2 = factory.createNgForage({name});
 
       expect(i1).not.toBe(i2);
-    });
-
-    it('Should be instanceof dedicated forage', () => {
-      expect(factory.createNgForage()[Symbol.toStringTag]).toBe('NgForage (dedicated)');
     });
 
     it('Should be instanceof forage', () => {
