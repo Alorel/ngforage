@@ -47,24 +47,25 @@
   <summary>Basic Usage</summary>
   
   ```typescript
-    import {NgForageModule, NgForageConfig, Driver} from 'ngforage';
+    import {DEFAULT_CONFIG, NgForageOptions, NgForageConfig, Driver} from 'ngforage';
     
     @NgModule({
-      imports: [
-        // Optional in Angular 6 and up
-        NgForageModule.forRoot(),
-        
-        // Optional configuration as an alternative to what's below in Angular 6+
-        NgForageModule.forRoot({
-          name: 'MyApp',
-          driver: [ // defaults to indexedDB -> webSQL -> localStorage
-            Driver.INDEXED_DB,
-            Driver.LOCAL_STORAGE
-          ]
-        })
+      providers: [
+        // One way of configuring ngForage
+        {
+          provide: DEFAULT_CONFIG,
+          useValue: {
+            name: 'MyApp',
+            driver: [ // defaults to indexedDB -> webSQL -> localStorage
+              Driver.INDEXED_DB,
+              Driver.LOCAL_STORAGE
+            ]
+          } as NgForageOptions
+        }
       ]
     })
     export class AppModule{
+      // An alternative way of configuring ngforage
       public constructor(ngfConfig: NgForageConfig) {
         ngfConfig.configure({
           name: 'MyApp',
@@ -130,7 +131,7 @@
   
   ```typescript
   import {NgModule} from "@angular/core";
-  import {NgForageConfig, NgForageModule} from 'ngforage';
+  import {NgForageConfig} from 'ngforage';
   import localForage from 'localforage';
   
   // Your driver definition
@@ -141,12 +142,8 @@
     .then(() => console.log('Defined!'))
     .catch(console.error);
   
-  @NgModule({
-    imports: [
-      NgForageModule
-    ]
-  })
-  export class DemoModule {
+  @NgModule({})
+  export class AppModule {
   
     constructor(conf: NgForageConfig) {
       // Or through NgForageConfig
