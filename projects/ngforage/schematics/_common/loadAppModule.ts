@@ -3,8 +3,11 @@ import {getProjectFromWorkspace, getProjectMainFile} from '@angular/cdk/schemati
 import {getWorkspace} from '@schematics/angular/utility/config';
 import {getAppModulePath} from '@schematics/angular/utility/ng-ast-utils';
 import {ProjectType, WorkspaceProject, WorkspaceSchema} from '@schematics/angular/utility/workspace-models';
+import {LazyGetter} from 'lazy-get-decorator';
 import * as ts from 'typescript';
 import {findNgModuleMetadata} from './findNgModuleMetadata';
+
+const lazyGetter = LazyGetter();
 
 export interface LoadedAppModule<T extends ProjectType = ProjectType.Application> {
   readonly appModule: ts.SourceFile;
@@ -22,51 +25,44 @@ class LoadedAppModuleImpl<T extends ProjectType> implements LoadedAppModule<T> {
   public constructor(private readonly _tree: Tree, private readonly _projectName: string) {
   }
 
-  public get appModule() {
+  @lazyGetter
+  public get appModule(): ts.SourceFile {
     const moduleFileContent = this._tree.read(this.modulePath);
     if (!moduleFileContent) {
       throw new SchematicsException(`Could not read app module ${this.modulePath}`);
     }
-    const value = ts.createSourceFile(
+
+    return ts.createSourceFile(
       this.modulePath,
       moduleFileContent.toString('utf8'),
       ts.ScriptTarget.Latest,
       true
     );
-    Object.defineProperty(this, 'appModule', {value});
-
-    return value;
   }
 
-  public get modulePath() {
-    const value = getAppModulePath(this._tree, getProjectMainFile(this.project));
-    Object.defineProperty(this, 'modulePath', {value});
-
-    return value;
+  @lazyGetter
+  public get modulePath(): string {
+    return getAppModulePath(this._tree, getProjectMainFile(this.project));
   }
 
-  public get ngModuleMetadata() {
+  @lazyGetter
+  public get ngModuleMetadata(): ts.ObjectLiteralExpression {
     const value = findNgModuleMetadata(this.appModule);
     if (!value) {
       throw new SchematicsException(`Could not find NgModule declaration inside ${this.modulePath}`);
     }
-    Object.defineProperty(this, 'ngModuleMetadata', {value});
 
     return value;
   }
 
-  public get project() {
-    const value = getProjectFromWorkspace(this.workspace, this._projectName) as WorkspaceProject<T>;
-    Object.defineProperty(this, 'project', {value});
-
-    return value;
+  @lazyGetter
+  public get project(): WorkspaceProject<T> {
+    return getProjectFromWorkspace(this.workspace, this._projectName) as WorkspaceProject<T>;
   }
 
-  public get workspace() {
-    const value = getWorkspace(this._tree);
-    Object.defineProperty(this, 'workspace', {value});
-
-    return value;
+  @lazyGetter
+  public get workspace(): WorkspaceSchema {
+    return getWorkspace(this._tree);
   }
 }
 

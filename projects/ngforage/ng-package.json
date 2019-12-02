@@ -8,6 +8,7 @@
     }
   },
   "whitelistedNonPeerDependencies": [
-    "@angular/cdk"
+    "@angular/cdk",
+    "lazy-get-decorator"
   ]
 }

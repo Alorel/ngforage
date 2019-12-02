@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@angular/cdk": "^8.2.3",
+    "lazy-get-decorator": "^2.0.0",
     "tslib": "^1.6.0"
   },
   "description": "localForage bindings for Angular",
