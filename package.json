@@ -74,7 +74,7 @@
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.6",
     "@types/lodash-es": "^4.17.1",
-    "@types/node": "^12.0.0",
+    "@types/node": "^13.1.0",
     "@types/uuid": "^3.4.3",
     "bluebird": "^3.5.1",
     "bootstrap-material-design": "^4.1.1",
