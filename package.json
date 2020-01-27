@@ -70,7 +70,7 @@
     "@semantic-release/changelog": "~3.0.0",
     "@semantic-release/exec": "~3.3.0",
     "@semantic-release/git": "~7.0.4",
-    "@semantic-release/npm": "~5.3.1",
+    "@semantic-release/npm": "~7.0.0",
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.6",
     "@types/lodash-es": "^4.17.1",
