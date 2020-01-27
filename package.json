@@ -67,7 +67,7 @@
     "@angular/platform-browser": "^8.0.0",
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@compodoc/compodoc": "^1.1.7",
-    "@semantic-release/changelog": "~3.0.0",
+    "@semantic-release/changelog": "~5.0.0",
     "@semantic-release/exec": "~3.3.0",
     "@semantic-release/git": "~7.0.4",
     "@semantic-release/npm": "~5.3.1",
