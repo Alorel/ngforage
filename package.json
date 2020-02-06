@@ -57,7 +57,7 @@
     "@alorel-personal/tslint-rules": "5.0.6",
     "@angular-devkit/build-angular": "~0.803.2",
     "@angular-devkit/build-ng-packagr": "~0.803.1",
-    "@angular/cli": "^8.0.0",
+    "@angular/cli": "^9.0.0",
     "@angular/common": "^8.0.0",
     "@angular/compiler": "^8.0.0",
     "@angular/compiler-cli": "^8.0.0",
