@@ -69,6 +69,14 @@
     "@angular-devkit/core" "8.3.8"
     rxjs "6.4.0"
 
+"@angular-devkit/architect@0.900.0":
+  version "0.900.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.900.0.tgz#d1d509268c1ce153469403a00a07e23f85e6bef6"
+  integrity sha512-810dcbqZLLc+q8YYT2uBtt4Pttn9NjUBIqWDQtmru1B1N+Y2TkYH2dT6f3GPNrwGAFgNnKIa/ZYrc4e70Yy/zw==
+  dependencies:
+    "@angular-devkit/core" "9.0.0"
+    rxjs "6.5.3"
+
 "@angular-devkit/build-angular@~0.803.2":
   version "0.803.8"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.803.8.tgz#55176f719d39d7371dbf59550278a09743f2776d"
@@ -131,13 +139,13 @@
     webpack-subresource-integrity "1.1.0-rc.6"
     worker-plugin "3.2.0"
 
-"@angular-devkit/build-ng-packagr@~0.803.1":
-  version "0.803.8"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.803.8.tgz#a5b62fc89482cdc688d25175ea0084ec1096448f"
-  integrity sha512-C12v5iBJhGv+diOnQ+tPjbo69Wb/pfe2/7VyE4N2uHJwI+SpYRVC8qYpyVjaRQC7ukhsKnNAGT1scS5g7e/Jtg==
+"@angular-devkit/build-ng-packagr@~0.900.0":
+  version "0.900.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.900.0.tgz#4849ca9c77310c4b4623f87c614a8bead210209e"
+  integrity sha512-u6teoN+ermKOXRiBgVI7g5d5XoggWo0LcP7Ttz5Rmpo8T4tWoQKqwXZ18y7xhfSP/1mBjaHUc2d6NOGkMjfskw==
   dependencies:
-    "@angular-devkit/architect" "0.803.8"
-    rxjs "6.4.0"
+    "@angular-devkit/architect" "0.900.0"
+    rxjs "6.5.3"
 
 "@angular-devkit/build-optimizer@0.803.8":
   version "0.803.8"
@@ -169,6 +177,17 @@
     fast-json-stable-stringify "2.0.0"
     magic-string "0.25.3"
     rxjs "6.4.0"
+    source-map "0.7.3"
+
+"@angular-devkit/core@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.0.0.tgz#583910c99d1725ddd7287b453e863704044df748"
+  integrity sha512-ZnenoijBI+beMbnxtBSxDPBxq6rzWoNZ2gdPyWcxYMq5bTdU3V7XhLWFjz2BlgPEw2qSaA8PaY7+VQHuiOmUdg==
+  dependencies:
+    ajv "6.10.2"
+    fast-json-stable-stringify "2.0.0"
+    magic-string "0.25.4"
+    rxjs "6.5.3"
     source-map "0.7.3"
 
 "@angular-devkit/schematics@8.3.8":
@@ -7376,19 +7395,19 @@ magic-string@0.25.3:
   dependencies:
     sourcemap-codec "^1.4.4"
 
+magic-string@0.25.4, magic-string@^0.25.0, magic-string@^0.25.2:
+  version "0.25.4"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.4.tgz#325b8a0a79fc423db109b77fd5a19183b7ba5143"
+  integrity sha512-oycWO9nEVAP2RVPbIoDoA4Y7LFIJ3xRYov93gAyJhZkET1tNuB0u7uWkZS2LpBWTJUWnmau/To8ECWRC+jKNfw==
+  dependencies:
+    sourcemap-codec "^1.4.4"
+
 magic-string@^0.22.4:
   version "0.22.5"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.22.5.tgz#8e9cf5afddf44385c1da5bc2a6a0dbd10b03657e"
   integrity sha512-oreip9rJZkzvA8Qzk9HFs8fZGF/u7H/gtrE8EN6RjKJ9kh2HlC+yQ2QezifqTZfGyiuAV0dRv5a+y/8gBb1m9w==
   dependencies:
     vlq "^0.2.2"
-
-magic-string@^0.25.0, magic-string@^0.25.2:
-  version "0.25.4"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.4.tgz#325b8a0a79fc423db109b77fd5a19183b7ba5143"
-  integrity sha512-oycWO9nEVAP2RVPbIoDoA4Y7LFIJ3xRYov93gAyJhZkET1tNuB0u7uWkZS2LpBWTJUWnmau/To8ECWRC+jKNfw==
-  dependencies:
-    sourcemap-codec "^1.4.4"
 
 make-dir@^1.0.0:
   version "1.3.0"
@@ -8248,7 +8267,6 @@ npm@^6.10.3:
     cmd-shim "^3.0.3"
     columnify "~1.5.4"
     config-chain "^1.1.12"
-    debuglog "*"
     detect-indent "~5.0.0"
     detect-newline "^2.1.0"
     dezalgo "~1.0.3"
@@ -8263,7 +8281,6 @@ npm@^6.10.3:
     has-unicode "~2.0.1"
     hosted-git-info "^2.8.5"
     iferr "^1.0.2"
-    imurmurhash "*"
     infer-owner "^1.0.4"
     inflight "~1.0.6"
     inherits "^2.0.4"
@@ -8282,14 +8299,8 @@ npm@^6.10.3:
     libnpx "^10.2.0"
     lock-verify "^2.1.0"
     lockfile "^1.0.4"
-    lodash._baseindexof "*"
     lodash._baseuniq "~4.6.0"
-    lodash._bindcallback "*"
-    lodash._cacheindexof "*"
-    lodash._createcache "*"
-    lodash._getnative "*"
     lodash.clonedeep "~4.5.0"
-    lodash.restparam "*"
     lodash.union "~4.6.0"
     lodash.uniq "~4.5.0"
     lodash.without "~4.4.0"
@@ -10093,7 +10104,7 @@ rxjs@6.4.0:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^6.0.0, rxjs@^6.4.0:
+rxjs@6.5.3, rxjs@^6.0.0, rxjs@^6.4.0:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.3.tgz#510e26317f4db91a7eb1de77d9dd9ba0a4899a3a"
   integrity sha512-wuYsAYYFdWTAnAaPoKGNhfpWwKZbJW+HgAJ+mImp+Epl7BG8oNWBCTyRM8gba9k4lk8BgWdoYm21Mo/RYhhbgA==
