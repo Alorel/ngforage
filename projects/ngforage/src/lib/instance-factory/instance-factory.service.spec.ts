@@ -17,10 +17,10 @@ describe('Instance factory', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    const fact: InstanceFactory = TestBed.get(InstanceFactory);
+    const fact: InstanceFactory = TestBed.inject(InstanceFactory);
 
     const getConf = (overrides: Partial<NgForageOptions> = {}): NgForageOptions => {
-      const inst: NgForageConfig = TestBed.get(NgForageConfig);
+      const inst: NgForageConfig = TestBed.inject(NgForageConfig);
       const defaults = cloneDeep(inst.config);
 
       inst.configure(overrides);

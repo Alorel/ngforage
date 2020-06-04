@@ -15,7 +15,7 @@ describe('NgForaceDedicated', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    factory = TestBed.get(DedicatedInstanceFactory);
+    factory = TestBed.inject(DedicatedInstanceFactory);
     id = uuid();
   });
 

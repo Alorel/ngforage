@@ -15,7 +15,7 @@ describe('NgForageConfig service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    conf = TestBed.get(NgForageConfig);
+    conf = TestBed.inject(NgForageConfig);
     defaults = cloneDeep(conf.config);
   });
 
@@ -67,7 +67,7 @@ describe('NgForageConfig service', () => {
           return Promise.resolve<any>(null);
         }
       };
-      inst = TestBed.get(NgForage);
+      inst = TestBed.inject(NgForage);
     });
 
     it('Custom driver should be unsupported initially', () => {

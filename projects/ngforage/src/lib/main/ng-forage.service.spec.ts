@@ -13,7 +13,7 @@ describe('NgForage core service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule(def);
-    inst = TestBed.get(NgForage);
+    inst = TestBed.inject(NgForage);
     inst.driver = Driver.LOCAL_STORAGE;
   });
 
