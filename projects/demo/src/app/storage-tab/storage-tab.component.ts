@@ -17,7 +17,7 @@ export class StorageTabComponent {
 
   public config: any;
 
-  @ViewChild('ngo', {static: false})
+  @ViewChild('ngo')
   public ngo: OutputComponent;
 
   @Input()

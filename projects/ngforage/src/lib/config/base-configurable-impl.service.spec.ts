@@ -33,10 +33,10 @@ describe('BaseConfigurableImpl', () => {
     (<Provider[]>stdConfig.providers).push(BC);
     TestBed.configureTestingModule(stdConfig);
 
-    conf = TestBed.get(NgForageConfig);
+    conf = TestBed.inject(NgForageConfig);
     defaults = cloneDeep(conf.config);
 
-    bc = TestBed.get(BC);
+    bc = TestBed.inject(BC);
   });
 
   it('toString() should be a JSON.stringify', () => {

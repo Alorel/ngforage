@@ -1,4 +1,4 @@
-import {Inject} from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import 'localforage';
 import {InstanceFactory} from '../instance-factory/instance-factory.service';
 import {DriverType} from '../misc/driver-type.type';
@@ -12,6 +12,7 @@ const store$: unique symbol = Symbol('Store');
 /**
  * Abstract service-level configuration layer for NgForage
  */
+@Injectable()
 export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */

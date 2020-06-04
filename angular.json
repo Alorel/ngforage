@@ -80,6 +80,11 @@
           "options": {
             "tsConfig": "projects/ngforage/tsconfig.lib.json",
             "project": "projects/ngforage/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngforage/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {

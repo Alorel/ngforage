@@ -21,9 +21,9 @@ describe('NgForageCache Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule(def);
 
-    conf = TestBed.get(NgForageConfig);
+    conf = TestBed.inject(NgForageConfig);
     defaults = cloneDeep(conf.config);
-    cache = TestBed.get(NgForageCache);
+    cache = TestBed.inject(NgForageCache);
     cache.driver = Driver.LOCAL_STORAGE;
   });
 
