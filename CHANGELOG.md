@@ -1,3 +1,47 @@
+# [6.0.0](https://github.com/Alorel/ngforage/compare/5.0.1...6.0.0) (2020-06-08)
+
+
+### Documentation
+
+* Add missing tsdoc for some exported members ([](https://github.com/Alorel/ngforage/commit/442be19))
+* Removed extraneous import from a readme example ([](https://github.com/Alorel/ngforage/commit/a5619c0))
+
+
+### Features
+
+* **schematics:** Added support for ng add ([](https://github.com/Alorel/ngforage/commit/f4af048))
+
+
+### Maintenance
+
+* Add .idea to git ([](https://github.com/Alorel/ngforage/commit/96f654c))
+* add missing comma in karma.conf.js ([](https://github.com/Alorel/ngforage/commit/99318f3))
+* Recompile for ng9 ([](https://github.com/Alorel/ngforage/commit/652e124))
+* Regenerate lockfile ([](https://github.com/Alorel/ngforage/commit/95c8df7)), closes [#226](https://github.com/Alorel/ngforage/issues/226)
+* Removed the Omit type as Typescript now bundles its own. ([](https://github.com/Alorel/ngforage/commit/2753a62))
+
+
+### Refactoring
+
+* Moved an internal property's initialiser. ([](https://github.com/Alorel/ngforage/commit/2486707))
+* Refactored an internal toJSON method ([](https://github.com/Alorel/ngforage/commit/e255c02))
+* Removed `Symbol.toStringTag` from all classes. ([](https://github.com/Alorel/ngforage/commit/701c7a3))
+* Removed NgForageModule ([](https://github.com/Alorel/ngforage/commit/e419759))
+
+
+### Tests
+
+* Fix "Setting 5 items should increase length to 5" test consistency ([](https://github.com/Alorel/ngforage/commit/3d134de))
+* Fix some clearing issues ([](https://github.com/Alorel/ngforage/commit/52e2161))
+
+
+### BREAKING CHANGES
+
+* library now requires Angular >=9.0.0
+* Removed the Omit type as Typescript now bundles its own. ng update will handle this for you
+* `Symbol.toStringTag` was removed from call classes in case you were depending on it for any reason.
+* NgForageModule has been removed - see MIGRATING.md
+
 ## [5.0.1](https://github.com/Alorel/ngforage/compare/5.0.0...5.0.1) (2019-07-10)
 
 
