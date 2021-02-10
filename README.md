@@ -27,6 +27,7 @@
   You can also npm install manually:
   
   ```bash
+   npm install localforage@^1.9.0 ngforage@^8.0.0 # Angular 11
    npm install localforage@^1.9.0 ngforage@^7.0.0 # Angular 10
    npm install localforage@^1.5.0 ngforage@^6.0.0 # Angular 9
    npm install localforage@^1.5.0 ngforage@^5.0.0 # Angular 8
