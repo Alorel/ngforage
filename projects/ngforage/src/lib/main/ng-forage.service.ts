@@ -43,7 +43,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * If the key does not exist, getItem() will return null.
    * @param key Data key
    */
-  public getItem<T>(key: string): Promise<T> {
+  public getItem<T>(key: string): Promise<T | null> {
     return this.store.getItem<T>(key);
   }
 
