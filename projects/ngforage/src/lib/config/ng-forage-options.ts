@@ -7,7 +7,7 @@ export type FormattedLocalForageOptions = Omit<LocalForageOptions, 'driver'> & {
 };
 
 /** NgForage configuration */
-export type NgForageOptions = LocalForageOptions & FormattedLocalForageOptions & {
+export type NgForageOptions = FormattedLocalForageOptions & {
   /**
    * Cache time in milliseconds
    * @default 300000
