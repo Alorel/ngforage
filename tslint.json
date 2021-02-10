@@ -1,6 +1,9 @@
 {
   "extends": "./node_modules/@alorel-personal/tslint-rules/tslint.json",
   "rules": {
+    "deprecation": {
+      "severity": "warning"
+    },
     "no-object-literal-type-assertion": false
   }
 }

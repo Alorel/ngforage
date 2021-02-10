@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "ngforage"
+  "defaultProject": "ngforage",
+  "cli": {
+    "analytics": false
+  }
 }
