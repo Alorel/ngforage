@@ -1,9 +1,9 @@
 {
   "name": "ngforage",
-  "version": "5.0.1",
+  "version": "7.0.0",
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0",
     "localforage": "^1.5.0"
   },
   "schematics": "./schematics/collection.json",
@@ -16,15 +16,15 @@
     "postbuild": "node cp.js"
   },
   "devDependencies": {
-    "@angular/platform-browser-dynamic": "^9.1.9",
+    "@angular/platform-browser-dynamic": "^10.2.4",
     "@types/uuid": "^3.4.3",
-    "lodash-es": "^4.17.14",
+    "lodash-es": "^4.17.20",
     "uuid": "^8.1.0",
     "zone.js": "~0.10.2"
   },
   "dependencies": {
     "@angular/cdk": "^8.2.3",
-    "lazy-get-decorator": "^2.0.0",
+    "lazy-get-decorator": "^2.2.0",
     "tslib": "^2.0.0"
   },
   "description": "localForage bindings for Angular",
@@ -70,10 +70,6 @@
     {
       "name": "patrykp57",
       "url": "https://github.com/patrykp57"
-    },
-    {
-      "name": "jrquick17",
-      "url": "https://github.com/jrquick17"
     }
   ]
 }
