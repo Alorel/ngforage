@@ -56,6 +56,7 @@ export class InstanceFactory {
     const hash = getHash(cfg);
 
     if (!stores[hash]) {
+      // @ts-ignore
       stores[hash] = lf.createInstance(cfg);
     }
 
