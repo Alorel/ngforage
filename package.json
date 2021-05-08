@@ -95,7 +95,7 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "lazy-get-decorator": "^2.0.0",
     "localforage": "^1.7.2",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.14",
     "ng-packagr": "^9.0.0",
     "proto-decorator": "^3.0.3",
