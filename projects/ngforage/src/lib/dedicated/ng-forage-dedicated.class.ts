@@ -4,9 +4,10 @@ import {NgForage} from '../main/ng-forage.service';
 /** @internal */
 export class NgForageDedicated extends NgForage {
 
-  public clone(config?: NgForageOptions): NgForage {
+  /** @inheritDoc */
+  public override clone(config?: NgForageOptions): NgForage {
     const inst = new NgForageDedicated(this.baseConfig, this.fact);
-    inst.configure(Object.assign(this.finalConfig, config || {}));
+    inst.configure({...this.finalConfig, ...config});
 
     return inst;
   }

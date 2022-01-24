@@ -1,10 +1,10 @@
-import { Inject, Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import 'localforage';
-import {InstanceFactory} from '../instance-factory/instance-factory.service';
-import {DriverType} from '../misc/driver-type.type';
-import {BaseConfigurable} from './base-configurable';
+import {InstanceFactory} from '../instance-factory';
+import type {DriverType} from '../misc/driver-type.type';
+import type {BaseConfigurable} from './base-configurable';
 import {NgForageConfig} from './ng-forage-config.service';
-import {NgForageOptions} from './ng-forage-options';
+import type {NgForageOptions} from './ng-forage-options';
 
 /** @internal */
 const store$: unique symbol = Symbol('Store');
@@ -26,6 +26,9 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
   protected storeNeedsRecalc = true;
+
+  /** @internal */
+  private [store$]: LocalForage;
 
   /** @internal */
   public constructor(
@@ -54,7 +57,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default IndexedDB, WebSQL and localStorage
    */
   public get driver(): DriverType | DriverType[] {
-    return this.config.driver || this.baseConfig.driver;
+    return this.config.driver ?? this.baseConfig.driver;
   }
 
   public set driver(v: DriverType | DriverType[]) {
@@ -81,7 +84,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default 4980736
    */
   public get size(): number {
-    return this.config.size || this.baseConfig.size;
+    return this.config.size ?? this.baseConfig.size;
   }
 
   public set size(v: number) {
@@ -98,7 +101,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default ng_forage
    */
   public get storeName(): string {
-    return this.config.storeName || this.baseConfig.storeName;
+    return this.config.storeName ?? this.baseConfig.storeName;
   }
 
   public set storeName(v: string) {
@@ -111,7 +114,7 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
    * @default 1.0
    */
   public get version(): number {
-    return 'version' in this.config ? <number>this.config.version : this.baseConfig.version;
+    return this.config?.version ?? this.baseConfig.version;
   }
 
   public set version(v: number) {
@@ -121,11 +124,10 @@ export abstract class BaseConfigurableImpl implements BaseConfigurable {
 
   /** @internal */
   protected get finalConfig(): NgForageOptions {
-    return Object.assign(
-      {},
-      this.baseConfig.config,
-      this.config
-    );
+    return {
+      ...this.baseConfig.config,
+      ...this.config,
+    };
   }
 
   /** @internal */

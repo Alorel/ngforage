@@ -1,13 +1,11 @@
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
-import {cloneDeep, forEach} from 'lodash-es';
+import {cloneDeep} from 'lodash-es';
 import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
-import {NgForage} from '../main/ng-forage.service';
+import {NgForage} from '../main';
 import {NgForageConfig} from './ng-forage-config.service';
-import {NgForageOptions} from './ng-forage-options';
-
-//tslint:disable:no-floating-promises
+import type {NgForageOptions} from './ng-forage-options';
 
 describe('NgForageConfig service', () => {
   let conf: NgForageConfig;
@@ -38,7 +36,6 @@ describe('NgForageConfig service', () => {
     beforeEach(() => {
       spec = {
         _driver: uuid(),
-        // tslint:disable-next-line:no-empty
         _initStorage() {
         },
         _support: true,
@@ -108,7 +105,7 @@ describe('NgForageConfig service', () => {
       version: 1
     };
 
-    forEach(confs, (val: any, key: string) => {
+    for (const [key, val] of Object.entries(confs) as [keyof NgForageOptions, any][]) {
       describe(`${key}`, () => {
         const checkSetter = () => {
           expect(conf[key]).toBe(val);
@@ -128,14 +125,14 @@ describe('NgForageConfig service', () => {
 
         describe('Set via setter', () => {
           beforeEach(() => {
-            conf[key] = val;
+            (conf as any)[key] = val;
           });
 
           it('Should be gettable via getter', checkSetter);
           it('Should be gettable via #config', checkConfig);
         });
       });
-    });
+    }
   });
 
 });

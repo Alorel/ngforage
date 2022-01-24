@@ -2,12 +2,9 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ngforage",
   "lib": {
-    "entryFile": "src/public_api.ts",
-    "umdModuleIds": {
-      "localforage": "localforage"
-    }
+    "entryFile": "src/public_api.ts"
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "@angular/cdk",
     "lazy-get-decorator"
   ]

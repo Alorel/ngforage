@@ -4,11 +4,10 @@ import 'localforage';
 import {cloneDeep, forEach} from 'lodash-es';
 import {def} from '../../test.def';
 import {Driver as D} from '../misc/driver.enum';
+import {BaseConfigurable} from './base-configurable';
 import {BaseConfigurableImpl} from './base-configurable-impl.service';
 import {NgForageConfig} from './ng-forage-config.service';
 import {NgForageOptions} from './ng-forage-options';
-
-//tslint:disable:no-floating-promises
 
 describe('BaseConfigurableImpl', () => {
 
@@ -44,66 +43,47 @@ describe('BaseConfigurableImpl', () => {
   });
 
   describe('get/set', () => {
-    const tests = {
+    const tests: Partial<Record<keyof BaseConfigurable, any>> = {
       description: ['foo', 'bar'],
       driver: ['foo', 'bar'],
       name: ['foo', 'bar'],
-      // tslint:disable-next-line:no-magic-numbers
       size: [1, 2],
       storeName: ['foo', 'bar'],
-      // tslint:disable-next-line:no-magic-numbers
       version: [1, 2]
     };
 
-    forEach(tests, (v: any, k: string) => {
+    for (const [k, v] of Object.entries(tests) as [keyof BaseConfigurable, any]) {
       describe(k, () => {
         describe('@cfg', () => {
           beforeEach(() => {
-            conf[k] = v[0];
+            (conf as any)[k] = v[0];
           });
 
           it('via getter', () => {
-            expect(bc[k]).toBe(v[0]);
+            expect((bc as any)[k]).toBe(v[0]);
           });
 
           it('via JSON', () => {
-            expect(bc.toJSON()[k]).toBe(v[0]);
+            expect((bc as any).toJSON()[k]).toBe(v[0]);
           });
         });
 
         describe('@instance', () => {
           beforeEach(() => {
-            conf[k] = v[0];
-            bc[k] = v[1];
+            (conf as any)[k] = v[0];
+            (bc as any)[k] = v[1];
           });
 
           it('via getter', () => {
-            expect(bc[k]).toBe(v[1]);
+            expect((bc as any)[k]).toBe(v[1]);
           });
 
           it('via JSON', () => {
-            expect(bc.toJSON()[k]).toBe(v[1]);
+            expect((bc as any).toJSON()[k]).toBe(v[1]);
           });
         });
       });
-    });
-
-    // describe("driver", () => {
-    //   it("@cfg", () => {
-    //     conf.driver = 'foo';
-    //
-    //     expect(bc.driver).toBe('foo', 'getter');
-    //     expect(bc.toJSON().driver).toBe('foo', 'JSON');
-    //   });
-    //
-    //   it("@instance", () => {
-    //     conf.driver = 'foo';
-    //     bc.driver = 'bar';
-    //
-    //     expect(bc.driver).toBe('bar', 'getter');
-    //     expect(bc.toJSON().driver).toBe('bar', 'JSON');
-    //   })
-    // });
+    }
   });
 
   describe('#storeNeedsRecalc', () => {

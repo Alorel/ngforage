@@ -1,0 +1,21 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "paths": {
+      "ngforage": [
+        "projects/ngforage/src/public_api.ts"
+      ]
+    }
+  },
+  "files": [
+    "projects/ngforage/src/public_api.ts",
+    "demo/main.ts",
+    "demo/polyfills.ts"
+  ],
+  "include": [
+    "demo/**/*.d.ts"
+  ]
+}

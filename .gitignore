@@ -1,13 +1,9 @@
 node_modules/
-projects/**/yarn.lock
-/dist/
+.angular/
 /coverage/
 *.tgz
 /docs/
-/yarn-error.log
 dist/
 coverage/
 .nyc_output/
-yarn-error.log
-package-lock.json
 .npmrc

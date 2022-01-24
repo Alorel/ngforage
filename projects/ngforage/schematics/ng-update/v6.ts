@@ -7,11 +7,9 @@ import {loadAppModule} from '../_common/loadAppModule';
 
 const lazyGetter = LazyGetter();
 
-//tslint:disable:max-classes-per-file
-
 class ForRootMigrater {
 
-  private rmLength: number;
+  private rmLength?: number;
 
   public constructor(
     private readonly appModule: ts.SourceFile,
@@ -71,7 +69,7 @@ class ForRootMigrater {
         returnValue = true;
       }
 
-      this.recorder.remove(el.pos, this.rmLength);
+      this.recorder.remove(el.pos, this.rmLength!);
     }
 
     return returnValue;
@@ -79,7 +77,7 @@ class ForRootMigrater {
 
   private identifier(el: ts.Identifier): void {
     if (el.getText() === 'NgForageModule') {
-      this.recorder.remove(el.pos, this.rmLength);
+      this.recorder.remove(el.pos, this.rmLength!);
     }
   }
 
@@ -252,8 +250,10 @@ class OmitMigrater {
 }
 
 export function update(options: { project: string }): Rule {
-  return (tree, ctx) => {
-    const {ngModuleMetadata, modulePath, appModule} = loadAppModule(tree, options.project);
+  return async (tree, ctx) => {
+    const m = loadAppModule(tree, options.project);
+    const [ngModuleMetadata, modulePath, appModule] = await Promise
+      .all([m.ngModuleMetadata$, m.modulePath$, m.appModule$]);
     const modulePathRecorder = tree.beginUpdate(modulePath);
 
     const importCfg = new ForRootMigrater(appModule, ngModuleMetadata, modulePathRecorder).process();

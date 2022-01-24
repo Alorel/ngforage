@@ -1,5 +1,5 @@
 import 'localforage';
-import {DriverType} from '../misc/driver-type.type';
+import type {DriverType} from '../misc/driver-type.type';
 
 /** Localforage options with ngforage formatting */
 export type FormattedLocalForageOptions = Omit<LocalForageOptions, 'driver'> & {
