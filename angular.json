@@ -24,6 +24,7 @@
             "index": "demo/index.html",
             "main": "demo/main.ts",
             "polyfills": "demo/polyfills.ts",
+            "baseHref": "/ngforage/",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
