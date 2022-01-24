@@ -1,3 +1,15 @@
+# [7.0.0](https://github.com/Alorel/ngforage/compare/6.0.0...7.0.0) (2022-01-24)
+
+
+### Maintenance
+
+* Update to support Angular 13 ([78c78a1](https://github.com/Alorel/ngforage/commit/78c78a1d39a9e2030b0bd9ecfc3691bdca2c350c)), closes [#286](https://github.com/Alorel/ngforage/issues/286) [#273](https://github.com/Alorel/ngforage/issues/273) [#247](https://github.com/Alorel/ngforage/issues/247) [#277](https://github.com/Alorel/ngforage/issues/277) [#276](https://github.com/Alorel/ngforage/issues/276)
+
+
+### BREAKING CHANGES
+
+* Angular <13.0 & ngforage <1.9.0 no longer supported
+
 # [6.0.0](https://github.com/Alorel/ngforage/compare/5.0.1...6.0.0) (2020-06-08)
 
 
