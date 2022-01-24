@@ -3,370 +3,30 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ngforage documentation</title>
+        <title>NgForage API docs</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ngforage documentation</a>
-            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+            <a href="../" class="navbar-brand">NgForage API docs</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngforage documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#xs-modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="xs-modules-links"
-                >
-                    <li class="link">
-                        <a href="modules/NgForageModule.html" data-type="entity-link">NgForageModule</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-classes-links"
-                >
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-classes-links"
-                >
-                    <li class="link">
-                        <a href="classes/BaseConfigurableImpl.html" data-type="entity-link">BaseConfigurableImpl</a>
-                    </li>
-            </ul>
-        </li>
-
-                <li class="chapter">
-                    <div class="simple menu-toggler" data-toggle="collapse"
-                            data-target="#xs-injectables-links"
-                        >
-                        <span class="fa fa-fw fa-long-arrow-down"></span>
-                        <span>Injectables</span>
-                        <span class="fa fa-angle-down"></span>
-                    </div>
-                    <ul class="links collapse"
-                            id="xs-injectables-links"
-                        >
-                            <li class="link">
-                                <a href="injectables/DedicatedInstanceFactory.html" data-type="entity-link">DedicatedInstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/InstanceFactory.html" data-type="entity-link">InstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForage.html" data-type="entity-link">NgForage</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageCache.html" data-type="entity-link">NgForageCache</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageConfig.html" data-type="entity-link">NgForageConfig</a>
-                            </li>
-                    </ul>
-                </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-interfaces-links"
-                >
-                <span class="fa fa-fw fa-info"></span>
-                <span>Interfaces</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-interfaces-links"
-                >
-                    <li class="link">
-                        <a href="interfaces/BaseConfigurable.html" data-type="entity-link">BaseConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CacheConfigurable.html" data-type="entity-link">CacheConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CachedItem.html" data-type="entity-link">CachedItem</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/NgForageOptions.html" data-type="entity-link">NgForageOptions</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-miscellaneous-links"
-                >
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-miscellaneous-links"
-                >
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-
-    </ul>
-
-</nav>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngforage documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="modules-links"
->
-                    <li class="link">
-                        <a href="modules/NgForageModule.html" data-type="entity-link">NgForageModule</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#classes-links"
->
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="classes-links"
->
-                    <li class="link">
-                        <a href="classes/BaseConfigurableImpl.html" data-type="entity-link">BaseConfigurableImpl</a>
-                    </li>
-            </ul>
-        </li>
-
-                <li class="chapter">
-                    <div class="simple menu-toggler" data-toggle="collapse"
-                            data-target="#injectables-links"
->
-                        <span class="fa fa-fw fa-long-arrow-down"></span>
-                        <span>Injectables</span>
-                        <span class="fa fa-angle-down"></span>
-                    </div>
-                    <ul class="links collapse"
-                            id="injectables-links"
->
-                            <li class="link">
-                                <a href="injectables/DedicatedInstanceFactory.html" data-type="entity-link">DedicatedInstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/InstanceFactory.html" data-type="entity-link">InstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForage.html" data-type="entity-link">NgForage</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageCache.html" data-type="entity-link">NgForageCache</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageConfig.html" data-type="entity-link">NgForageConfig</a>
-                            </li>
-                    </ul>
-                </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#interfaces-links"
->
-                <span class="fa fa-fw fa-info"></span>
-                <span>Interfaces</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="interfaces-links"
->
-                    <li class="link">
-                        <a href="interfaces/BaseConfigurable.html" data-type="entity-link">BaseConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CacheConfigurable.html" data-type="entity-link">CacheConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CachedItem.html" data-type="entity-link">CachedItem</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/NgForageOptions.html" data-type="entity-link">NgForageOptions</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#miscellaneous-links"
->
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="miscellaneous-links"
->
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-
-    </ul>
-
-</nav>
+                   <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content interface">
@@ -381,9 +41,14 @@
 
 
 
+
+
+
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>BaseConfigurable</li>
+  <li
+  >
+  BaseConfigurable</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -401,8 +66,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/NgForage/config/BaseConfigurable.ts</code>
+            <code>projects/ngforage/src/lib/config/base-configurable.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -426,22 +92,40 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#description">description</a>
+                                        <a href="#description" 
+>
+                                            description
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#driver">driver</a>
+                                        <a href="#driver" 
+>
+                                            driver
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#name">name</a>
+                                        <a href="#name" 
+>
+                                            name
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#size">size</a>
+                                        <a href="#size" 
+>
+                                            size
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#storeName">storeName</a>
+                                        <a href="#storeName" 
+>
+                                            storeName
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#version">version</a>
+                                        <a href="#version" 
+>
+                                            version
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -455,7 +139,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#configure">configure</a>
+                                    <a href="#configure" 
+>
+                                        configure
+                                    </a>
                                 </li>
                             </ul>
                         </td>
@@ -466,80 +153,79 @@
 
             <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="configure"></a>
-                        <span class="name">
-                            <b>
-                            configure
-                            </b>
-                            <a href="#configure"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>configure(opts: <a href="../injectables/NgForage.html">NgForageOptions</a>)</code>
-                    </td>
-                </tr>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configure"></a>
+                    <span class="name">
+                        <span ><b>configure</b></span>
+                        <a href="#configure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>configure(opts: <a href="../injectables/NgForage.html" target="_self">NgForageOptions</a>)</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/NgForage/config/BaseConfigurable.ts:52</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">projects/ngforage/src/lib/config/base-configurable.ts:54</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Bulk-set configuration options</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bulk-set configuration options</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>opts</td>
-                                                        <td>
-                                                                    <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>opts</td>
+                                    <td>
+                                                <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
+                                    </td>
 
-                                                        <td>
-                                                                <code><p>The configuration</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The configuration</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
             <section>
                 <h3 id="inputs">Properties</h3>
@@ -548,12 +234,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="description"></a>
-                                        <span class="name"><b>description</b><a href="#description"><span class="fa fa-link"></span></a></span>
+                                        <span class="name "><b>description</b>
+                                            <a href="#description">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>description:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>description:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -567,7 +257,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -589,12 +279,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="driver"></a>
-                                        <span class="name"><b>driver</b><a href="#driver"><span class="fa fa-link"></span></a></span>
+                                        <span class="name "><b>driver</b>
+                                            <a href="#driver">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>driver:     <code>string | string[]</code>
+                                        <code>driver:         <code><a href="../miscellaneous/typealiases.html#DriverType" target="_self" >DriverType | DriverType[]</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -608,7 +302,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>string | string[]</code>
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#DriverType" target="_self" >DriverType | DriverType[]</a></code>
 
                                         </td>
                                     </tr>
@@ -630,12 +324,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="name"></a>
-                                        <span class="name"><b>name</b><a href="#name"><span class="fa fa-link"></span></a></span>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>name:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -649,7 +347,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -672,12 +370,16 @@ In localStorage, this is used as a key prefix for all keys stored in localStorag
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="size"></a>
-                                        <span class="name"><b>size</b><a href="#size"><span class="fa fa-link"></span></a></span>
+                                        <span class="name "><b>size</b>
+                                            <a href="#size">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>size:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                        <code>size:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -691,7 +393,7 @@ In localStorage, this is used as a key prefix for all keys stored in localStorag
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                         </td>
                                     </tr>
@@ -713,12 +415,16 @@ In localStorage, this is used as a key prefix for all keys stored in localStorag
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="storeName"></a>
-                                        <span class="name"><b>storeName</b><a href="#storeName"><span class="fa fa-link"></span></a></span>
+                                        <span class="name "><b>storeName</b>
+                                            <a href="#storeName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>storeName:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>storeName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -732,7 +438,7 @@ In localStorage, this is used as a key prefix for all keys stored in localStorag
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -758,12 +464,16 @@ Any non-alphanumeric characters will be converted to underscores.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="version"></a>
-                                        <span class="name"><b>version</b><a href="#version"><span class="fa fa-link"></span></a></span>
+                                        <span class="name "><b>version</b>
+                                            <a href="#version">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>version:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                        <code>version:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -777,7 +487,7 @@ Any non-alphanumeric characters will be converted to underscores.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                         </td>
                                     </tr>
@@ -799,7 +509,8 @@ Any non-alphanumeric characters will be converted to underscores.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgForageOptions} from &#x27;./NgForageOptions&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type {DriverType} from &#x27;../misc/driver-type.type&#x27;;
+import type {NgForageOptions} from &#x27;./ng-forage-options&#x27;;
 
 /**
  * A configurable object
@@ -811,26 +522,26 @@ export interface BaseConfigurable {
    * @default &quot;&quot;
    */
   description: string;
+
   /**
    * The preferred driver(s) to use.
-   * @see {@link NgForageConfig#DRIVER_INDEXEDDB}
-   * @see {@link NgForageConfig#DRIVER_WEBSQL}
-   * @see {@link NgForageConfig#DRIVER_LOCALSTORAGE}
-   * @see {@link NgForageConfig#DRIVER_SESSIONSTORAGE}
    * @default IndexedDB, WebSQL &amp; localStorage
    */
-  driver: string | string[];
+  driver: DriverType | DriverType[];
+
   /**
    * The name of the database. May appear during storage limit prompts. Useful to use the name of your app here.
    * In localStorage, this is used as a key prefix for all keys stored in localStorage.
    * @default ngForage
    */
   name: string;
+
   /**
    * The size of the database in bytes. Used only in WebSQL for now.
    * @default 4980736
    */
   size: number;
+
   /**
    * The name of the datastore.
    * In IndexedDB this is the dataStore,
@@ -840,6 +551,7 @@ export interface BaseConfigurable {
    * @default ng_forage
    */
   storeName: string;
+
   /**
    * The version of your database. May be used for upgrades in the future; currently unused.
    * @default 1.0
@@ -860,6 +572,8 @@ export interface BaseConfigurable {
 
 
 
+
+
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
@@ -874,6 +588,28 @@ export interface BaseConfigurable {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'BaseConfigurable.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
        <script src="../js/libs/bootstrap-native.js"></script>
 
        <script src="../js/libs/es6-shim.min.js"></script>
@@ -883,21 +619,16 @@ export interface BaseConfigurable {
 
        <script src="../js/compodoc.js"></script>
 
-        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'BaseConfigurable.html';
-        </script>
-
-       <script src="../js/search/search.js"></script>
-       <script src="../js/search/lunr.min.js"></script>
-       <script src="../js/search/search-lunr.js"></script>
-
        <script src="../js/tabs.js"></script>
        <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
        <script src="../js/libs/prism.js"></script>
        <script src="../js/sourceCode.js"></script>
-       <script src="../js/search/search_index.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
 
 
     </body>

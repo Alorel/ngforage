@@ -3,370 +3,30 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ngforage documentation</title>
+        <title>NgForage API docs</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ngforage documentation</a>
-            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+            <a href="../" class="navbar-brand">NgForage API docs</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngforage documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#xs-modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="xs-modules-links"
-                >
-                    <li class="link">
-                        <a href="modules/NgForageModule.html" data-type="entity-link">NgForageModule</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-classes-links"
-                >
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-classes-links"
-                >
-                    <li class="link">
-                        <a href="classes/BaseConfigurableImpl.html" data-type="entity-link">BaseConfigurableImpl</a>
-                    </li>
-            </ul>
-        </li>
-
-                <li class="chapter">
-                    <div class="simple menu-toggler" data-toggle="collapse"
-                            data-target="#xs-injectables-links"
-                        >
-                        <span class="fa fa-fw fa-long-arrow-down"></span>
-                        <span>Injectables</span>
-                        <span class="fa fa-angle-down"></span>
-                    </div>
-                    <ul class="links collapse"
-                            id="xs-injectables-links"
-                        >
-                            <li class="link">
-                                <a href="injectables/DedicatedInstanceFactory.html" data-type="entity-link">DedicatedInstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/InstanceFactory.html" data-type="entity-link">InstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForage.html" data-type="entity-link">NgForage</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageCache.html" data-type="entity-link">NgForageCache</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageConfig.html" data-type="entity-link">NgForageConfig</a>
-                            </li>
-                    </ul>
-                </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-interfaces-links"
-                >
-                <span class="fa fa-fw fa-info"></span>
-                <span>Interfaces</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-interfaces-links"
-                >
-                    <li class="link">
-                        <a href="interfaces/BaseConfigurable.html" data-type="entity-link">BaseConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CacheConfigurable.html" data-type="entity-link">CacheConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CachedItem.html" data-type="entity-link">CachedItem</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/NgForageOptions.html" data-type="entity-link">NgForageOptions</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-miscellaneous-links"
-                >
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-miscellaneous-links"
-                >
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-
-    </ul>
-
-</nav>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngforage documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="modules-links"
->
-                    <li class="link">
-                        <a href="modules/NgForageModule.html" data-type="entity-link">NgForageModule</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#classes-links"
->
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="classes-links"
->
-                    <li class="link">
-                        <a href="classes/BaseConfigurableImpl.html" data-type="entity-link">BaseConfigurableImpl</a>
-                    </li>
-            </ul>
-        </li>
-
-                <li class="chapter">
-                    <div class="simple menu-toggler" data-toggle="collapse"
-                            data-target="#injectables-links"
->
-                        <span class="fa fa-fw fa-long-arrow-down"></span>
-                        <span>Injectables</span>
-                        <span class="fa fa-angle-down"></span>
-                    </div>
-                    <ul class="links collapse"
-                            id="injectables-links"
->
-                            <li class="link">
-                                <a href="injectables/DedicatedInstanceFactory.html" data-type="entity-link">DedicatedInstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/InstanceFactory.html" data-type="entity-link">InstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForage.html" data-type="entity-link">NgForage</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageCache.html" data-type="entity-link">NgForageCache</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageConfig.html" data-type="entity-link">NgForageConfig</a>
-                            </li>
-                    </ul>
-                </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#interfaces-links"
->
-                <span class="fa fa-fw fa-info"></span>
-                <span>Interfaces</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="interfaces-links"
->
-                    <li class="link">
-                        <a href="interfaces/BaseConfigurable.html" data-type="entity-link">BaseConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CacheConfigurable.html" data-type="entity-link">CacheConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CachedItem.html" data-type="entity-link">CachedItem</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/NgForageOptions.html" data-type="entity-link">NgForageOptions</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#miscellaneous-links"
->
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="miscellaneous-links"
->
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-
-    </ul>
-
-</nav>
+                   <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content injectable">
@@ -377,9 +37,11 @@
 
 
 
+
+
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>DedicatedInstanceFactory</li>
+  <li >DedicatedInstanceFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -397,8 +59,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/NgForage/dedicated/DedicatedInstanceFactory.ts</code>
+            <code>projects/ngforage/src/lib/dedicated/dedicated-instance-factory.service.ts</code>
         </p>
+
+
 
 
 
@@ -417,11 +81,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createCache">createCache</a>
+                                <a href="#createCache" >createCache</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createNgForage">createNgForage</a>
+                                <a href="#createNgForage" >createNgForage</a>
                             </li>
                         </ul>
                     </td>
@@ -442,12 +106,12 @@
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(conf: <a href="../injectables/NgForageConfig.html">NgForageConfig</a>, instFact: <a href="../injectables/InstanceFactory.html">InstanceFactory</a>)</code>
+                        <code>constructor(conf: <a href="../injectables/NgForageConfig.html" target="_self">NgForageConfig</a>, instFact: <a href="../injectables/InstanceFactory.html" target="_self">InstanceFactory</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/NgForage/dedicated/DedicatedInstanceFactory.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/ngforage/src/lib/dedicated/dedicated-instance-factory.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -468,11 +132,11 @@
                                                         <td>conf</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/NgForageConfig.html" target="_self" >NgForageConfig</a></code>
+                                                                        <code><a href="../injectables/NgForageConfig.html" target="_self" >NgForageConfig</a></code>
                                                         </td>
                                                   
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -480,11 +144,11 @@
                                                         <td>instFact</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/InstanceFactory.html" target="_self" >InstanceFactory</a></code>
+                                                                        <code><a href="../injectables/InstanceFactory.html" target="_self" >InstanceFactory</a></code>
                                                         </td>
                                                   
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -499,181 +163,187 @@
 
             <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="createCache"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            createCache
-                            </b>
-                            <a href="#createCache"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span>
-                        <code>createCache(config?: <a href="../injectables/NgForage.html">NgForageOptions</a>)</code>
-                    </td>
-                </tr>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCache"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>createCache</b></span>
+                        <a href="#createCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createCache(config?: <a href="../injectables/NgForage.html" target="_self">NgForageOptions</a>)</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/NgForage/dedicated/DedicatedInstanceFactory.ts:22</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">projects/ngforage/src/lib/dedicated/dedicated-instance-factory.service.ts:29</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>config</td>
-                                                        <td>
-                                                                    <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            yes
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../injectables/NgForageCache.html" target="_self" >NgForageCache</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="createNgForage"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            createNgForage
-                            </b>
-                            <a href="#createNgForage"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span>
-                        <code>createNgForage(config?: <a href="../injectables/NgForage.html">NgForageOptions</a>)</code>
-                    </td>
-                </tr>
+                                    <td>
+                                        Yes
+                                    </td>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/NgForage/dedicated/DedicatedInstanceFactory.ts:31</a></div>
-                            </td>
-                        </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../injectables/NgForageCache.html" target="_self" >NgForageCache</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNgForage"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>createNgForage</b></span>
+                        <a href="#createNgForage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createNgForage(config?: <a href="../injectables/NgForage.html" target="_self">NgForageOptions</a>)</code>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">projects/ngforage/src/lib/dedicated/dedicated-instance-factory.service.ts:38</a></div>
+                </td>
+            </tr>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>config</td>
-                                                        <td>
-                                                                    <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            yes
-                                                    </td>
-                                                    
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+            <tr>
+                <td class="col-md-4">
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
-import {NgForageCache} from &#x27;../cache/NgForageCache.service&#x27;;
-import {NgForageConfig} from &#x27;../config/NgForageConfig.service&#x27;;
-import {NgForageOptions} from &#x27;../config/NgForageOptions&#x27;;
-import {InstanceFactory} from &#x27;../instance-factory/InstanceFactory.service&#x27;;
-import {NgForage} from &#x27;../main/NgForage.service&#x27;;
-import {NgForageCacheDedicated} from &#x27;./NgForageCacheDedicated&#x27;;
-import {NgForageDedicated} from &#x27;./NgForageDedicated&#x27;;
+import {NgForageCache} from &#x27;../cache&#x27;;
+import {NgForageConfig} from &#x27;../config&#x27;;
+import type {NgForageOptions} from &#x27;../config&#x27;;
+import {InstanceFactory} from &#x27;../instance-factory&#x27;;
+import {NgForage} from &#x27;../main&#x27;;
+import {NgForageCacheDedicated} from &#x27;./ng-forage-cache-dedicated.class&#x27;;
+import {NgForageDedicated} from &#x27;./ng-forage-dedicated.class&#x27;;
 
 /** @internal */
-const conf$ &#x3D; Symbol(&#x27;NgForageConfig&#x27;);
+const conf$: unique symbol &#x3D; Symbol(&#x27;NgForageConfig&#x27;);
 /** @internal */
-const if$ &#x3D; Symbol(&#x27;InstanceFactory&#x27;);
+const if$: unique symbol &#x3D; Symbol(&#x27;InstanceFactory&#x27;);
 
 @Injectable({providedIn: &#x27;root&#x27;})
 export class DedicatedInstanceFactory {
+
+  /** @internal */
+  private readonly [conf$]: NgForageConfig;
+
+  /** @internal */
+  private readonly [if$]: InstanceFactory;
+
   public constructor(conf: NgForageConfig, instFact: InstanceFactory) {
     this[conf$] &#x3D; conf;
     this[if$] &#x3D; instFact;
   }
 
   public createCache(config?: NgForageOptions): NgForageCache {
-    const inst &#x3D; new NgForageCacheDedicated(&lt;NgForageConfig&gt;this[conf$], &lt;InstanceFactory&gt;this[if$]);
+    const inst &#x3D; new NgForageCacheDedicated(this[conf$], this[if$]);
     if (config) {
       inst.configure(config);
     }
@@ -682,7 +352,7 @@ export class DedicatedInstanceFactory {
   }
 
   public createNgForage(config?: NgForageOptions): NgForage {
-    const inst &#x3D; new NgForageDedicated(&lt;NgForageConfig&gt;this[conf$], &lt;InstanceFactory&gt;this[if$]);
+    const inst &#x3D; new NgForageDedicated(this[conf$], this[if$]);
     if (config) {
       inst.configure(config);
     }
@@ -694,6 +364,9 @@ export class DedicatedInstanceFactory {
     </div>
 
 </div>
+
+
+
 
 
 
@@ -717,6 +390,28 @@ export class DedicatedInstanceFactory {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DedicatedInstanceFactory.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
        <script src="../js/libs/bootstrap-native.js"></script>
 
        <script src="../js/libs/es6-shim.min.js"></script>
@@ -726,21 +421,16 @@ export class DedicatedInstanceFactory {
 
        <script src="../js/compodoc.js"></script>
 
-        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'DedicatedInstanceFactory.html';
-        </script>
-
-       <script src="../js/search/search.js"></script>
-       <script src="../js/search/lunr.min.js"></script>
-       <script src="../js/search/search-lunr.js"></script>
-
        <script src="../js/tabs.js"></script>
        <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
        <script src="../js/libs/prism.js"></script>
        <script src="../js/sourceCode.js"></script>
-       <script src="../js/search/search_index.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
 
 
     </body>

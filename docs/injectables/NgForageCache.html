@@ -3,370 +3,30 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ngforage documentation</title>
+        <title>NgForage API docs</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ngforage documentation</a>
-            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+            <a href="../" class="navbar-brand">NgForage API docs</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngforage documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#xs-modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="xs-modules-links"
-                >
-                    <li class="link">
-                        <a href="modules/NgForageModule.html" data-type="entity-link">NgForageModule</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-classes-links"
-                >
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-classes-links"
-                >
-                    <li class="link">
-                        <a href="classes/BaseConfigurableImpl.html" data-type="entity-link">BaseConfigurableImpl</a>
-                    </li>
-            </ul>
-        </li>
-
-                <li class="chapter">
-                    <div class="simple menu-toggler" data-toggle="collapse"
-                            data-target="#xs-injectables-links"
-                        >
-                        <span class="fa fa-fw fa-long-arrow-down"></span>
-                        <span>Injectables</span>
-                        <span class="fa fa-angle-down"></span>
-                    </div>
-                    <ul class="links collapse"
-                            id="xs-injectables-links"
-                        >
-                            <li class="link">
-                                <a href="injectables/DedicatedInstanceFactory.html" data-type="entity-link">DedicatedInstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/InstanceFactory.html" data-type="entity-link">InstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForage.html" data-type="entity-link">NgForage</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageCache.html" data-type="entity-link">NgForageCache</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageConfig.html" data-type="entity-link">NgForageConfig</a>
-                            </li>
-                    </ul>
-                </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-interfaces-links"
-                >
-                <span class="fa fa-fw fa-info"></span>
-                <span>Interfaces</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-interfaces-links"
-                >
-                    <li class="link">
-                        <a href="interfaces/BaseConfigurable.html" data-type="entity-link">BaseConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CacheConfigurable.html" data-type="entity-link">CacheConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CachedItem.html" data-type="entity-link">CachedItem</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/NgForageOptions.html" data-type="entity-link">NgForageOptions</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-miscellaneous-links"
-                >
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-miscellaneous-links"
-                >
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-
-    </ul>
-
-</nav>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngforage documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="modules-links"
->
-                    <li class="link">
-                        <a href="modules/NgForageModule.html" data-type="entity-link">NgForageModule</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#classes-links"
->
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="classes-links"
->
-                    <li class="link">
-                        <a href="classes/BaseConfigurableImpl.html" data-type="entity-link">BaseConfigurableImpl</a>
-                    </li>
-            </ul>
-        </li>
-
-                <li class="chapter">
-                    <div class="simple menu-toggler" data-toggle="collapse"
-                            data-target="#injectables-links"
->
-                        <span class="fa fa-fw fa-long-arrow-down"></span>
-                        <span>Injectables</span>
-                        <span class="fa fa-angle-down"></span>
-                    </div>
-                    <ul class="links collapse"
-                            id="injectables-links"
->
-                            <li class="link">
-                                <a href="injectables/DedicatedInstanceFactory.html" data-type="entity-link">DedicatedInstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/InstanceFactory.html" data-type="entity-link">InstanceFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForage.html" data-type="entity-link">NgForage</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageCache.html" data-type="entity-link">NgForageCache</a>
-                            </li>
-                            <li class="link">
-                                <a href="injectables/NgForageConfig.html" data-type="entity-link">NgForageConfig</a>
-                            </li>
-                    </ul>
-                </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#interfaces-links"
->
-                <span class="fa fa-fw fa-info"></span>
-                <span>Interfaces</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="interfaces-links"
->
-                    <li class="link">
-                        <a href="interfaces/BaseConfigurable.html" data-type="entity-link">BaseConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CacheConfigurable.html" data-type="entity-link">CacheConfigurable</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/CachedItem.html" data-type="entity-link">CachedItem</a>
-                    </li>
-                    <li class="link">
-                        <a href="interfaces/NgForageOptions.html" data-type="entity-link">NgForageOptions</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#miscellaneous-links"
->
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="miscellaneous-links"
->
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-
-    </ul>
-
-</nav>
+                   <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content injectable">
@@ -377,9 +37,11 @@
 
 
 
+
+
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>NgForageCache</li>
+  <li >NgForageCache</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -397,8 +59,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/NgForage/cache/NgForageCache.service.ts</code>
+            <code>projects/ngforage/src/lib/cache/ng-forage-cache.service.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -406,6 +69,13 @@
             <p class="comment">
                 <p>An extension of <a href="../injectables/NgForage.html">NgForage</a> which adds expiration support</p>
 
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
             </p>
 
 
@@ -424,19 +94,89 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#clone">clone</a>
+                                    <span class="modifier"></span>
+                                <a href="#clone" >clone</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getCached">getCached</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#getCached" >getCached</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#removeCached">removeCached</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeCached" >removeCached</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#setCached">setCached</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#setCached" >setCached</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#clear" >clear</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#dropInstance" >dropInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getItem" >getItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#iterate" >iterate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#key" >key</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#keys" >keys</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#length" >length</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#ready" >ready</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeItem" >removeItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#setItem" >setItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#supports" >supports</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#configure" >configure</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toJSON" >toJSON</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toString" >toString</a>
                             </li>
                         </ul>
                     </td>
@@ -446,6 +186,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#cacheTime" >cacheTime</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -453,364 +207,1390 @@
 
             <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="clone"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            clone
-                            </b>
-                            <a href="#clone"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span>
-                        <code>clone(config?: <a href="../injectables/NgForage.html">NgForageOptions</a>)</code>
-                    </td>
-                </tr>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clone"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier"></span>
+                        <span ><b>clone</b></span>
+                        <a href="#clone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clone(config?: <a href="../injectables/NgForage.html" target="_self">NgForageOptions</a>)</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/NgForage/cache/NgForageCache.service.ts:58</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:43</a></code>
+</div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>config</td>
-                                                        <td>
-                                                                    <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            yes
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../injectables/NgForageCache.html" target="_self" >NgForageCache</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getCached"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            getCached
-                            </b>
-                            <a href="#getCached"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span>
-                        <code>getCached(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
+                                    <td>
+                                        Yes
+                                    </td>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/NgForage/cache/NgForageCache.service.ts:69</a></div>
-                            </td>
-                        </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../injectables/NgForageCache.html" target="_self" >NgForageCache</a></code>
 
-                        <tr>
-                            <td class="col-md-4">
-                                <b>Type parameters :</b>
-                                <ul class="type-parameters">
-                                        <li>T</li>
-                                </ul>
-                            </td>
-                        </tr>
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCached"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getCached</b></span>
+                        <a href="#getCached"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCached(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Retrieve data</p>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">projects/ngforage/src/lib/cache/ng-forage-cache.service.ts:54</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Retrieve data</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>key</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                                        <td>
-                                                                <code><p>Data key</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../interfaces/CachedItem.html" target="_self" >Promise&lt;CachedItem&lt;T&gt;&gt;</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="removeCached"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            removeCached
-                            </b>
-                            <a href="#removeCached"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span>
-                        <code>removeCached(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
+                                    <td>
+                                        No
+                                    </td>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/NgForage/cache/NgForageCache.service.ts:81</a></div>
-                            </td>
-                        </tr>
+                                    <td>
+                                        <p>Data key</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/CachedItem.html" target="_self" >Promise&lt;CachedItem&lt;T&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCached"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>removeCached</b></span>
+                        <a href="#removeCached"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeCached(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Remove data</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">projects/ngforage/src/lib/cache/ng-forage-cache.service.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Remove data</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>key</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                                        <td>
-                                                                <code><p>Data key</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="setCached"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            setCached
-                            </b>
-                            <a href="#setCached"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span>
-                        <code>setCached(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: T, cacheTime?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                    </td>
-                </tr>
+                                    <td>
+                                        No
+                                    </td>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/NgForage/cache/NgForageCache.service.ts:96</a></div>
-                            </td>
-                        </tr>
+                                    <td>
+                                        <p>Data key</p>
 
-                        <tr>
-                            <td class="col-md-4">
-                                <b>Type parameters :</b>
-                                <ul class="type-parameters">
-                                        <li>T</li>
-                                </ul>
-                            </td>
-                        </tr>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Set data</p>
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCached"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>setCached</b></span>
+                        <a href="#setCached"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setCached(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: T, cacheTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">projects/ngforage/src/lib/cache/ng-forage-cache.service.ts:79</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Set data</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>key</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                                        <td>
-                                                                <code><p>Data key</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>data</td>
-                                                        <td>
-                                                                    <code>T</code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
+                                    <td>
+                                        No
+                                    </td>
 
-                                                        <td>
-                                                                <code><p>Data to set</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>cacheTime</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            yes
-                                                    </td>
-                                                    
+                                    <td>
+                                    </td>
 
-                                                        <td>
-                                                                <code><p>Override cache set in {</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+                                    <td>
+                                        <p>Data key</p>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>Data to set</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>cacheTime</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>this.cacheTime</code>
+                                    </td>
+
+                                    <td>
+                                        <p>Override cache set in global or instance config<a href="CacheConfigurable.cacheTime">CacheConfigurable.cacheTime</a>.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clear"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>clear</b></span>
+                        <a href="#clear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:34</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Removes every key from the database, returning it to a blank slate.</p>
+<p>clear() will remove <b>every item in the offline store</b>. Use this method with caution.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dropInstance"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>dropInstance</b></span>
+                        <a href="#dropInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dropInstance(cfg?: LocalForageDbInstanceOptions)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:25</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>When invoked with no arguments, it drops the “store” of the current instance. When invoked with an object
+specifying both name and storeName properties, it drops the specified “store”. When invoked with an object
+specifying only a name property, it drops the specified “database” (and all its stores).</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>cfg</td>
+                                    <td>
+                                            <code>LocalForageDbInstanceOptions</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getItem"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getItem</b></span>
+                        <a href="#getItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getItem(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:54</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets an item from the storage library.
+If the key does not exist, getItem() will return null.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Data key</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T | null&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="iterate"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>iterate</b></span>
+                        <a href="#iterate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>iterate(iteratee: (value: T,key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>,iterationNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>) => void)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:69</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                        <li>U</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Iterate over all value/key pairs in datastore.
+<i>iteratee</i> is called once for each pair, with the following arguments:</p>
+<ol>
+  <li>Value</li>
+  <li>Key</li>
+  <li>iterationNumber - one-based number</li>
+</ol>
+iterate() supports early exit by returning non undefined value inside iteratorCallback callback.
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>iteratee</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;U&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="key"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>key</b></span>
+                        <a href="#key"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>key(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:77</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get the name of a key based on its ID.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="keys"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>keys</b></span>
+                        <a href="#keys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>keys()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:84</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get the list of all keys in the datastore.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="length"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>length</b></span>
+                        <a href="#length"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>length()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:91</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the number of keys in the offline store (i.e. its “length”).</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ready"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>ready</b></span>
+                        <a href="#ready"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ready()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:100</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Even though localForage queues up all of its data API method calls,
+ready() provides a way to determine whether the asynchronous driver initialization process has finished.
+That’s useful in cases like when we want to know which driver localForage has settled down using.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeItem"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>removeItem</b></span>
+                        <a href="#removeItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeItem(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:108</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Removes the value of a key from the offline store.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Data key</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setItem"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>setItem</b></span>
+                        <a href="#setItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setItem(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:134</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Saves data to an offline store. You can store the following types of JavaScript objects:</p>
+<ul>
+ <li>Array</li>
+ <li>ArrayBuffer</li>
+ <li>Blob</li>
+ <li>Float32Array</li>
+ <li>Float64Array</li>
+ <li>Int8Array</li>
+ <li>Int16Array</li>
+ <li>Int32Array</li>
+ <li>Number</li>
+ <li>Object</li>
+ <li>Uint8Array</li>
+ <li>Uint8ClampedArray</li>
+ <li>Uint16Array</li>
+ <li>Uint32Array</li>
+ <li>String</li>
+</ul>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Data key</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Data</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supports"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>supports</b></span>
+                        <a href="#supports"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supports(driver: <a href="../undefineds/Driver.html" target="_self">Driver | string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/NgForage.html" target="_self" >NgForage</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/NgForage.html#source" target="_self" >NgForage:142</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Check whether the given driver is supported/registered.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>driver</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#Driver" target="_self" >Driver | string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Driver name</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configure"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>configure</b></span>
+                        <a href="#configure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>configure(opts: <a href="../injectables/NgForage.html" target="_self">NgForageOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseConfigurableImpl.html" target="_self" >BaseConfigurableImpl</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseConfigurableImpl.html#source" target="_self" >BaseConfigurableImpl:147</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bulk-set configuration options</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>opts</td>
+                                    <td>
+                                                <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The configuration</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toJSON"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>toJSON</b></span>
+                        <a href="#toJSON"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toJSON()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseConfigurableImpl.html" target="_self" >BaseConfigurableImpl</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseConfigurableImpl.html#source" target="_self" >BaseConfigurableImpl:160</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../injectables/NgForage.html" target="_self" >Partial&lt;NgForageOptions&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toString"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>toString</b></span>
+                        <a href="#toString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toString()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseConfigurableImpl.html" target="_self" >BaseConfigurableImpl</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseConfigurableImpl.html#source" target="_self" >BaseConfigurableImpl:171</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
             <section>
     <h3 id="accessors">
@@ -821,7 +1601,7 @@
                 <tr>
                     <td class="col-md-4">
                         <a name="cacheTime"></a>
-                        <span class="name"><b>cacheTime</b><a href="#cacheTime"><span class="fa fa-link"></span></a></span>
+                        <span class="name"><b>cacheTime</b><a href="#cacheTime"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
@@ -832,7 +1612,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/NgForage/cache/NgForageCache.service.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/ngforage/src/lib/cache/ng-forage-cache.service.ts:33</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -843,7 +1623,7 @@
                                 <div>
                                 </div>
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                 </div>
                         </td>
@@ -856,7 +1636,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/NgForage/cache/NgForageCache.service.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/ngforage/src/lib/cache/ng-forage-cache.service.ts:37</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -877,11 +1657,11 @@
                                                             <td>t</td>
                                                     
                                                             <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                                             </td>
                                                     
                                                         <td>
-                                                                no
+                                                                No
                                                         </td>
                                                         
                                                     </tr>
@@ -891,7 +1671,7 @@
                                 <div>
                                 </div>
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                                 </div>
                         </td>
@@ -904,15 +1684,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
-import {CacheConfigurable} from &#x27;../config/CacheConfigurable&#x27;;
-import {NgForageOptions} from &#x27;../config/NgForageOptions&#x27;;
-import {NgForage} from &#x27;../main/NgForage.service&#x27;;
-import {CachedItem} from &#x27;./CachedItem&#x27;;
-import {CachedItemImpl} from &#x27;./CachedItemImpl&#x27;;
+import type {NgForageOptions} from &#x27;../config&#x27;;
+import {CacheConfigurable} from &#x27;../config&#x27;;
+import {NgForage} from &#x27;../main&#x27;;
+import type {CachedItem} from &#x27;./cached-item&#x27;;
+import {CachedItemImpl} from &#x27;./cached-item-impl.class&#x27;;
 
 /** @internal */
 interface CacheKeys {
   data: string;
+
   expiry: string;
 }
 
@@ -922,22 +1703,6 @@ function calculateCacheKeys(mainKey: string): CacheKeys {
     data: &#x60;${mainKey}_data&#x60;,
     expiry: &#x60;${mainKey}_expiry&#x60;
   };
-}
-
-/** @internal */
-function toCachedItem&lt;T&gt;(r: [T, number]): CachedItem&lt;T&gt; {
-  return new CachedItemImpl&lt;T&gt;(r[0], r[1]);
-}
-
-/** @internal */
-function head&lt;T&gt;(r: [T, number]) {
-  return r[0];
-}
-
-/** @internal */
-// tslint:disable-next-line:no-empty
-function toVoid(): void {
-
 }
 
 /**
@@ -951,7 +1716,7 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * @default 300000
    */
   public get cacheTime(): number {
-    return &#x27;cacheTime&#x27; in this.config ? this.config.cacheTime : this.baseConfig.cacheTime;
+    return this.config.cacheTime ?? this.baseConfig.cacheTime;
   }
 
   public set cacheTime(t: number) {
@@ -960,9 +1725,9 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
   }
 
   /** @inheritDoc */
-  public clone(config?: NgForageOptions): NgForageCache {
+  public override clone(config?: NgForageOptions): NgForageCache {
     const inst &#x3D; new NgForageCache(this.baseConfig, this.fact);
-    inst.configure(Object.assign(this.finalConfig, config || {}));
+    inst.configure({...this.finalConfig, ...config});
 
     return inst;
   }
@@ -971,25 +1736,23 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * Retrieve data
    * @param key Data key
    */
-  public getCached&lt;T&gt;(key: string): Promise&lt;CachedItem&lt;T&gt;&gt; {
+  public async getCached&lt;T&gt;(key: string): Promise&lt;CachedItem&lt;T&gt;&gt; {
     const keys &#x3D; calculateCacheKeys(key);
-    const dataPromise &#x3D; this.getItem&lt;T&gt;(keys.data);
-    const expiryPromise &#x3D; this.getItem&lt;number&gt;(keys.expiry);
 
-    return Promise.all([dataPromise, expiryPromise]).then(toCachedItem);
+    const [data, expiry] &#x3D; await Promise
+      .all([this.getItem&lt;T&gt;(keys.data), this.getItem&lt;number&gt;(keys.expiry)]);
+
+    return new CachedItemImpl&lt;T&gt;(data!, expiry!);
   }
 
   /**
    * Remove data
    * @param key Data key
    */
-  public removeCached(key: string): Promise&lt;void&gt; {
+  public async removeCached(key: string): Promise&lt;void&gt; {
     const keys &#x3D; calculateCacheKeys(key);
-
-    const dataPromise &#x3D; this.removeItem(keys.data);
-    const expiryPromise &#x3D; this.removeItem(keys.expiry);
-
-    return Promise.all([dataPromise, expiryPromise]).then(toVoid);
+    await Promise
+      .all([this.removeItem(keys.data), this.removeItem(keys.expiry)]);
   }
 
   /**
@@ -998,29 +1761,27 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * @param data Data to set
    * @param [cacheTime] Override cache set in {@link CacheConfigurable#cacheTime global or instance config}.
    */
-  public setCached&lt;T&gt;(key: string, data: T, cacheTime?: number): Promise&lt;T&gt; {
+  public async setCached&lt;T&gt;(key: string, data: T, cacheTime: number &#x3D; this.cacheTime): Promise&lt;T&gt; {
     const keys &#x3D; calculateCacheKeys(key);
-    const expiry &#x3D; typeof cacheTime &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? cacheTime : this.cacheTime;
 
-    const dataPromise &#x3D; this.setItem&lt;T&gt;(keys.data, data);
-    const expiryPromise &#x3D; this.setItem&lt;number&gt;(keys.expiry, Date.now() + expiry);
+    const [out] &#x3D; await Promise
+      .all([this.setItem&lt;T&gt;(keys.data, data), this.setItem(keys.expiry, Date.now() + cacheTime)]);
 
-    return Promise.all([dataPromise, expiryPromise]).then(head);
+    return out;
   }
 
   /** @internal */
-  public toJSON(): NgForageOptions {
-    const ass: Partial&lt;NgForageOptions&gt; &#x3D; {cacheTime: this.cacheTime};
-
-    return Object.assign(super.toJSON(), ass);
+  public override toJSON(): NgForageOptions {
+    return Object.assign(super.toJSON() as NgForageOptions, {cacheTime: this.cacheTime});
   }
 }
-
-Object.defineProperty(NgForageCache.prototype, Symbol.toStringTag, {value: &#x27;NgForageCache&#x27;});
 </code></pre>
     </div>
 
 </div>
+
+
+
 
 
 
@@ -1044,6 +1805,28 @@ Object.defineProperty(NgForageCache.prototype, Symbol.toStringTag, {value: &#x27
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgForageCache.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
        <script src="../js/libs/bootstrap-native.js"></script>
 
        <script src="../js/libs/es6-shim.min.js"></script>
@@ -1053,21 +1836,16 @@ Object.defineProperty(NgForageCache.prototype, Symbol.toStringTag, {value: &#x27
 
        <script src="../js/compodoc.js"></script>
 
-        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'NgForageCache.html';
-        </script>
-
-       <script src="../js/search/search.js"></script>
-       <script src="../js/search/lunr.min.js"></script>
-       <script src="../js/search/search-lunr.js"></script>
-
        <script src="../js/tabs.js"></script>
        <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
        <script src="../js/libs/prism.js"></script>
        <script src="../js/sourceCode.js"></script>
-       <script src="../js/search/search_index.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
 
 
     </body>
