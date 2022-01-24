@@ -1,0 +1,34 @@
+inputs:
+  node-version:
+    description: Node version
+    required: true
+  gh-token:
+    description: GH token
+    required: true
+name: Set up npm
+description: Set up npm and install dependencies
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v2
+      name: Set up node
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: https://npm.pkg.github.com
+    - name: Get NPM cache dir
+      id: npm-cache-dir
+      shell: bash
+      run: |
+        echo "::set-output name=dir::$(npm config get cache)"
+    - name: Cache NPM
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-npm-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-${{ inputs.node-version }}-
+    - name: Install deps
+      run: npm ci --no-fund
+      shell: bash
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.gh-token }}

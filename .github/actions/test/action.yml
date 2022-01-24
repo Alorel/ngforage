@@ -1,0 +1,26 @@
+inputs:
+  node-version:
+    description: Node version
+    required: true
+  gh-token:
+    description: GH token
+    required: true
+name: Test
+description: Run tests
+runs:
+  using: composite
+  steps:
+    - name: NPM Init
+      uses: ./.github/actions/init-npm
+      with:
+        node-version: ${{ inputs.node-version }}
+        gh-token: ${{ inputs.gh-token }}
+    - name: Sync pkg
+      run: npm run sync
+      shell: bash
+    - name: Build demo
+      run: npm run build:demo
+      shell: bash
+    - name: Test
+      run: npm run test
+      shell: bash

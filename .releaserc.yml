@@ -8,16 +8,11 @@ verifyConditions:
 
 prepare:
 - '@semantic-release/changelog'
-- '@alorel-personal/semantic-release'
 - *npm
 - path: &exec '@semantic-release/exec'
-  cmd: doctoc --github MIGRATING.md
+  cmd: npm run sync
 - path: *exec
-  cmd: alo copy-files
-- path: *exec
-  cmd: alo clean-pkg-json
-- path: *exec
-  cmd: node ./build/patch-version.js
+  cmd: npm run build:lib
 - path: '@semantic-release/git'
   message: 'chore(release): ${nextRelease.version}'
   assets:
@@ -25,10 +20,8 @@ prepare:
   - README.md
   - MIGRATING.md
   - package.json
-  - yarn.lock
+  - package-lock.json
   - projects/ngforage/package.json
-- path: *exec
-  cmd: ./mkrelease.sh
 
 publish:
 - path: *exec
