@@ -10,9 +10,9 @@ enum Driver {
   WEB_SQL = <any>lf.WEBSQL
 }
 
-// Clean up after Typescript's two-way enum transpilig
+// Clean up after Typescript's two-way enum transpiling
 for (const d of [lf.INDEXEDDB, lf.LOCALSTORAGE, lf.WEBSQL]) {
-  delete Driver[d];
+  delete (Driver as any)[d];
 }
 
 Object.freeze(Driver);

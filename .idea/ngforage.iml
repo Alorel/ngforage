@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/.angular" />
     </content>
     <content url="file://$MODULE_DIR$/dist" />
     <orderEntry type="inheritedJdk" />

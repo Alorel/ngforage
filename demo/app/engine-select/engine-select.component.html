@@ -1,0 +1,15 @@
+<div *ngFor="let eng of engines" class="form-check form-check-inline">
+  <input name="engine"
+         type="radio"
+         [id]="eng.elementID"
+         class="form-check-input"
+         [ngModel]="selected"
+         (ngModelChange)="onModelChange($event)"
+         [value]="eng.id"
+         [disabled]="disabled || !eng.supported"/>
+  <label class="form-check-label" [for]="eng.elementID">
+    <span>{{eng.name}}</span>
+    <span class="text-danger" *ngIf="!eng.supported"> (not supported by browser)</span>
+  </label>
+</div>
+

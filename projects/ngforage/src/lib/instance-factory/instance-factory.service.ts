@@ -1,17 +1,12 @@
 import {Injectable} from '@angular/core';
 import 'localforage';
+import type {NgForageOptions} from '../config';
 import {NgForageConfig} from '../config/ng-forage-config.service';
-import {NgForageOptions} from '../config/ng-forage-options';
 import {localForage as lf} from '../imports/localforage';
 import {DriverType} from '../misc/driver-type.type';
 
 /** @internal */
-interface InstanceMap {
-  [hash: string]: LocalForage;
-}
-
-/** @internal */
-const stores: InstanceMap = {};
+const stores = new Map<string, LocalForage>();
 
 /** @internal */
 function getDriverString(driver?: DriverType | DriverType[]): string {
@@ -47,18 +42,30 @@ const conf$ = Symbol('Config');
 export class InstanceFactory {
 
   /** @internal */
+  private readonly [conf$]: NgForageConfig;
+
   public constructor(conf: NgForageConfig) {
     this[conf$] = conf;
   }
 
   public getInstance(cfg: NgForageOptions): LocalForage {
-    cfg = Object.assign({}, this[conf$].config, cfg || {});
-    const hash = getHash(cfg);
+    const resolvedCfg = {...this[conf$].config, ...cfg};
+    const hash = getHash(resolvedCfg);
 
-    if (!stores[hash]) {
-      stores[hash] = lf.createInstance(cfg);
+    const existing = stores.get(hash);
+    if (existing) {
+      return existing;
     }
 
-    return stores[hash];
+    const nu = lf.createInstance(resolvedCfg as LocalForageOptions);
+    const origDropInstance = nu.dropInstance;
+    nu.dropInstance = function (this: LocalForage) {
+      stores.delete(hash);
+      return origDropInstance.apply(this, arguments as any);
+    };
+
+    stores.set(hash, nu);
+
+    return nu;
   }
 }

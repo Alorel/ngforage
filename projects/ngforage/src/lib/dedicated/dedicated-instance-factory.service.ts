@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {NgForageCache} from '../cache/ng-forage-cache.service';
-import {NgForageConfig} from '../config/ng-forage-config.service';
-import {NgForageOptions} from '../config/ng-forage-options';
-import {InstanceFactory} from '../instance-factory/instance-factory.service';
-import {NgForage} from '../main/ng-forage.service';
+import {NgForageCache} from '../cache';
+import {NgForageConfig} from '../config';
+import type {NgForageOptions} from '../config';
+import {InstanceFactory} from '../instance-factory';
+import {NgForage} from '../main';
 import {NgForageCacheDedicated} from './ng-forage-cache-dedicated.class';
 import {NgForageDedicated} from './ng-forage-dedicated.class';
 

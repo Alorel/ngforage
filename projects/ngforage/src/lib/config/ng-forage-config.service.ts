@@ -1,12 +1,12 @@
 import {Inject, Injectable, Optional} from '@angular/core';
 import 'localforage';
 import {localForage as lf} from '../imports/localforage';
-import {DriverType} from '../misc/driver-type.type';
+import type {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
 import {DEFAULT_CONFIG} from '../misc/injection-tokens';
-import {BaseConfigurable} from './base-configurable';
-import {CacheConfigurable} from './cache-configurable';
-import {NgForageOptions} from './ng-forage-options';
+import type {BaseConfigurable} from './base-configurable';
+import type {CacheConfigurable} from './cache-configurable';
+import type {NgForageOptions} from './ng-forage-options';
 
 /** @internal */
 const $defaultConfig: unique symbol = Symbol('Default Config');
@@ -40,7 +40,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 300000
    */
   public get cacheTime(): number {
-    return <number>this[$defaultConfig].cacheTime;
+    return this[$defaultConfig].cacheTime!;
   }
 
   public set cacheTime(t: number) {
@@ -67,7 +67,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default
    */
   public get description(): string {
-    return <string>this[$defaultConfig].description;
+    return this[$defaultConfig].description!;
   }
 
   public set description(v: string) {
@@ -78,11 +78,14 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * The preferred driver(s) to use.
    */
   public get driver(): DriverType | DriverType[] {
-    if (typeof this[$defaultConfig].driver === 'string') {
-      return <string>this[$defaultConfig].driver;
+    const d = this[$defaultConfig].driver;
+    if (!d) {
+      return [];
+    } else if (Array.isArray(d)) {
+      return d.slice();
     }
 
-    return (<string[]>this[$defaultConfig].driver).slice();
+    return d;
   }
 
   public set driver(v: DriverType | DriverType[]) {
@@ -95,7 +98,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default ngForage
    */
   public get name(): string {
-    return <string>this[$defaultConfig].name;
+    return this[$defaultConfig].name!;
   }
 
   public set name(v: string) {
@@ -107,7 +110,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 4980736
    */
   public get size(): number {
-    return <number>this[$defaultConfig].size;
+    return this[$defaultConfig].size!;
   }
 
   public set size(v: number) {
@@ -123,7 +126,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default ng_forage
    */
   public get storeName(): string {
-    return <string>this[$defaultConfig].storeName;
+    return this[$defaultConfig].storeName!;
   }
 
   public set storeName(v: string) {
@@ -135,7 +138,7 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @default 1.0
    */
   public get version(): number {
-    return <number>this[$defaultConfig].version;
+    return this[$defaultConfig].version!;
   }
 
   public set version(v: number) {
@@ -147,13 +150,13 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * @param opts The configuration
    */
   public configure(opts: NgForageOptions): this {
-    opts = opts || {};
+    const resolved = {...opts};
 
-    if (opts.driver && (<any[]>opts.driver).slice) {
-      opts.driver = (<DriverType[]>opts.driver).slice();
+    if (Array.isArray(resolved?.driver)) {
+      resolved.driver = resolved.driver.slice();
     }
 
-    Object.assign(this[$defaultConfig], opts);
+    Object.assign(this[$defaultConfig], resolved);
 
     return this;
   }
@@ -167,8 +170,8 @@ export class NgForageConfig implements BaseConfigurable, CacheConfigurable {
    * for an idea of how to implement your own, custom driver.
    * @param spec Driver spec
    */
-  public defineDriver(spec: LocalForageDriver): Promise<void> {
-    return lf.defineDriver(spec);
+  public async defineDriver(spec: LocalForageDriver): Promise<void> {
+    return await lf.defineDriver(spec);
   }
 
   /** @internal */

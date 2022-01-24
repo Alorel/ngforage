@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {CacheConfigurable} from '../config/cache-configurable';
-import {NgForageOptions} from '../config/ng-forage-options';
-import {NgForage} from '../main/ng-forage.service';
-import {CachedItem} from './cached-item';
+import type {NgForageOptions} from '../config';
+import {CacheConfigurable} from '../config';
+import {NgForage} from '../main';
+import type {CachedItem} from './cached-item';
 import {CachedItemImpl} from './cached-item-impl.class';
 
 /** @internal */
@@ -20,22 +20,6 @@ function calculateCacheKeys(mainKey: string): CacheKeys {
   };
 }
 
-/** @internal */
-function toCachedItem<T>(r: [T, number]): CachedItem<T> {
-  return new CachedItemImpl<T>(r[0], r[1]);
-}
-
-/** @internal */
-function head<T>(r: [T, number]) {
-  return r[0];
-}
-
-/** @internal */
-// tslint:disable-next-line:no-empty
-function toVoid(): void {
-
-}
-
 /**
  * An extension of {@link NgForage} which adds expiration support
  */
@@ -47,7 +31,7 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * @default 300000
    */
   public get cacheTime(): number {
-    return this.config.cacheTime || this.baseConfig.cacheTime;
+    return this.config.cacheTime ?? this.baseConfig.cacheTime;
   }
 
   public set cacheTime(t: number) {
@@ -56,9 +40,9 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
   }
 
   /** @inheritDoc */
-  public clone(config?: NgForageOptions): NgForageCache {
+  public override clone(config?: NgForageOptions): NgForageCache {
     const inst = new NgForageCache(this.baseConfig, this.fact);
-    inst.configure(Object.assign(this.finalConfig, config || {}));
+    inst.configure({...this.finalConfig, ...config});
 
     return inst;
   }
@@ -67,25 +51,23 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * Retrieve data
    * @param key Data key
    */
-  public getCached<T>(key: string): Promise<CachedItem<T>> {
+  public async getCached<T>(key: string): Promise<CachedItem<T>> {
     const keys = calculateCacheKeys(key);
-    const dataPromise = this.getItem<T>(keys.data);
-    const expiryPromise = this.getItem<number>(keys.expiry);
 
-    return Promise.all([dataPromise, expiryPromise]).then(toCachedItem);
+    const [data, expiry] = await Promise
+      .all([this.getItem<T>(keys.data), this.getItem<number>(keys.expiry)]);
+
+    return new CachedItemImpl<T>(data!, expiry!);
   }
 
   /**
    * Remove data
    * @param key Data key
    */
-  public removeCached(key: string): Promise<void> {
+  public async removeCached(key: string): Promise<void> {
     const keys = calculateCacheKeys(key);
-
-    const dataPromise = this.removeItem(keys.data);
-    const expiryPromise = this.removeItem(keys.expiry);
-
-    return Promise.all([dataPromise, expiryPromise]).then(toVoid);
+    await Promise
+      .all([this.removeItem(keys.data), this.removeItem(keys.expiry)]);
   }
 
   /**
@@ -94,18 +76,17 @@ export class NgForageCache extends NgForage implements CacheConfigurable {
    * @param data Data to set
    * @param [cacheTime] Override cache set in {@link CacheConfigurable#cacheTime global or instance config}.
    */
-  public setCached<T>(key: string, data: T, cacheTime?: number): Promise<T> {
+  public async setCached<T>(key: string, data: T, cacheTime: number = this.cacheTime): Promise<T> {
     const keys = calculateCacheKeys(key);
-    const expiry = typeof cacheTime === 'number' ? cacheTime : this.cacheTime;
 
-    const dataPromise = this.setItem<T>(keys.data, data);
-    const expiryPromise = this.setItem<number>(keys.expiry, Date.now() + expiry);
+    const [out] = await Promise
+      .all([this.setItem<T>(keys.data, data), this.setItem(keys.expiry, Date.now() + cacheTime)]);
 
-    return Promise.all([dataPromise, expiryPromise]).then(head);
+    return out;
   }
 
   /** @internal */
-  public toJSON(): NgForageOptions {
+  public override toJSON(): NgForageOptions {
     return Object.assign(super.toJSON() as NgForageOptions, {cacheTime: this.cacheTime});
   }
 }

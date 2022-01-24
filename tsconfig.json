@@ -1,49 +1,39 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "experimentalDecorators": true,
-    "newLine": "lf",
-    "emitDecoratorMetadata": true,
-    "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "moduleResolution": "node",
     "importHelpers": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "stripInternal": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": false,
-    "removeComments": false,
-    "strict": true,
-    "checkJs": false,
-    "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "target": "es2017",
+    "module": "es2020",
     "paths": {
       "ngforage": [
+        "dist/ngforage/ngforage",
         "dist/ngforage"
-      ],
-      "ngforage/*": [
-        "dist/ngforage/*"
       ]
-    }
+    },
+    "lib": [
+      "es2020",
+      "dom"
+    ]
   },
-  "exclude": [
-    "node_modules"
-  ],
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

@@ -1,4 +1,5 @@
-import {CachedItem} from './cached-item';
+import {LazyGetter} from 'lazy-get-decorator';
+import type {CachedItem} from './cached-item';
 
 /** @internal */
 export class CachedItemImpl<T> implements CachedItem<T> {
@@ -9,29 +10,19 @@ export class CachedItemImpl<T> implements CachedItem<T> {
     this.expires = new Date(typeof <any>expiryTime === 'number' ? expiryTime : 0);
   }
 
+  @LazyGetter(false, false, Boolean)
   public get expired(): boolean {
-    const value = this.expiresIn === 0;
-    if (value) {
-      Object.defineProperty(this, 'expired', {value});
-    }
-
-    return value;
+    return this.expiresIn === 0;
   }
 
+  @LazyGetter(false, false, (v: any) => !v)
   public get expiresIn(): number {
-    const value = Math.max(0, this.expires.getTime() - Date.now());
-    if (!value) {
-      Object.defineProperty(this, 'expiresIn', {value});
-    }
-
-    return value;
+    return Math.max(0, this.expires.getTime() - Date.now());
   }
 
+  @LazyGetter()
   public get hasData(): boolean {
-    const value = this.data != null; //tslint:disable-line:triple-equals
-    Object.defineProperty(this, 'hasData', {value});
-
-    return value;
+    return this.data != null;
   }
 
   public toJSON(): CachedItem<T> {

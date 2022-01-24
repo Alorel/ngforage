@@ -30,11 +30,11 @@ function hasDependency(host: Tree, pkg: string, version: string | null = null, j
     json = readPkgJson(host);
   }
 
-  if (!json.dependencies) {
+  if (!json['dependencies']) {
     return false;
   }
 
-  const dep = json.dependencies[pkg];
+  const dep = json['dependencies'][pkg];
 
   return !!dep && (version === null || dep === version);
 }
@@ -45,15 +45,15 @@ function addToPackageJson(host: Tree, pkg: string, version: string): boolean {
     if (hasDependency(host, pkg, version, json)) {
       return false;
     }
-    if (!json.dependencies) {
-      json.dependencies = {};
+    if (!json['dependencies']) {
+      json['dependencies'] = {};
     }
 
-    if (!json.dependencies[pkg]) {
-      json.dependencies[pkg] = version;
-      json.dependencies = sortObjectByKeys(json.dependencies);
+    if (!json['dependencies'][pkg]) {
+      json['dependencies'][pkg] = version;
+      json['dependencies'] = sortObjectByKeys(json['dependencies']);
 
-      host.overwrite(Strings.PKG_JSON, JSON.stringify(json, null, 2) + EOL); //tslint:disable-line:no-magic-numbers max-line-length
+      host.overwrite(Strings.PKG_JSON, JSON.stringify(json, null, 2) + EOL);
 
       return true;
     } else {
@@ -66,7 +66,7 @@ function addToPackageJson(host: Tree, pkg: string, version: string): boolean {
       }
     };
 
-    host.create(Strings.PKG_JSON, JSON.stringify(contents, null, 2) + EOL); //tslint:disable-line:no-magic-numbers max-line-length
+    host.create(Strings.PKG_JSON, JSON.stringify(contents, null, 2) + EOL);
 
     return true;
   }

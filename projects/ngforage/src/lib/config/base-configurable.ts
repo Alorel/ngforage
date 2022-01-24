@@ -1,5 +1,5 @@
-import {DriverType} from '../misc/driver-type.type';
-import {NgForageOptions} from './ng-forage-options';
+import type {DriverType} from '../misc/driver-type.type';
+import type {NgForageOptions} from './ng-forage-options';
 
 /**
  * A configurable object

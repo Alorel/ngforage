@@ -5,6 +5,6 @@ theme: material
 hideGenerator: true
 disablePrivate: true
 disableInternal: true
-customFavicon: projects/demo/src/favicon.ico
+customFavicon: demo/favicon.ico
 disableCoverage: true
 

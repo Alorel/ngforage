@@ -2,11 +2,9 @@ import {TestBed} from '@angular/core/testing';
 import {noop, range, values} from 'lodash-es';
 import {v4 as uuid} from 'uuid';
 import {def} from '../../test.def';
-import {NgForageCache} from '../cache/ng-forage-cache.service';
+import {NgForageCache} from '../cache';
 import {Driver} from '../misc/driver.enum';
 import {NgForage} from './ng-forage.service';
-
-//tslint:disable:no-floating-promises no-big-function
 
 describe('NgForage core service', () => {
   let inst: NgForage;
@@ -17,8 +15,10 @@ describe('NgForage core service', () => {
     inst.driver = Driver.LOCAL_STORAGE;
   });
 
-  afterEach((done: any) => {
-    inst.clear().then(done, done);
+  afterEach(async () => {
+    try {
+      await inst.clear();
+    } catch {}
   });
 
   describe('#clone', () => {
@@ -41,82 +41,54 @@ describe('NgForage core service', () => {
     });
   });
 
-  it('#ready', done => {
-    inst.ready()
-      .then(r => expect(r).toBeUndefined())
-      .then(done)
-      .catch(done);
-  });
-
-  it('#activeDriver', done => {
-    inst.ready()
-      .then(() => {
-        expect(inst.activeDriver).toBe(Driver.LOCAL_STORAGE);
-        done();
-      })
-      .catch(done);
+  it('#activeDriver', async () => {
+    await inst.ready();
+    expect(inst.activeDriver).toBe(Driver.LOCAL_STORAGE);
   });
 
   describe('#keys', () => {
-    it('Should be empty initially', done => {
-      inst.clear()
-        .then(() => inst.keys())
-        .then(k => {
-          expect(k).toEqual([]);
-          done();
-        })
-        .catch(done);
+    it('Should be empty initially', async () => {
+      await inst.clear();
+      expect(await inst.keys()).toEqual([]);
     });
 
-    it('And contain foo afterwards', done => {
-      inst.clear()
-        .then(() => inst.setItem('foo', 'bar'))
-        .then(() => inst.keys())
-        .then(k => {
-          expect(k).toEqual(['foo']);
-          done();
-        })
-        .catch(done);
+    it('And contain foo afterwards', async () => {
+      await inst.clear();
+      await inst.setItem('foo', 'bar');
+      expect(await inst.keys()).toEqual(['foo']);
     });
   });
 
   describe('get, set, remove item', () => {
     const key = uuid();
-    const get = async (done: any) => {
+    const get = async () => {
       expect(await inst.getItem(key)).toBeNull();
-      done();
     };
 
     it('Getting initially should return null', get);
 
-    it('Setting should return item set', async done => {
+    it('Setting should return item set', async () => {
       expect(await inst.setItem(key, 'foo')).toBe('foo');
-      done();
     });
 
-    it('Getting item should return foo', done => {
+    it('Getting item should return foo', async () => {
       const v = uuid();
-      inst.setItem(key, v)
-        .then(() => inst.getItem<string>(key))
-        .then(returned => {
-          expect(returned).toBe(v);
-          done();
-        })
-        .catch(done);
+      await inst.setItem(key, v);
+      expect(await inst.getItem<string>(key)).toBe(v);
     });
 
-    it('Removing item should return void', async done => {
-      // tslint:disable-next-line:no-void-expression
+    it('Removing item should return void', async () => {
       expect(await inst.removeItem(key)).toBeUndefined();
-      done();
     });
 
     it('And getting it should be null again', get);
   });
 
   describe('#supports', () => {
-    beforeEach(done => {
-      inst.ready().then(done, done);
+    beforeEach(async () => {
+      try {
+        await inst.ready();
+      } catch {}
     });
 
     const drivers = values(Driver);
@@ -136,25 +108,24 @@ describe('NgForage core service', () => {
     let k1: string;
     let k2: string;
 
-    beforeEach(done => {
-      inst.clear()
-        .then(() => Promise.all([
-          inst.setItem('bar', 1)
-            .then(() => inst.key(0))
-            .then(v => {
-              k1 = v;
-            }),
-          inst.setItem('foo', 1)
-            .then(() => inst.key(1))
-            .then(v => {
-              k2 = v;
-            })
-        ]))
-        .then(done, done);
+    beforeEach(async () => {
+      await inst.clear();
+      await Promise.all([
+        inst.setItem('bar', 1)
+          .then(() => inst.key(0))
+          .then(v => {
+            k1 = v;
+          }),
+        inst.setItem('foo', 1)
+          .then(() => inst.key(1))
+          .then(v => {
+            k2 = v;
+          })
+      ]);
     });
 
     it('Key 1 should be either foo or bar', () => {
-      expect(k1 === 'foo' || k1 === 'bar').toBe(true, `k1 was ${k1}`);
+      expect(k1 === 'foo' || k1 === 'bar').withContext(`k1 was ${k1}`).toBe(true);
     });
 
     it('Key 2 should be foo or bar, but not the same as key 2', () => {
@@ -177,18 +148,14 @@ describe('NgForage core service', () => {
     describe('No early termination', () => {
       let out: string[];
 
-      beforeEach(done => {
+      beforeEach(async () => {
         const ret: string[] = [];
-        inst
+        await inst
           .iterate<number, void>((value, key) => {
             ret.push(`${key}:${value}`);
-          })
-          .then(() => {
-            ret.sort();
-            out = ret;
-            done();
-          })
-          .catch(done);
+          });
+        ret.sort();
+        out = ret;
       });
 
       it('Should return undefined', async done => {
@@ -196,7 +163,6 @@ describe('NgForage core service', () => {
           noop(v, k);
         });
 
-        // tslint:disable-next-line:no-void-expression
         expect(await p).toBeUndefined();
         done();
       });
@@ -253,30 +219,22 @@ describe('NgForage core service', () => {
 
   describe('#clear & #length', () => {
 
-    it('Length should be 0 initially', done => {
-      inst.clear()
-        .then(() => inst.length())
-        .then(l => {
-          expect(l).toBe(0);
-          done();
-        })
-        .catch(done);
+    it('Length should be 0 initially', async () => {
+      await inst.clear();
+      expect(await inst.length()).toBe(0);
     });
 
-    it('Setting 5 items should increase length to 5', async done => {
+    it('Setting 5 items should increase length to 5', async () => {
       const r = 5;
 
       await inst.clear();
       await Promise.all(range(r).map((v: number) => inst.setItem(v.toString(), v)));
 
       expect(await inst.length()).toBe(r);
-      done();
     });
 
-    it('#clear() should return void', async done => {
-      // tslint:disable-next-line:no-void-expression
+    it('#clear() should return void', async () => {
       expect(await inst.clear()).toBeUndefined();
-      done();
     });
   });
 });

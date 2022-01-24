@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {NgForageCache} from './lib/cache/ng-forage-cache.service';
-import {NgForageConfig} from './lib/config/ng-forage-config.service';
-import {DedicatedInstanceFactory} from './lib/dedicated/dedicated-instance-factory.service';
-import {InstanceFactory} from './lib/instance-factory/instance-factory.service';
-import {NgForage} from './lib/main/ng-forage.service';
+import {NgForageCache} from './lib';
+import {NgForageConfig} from './lib';
+import {DedicatedInstanceFactory} from './lib';
+import {InstanceFactory} from './lib';
+import {NgForage} from './lib';
 
 /** @internal */
 export const def: NgModule = {

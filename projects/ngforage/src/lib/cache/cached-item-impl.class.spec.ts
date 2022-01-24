@@ -1,8 +1,6 @@
 import {CachedItem} from './cached-item';
 import {CachedItemImpl} from './cached-item-impl.class';
 
-//tslint:disable:no-floating-promises
-
 describe('CachedItemImpl', () => {
 
   it('#toString should be a JSON.stringify', () => {

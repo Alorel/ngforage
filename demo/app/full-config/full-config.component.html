@@ -1,0 +1,9 @@
+<h1 class="text-center">Setup</h1>
+<ng-container [formGroup]="form">
+  <div class="form-group">
+    <div [id]="engineLabelId">Engine</div>
+    <ngf-engine-select [attr.aria-labelledby]="engineLabelId" [formControlName]="'engine'"></ngf-engine-select>
+  </div>
+  <ngf-options-select [formControlName]="'otherConfig'" [showCacheTime]="showCacheTime"></ngf-options-select>
+</ng-container>
+<pre>{{_val|asString}}</pre>

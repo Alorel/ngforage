@@ -11,8 +11,9 @@ const enum Strings {
 }
 
 export function ngAddSetupProject(options: NgAddOptions): Rule {
-  return (tree, context) => {
-    const {modulePath, appModule} = loadAppModule(tree, options.project);
+  return async (tree, context) => {
+    const m = loadAppModule(tree, options.project);
+    const [modulePath, appModule] = await Promise.all([m.modulePath$, m.appModule$]);
 
     const moduleFileContent = tree.read(modulePath);
     if (!moduleFileContent) {

@@ -25,7 +25,7 @@ Promise.all([glob('**/*.json', {cwd: DIR_SCHEMATICS}), glob('**/files/**/*', {cw
   .then(([jsons, files]) => {
     const combined = [...jsons, ...files];
 
-    return Promise.all(combined.filter(f => f !== 'tslint.json').map(copy));
+    return Promise.all(combined.map(copy));
   })
   .catch(e => {
     console.error(e);

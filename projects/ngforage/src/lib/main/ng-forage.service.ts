@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {BaseConfigurable} from '../config/base-configurable';
-import {BaseConfigurableImpl} from '../config/base-configurable-impl.service';
-import {NgForageOptions} from '../config/ng-forage-options';
-import {DriverType} from '../misc/driver-type.type';
+import {BaseConfigurableImpl} from '../config';
+import type {BaseConfigurable, NgForageOptions} from '../config';
+import type {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
 
 /**
@@ -19,12 +18,21 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
   }
 
   /**
+   * When invoked with no arguments, it drops the “store” of the current instance. When invoked with an object
+   * specifying both name and storeName properties, it drops the specified “store”. When invoked with an object
+   * specifying only a name property, it drops the specified “database” (and all its stores).
+   */
+  public async dropInstance(cfg?: LocalForageDbInstanceOptions): Promise<void> {
+    return await (cfg ? this.store.dropInstance(cfg) : this.store.dropInstance());
+  }
+
+  /**
    * Removes every key from the database, returning it to a blank slate.
    *
    * clear() will remove <b>every item in the offline store</b>. Use this method with caution.
    */
-  public clear(): Promise<void> {
-    return this.store.clear();
+  public async clear(): Promise<void> {
+    return await this.store.clear();
   }
 
   /**
@@ -33,7 +41,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    */
   public clone(config?: NgForageOptions): NgForage {
     const inst = new NgForage(this.baseConfig, this.fact);
-    inst.configure(Object.assign(this.finalConfig, config || {}));
+    inst.configure({...this.finalConfig, ...config});
 
     return inst;
   }
@@ -43,8 +51,8 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * If the key does not exist, getItem() will return null.
    * @param key Data key
    */
-  public getItem<T>(key: string): Promise<T> {
-    return this.store.getItem<T>(key);
+  public async getItem<T>(key: string): Promise<T | null> {
+    return await this.store.getItem<T>(key);
   }
 
   /**
@@ -58,30 +66,30 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * iterate() supports early exit by returning non undefined value inside iteratorCallback callback.
    * @param iteratee
    */
-  public iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
-    return this.store.iterate(iteratee);
+  public async iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
+    return await this.store.iterate(iteratee);
   }
 
   /**
    * Get the name of a key based on its ID.
    * @param index
    */
-  public key(index: number): Promise<string> {
-    return this.store.key(index);
+  public async key(index: number): Promise<string> {
+    return await this.store.key(index);
   }
 
   /**
    * Get the list of all keys in the datastore.
    */
-  public keys(): Promise<string[]> {
-    return this.store.keys();
+  public async keys(): Promise<string[]> {
+    return await this.store.keys();
   }
 
   /**
    * Gets the number of keys in the offline store (i.e. its “length”).
    */
-  public length(): Promise<number> {
-    return this.store.length();
+  public async length(): Promise<number> {
+    return await this.store.length();
   }
 
   /**
@@ -89,16 +97,16 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * ready() provides a way to determine whether the asynchronous driver initialization process has finished.
    * That’s useful in cases like when we want to know which driver localForage has settled down using.
    */
-  public ready(): Promise<void> {
-    return this.store.ready();
+  public async ready(): Promise<void> {
+    return await this.store.ready();
   }
 
   /**
    * Removes the value of a key from the offline store.
    * @param key Data key
    */
-  public removeItem(key: string): Promise<void> {
-    return this.store.removeItem(key);
+  public async removeItem(key: string): Promise<void> {
+    return await this.store.removeItem(key);
   }
 
   /**
@@ -123,8 +131,8 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    * @param key Data key
    * @param data Data
    */
-  public setItem<T>(key: string, data: T): Promise<T> {
-    return this.store.setItem<T>(key, data);
+  public async setItem<T>(key: string, data: T): Promise<T> {
+    return await this.store.setItem<T>(key, data);
   }
 
   /**
