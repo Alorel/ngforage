@@ -1,0 +1,72 @@
+name: Core
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test ubuntu-latest/Node 16
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: NPM Init
+        uses: ./.github/actions/init-npm
+        with:
+          node-version: 16
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sync pkg
+        run: npm run sync
+        shell: bash
+      - name: Build demo
+        run: npm run build:demo
+        shell: bash
+      - name: Test
+        run: npm run test
+        shell: bash
+        env:
+          CI: 'true'
+      - name: Upload coverage
+        if: ${{ runner.os != 'windows-latest' }}
+        continue-on-error: true
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: node-${{ inputs.node-version }}-on-${{ runner.os }}-${{ github.event_name }}
+          path-to-lcov: ./coverage/ngforage/lcov.info
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    needs:
+      - test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1000
+      - name: Init NPM
+        uses: ./.github/actions/init-npm
+        with:
+          node-version: 16
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v2
+        name: Reconfig Node
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+      - name: Build demo site
+        run: npm run build:demo:prod
+      - name: Build docs
+        run: npm run compodoc
+      - name: Release
+        run: npm run release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Release github pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages
+          folder: dist/demo
