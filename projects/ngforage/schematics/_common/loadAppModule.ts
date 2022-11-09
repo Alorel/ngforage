@@ -1,7 +1,7 @@
 import {ProjectDefinition} from '@angular-devkit/core/src/workspace';
 import {SchematicsException, Tree} from '@angular-devkit/schematics';
 import {getAppModulePath, getProjectFromWorkspace, getProjectMainFile} from '@angular/cdk/schematics';
-import {AngularWorkspace, getWorkspace} from '@angular/cli/utilities/config';
+import {AngularWorkspace, getWorkspace} from '@angular/cli/src/utilities/config';
 import {LazyGetter} from 'lazy-get-decorator';
 import * as ts from 'typescript';
 import {findNgModuleMetadata} from './findNgModuleMetadata';
