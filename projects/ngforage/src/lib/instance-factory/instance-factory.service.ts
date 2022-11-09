@@ -63,7 +63,6 @@ export class InstanceFactory {
       stores.delete(hash);
       return origDropInstance.apply(this, arguments as any);
     };
-
     stores.set(hash, nu);
 
     return nu;

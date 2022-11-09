@@ -20,6 +20,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "localforage",
+              "lazy-get-decorator"
+            ],
             "outputPath": "dist/demo",
             "index": "demo/index.html",
             "main": "demo/main.ts",
@@ -114,6 +118,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ngforage"
+  }
 }

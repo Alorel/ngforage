@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {BaseConfigurableImpl} from '../config';
 import type {BaseConfigurable, NgForageOptions} from '../config';
+import {BaseConfigurableImpl} from '../config';
 import type {DriverType} from '../misc/driver-type.type';
 import {Driver} from '../misc/driver.enum';
 
