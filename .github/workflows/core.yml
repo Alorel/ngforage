@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: 18
           gh-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         name: Reconfig Node
         with:
           node-version: 18
