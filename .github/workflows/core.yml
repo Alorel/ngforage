@@ -6,34 +6,33 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Test ubuntu-latest/Node 16
+    name: Test
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: NPM Init
         uses: ./.github/actions/init-npm
         with:
-          node-version: 16
+          node-version: 18
           gh-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Sync pkg
         run: npm run sync
-        shell: bash
       - name: Build demo
         run: npm run build:demo
-        shell: bash
       - name: Test
         run: npm run test
-        shell: bash
         env:
           CI: 'true'
       - name: Upload coverage
         if: ${{ runner.os != 'windows-latest' }}
         continue-on-error: true
-        uses: coverallsapp/github-action@v1.1.2
+        uses: coverallsapp/github-action@1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: node-${{ inputs.node-version }}-on-${{ runner.os }}-${{ github.event_name }}
           path-to-lcov: ./coverage/ngforage/lcov.info
+      - name: Test making docs
+        run: npm run compodoc
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -42,18 +41,18 @@ jobs:
       - test
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1000
       - name: Init NPM
         uses: ./.github/actions/init-npm
         with:
-          node-version: 16
+          node-version: 18
           gh-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v2
         name: Reconfig Node
         with:
-          node-version: 16
+          node-version: 18
           registry-url: https://registry.npmjs.org
       - name: Build demo site
         run: npm run build:demo:prod
