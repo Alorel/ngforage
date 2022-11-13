@@ -6,15 +6,6 @@
     "@angular/core": "^14.0.0",
     "localforage": "^1.10.0"
   },
-  "schematics": "./schematics/collection.json",
-  "ng-update": {
-    "migrations": "./schematics/migration.json"
-  },
-  "scripts": {
-    "build": "tsc -p tsconfig.schematics.json",
-    "watch": "npm --scripts-prepend-node-path=auto run build -- --watch",
-    "postbuild": "node cp.js"
-  },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
     "lodash-es": "^4.17.21",
@@ -22,7 +13,6 @@
     "zone.js": "~0.11.4"
   },
   "dependencies": {
-    "@angular/cdk": "^14.2.0",
     "lazy-get-decorator": "^2.2.1",
     "tslib": "^2.0.0"
   },
