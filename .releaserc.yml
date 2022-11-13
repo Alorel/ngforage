@@ -13,6 +13,8 @@ prepare:
   cmd: npm run sync
 - path: *exec
   cmd: npm run build:lib
+- path: *exec
+  cmd: cp README.md dist/ngforage/README.md
 - path: '@semantic-release/git'
   message: 'chore(release): ${nextRelease.version}'
   assets:

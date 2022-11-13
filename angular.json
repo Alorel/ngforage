@@ -20,6 +20,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "localforage"
+            ],
             "outputPath": "dist/demo",
             "index": "demo/index.html",
             "main": "demo/main.ts",
