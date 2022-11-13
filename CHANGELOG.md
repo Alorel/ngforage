@@ -1,3 +1,19 @@
+# [8.0.0](https://github.com/Alorel/ngforage/compare/7.0.0...8.0.0) (2022-11-13)
+
+
+### Maintenance
+
+* **docs:** Set base href in angular.json ([9d60b7b](https://github.com/Alorel/ngforage/commit/9d60b7b555056049d59053fa72ec4d0f0b57f81f))
+* Remove ancient schematics ([b7e048f](https://github.com/Alorel/ngforage/commit/b7e048fa86c8a48cb04f083b4252cd6bc23184c0))
+* remove lazy-get-decorator dependency ([ec4f471](https://github.com/Alorel/ngforage/commit/ec4f4717bc1dc538d9865532f4e1138a97c27b6b))
+* Update Angular dependencies to the lastest v14 versions ([f807d4a](https://github.com/Alorel/ngforage/commit/f807d4a725778f27f1623b009bfc5f95dc9bab78))
+* Update to support Angular 14 using localforage 1.10.0 ([1482ac8](https://github.com/Alorel/ngforage/commit/1482ac8673fdec25e5325125dda4886a56dab57f)), closes [#308](https://github.com/Alorel/ngforage/issues/308)
+
+
+### BREAKING CHANGES
+
+* Depend on Angular 14 & localforage 1.10
+
 # [7.0.0](https://github.com/Alorel/ngforage/compare/6.0.0...7.0.0) (2022-01-24)
 
 
