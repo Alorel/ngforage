@@ -71,22 +71,13 @@ describe('NgForageConfig service', () => {
       expect(inst.supports(spec._driver)).toBe(false);
     });
 
-    it('Defining driver should return void promise', done => {
-      conf.defineDriver(spec)
-        .then(v => {
-          expect(v).toBeUndefined();
-          done();
-        })
-        .catch(done);
+    it('Defining driver should return void promise', async () => {
+      expect(await conf.defineDriver(spec)).toBe(undefined);
     });
 
-    it('Driver should now be supported', done => {
-      conf.defineDriver(spec)
-        .then(() => {
-          expect(inst.supports(spec._driver)).toBe(true);
-          done();
-        })
-        .catch(done);
+    it('Driver should now be supported', async () => {
+      await conf.defineDriver(spec);
+      expect(inst.supports(spec._driver)).toBe(true);
     });
   });
 

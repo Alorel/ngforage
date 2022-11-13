@@ -136,13 +136,12 @@ describe('NgForage core service', () => {
   });
 
   describe('#iterate', () => {
-    beforeEach(done => {
-      inst.clear()
-        .then(() => Promise.all([
-          inst.setItem('foo', 1),
-          inst.setItem('bar', 1)
-        ]))
-        .then(done, done);
+    beforeEach(async () => {
+      await inst.clear();
+      await Promise.all([
+        inst.setItem('foo', 1),
+        inst.setItem('bar', 1)
+      ]);
     });
 
     describe('No early termination', () => {
@@ -158,13 +157,12 @@ describe('NgForage core service', () => {
         out = ret;
       });
 
-      it('Should return undefined', async done => {
+      it('Should return undefined', async () => {
         const p = inst.iterate<number, void>((v: number, k: string) => {
           noop(v, k);
         });
 
         expect(await p).toBeUndefined();
-        done();
       });
 
       it('array should contain bar:1', () => {
@@ -176,43 +174,32 @@ describe('NgForage core service', () => {
     });
 
     describe('Early termination', () => {
-      it('Should return test-generated uuid', done => {
+      it('Should return test-generated uuid', async () => {
         const r = uuid();
 
-        inst.setItem(uuid(), uuid())
-          .then(() => {
-            return inst.iterate<number, string>((v: number, k: string) => {
-              noop(v, k);
+        await inst.setItem(uuid(), uuid());
+        const v = await inst.iterate<number, string>((v: number, k: string) => {
+          noop(v, k);
 
-              return r;
-            });
-          })
-          .then(v => {
-            expect(v).toBe(r, `Value was ${v}`);
-            done();
-          })
-          .catch(done);
+          return r;
+        });
+
+        expect(v).toBe(r);
       });
 
-      it('array should contain one item', done => {
-        inst.setItem(uuid() + '1', uuid())
-          .then(() => inst.setItem(uuid() + '2', uuid()))
-          .then(() => {
-            const out: any[] = [];
+      it('array should contain one item', async () => {
+        await inst.setItem(uuid() + '1', uuid());
+        await inst.setItem(uuid() + '2', uuid());
 
-            return inst
-              .iterate<any, any>((value, key) => {
-                out.push(`${key}:${value}`);
+        const out: any[] = [];
+        await inst
+          .iterate<any, any>((value, key) => {
+            out.push(`${key}:${value}`);
 
-                return value;
-              })
-              .then(() => out);
-          })
-          .then(out => {
-            expect(out.length).toBe(1);
-            done();
-          })
-          .catch(done);
+            return value;
+          });
+
+        expect(out.length).toBe(1);
       });
     });
   });
