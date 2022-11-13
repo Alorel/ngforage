@@ -13,7 +13,6 @@
     "zone.js": "~0.11.4"
   },
   "dependencies": {
-    "lazy-get-decorator": "^2.2.1",
     "tslib": "^2.0.0"
   },
   "description": "localForage bindings for Angular",
