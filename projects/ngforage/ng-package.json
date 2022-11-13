@@ -3,8 +3,5 @@
   "dest": "../../dist/ngforage",
   "lib": {
     "entryFile": "src/public_api.ts"
-  },
-  "allowedNonPeerDependencies": [
-    "lazy-get-decorator"
-  ]
+  }
 }
