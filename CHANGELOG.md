@@ -1,3 +1,10 @@
+## [8.0.1](https://github.com/Alorel/ngforage/compare/8.0.0...8.0.1) (2022-11-13)
+
+
+### Bug Fixes
+
+* Include README.md in published npm package ([df9e424](https://github.com/Alorel/ngforage/commit/df9e424a8aebb063366c58445ca1502fe94b4ded))
+
 # [8.0.0](https://github.com/Alorel/ngforage/compare/7.0.0...8.0.0) (2022-11-13)
 
 
