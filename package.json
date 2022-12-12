@@ -86,7 +86,7 @@
     "localforage": "^1.9.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "ng-packagr": "^14.2.2",
+    "ng-packagr": "^15.0.3",
     "rimraf": "^3.0.2",
     "rxjs": "^7.6.0",
     "semantic-release": "^19.0.5",
