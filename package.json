@@ -87,7 +87,7 @@
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "ng-packagr": "^14.2.2",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.0.7",
     "rxjs": "^7.6.0",
     "semantic-release": "^19.0.5",
     "ts-node": "^10.9.1",
