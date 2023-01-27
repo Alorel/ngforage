@@ -1,15 +1,26 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
-import {ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
 import {LazyGetter} from 'lazy-get-decorator';
 import {noop, uniqueId as uniqid} from 'lodash-es';
 import {Driver as D, NgForage, NgForageConfig, NgForageOptions} from 'ngforage';
 import {Observable, Subscription} from 'rxjs';
 import {debounceTime, map, startWith} from 'rxjs/operators';
-
-const _sub: unique symbol = Symbol('sub');
+import {AbstractFormControlComponent} from '../abstract-form-control';
+import {AsStringPipe} from '../asString.pipe';
+import {EngineSelectComponent} from '../engine-select/engine-select.component';
+import {OptionsSelectComponent} from '../options-select/options-select.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+
+    AsStringPipe,
+    EngineSelectComponent,
+    OptionsSelectComponent,
+  ],
   providers: [
     {
       multi: true,
@@ -17,12 +28,11 @@ const _sub: unique symbol = Symbol('sub');
       useExisting: forwardRef(() => FullConfigComponent)
     }
   ],
+  standalone: true,
   selector: 'ngf-full-config',
   templateUrl: './full-config.component.html'
 })
-export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDestroy {
-
-  public _onBlur: any = noop;
+export class FullConfigComponent extends AbstractFormControlComponent implements OnInit, OnDestroy {
 
   public _val: NgForageOptions;
 
@@ -33,7 +43,7 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
   @Input()
   public showCacheTime = false;
 
-  public [_sub]: Subscription;
+  public _sub: Subscription;
 
   private _onChange: any = noop;
 
@@ -42,6 +52,7 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
     private readonly ngf: NgForage,
     private readonly cfg: NgForageConfig
   ) {
+    super();
   }
 
   private get _engineValue(): D {
@@ -64,28 +75,27 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
 
   /** @inheritDoc */
   public ngOnDestroy(): void {
-    this[_sub]?.unsubscribe();
+    this._sub?.unsubscribe();
   }
 
   /** @inheritDoc */
   public ngOnInit(): void {
     this.engineLabelId = uniqid('engine-label-');
+
     this.form = this.fb.group({
       engine: this.fb.control(this._engineValue),
       otherConfig: this.otherConfig
     });
 
     type V = { engine: string; otherConfig: NgForageOptions };
-    this[_sub] = (this.form.valueChanges as Observable<V>)
+    this._sub = (this.form.valueChanges as Observable<V>)
       .pipe(
         startWith(this.form.value as V),
         debounceTime(50),
-        map(({engine, otherConfig}: V): NgForageOptions => {
-          const out: NgForageOptions = {...otherConfig};
-          out.driver = engine;
-
-          return out;
-        })
+        map(({engine, otherConfig}: V): NgForageOptions => ({
+          ...otherConfig,
+          driver: engine,
+        })),
       )
       .subscribe({
         error: console.error,
@@ -94,16 +104,6 @@ export class FullConfigComponent implements ControlValueAccessor, OnInit, OnDest
           this._onChange(value);
         }
       });
-  }
-
-  /** @inheritDoc */
-  public registerOnChange(fn: any): void {
-    this._onChange = fn;
-  }
-
-  /** @inheritDoc */
-  public registerOnTouched(fn: any): void {
-    this._onBlur = fn;
   }
 
   /** @inheritDoc */

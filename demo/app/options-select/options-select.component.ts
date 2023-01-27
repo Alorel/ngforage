@@ -1,10 +1,12 @@
-import {ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy} from '@angular/core';
-import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
 import {LazyGetter} from 'lazy-get-decorator';
-import {noop, uniqueId as uniqid} from 'lodash-es';
+import {uniqueId as uniqid} from 'lodash-es';
 import {NgForageConfig, NgForageOptions} from 'ngforage';
 import {BehaviorSubject, combineLatest, last, takeUntil} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {AbstractFormControlComponent} from '../abstract-form-control';
 
 interface Control {
   control: string;
@@ -18,30 +20,58 @@ interface Control {
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+  ],
   providers: [{
     multi: true,
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => OptionsSelectComponent)
   }],
   selector: 'ngf-options-select',
+  standalone: true,
   templateUrl: './options-select.component.html'
 })
-export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
-  public _onBlur: any = noop;
+export class OptionsSelectComponent extends AbstractFormControlComponent implements OnDestroy, OnInit {
 
-  private _onChange: any = noop;
+  public controls: Control[];
 
-  private _showCacheTime: BehaviorSubject<boolean>;
+  public form: FormGroup;
+
+  private readonly _showCacheTime = new BehaviorSubject<boolean>(false);
 
   public constructor(
     private readonly fb: FormBuilder,
     private readonly cfg: NgForageConfig
   ) {
+    super();
   }
 
   @LazyGetter()
-  public get controls(): Control[] {
-    return [
+  public get idCacheTime(): string {
+    return uniqid('cache-time-');
+  }
+
+  public get showCacheTime(): boolean {
+    return this._showCacheTime.value;
+  }
+
+  @Input()
+  public set showCacheTime(show: boolean) {
+    if (show !== this.showCacheTime) {
+      this._showCacheTime.next(show);
+    }
+  }
+
+  /** @inheritDoc */
+  public ngOnDestroy(): void {
+    this._showCacheTime.complete();
+  }
+
+  /** @inheritDoc */
+  public ngOnInit() {
+    this.controls = [
       {
         control: 'name',
         id: uniqid('name-'),
@@ -70,17 +100,13 @@ export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
         type: 'number'
       }
     ];
-  }
 
-  @LazyGetter()
-  public get form(): FormGroup {
-    this._showCacheTime = new BehaviorSubject<boolean>(false);
     const opts: NgForageOptions = this.cfg.config;
     delete opts.driver;
 
-    const gr: FormGroup = this.fb.group(opts);
+    this.form = this.fb.group(opts);
 
-    combineLatest([gr.valueChanges.pipe(startWith(opts)), this._showCacheTime])
+    combineLatest([this.form.valueChanges.pipe(startWith(opts)), this._showCacheTime])
       .pipe(
         map(([opts, showCacheTime]: [NgForageOptions, boolean]): NgForageOptions => {
           const out: NgForageOptions = {...opts};
@@ -98,41 +124,8 @@ export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
         takeUntil(this._showCacheTime.pipe(last()))
       )
       .subscribe((v: any) => {
-        this._onChange(v);
+        this.onChangeFn(v);
       });
-
-    return gr;
-  }
-
-  @LazyGetter()
-  public get idCacheTime(): string {
-    return uniqid('cache-time-');
-  }
-
-  public get showCacheTime(): boolean {
-    return this._showCacheTime.value;
-  }
-
-  @Input('showCacheTime')
-  public set showCacheTime(show: boolean) {
-    this._showCacheTime.next(show);
-  }
-
-  /** @inheritDoc */
-  public ngOnDestroy(): void {
-    if (this._showCacheTime) {
-      this._showCacheTime.complete();
-    }
-  }
-
-  /** @inheritDoc */
-  public registerOnChange(fn: any): void {
-    this._onChange = fn;
-  }
-
-  /** @inheritDoc */
-  public registerOnTouched(fn: any): void {
-    this._onBlur = fn;
   }
 
   /** @inheritDoc */
@@ -142,10 +135,12 @@ export class OptionsSelectComponent implements ControlValueAccessor, OnDestroy {
     } else {
       this.form.enable();
     }
+    this.cdr.detectChanges();
   }
 
   /** @inheritDoc */
   public writeValue(obj: any): void {
     this.form.patchValue({...obj});
+    this.cdr.detectChanges();
   }
 }

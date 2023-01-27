@@ -1,6 +1,9 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({name: 'asString'})
+@Pipe({
+  name: 'asString',
+  standalone: true,
+})
 export class AsStringPipe implements PipeTransform {
 
   public transform(value: any): string {
@@ -14,7 +17,7 @@ export class AsStringPipe implements PipeTransform {
       case 'string':
         return value;
       case 'number':
-        return value.toString();
+        return value.toLocaleString();
       default:
         return JSON.stringify(value, null, 2);
     }

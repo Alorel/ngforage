@@ -1,12 +1,26 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {LazyGetter} from 'lazy-get-decorator';
 import {uniqueId as uniqid} from 'lodash-es';
 import {NgForageCache, NgForageOptions} from 'ngforage';
 import {BehaviorSubject, catchError, EMPTY, from, last, Observable, Subject, takeUntil} from 'rxjs';
+import {AsStringPipe} from '../asString.pipe';
+import {ButtonStylingDirective} from '../button-styling.directive';
+import {SetItemTextPipe} from './set-item-text.pipe';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    FormsModule,
+
+    ButtonStylingDirective,
+    AsStringPipe,
+    SetItemTextPipe,
+  ],
   selector: 'ngf-output[conf]',
+  standalone: true,
   templateUrl: './output.component.html'
 })
 export class OutputComponent implements OnDestroy, OnInit {
@@ -99,10 +113,6 @@ export class OutputComponent implements OnDestroy, OnInit {
   @LazyGetter()
   public get setItemKeyId(): string {
     return uniqid('set-item-key-');
-  }
-
-  public get setItemText(): string {
-    return this.setItemJson ? `JSON.parse('${this.setItemValue}')` : `'${this.setItemValue}'`;
   }
 
   @LazyGetter()
