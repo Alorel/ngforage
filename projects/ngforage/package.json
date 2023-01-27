@@ -1,6 +1,6 @@
 {
   "name": "ngforage",
-  "version": "8.0.1",
+  "version": "9.0.0",
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",

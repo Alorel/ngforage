@@ -1,3 +1,16 @@
+# [9.0.0](https://github.com/Alorel/ngforage/compare/8.0.1...9.0.0) (2023-01-27)
+
+
+### Maintenance
+
+* Update for Angular 15 ([366e312](https://github.com/Alorel/ngforage/commit/366e312714cecda2b5faaaca9459d8be72c623f0))
+* Update license year & email ([fe858bc](https://github.com/Alorel/ngforage/commit/fe858bc92d2490d009129a1162b2f9df703c6cd4))
+
+
+### BREAKING CHANGES
+
+* Angular 14 no longer supported
+
 ## [8.0.1](https://github.com/Alorel/ngforage/compare/8.0.0...8.0.1) (2022-11-13)
 
 
