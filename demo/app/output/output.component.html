@@ -49,7 +49,7 @@
   <ng-template #setItemNoCache>
     <button output
             (click)="setItem()"
-            [disabled]="disableSetItem">setItem('{{setItemKey}}', '{{setItemText}}')
+            [disabled]="disableSetItem">setItem('{{setItemKey}}', '{{setItemValue|setItemText:setItemJson}}')
     </button>
   </ng-template>
 </div>

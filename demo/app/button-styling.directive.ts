@@ -7,7 +7,8 @@ import {Directive} from '@angular/core';
     '[class.btn]': 'true',
     type: 'button'
   },
-  selector: 'button[output]'
+  selector: 'button[output]',
+  standalone: true,
 })
 export class ButtonStylingDirective {
 }

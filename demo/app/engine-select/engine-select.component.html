@@ -5,6 +5,7 @@
          class="form-check-input"
          [ngModel]="selected"
          (ngModelChange)="onModelChange($event)"
+         (blur)="onBlurFn()"
          [value]="eng.id"
          [disabled]="disabled || !eng.supported"/>
   <label class="form-check-label" [for]="eng.elementID">

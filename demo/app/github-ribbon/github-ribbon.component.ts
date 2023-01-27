@@ -3,6 +3,7 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ngf-github-ribbon',
+  standalone: true,
   styleUrls: ['./github-ribbon.component.css'],
   templateUrl: './github-ribbon.component.html'
 })
