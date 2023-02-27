@@ -26,7 +26,7 @@ jobs:
       - name: Upload coverage
         if: ${{ runner.os != 'windows-latest' }}
         continue-on-error: true
-        uses: coverallsapp/github-action@1.1.3
+        uses: coverallsapp/github-action@v1.2.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: node-${{ inputs.node-version }}-on-${{ runner.os }}-${{ github.event_name }}
