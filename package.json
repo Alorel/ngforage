@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@alorel-personal/conventional-changelog-alorel": "2.1.3",
-    "@angular-devkit/build-angular": "^15.1.3",
+    "@angular-devkit/build-angular": "^15.2.1",
     "@angular/animations": "^15.1.2",
     "@angular/cli": "^15.1.3",
     "@angular/common": "^15.1.2",
