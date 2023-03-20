@@ -66,7 +66,7 @@
     "@semantic-release/npm": "^9.0.2",
     "@types/jasmine": "~4.3.1",
     "@types/jasminewd2": "^2.0.10",
-    "@types/lodash-es": "^4.17.6",
+    "@types/lodash-es": "^4.17.7",
     "@types/node": "^18.11.18",
     "@types/uuid": "^9.0.0",
     "bluebird": "^3.7.2",
