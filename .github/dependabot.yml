@@ -10,7 +10,26 @@ updates:
     directory: "/"
     open-pull-requests-limit: 20
     schedule:
-      interval: "weekly"
+      interval: "daily"
+    ignore:
+      - dependency-name: "@angular/*"
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
+      - dependency-name: "@angular-devkit/*"
+      - dependency-name: localforage
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
+      - dependency-name: ng-packagr
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-patch
+      - dependency-name: "typescript"
+      - dependency-name: "zone.js"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
