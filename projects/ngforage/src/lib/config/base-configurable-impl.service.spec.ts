@@ -1,7 +1,7 @@
 import {Injectable, Provider} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import 'localforage';
-import {cloneDeep, forEach} from 'lodash-es';
+import {cloneDeep} from 'lodash-es';
 import {def} from '../../test.def';
 import {Driver as D} from '../misc/driver.enum';
 import {BaseConfigurable} from './base-configurable';
@@ -96,8 +96,8 @@ describe('BaseConfigurableImpl', () => {
       const ret = bc.configure(<any>undefined);
       const conf2 = bc.toJSON();
 
-      expect(conf1).toEqual(conf2, 'Equality');
-      expect(ret).toBe(bc, 'Same obj');
+      expect(conf1).withContext('Equality').toEqual(conf2);
+      expect(ret).withContext('Same obj').toBe(bc);
     });
 
     function initInst1() {

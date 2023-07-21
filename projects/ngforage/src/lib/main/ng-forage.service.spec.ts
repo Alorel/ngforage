@@ -131,7 +131,7 @@ describe('NgForage core service', () => {
     it('Key 2 should be foo or bar, but not the same as key 2', () => {
       const expct = k1 === 'foo' ? 'bar' : 'foo';
 
-      expect(k2).toBe(expct, `k2 was ${k2}; k1 was ${k1}`);
+      expect(k2).toBe(expct);
     });
   });
 
