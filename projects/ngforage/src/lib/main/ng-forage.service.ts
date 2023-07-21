@@ -63,7 +63,7 @@ export class NgForage extends BaseConfigurableImpl implements BaseConfigurable {
    *   <li>Key</li>
    *   <li>iterationNumber - one-based number</li>
    * </ol>
-   * iterate() supports early exit by returning non undefined value inside iteratorCallback callback.
+   * iterate() supports early exit by returning a non-`undefined` value inside iteratorCallback callback.
    * @param iteratee
    */
   public async iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {

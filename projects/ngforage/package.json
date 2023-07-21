@@ -1,16 +1,16 @@
 {
   "name": "ngforage",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
     "localforage": "^1.10.0"
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.0",
+    "@types/uuid": "^9.0.2",
     "lodash-es": "^4.17.21",
     "uuid": "^9.0.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "~0.13.1"
   },
   "dependencies": {
     "tslib": "^2.4.0"
