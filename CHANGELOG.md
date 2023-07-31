@@ -1,3 +1,20 @@
+# [10.0.0](https://github.com/Alorel/ngforage/compare/9.0.0...10.0.0) (2023-07-31)
+
+
+### Maintenance
+
+* Update to Angular 16 ([1c9b04b](https://github.com/Alorel/ngforage/commit/1c9b04b4dc182195b85f4dce8b0e585a94e261dc))
+
+
+### Reverts
+
+* Fix an incorrect version bump ([2344622](https://github.com/Alorel/ngforage/commit/2344622abba5b1e0997d4c5291331b214e5ebe35))
+
+
+### BREAKING CHANGES
+
+* Angular 15 no longer supported
+
 # [9.0.0](https://github.com/Alorel/ngforage/compare/8.0.1...9.0.0) (2023-01-27)
 
 
