@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">NgForage API docs</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -40,21 +40,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >InstanceFactory</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >InstanceFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -73,7 +79,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -102,7 +108,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -152,7 +158,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -172,7 +178,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getInstance(cfg: <a href="../injectables/NgForage.html" target="_self">NgForageOptions</a>)</code>
+                    <code>getInstance(cfg: <a href="../undefineds/NgForageOptions.html" target="_self">NgForageOptions</a>)</code>
                 </td>
             </tr>
 
@@ -203,7 +209,7 @@
                                 <tr>
                                     <td>cfg</td>
                                     <td>
-                                                <code><a href="../injectables/NgForage.html" target="_self" >NgForageOptions</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#NgForageOptions" target="_self" >NgForageOptions</a></code>
                                     </td>
 
                                     <td>
@@ -233,7 +239,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
 import &#x27;localforage&#x27;;
 import type {NgForageOptions} from &#x27;../config&#x27;;
