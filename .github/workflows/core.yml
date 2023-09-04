@@ -9,7 +9,7 @@ jobs:
     name: Test
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: NPM Init
         uses: ./.github/actions/init-npm
         with:
@@ -41,7 +41,7 @@ jobs:
       - test
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1000
       - name: Init NPM
