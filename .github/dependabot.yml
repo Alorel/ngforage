@@ -25,19 +25,13 @@ updates:
       - dependency-name: "@angular/forms"
       - dependency-name: "@angular/platform-browser"
       - dependency-name: "@angular/platform-browser-dynamic"
-      - dependency-name: localforage
-        update-types:
-          - version-update:semver-minor
-          - version-update:semver-patch
-      - dependency-name: ng-packagr
-        update-types:
-          - version-update:semver-minor
-          - version-update:semver-patch
-      - dependency-name: "*"
-        update-types:
-          - version-update:semver-patch
+      - dependency-name: "ng-packagr"
       - dependency-name: "typescript"
       - dependency-name: "zone.js"
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
