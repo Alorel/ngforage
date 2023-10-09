@@ -11,6 +11,9 @@ updates:
     open-pull-requests-limit: 20
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: deps
+      prefix-development: "deps(dev)"
     ignore:
       - dependency-name: "@angular/common"
         update-types:
@@ -36,3 +39,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: deps
+      prefix-development: "deps(dev)"
