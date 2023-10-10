@@ -2,9 +2,11 @@ inputs:
   node-version:
     description: Node version
     required: true
+    default: '20'
   gh-token:
     description: GH token
     required: true
+    default: ${{ github.token }}
 name: Set up npm
 description: Set up npm and install dependencies
 runs:
