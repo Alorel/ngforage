@@ -59,7 +59,7 @@ jobs:
       - name: Init NPM
         uses: ./.github/actions/init-npm
         
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         name: Reconfig Node
         with:
           node-version: 20
