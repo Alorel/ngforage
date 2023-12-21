@@ -1,7 +1,7 @@
 {
   "name": "ngforage",
   "description": "localForage bindings for Angular",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "private": true,
   "scripts": {
     "ng": "ng",
@@ -42,22 +42,22 @@
     "app"
   ],
   "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0",
     "localforage": "^1.10.0",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
     "@alorel-personal/conventional-changelog-alorel": "3.0.0",
-    "@angular-devkit/build-angular": "^16.1.5",
-    "@angular/cli": "^16.1.5",
-    "@angular/common": "^16.1.6",
-    "@angular/compiler": "^16.1.6",
-    "@angular/compiler-cli": "^16.1.6",
-    "@angular/core": "^16.1.6",
-    "@angular/forms": "^16.1.6",
-    "@angular/platform-browser": "^16.1.6",
-    "@angular/platform-browser-dynamic": "^16.1.6",
+    "@angular-devkit/build-angular": "^17.0.7",
+    "@angular/cli": "^17.0.7",
+    "@angular/common": "^17.0.8",
+    "@angular/compiler": "^17.0.8",
+    "@angular/compiler-cli": "^17.0.8",
+    "@angular/core": "^17.0.8",
+    "@angular/forms": "^17.0.8",
+    "@angular/platform-browser": "^17.0.8",
+    "@angular/platform-browser-dynamic": "^17.0.8",
     "@compodoc/compodoc": "^1.1.21",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
@@ -85,15 +85,15 @@
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "ng-packagr": "^16.1.0",
+    "ng-packagr": "^17.0.3",
     "rimraf": "^5.0.1",
     "rxjs": "^7.8.1",
     "semantic-release": "^22.0.5",
     "ts-node": "^10.9.1",
     "tslib": "^2.6.0",
-    "typescript": "~5.1.6",
+    "typescript": "~5.2.2",
     "uuid": "^9.0.0",
-    "zone.js": "~0.13.1"
+    "zone.js": "~0.14.2"
   },
   "author": {
     "name": "Arturas Molcanovas",
