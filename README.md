@@ -1,3 +1,11 @@
+:exclamation: **PROJECT SHUT DOWN** :exclamation:
+
+I haven't used the library at work or for personal projects since Angular 13 or 14 and it's time to let it rest.
+I'd recommend switching to using IndexedDB directly (we've made `Observable` wrappers around its API at work) - browser
+support is great these days & the API is much more performance and feature-rich.
+
+Peace out and a huge thanks to everyone who's used `ngforage` over the years!
+
 # ngforage
 
 [localforage](https://www.npmjs.com/package/localforage) bindings for Angular
