@@ -1,3 +1,15 @@
+# [11.0.0](https://github.com/Alorel/ngforage/compare/10.1.0...11.0.0) (2024-01-12)
+
+
+### Bug Fixes
+
+* Bump package version to v11 instead of 10.1 for Angular 17 ([a682c82](https://github.com/Alorel/ngforage/commit/a682c82650a179e07acbe4fd654a3e1f933aea77))
+
+
+### BREAKING CHANGES
+
+* Angular 16 no longer supported
+
 # [10.1.0](https://github.com/Alorel/ngforage/compare/10.0.0...10.1.0) (2024-01-12)
 
 
