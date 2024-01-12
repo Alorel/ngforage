@@ -1,3 +1,10 @@
+# [10.1.0](https://github.com/Alorel/ngforage/compare/10.0.0...10.1.0) (2024-01-12)
+
+
+### Features
+
+* add support for Angular 17 ([7e10fe1](https://github.com/Alorel/ngforage/commit/7e10fe158de6cabd4be7b424b7897e31822ca71c)), closes [#571](https://github.com/Alorel/ngforage/issues/571)
+
 # [10.0.0](https://github.com/Alorel/ngforage/compare/9.0.0...10.0.0) (2023-07-31)
 
 
